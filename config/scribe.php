@@ -12,8 +12,12 @@ return [
     /*
      * A short description of your API. Will be included in the docs webpage, Postman collection and OpenAPI spec.
      */
-    'description' => 'Start (and never finish) side projects with our API.',
+    'description' => 'Start (and never finish) side projects with this API.',
 
+    /*
+     * The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url').
+     */
+    'base_url' => 'http://sideprojects.knuckles.wtf',
 
     /*
      * Tell Scribe what routes to generate documentation for.
@@ -247,13 +251,9 @@ INTRO
     'example_languages' => [
         'bash',
         'javascript',
+        'php',
+        'python',
     ],
-
-    /*
-     * The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url').
-     */
-    'base_url' => null,
-    // 'base_url' => 'http://sideprojects.knuckles.wtf',
 
     /*
      * Generate a Postman collection (v2.1.0) in addition to HTML docs.
