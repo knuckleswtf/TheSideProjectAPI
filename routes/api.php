@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\SideProjectController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -39,3 +41,15 @@ Route::get('/healthcheck', function () {
 Route::middleware('auth:api')->get('/me', function (Request $request) {
     return $request->user();
 });*/
+
+Route::post('users/', [UserController::class, 'store']);
+Route::get('users/{id}', [UserController::class, 'show']);
+Route::get('users/', [UserController::class, 'index']);
+
+Route::apiResource('sideprojects', SideProjectController::class);
+
+Route::post('users/auth', function (Request $request) {
+    $token = $request->user()->createToken();
+
+    return ['token' => $token->plainTextToken];
+});
