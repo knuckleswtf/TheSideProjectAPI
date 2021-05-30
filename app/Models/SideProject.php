@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class SideProject extends Model
 {
     use HasFactory;
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

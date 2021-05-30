@@ -62,11 +62,9 @@ class UserController extends Controller
      * This endpoint's response uses an Eloquent API resource, so we tell Scribe that using an annotation,
      * and it figures out how to generate a sample. The 404 sample is gotten from a "response file".
      *
-     * <aside class="success">Also, pretty cool: this endpoint's URL parameters were figured out entirely by Scribe!</aside>
-     *
      * @apiResource App\Http\Resources\UserResource
      * @apiResourceModel App\Models\User with=sideProjects
-     * @responseFile 404 responses/not_found.json {"resource": "user"}
+     * @responseFile 404 scenario="User not found" responses/not_found.json {"resource": "user"}
      */
     public function show($id)
     {

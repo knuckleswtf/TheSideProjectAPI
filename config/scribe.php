@@ -242,6 +242,8 @@ This documentation aims to provide all the information you need to work with our
 <aside class="success">Example of aside with class=success.</aside>
 <aside class="warning">Example of aside with class=warning.</aside>
 
+This is an unfinished API (get it?), but hopefully it should be enough to convince you to try Scribe out.😉
+
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
 You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
 INTRO
@@ -297,7 +299,7 @@ INTRO
     /*
      * Name for the group of endpoints which do not have a @group set.
      */
-    'default_group' => 'Endpoints',
+    'default_group' => 'General',
 
     /*
      * Custom logo path. This will be used as the value of the src attribute for the <img> tag,

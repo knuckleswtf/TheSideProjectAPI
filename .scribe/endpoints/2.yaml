@@ -1,0 +1,152 @@
+name: Users
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/users
+    metadata:
+      title: 'Create a user'
+      description: 'This endpoint''s body parameters are automatically generated from a FormRequest.'
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The value must be at least 1 characters. The value must not be greater than 255 characters.'
+        required: true
+        example: orregrvsahjxxbbazsqbayaljjwdmkuyokpezwnrxiyaqdyavlphcnyhqrurjjgjmvzjfsdbrcjrcrunrnveaaqednmgohqfdukuivvlziwofjsytyq
+        type: string
+      email:
+        name: email
+        description: 'The value must be a valid email address.'
+        required: true
+        example: deon66@example.com
+        type: string
+      password:
+        name: password
+        description: ''
+        required: true
+        example: dolores
+        type: string
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/users/{id}'
+    metadata:
+      title: 'Fetch a user'
+      description: |-
+        This endpoint's response uses an Eloquent API resource, so we tell Scribe that using an annotation,
+        and it figures out how to generate a sample. The 404 sample is gotten from a "response file".
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 11
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":6,"name":"Ron Legros","email":"annette69@example.org","side_projects":[{"id":10,"name":"est quam magnam","description":"Sed harum voluptatibus et ut.","url":null,"due_at":"20290415","created_at":"2021-05-30T00:27:50.000000Z","updated_at":"2021-05-30T00:27:50.000000Z","user_id":"6"}]}}'
+        headers: []
+        description: null
+      -
+        status: 404
+        content: '{"message":"Not found","resource":"user"}'
+        headers: []
+        description: '404, User not found'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/users
+    metadata:
+      title: 'View all users'
+      description: |-
+        This endpoint uses a custom Scribe strategy that parses a
+        `@usesPagination` annotation to add some query parameters.
+
+        The sample response is gotten by Scribe making a test API call (aka "response call").
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters:
+      page:
+        name: page
+        description: 'Page number to return.'
+        required: false
+        example: 1
+        type: string
+      pageSize:
+        name: pageSize
+        description: 'Number of items to return in a page. Defaults to 10.'
+        required: false
+        example: null
+        type: string
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":1,"name":"Pete","email":"pete@home.com","side_projects":[{"id":2,"name":"iusto ut dolor","description":"Voluptatem aspernatur dolorem quae quaerat harum.","url":null,"due_at":"20301215","created_at":"2021-05-30T00:21:59.000000Z","updated_at":"2021-05-30T00:21:59.000000Z","user_id":"1"},{"id":4,"name":"corporis consequuntur amet","description":"Dolores eveniet deleniti voluptatem saepe expedita.","url":null,"due_at":"20230712","created_at":"2021-05-30T00:23:25.000000Z","updated_at":"2021-05-30T00:23:25.000000Z","user_id":"1"},{"id":6,"name":"nihil voluptate quaerat","description":"Animi reprehenderit soluta id quo.","url":null,"due_at":"20290603","created_at":"2021-05-30T00:24:27.000000Z","updated_at":"2021-05-30T00:24:27.000000Z","user_id":"1"},{"id":8,"name":"vel perspiciatis quo","description":"Et qui praesentium consequatur distinctio natus.","url":null,"due_at":"20210605","created_at":"2021-05-30T00:25:43.000000Z","updated_at":"2021-05-30T00:25:43.000000Z","user_id":"1"},{"id":9,"name":"qui et totam","description":"Veritatis quo dolorum soluta ut.","url":null,"due_at":"20270203","created_at":"2021-05-30T00:25:43.000000Z","updated_at":"2021-05-30T00:25:43.000000Z","user_id":"1"}]},{"id":2,"name":"Alexane Weber","email":"lacy.wintheiser@example.net","side_projects":[{"id":1,"name":"voluptas assumenda maiores","description":"Consequuntur aut ea est non.","url":null,"due_at":"20310222","created_at":"2021-05-30T00:21:59.000000Z","updated_at":"2021-05-30T00:21:59.000000Z","user_id":"2"}]},{"id":3,"name":"John Kshlerin II","email":"titus77@example.com","side_projects":[{"id":3,"name":"provident et consequatur","description":"Quos et ipsum cum pariatur ex perspiciatis eius.","url":null,"due_at":"20231022","created_at":"2021-05-30T00:23:25.000000Z","updated_at":"2021-05-30T00:23:25.000000Z","user_id":"3"}]},{"id":4,"name":"Rebeca Morissette","email":"cole.geoffrey@example.com","side_projects":[{"id":5,"name":"optio excepturi ea","description":"Error deleniti sint a nostrum consequuntur et.","url":null,"due_at":"20260324","created_at":"2021-05-30T00:24:27.000000Z","updated_at":"2021-05-30T00:24:27.000000Z","user_id":"4"}]},{"id":5,"name":"Prof. Adah Witting IV","email":"nswift@example.net","side_projects":[{"id":7,"name":"aspernatur architecto assumenda","description":"Nisi ea aut vel sint vero voluptas tempore.","url":null,"due_at":"20280710","created_at":"2021-05-30T00:25:43.000000Z","updated_at":"2021-05-30T00:25:43.000000Z","user_id":"5"}]}]}'
+        headers:
+          cache-control:
+            - 'no-cache, private'
+          content-type:
+            - application/json
+          x-ratelimit-limit:
+            - 60
+          x-ratelimit-remaining:
+            - 55
+          access-control-allow-origin:
+            - '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/users/{id}/auth'
+    metadata:
+      title: Authenticate
+      description: |-
+        Get a new API token.
+
+        <aside>Yes, we know you can impersonate any user.🙄</aside>
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 9
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"token": "2|KLDoUXc68Ko0JaFDZoX9qYkUqWglwdGxQsvTGBCg"}'
+        headers: []
+        description: '200'
+    responseFields:
+      token:
+        name: token
+        description: 'The new API token. Valid forever.'
+        type: string

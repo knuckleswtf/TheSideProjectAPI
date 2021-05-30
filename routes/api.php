@@ -47,4 +47,4 @@ Route::get('users/{id}', [UserController::class, 'show']);
 Route::get('users/', [UserController::class, 'index']);
 Route::post('users/{id}/auth', [UserController::class, 'authenticate']);
 
-Route::apiResource('sideprojects', SideProjectController::class);
+Route::apiResource('side_projects', SideProjectController::class);

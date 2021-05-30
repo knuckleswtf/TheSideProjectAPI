@@ -24,6 +24,8 @@ class SideProjectFactory extends Factory
         return [
             'name' => $this->faker->words(3, true),
             'description' => $this->faker->sentence,
+            'due_at' => $this->faker->dateTimeBetween('tomorrow', '+10 years')->format('Ymd'),
+            'user_id' => 1,
         ];
     }
 }
