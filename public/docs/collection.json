@@ -1,0 +1,463 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "sideprojects.knuckles.wtf"
+        }
+    ],
+    "info": {
+        "name": "The SideProject API",
+        "_postman_id": "6c7c7c8d-c190-4ed6-9431-a783af66387c",
+        "description": "Start (and never finish) side projects with this API.",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "General",
+            "description": "",
+            "item": [
+                {
+                    "name": "Healthcheck",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/healthcheck",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/healthcheck"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Check that the service is up. If everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with a 400 error, and a response listing the failed services.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":\"up\",\"services\":{\"database\":\"up\",\"redis\":\"up\"}}",
+                            "name": null
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\"status\": \"down\", \"services\": {\"database\": \"up\", \"redis\": \"down\"}}",
+                            "name": "400, Service is unhealthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Side Projects",
+            "description": "",
+            "item": [
+                {
+                    "name": "View all side projects",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/side_projects",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/side_projects"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "57"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[{\"id\":1,\"name\":\"voluptas assumenda maiores\",\"description\":\"Consequuntur aut ea est non.\",\"url\":null,\"due_at\":\"20310222\",\"created_at\":\"2021-05-30T00:21:59.000000Z\",\"updated_at\":\"2021-05-30T00:21:59.000000Z\",\"user_id\":\"2\"},{\"id\":2,\"name\":\"iusto ut dolor\",\"description\":\"Voluptatem aspernatur dolorem quae quaerat harum.\",\"url\":null,\"due_at\":\"20301215\",\"created_at\":\"2021-05-30T00:21:59.000000Z\",\"updated_at\":\"2021-05-30T00:21:59.000000Z\",\"user_id\":\"1\"},{\"id\":3,\"name\":\"provident et consequatur\",\"description\":\"Quos et ipsum cum pariatur ex perspiciatis eius.\",\"url\":null,\"due_at\":\"20231022\",\"created_at\":\"2021-05-30T00:23:25.000000Z\",\"updated_at\":\"2021-05-30T00:23:25.000000Z\",\"user_id\":\"3\"},{\"id\":4,\"name\":\"corporis consequuntur amet\",\"description\":\"Dolores eveniet deleniti voluptatem saepe expedita.\",\"url\":null,\"due_at\":\"20230712\",\"created_at\":\"2021-05-30T00:23:25.000000Z\",\"updated_at\":\"2021-05-30T00:23:25.000000Z\",\"user_id\":\"1\"},{\"id\":5,\"name\":\"optio excepturi ea\",\"description\":\"Error deleniti sint a nostrum consequuntur et.\",\"url\":null,\"due_at\":\"20260324\",\"created_at\":\"2021-05-30T00:24:27.000000Z\",\"updated_at\":\"2021-05-30T00:24:27.000000Z\",\"user_id\":\"4\"},{\"id\":6,\"name\":\"nihil voluptate quaerat\",\"description\":\"Animi reprehenderit soluta id quo.\",\"url\":null,\"due_at\":\"20290603\",\"created_at\":\"2021-05-30T00:24:27.000000Z\",\"updated_at\":\"2021-05-30T00:24:27.000000Z\",\"user_id\":\"1\"},{\"id\":7,\"name\":\"aspernatur architecto assumenda\",\"description\":\"Nisi ea aut vel sint vero voluptas tempore.\",\"url\":null,\"due_at\":\"20280710\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"5\"},{\"id\":8,\"name\":\"vel perspiciatis quo\",\"description\":\"Et qui praesentium consequatur distinctio natus.\",\"url\":null,\"due_at\":\"20210605\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"1\"},{\"id\":9,\"name\":\"qui et totam\",\"description\":\"Veritatis quo dolorum soluta ut.\",\"url\":null,\"due_at\":\"20270203\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"1\"}]",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Start a new side project",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/side_projects",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/side_projects"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"\\\"The SideProject API\\\"\",\"description\":\"szzvblztjfkdcmbnyysgwaagmzzqsujuvpbfznqhdmixenuexclndzcqzufmzfuqiwccyiaskjwvgupofzwbgfpegblnuzsqqpbqgsgfgujnefakxbecccbmogvbydjszntyazlkgsgsuhzyqiedsqyvwgepiotomphpxrfgxkhgeqpwtjtnkguxdbmuwsscywbgmerhulfvznigtfezrgmmngkmltynhsenqenrgwhpklflyedqiwuhkcyy\",\"url\":\"http:\\\/\\\/www.lemke.info\\\/id-nihil-earum-minima-ea-quis-tempora.html\",\"due_at\":\"2062-01-04\"}"
+                        },
+                        "description": "_Even though we both know you'll never finish it._\n\nThis endpoint's body parameters were automatically generated by Scribe\nfrom the controller's code. Check out the source! <\/aside>"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "View a side project",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/side_projects\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/side_projects\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "5",
+                                    "description": "The ID of the side project."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint's response uses a Fractal transformer, so we tell Scribe that using an annotation,\nand it figures out how to generate a sample. The 404 sample is gotten from a \"response file\".\n\n<aside class=\"success\">Also, pretty cool: this endpoint's (and many others') URL parameters were figured out entirely by Scribe!<\/aside>",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"name\":\"voluptatem mollitia odit\",\"description\":\"Atque molestiae soluta libero vitae pariatur at.\",\"due_date\":\"20240222\",\"owner\":{\"id\":1,\"name\":\"Pete\",\"email\":\"pete@home.com\",\"email_verified_at\":null,\"created_at\":\"2021-05-29T22:53:05.000000Z\",\"updated_at\":\"2021-05-29T22:53:05.000000Z\"}}}",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Update a side project",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/side_projects\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/side_projects\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "3",
+                                    "description": "The ID of the side project."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete a side project",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/side_projects\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/side_projects\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "16",
+                                    "description": "The ID of the side project."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Users",
+            "description": "",
+            "item": [
+                {
+                    "name": "Create a user",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/users"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"smwrfzagusffdunbvldexcnxwwlekvhhzuadousqjqlzhfjyrjieurdsegqxaadncagszmgajcaoasevirpdknbggkemhnvgupmxxqfwbfkkpitdcjcowrrajpflaltrcdwfnicxxibboaqtkqr\",\"email\":\"lemke.jillian@example.com\",\"password\":\"nemo\"}"
+                        },
+                        "description": "This endpoint's body parameters are automatically generated from a FormRequest.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Fetch a user",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "8",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint's response uses an Eloquent API resource, so we tell Scribe that using an annotation,\nand it figures out how to generate a sample. The 404 sample is gotten from a \"response file\".",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":6,\"name\":\"Alvina Krajcik\",\"email\":\"rhoda22@example.net\",\"side_projects\":[{\"id\":10,\"name\":\"labore neque necessitatibus\",\"description\":\"Et omnis occaecati aut ab porro est qui harum.\",\"url\":null,\"due_at\":\"20250126\",\"created_at\":\"2021-05-30T00:34:17.000000Z\",\"updated_at\":\"2021-05-30T00:34:17.000000Z\",\"user_id\":\"6\"}]}}",
+                            "name": null
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"Not found\",\"resource\":\"user\"}",
+                            "name": "404, User not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "View all users",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "Page number to return.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "pageSize",
+                                    "value": "",
+                                    "description": "Number of items to return in a page. Defaults to 10.",
+                                    "disabled": true
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/users?page=1&pageSize="
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint uses a custom Scribe strategy that parses a\n`@usesPagination` annotation to add some query parameters.\n\nThe sample response is gotten by Scribe making a test API call (aka \"response call\").",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"name\":\"Pete\",\"email\":\"pete@home.com\",\"side_projects\":[{\"id\":2,\"name\":\"iusto ut dolor\",\"description\":\"Voluptatem aspernatur dolorem quae quaerat harum.\",\"url\":null,\"due_at\":\"20301215\",\"created_at\":\"2021-05-30T00:21:59.000000Z\",\"updated_at\":\"2021-05-30T00:21:59.000000Z\",\"user_id\":\"1\"},{\"id\":4,\"name\":\"corporis consequuntur amet\",\"description\":\"Dolores eveniet deleniti voluptatem saepe expedita.\",\"url\":null,\"due_at\":\"20230712\",\"created_at\":\"2021-05-30T00:23:25.000000Z\",\"updated_at\":\"2021-05-30T00:23:25.000000Z\",\"user_id\":\"1\"},{\"id\":6,\"name\":\"nihil voluptate quaerat\",\"description\":\"Animi reprehenderit soluta id quo.\",\"url\":null,\"due_at\":\"20290603\",\"created_at\":\"2021-05-30T00:24:27.000000Z\",\"updated_at\":\"2021-05-30T00:24:27.000000Z\",\"user_id\":\"1\"},{\"id\":8,\"name\":\"vel perspiciatis quo\",\"description\":\"Et qui praesentium consequatur distinctio natus.\",\"url\":null,\"due_at\":\"20210605\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"1\"},{\"id\":9,\"name\":\"qui et totam\",\"description\":\"Veritatis quo dolorum soluta ut.\",\"url\":null,\"due_at\":\"20270203\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"1\"}]},{\"id\":2,\"name\":\"Alexane Weber\",\"email\":\"lacy.wintheiser@example.net\",\"side_projects\":[{\"id\":1,\"name\":\"voluptas assumenda maiores\",\"description\":\"Consequuntur aut ea est non.\",\"url\":null,\"due_at\":\"20310222\",\"created_at\":\"2021-05-30T00:21:59.000000Z\",\"updated_at\":\"2021-05-30T00:21:59.000000Z\",\"user_id\":\"2\"}]},{\"id\":3,\"name\":\"John Kshlerin II\",\"email\":\"titus77@example.com\",\"side_projects\":[{\"id\":3,\"name\":\"provident et consequatur\",\"description\":\"Quos et ipsum cum pariatur ex perspiciatis eius.\",\"url\":null,\"due_at\":\"20231022\",\"created_at\":\"2021-05-30T00:23:25.000000Z\",\"updated_at\":\"2021-05-30T00:23:25.000000Z\",\"user_id\":\"3\"}]},{\"id\":4,\"name\":\"Rebeca Morissette\",\"email\":\"cole.geoffrey@example.com\",\"side_projects\":[{\"id\":5,\"name\":\"optio excepturi ea\",\"description\":\"Error deleniti sint a nostrum consequuntur et.\",\"url\":null,\"due_at\":\"20260324\",\"created_at\":\"2021-05-30T00:24:27.000000Z\",\"updated_at\":\"2021-05-30T00:24:27.000000Z\",\"user_id\":\"4\"}]},{\"id\":5,\"name\":\"Prof. Adah Witting IV\",\"email\":\"nswift@example.net\",\"side_projects\":[{\"id\":7,\"name\":\"aspernatur architecto assumenda\",\"description\":\"Nisi ea aut vel sint vero voluptas tempore.\",\"url\":null,\"due_at\":\"20280710\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"5\"}]}]}",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Authenticate",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:id\/auth",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/users\/:id\/auth",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "11",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get a new API token.\n\n<aside>Yes, we know you can impersonate any user.\ud83d\ude44<\/aside>",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"token\": \"2|KLDoUXc68Ko0JaFDZoX9qYkUqWglwdGxQsvTGBCg\"}",
+                            "name": "200"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

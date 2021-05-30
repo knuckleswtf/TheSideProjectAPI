@@ -1,0 +1,1589 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>The SideProject API</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="css/theme-default.print.css" media="print">
+    <script src="js/theme-default-3.0.0-alpha.js"></script>
+
+    <link rel="stylesheet"
+          href="//unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="//unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+    <script>
+        var baseUrl = "http://localhost:8000";
+    </script>
+    <script src="js/tryitout-3.0.0-alpha.js"></script>
+
+</head>
+
+<body class="" data-languages="[&quot;bash&quot;,&quot;javascript&quot;,&quot;php&quot;,&quot;python&quot;]">
+<a href="#" id="nav-button">
+      <span>
+        MENU
+        <img src="images/navbar.png" alt="navbar-image" />
+      </span>
+</a>
+<div class="tocify-wrapper">
+                <div class="lang-selector">
+                            <a href="#" data-language-name="bash">bash</a>
+                            <a href="#" data-language-name="javascript">javascript</a>
+                            <a href="#" data-language-name="php">php</a>
+                            <a href="#" data-language-name="python">python</a>
+                    </div>
+        <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+    <ul class="search-results"></ul>
+
+    <ul id="toc">
+    </ul>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="./collection.json">View Postman collection</a></li>
+                            <li><a href="./openapi.yaml">View OpenAPI spec</a></li>
+                    </ul>
+            <ul class="toc-footer" id="last-updated">
+            <li>Last updated: May 30 2021</li>
+        </ul>
+</div>
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1>Introduction</h1>
+<p>Start (and never finish) side projects with this API.</p>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside class="success">Example of aside with class=success.</aside>
+<aside class="warning">Example of aside with class=warning.</aside>
+<p>This is an unfinished API (get it?), but hopefully it should be enough to convince you to try Scribe out.😉</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://sideprojects.knuckles.wtf</code></pre>
+
+        <h1>Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="general">General</h1>
+    <p>
+        
+    </p>
+
+            <h2 id="general-GETapi-healthcheck">Healthcheck</h2>
+
+<p>
+</p>
+
+<p>Check that the service is up. If everything is okay, you'll get a 200 OK response.</p>
+<p>Otherwise, the request will fail with a 400 error, and a response listing the failed services.</p>
+
+<blockquote>Example request:</blockquote>
+
+    <pre><code class="language-bash">
+curl --request GET \
+    --get "http://sideprojects.knuckles.wtf/api/healthcheck" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+    <pre><code class="language-javascript">
+const url = new URL(
+    "http://sideprojects.knuckles.wtf/api/healthcheck"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+</code></pre>    <pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://sideprojects.knuckles.wtf/api/healthcheck',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+</code></pre>
+    <pre><code class="language-python">
+import requests
+import json
+
+url = 'http://sideprojects.knuckles.wtf/api/healthcheck'
+headers = {
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()
+</code></pre>
+
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre>
+            <code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code>
+            </pre>
+        </details>         <pre>
+                <code class="language-json">
+{
+    &quot;status&quot;: &quot;up&quot;,
+    &quot;services&quot;: {
+        &quot;database&quot;: &quot;up&quot;,
+        &quot;redis&quot;: &quot;up&quot;
+    }
+}
+ </code>
+        </pre>
+            <blockquote>
+            <p>Example response (400, Service is unhealthy):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+{
+    &quot;status&quot;: &quot;down&quot;,
+    &quot;services&quot;: {
+        &quot;database&quot;: &quot;up&quot;,
+        &quot;redis&quot;: &quot;down&quot;
+    }
+}
+ </code>
+        </pre>
+    <div id="execution-results-GETapi-healthcheck" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-healthcheck"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-healthcheck"></code></pre>
+</div>
+<div id="execution-error-GETapi-healthcheck" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-healthcheck"></code></pre>
+</div>
+<form id="form-GETapi-healthcheck" data-method="GET"
+      data-path="api/healthcheck"
+      data-authed="0"
+      data-hasfiles=""
+      data-headers='{"Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-healthcheck', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-healthcheck"
+                    onclick="tryItOut('GETapi-healthcheck');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-healthcheck"
+                    onclick="cancelTryOut('GETapi-healthcheck');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-healthcheck" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/healthcheck</code></b>
+        </p>
+                    </form>
+
+    <h3>Response</h3>
+    <h4 class="fancy-heading-panel"><b>Response Fields</b></h4>
+            <p>
+            <b><code>status</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<br>
+<p>The status of this API (<code>up</code> or <code>down</code>).</p>        </p>
+            <p>
+            <b><code>services</code></b>&nbsp;&nbsp;<small>object</small>  &nbsp;
+<br>
+<p>Map of each downstream service and their status (<code>up</code> or <code>down</code>).</p>        </p>
+            <h1 id="side-projects">Side Projects</h1>
+    <p>
+        
+    </p>
+
+            <h2 id="side-projects-GETapi-side_projects">View all side projects</h2>
+
+<p>
+</p>
+
+
+
+<blockquote>Example request:</blockquote>
+
+    <pre><code class="language-bash">
+curl --request GET \
+    --get "http://sideprojects.knuckles.wtf/api/side_projects" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+    <pre><code class="language-javascript">
+const url = new URL(
+    "http://sideprojects.knuckles.wtf/api/side_projects"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+</code></pre>    <pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://sideprojects.knuckles.wtf/api/side_projects',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+</code></pre>
+    <pre><code class="language-python">
+import requests
+import json
+
+url = 'http://sideprojects.knuckles.wtf/api/side_projects'
+headers = {
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()
+</code></pre>
+
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre>
+            <code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 57
+access-control-allow-origin: *
+ </code>
+            </pre>
+        </details>         <pre>
+                <code class="language-json">
+[
+    {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;voluptas assumenda maiores&quot;,
+        &quot;description&quot;: &quot;Consequuntur aut ea est non.&quot;,
+        &quot;url&quot;: null,
+        &quot;due_at&quot;: &quot;20310222&quot;,
+        &quot;created_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
+        &quot;user_id&quot;: &quot;2&quot;
+    },
+    {
+        &quot;id&quot;: 2,
+        &quot;name&quot;: &quot;iusto ut dolor&quot;,
+        &quot;description&quot;: &quot;Voluptatem aspernatur dolorem quae quaerat harum.&quot;,
+        &quot;url&quot;: null,
+        &quot;due_at&quot;: &quot;20301215&quot;,
+        &quot;created_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
+        &quot;user_id&quot;: &quot;1&quot;
+    },
+    {
+        &quot;id&quot;: 3,
+        &quot;name&quot;: &quot;provident et consequatur&quot;,
+        &quot;description&quot;: &quot;Quos et ipsum cum pariatur ex perspiciatis eius.&quot;,
+        &quot;url&quot;: null,
+        &quot;due_at&quot;: &quot;20231022&quot;,
+        &quot;created_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
+        &quot;user_id&quot;: &quot;3&quot;
+    },
+    {
+        &quot;id&quot;: 4,
+        &quot;name&quot;: &quot;corporis consequuntur amet&quot;,
+        &quot;description&quot;: &quot;Dolores eveniet deleniti voluptatem saepe expedita.&quot;,
+        &quot;url&quot;: null,
+        &quot;due_at&quot;: &quot;20230712&quot;,
+        &quot;created_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
+        &quot;user_id&quot;: &quot;1&quot;
+    },
+    {
+        &quot;id&quot;: 5,
+        &quot;name&quot;: &quot;optio excepturi ea&quot;,
+        &quot;description&quot;: &quot;Error deleniti sint a nostrum consequuntur et.&quot;,
+        &quot;url&quot;: null,
+        &quot;due_at&quot;: &quot;20260324&quot;,
+        &quot;created_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
+        &quot;user_id&quot;: &quot;4&quot;
+    },
+    {
+        &quot;id&quot;: 6,
+        &quot;name&quot;: &quot;nihil voluptate quaerat&quot;,
+        &quot;description&quot;: &quot;Animi reprehenderit soluta id quo.&quot;,
+        &quot;url&quot;: null,
+        &quot;due_at&quot;: &quot;20290603&quot;,
+        &quot;created_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
+        &quot;user_id&quot;: &quot;1&quot;
+    },
+    {
+        &quot;id&quot;: 7,
+        &quot;name&quot;: &quot;aspernatur architecto assumenda&quot;,
+        &quot;description&quot;: &quot;Nisi ea aut vel sint vero voluptas tempore.&quot;,
+        &quot;url&quot;: null,
+        &quot;due_at&quot;: &quot;20280710&quot;,
+        &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
+        &quot;user_id&quot;: &quot;5&quot;
+    },
+    {
+        &quot;id&quot;: 8,
+        &quot;name&quot;: &quot;vel perspiciatis quo&quot;,
+        &quot;description&quot;: &quot;Et qui praesentium consequatur distinctio natus.&quot;,
+        &quot;url&quot;: null,
+        &quot;due_at&quot;: &quot;20210605&quot;,
+        &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
+        &quot;user_id&quot;: &quot;1&quot;
+    },
+    {
+        &quot;id&quot;: 9,
+        &quot;name&quot;: &quot;qui et totam&quot;,
+        &quot;description&quot;: &quot;Veritatis quo dolorum soluta ut.&quot;,
+        &quot;url&quot;: null,
+        &quot;due_at&quot;: &quot;20270203&quot;,
+        &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
+        &quot;user_id&quot;: &quot;1&quot;
+    }
+]
+ </code>
+        </pre>
+    <div id="execution-results-GETapi-side_projects" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-side_projects"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-side_projects"></code></pre>
+</div>
+<div id="execution-error-GETapi-side_projects" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-side_projects"></code></pre>
+</div>
+<form id="form-GETapi-side_projects" data-method="GET"
+      data-path="api/side_projects"
+      data-authed="0"
+      data-hasfiles=""
+      data-headers='{"Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-side_projects', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-side_projects"
+                    onclick="tryItOut('GETapi-side_projects');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-side_projects"
+                    onclick="cancelTryOut('GETapi-side_projects');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-side_projects" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/side_projects</code></b>
+        </p>
+                    </form>
+
+            <h2 id="side-projects-POSTapi-side_projects">Start a new side project</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p><em>Even though we both know you'll never finish it.</em></p>
+<p>This endpoint's body parameters were automatically generated by Scribe
+from the controller's code. Check out the source! </aside></p>
+
+<blockquote>Example request:</blockquote>
+
+    <pre><code class="language-bash">
+curl --request POST \
+    "http://sideprojects.knuckles.wtf/api/side_projects" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{\"name\":\"\\\"The SideProject API\\\"\",\"description\":\"szzvblztjfkdcmbnyysgwaagmzzqsujuvpbfznqhdmixenuexclndzcqzufmzfuqiwccyiaskjwvgupofzwbgfpegblnuzsqqpbqgsgfgujnefakxbecccbmogvbydjszntyazlkgsgsuhzyqiedsqyvwgepiotomphpxrfgxkhgeqpwtjtnkguxdbmuwsscywbgmerhulfvznigtfezrgmmngkmltynhsenqenrgwhpklflyedqiwuhkcyy\",\"url\":\"http:\\/\\/www.lemke.info\\/id-nihil-earum-minima-ea-quis-tempora.html\",\"due_at\":\"2062-01-04\"}"
+</code></pre>
+    <pre><code class="language-javascript">
+const url = new URL(
+    "http://sideprojects.knuckles.wtf/api/side_projects"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "\"The SideProject API\"",
+    "description": "szzvblztjfkdcmbnyysgwaagmzzqsujuvpbfznqhdmixenuexclndzcqzufmzfuqiwccyiaskjwvgupofzwbgfpegblnuzsqqpbqgsgfgujnefakxbecccbmogvbydjszntyazlkgsgsuhzyqiedsqyvwgepiotomphpxrfgxkhgeqpwtjtnkguxdbmuwsscywbgmerhulfvznigtfezrgmmngkmltynhsenqenrgwhpklflyedqiwuhkcyy",
+    "url": "http:\/\/www.lemke.info\/id-nihil-earum-minima-ea-quis-tempora.html",
+    "due_at": "2062-01-04"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response => response.json());
+</code></pre>    <pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://sideprojects.knuckles.wtf/api/side_projects',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+        ],
+        'json' => [
+            'name' => '"The SideProject API"',
+            'description' => 'szzvblztjfkdcmbnyysgwaagmzzqsujuvpbfznqhdmixenuexclndzcqzufmzfuqiwccyiaskjwvgupofzwbgfpegblnuzsqqpbqgsgfgujnefakxbecccbmogvbydjszntyazlkgsgsuhzyqiedsqyvwgepiotomphpxrfgxkhgeqpwtjtnkguxdbmuwsscywbgmerhulfvznigtfezrgmmngkmltynhsenqenrgwhpklflyedqiwuhkcyy',
+            'url' => 'http://www.lemke.info/id-nihil-earum-minima-ea-quis-tempora.html',
+            'due_at' => '2062-01-04',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+</code></pre>
+    <pre><code class="language-python">
+import requests
+import json
+
+url = 'http://sideprojects.knuckles.wtf/api/side_projects'
+payload = {
+    "name": "\"The SideProject API\"",
+    "description": "szzvblztjfkdcmbnyysgwaagmzzqsujuvpbfznqhdmixenuexclndzcqzufmzfuqiwccyiaskjwvgupofzwbgfpegblnuzsqqpbqgsgfgujnefakxbecccbmogvbydjszntyazlkgsgsuhzyqiedsqyvwgepiotomphpxrfgxkhgeqpwtjtnkguxdbmuwsscywbgmerhulfvznigtfezrgmmngkmltynhsenqenrgwhpklflyedqiwuhkcyy",
+    "url": "http:\/\/www.lemke.info\/id-nihil-earum-minima-ea-quis-tempora.html",
+    "due_at": "2062-01-04"
+}
+headers = {
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()
+</code></pre>
+
+<div id="execution-results-POSTapi-side_projects" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-side_projects"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-side_projects"></code></pre>
+</div>
+<div id="execution-error-POSTapi-side_projects" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-side_projects"></code></pre>
+</div>
+<form id="form-POSTapi-side_projects" data-method="POST"
+      data-path="api/side_projects"
+      data-authed="1"
+      data-hasfiles=""
+      data-headers='{"Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-side_projects', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-side_projects"
+                    onclick="tryItOut('POSTapi-side_projects');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-side_projects"
+                    onclick="cancelTryOut('POSTapi-side_projects');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-side_projects" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/side_projects</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-side_projects" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-side_projects"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="name" data-endpoint="POSTapi-side_projects" data-component="body" required  hidden>
+<br>
+<p>The name of your side project. The value must not be greater than 80 characters.</p>        </p>
+                <p>
+            <b><code>description</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="description" data-endpoint="POSTapi-side_projects" data-component="body"  hidden>
+<br>
+<p>A longer description of your side project. The value must not be greater than 255 characters.</p>        </p>
+                <p>
+            <b><code>url</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="url" data-endpoint="POSTapi-side_projects" data-component="body"  hidden>
+<br>
+<p>A url to your side project. The value must be a valid URL.</p>        </p>
+                <p>
+            <b><code>due_at</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="due_at" data-endpoint="POSTapi-side_projects" data-component="body"  hidden>
+<br>
+<p>Due date for the side project. The value must be a valid date. The value must be a valid date in the format Ymd. The value must be a date after <code>today</code>.</p>        </p>
+    
+    </form>
+
+            <h2 id="side-projects-GETapi-side_projects--id-">View a side project</h2>
+
+<p>
+</p>
+
+<p>This endpoint's response uses a Fractal transformer, so we tell Scribe that using an annotation,
+and it figures out how to generate a sample. The 404 sample is gotten from a &quot;response file&quot;.</p>
+<aside class="success">Also, pretty cool: this endpoint's (and many others') URL parameters were figured out entirely by Scribe!</aside>
+
+<blockquote>Example request:</blockquote>
+
+    <pre><code class="language-bash">
+curl --request GET \
+    --get "http://sideprojects.knuckles.wtf/api/side_projects/5" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+    <pre><code class="language-javascript">
+const url = new URL(
+    "http://sideprojects.knuckles.wtf/api/side_projects/5"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+</code></pre>    <pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://sideprojects.knuckles.wtf/api/side_projects/5',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+</code></pre>
+    <pre><code class="language-python">
+import requests
+import json
+
+url = 'http://sideprojects.knuckles.wtf/api/side_projects/5'
+headers = {
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()
+</code></pre>
+
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+{
+    &quot;data&quot;: {
+        &quot;name&quot;: &quot;voluptatem mollitia odit&quot;,
+        &quot;description&quot;: &quot;Atque molestiae soluta libero vitae pariatur at.&quot;,
+        &quot;due_date&quot;: &quot;20240222&quot;,
+        &quot;owner&quot;: {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Pete&quot;,
+            &quot;email&quot;: &quot;pete@home.com&quot;,
+            &quot;email_verified_at&quot;: null,
+            &quot;created_at&quot;: &quot;2021-05-29T22:53:05.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-05-29T22:53:05.000000Z&quot;
+        }
+    }
+}
+ </code>
+        </pre>
+    <div id="execution-results-GETapi-side_projects--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-side_projects--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-side_projects--id-"></code></pre>
+</div>
+<div id="execution-error-GETapi-side_projects--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-side_projects--id-"></code></pre>
+</div>
+<form id="form-GETapi-side_projects--id-" data-method="GET"
+      data-path="api/side_projects/{id}"
+      data-authed="0"
+      data-hasfiles=""
+      data-headers='{"Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-side_projects--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-side_projects--id-"
+                    onclick="tryItOut('GETapi-side_projects--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-side_projects--id-"
+                    onclick="cancelTryOut('GETapi-side_projects--id-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-side_projects--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/side_projects/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="id" data-endpoint="GETapi-side_projects--id-" data-component="url" required  hidden>
+<br>
+<p>The ID of the side project.</p>            </p>
+                    </form>
+
+            <h2 id="side-projects-PUTapi-side_projects--id-">Update a side project</h2>
+
+<p>
+</p>
+
+
+
+<blockquote>Example request:</blockquote>
+
+    <pre><code class="language-bash">
+curl --request PUT \
+    "http://sideprojects.knuckles.wtf/api/side_projects/3" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+    <pre><code class="language-javascript">
+const url = new URL(
+    "http://sideprojects.knuckles.wtf/api/side_projects/3"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "PUT",
+    headers,
+}).then(response => response.json());
+</code></pre>    <pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client->put(
+    'http://sideprojects.knuckles.wtf/api/side_projects/3',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+</code></pre>
+    <pre><code class="language-python">
+import requests
+import json
+
+url = 'http://sideprojects.knuckles.wtf/api/side_projects/3'
+headers = {
+  'Accept': 'application/json'
+}
+
+response = requests.request('PUT', url, headers=headers)
+response.json()
+</code></pre>
+
+<div id="execution-results-PUTapi-side_projects--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-side_projects--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-side_projects--id-"></code></pre>
+</div>
+<div id="execution-error-PUTapi-side_projects--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-side_projects--id-"></code></pre>
+</div>
+<form id="form-PUTapi-side_projects--id-" data-method="PUT"
+      data-path="api/side_projects/{id}"
+      data-authed="0"
+      data-hasfiles=""
+      data-headers='{"Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-side_projects--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-side_projects--id-"
+                    onclick="tryItOut('PUTapi-side_projects--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-side_projects--id-"
+                    onclick="cancelTryOut('PUTapi-side_projects--id-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-side_projects--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/side_projects/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/side_projects/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="id" data-endpoint="PUTapi-side_projects--id-" data-component="url" required  hidden>
+<br>
+<p>The ID of the side project.</p>            </p>
+                    </form>
+
+            <h2 id="side-projects-DELETEapi-side_projects--id-">Delete a side project</h2>
+
+<p>
+</p>
+
+
+
+<blockquote>Example request:</blockquote>
+
+    <pre><code class="language-bash">
+curl --request DELETE \
+    "http://sideprojects.knuckles.wtf/api/side_projects/16" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+    <pre><code class="language-javascript">
+const url = new URL(
+    "http://sideprojects.knuckles.wtf/api/side_projects/16"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response => response.json());
+</code></pre>    <pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client->delete(
+    'http://sideprojects.knuckles.wtf/api/side_projects/16',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+</code></pre>
+    <pre><code class="language-python">
+import requests
+import json
+
+url = 'http://sideprojects.knuckles.wtf/api/side_projects/16'
+headers = {
+  'Accept': 'application/json'
+}
+
+response = requests.request('DELETE', url, headers=headers)
+response.json()
+</code></pre>
+
+<div id="execution-results-DELETEapi-side_projects--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-side_projects--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-side_projects--id-"></code></pre>
+</div>
+<div id="execution-error-DELETEapi-side_projects--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-side_projects--id-"></code></pre>
+</div>
+<form id="form-DELETEapi-side_projects--id-" data-method="DELETE"
+      data-path="api/side_projects/{id}"
+      data-authed="0"
+      data-hasfiles=""
+      data-headers='{"Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-side_projects--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-side_projects--id-"
+                    onclick="tryItOut('DELETEapi-side_projects--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-side_projects--id-"
+                    onclick="cancelTryOut('DELETEapi-side_projects--id-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-side_projects--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/side_projects/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="id" data-endpoint="DELETEapi-side_projects--id-" data-component="url" required  hidden>
+<br>
+<p>The ID of the side project.</p>            </p>
+                    </form>
+
+        <h1 id="users">Users</h1>
+    <p>
+        
+    </p>
+
+            <h2 id="users-POSTapi-users">Create a user</h2>
+
+<p>
+</p>
+
+<p>This endpoint's body parameters are automatically generated from a FormRequest.</p>
+
+<blockquote>Example request:</blockquote>
+
+    <pre><code class="language-bash">
+curl --request POST \
+    "http://sideprojects.knuckles.wtf/api/users" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{\"name\":\"smwrfzagusffdunbvldexcnxwwlekvhhzuadousqjqlzhfjyrjieurdsegqxaadncagszmgajcaoasevirpdknbggkemhnvgupmxxqfwbfkkpitdcjcowrrajpflaltrcdwfnicxxibboaqtkqr\",\"email\":\"lemke.jillian@example.com\",\"password\":\"nemo\"}"
+</code></pre>
+    <pre><code class="language-javascript">
+const url = new URL(
+    "http://sideprojects.knuckles.wtf/api/users"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "smwrfzagusffdunbvldexcnxwwlekvhhzuadousqjqlzhfjyrjieurdsegqxaadncagszmgajcaoasevirpdknbggkemhnvgupmxxqfwbfkkpitdcjcowrrajpflaltrcdwfnicxxibboaqtkqr",
+    "email": "lemke.jillian@example.com",
+    "password": "nemo"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response => response.json());
+</code></pre>    <pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://sideprojects.knuckles.wtf/api/users',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+        ],
+        'json' => [
+            'name' => 'smwrfzagusffdunbvldexcnxwwlekvhhzuadousqjqlzhfjyrjieurdsegqxaadncagszmgajcaoasevirpdknbggkemhnvgupmxxqfwbfkkpitdcjcowrrajpflaltrcdwfnicxxibboaqtkqr',
+            'email' => 'lemke.jillian@example.com',
+            'password' => 'nemo',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+</code></pre>
+    <pre><code class="language-python">
+import requests
+import json
+
+url = 'http://sideprojects.knuckles.wtf/api/users'
+payload = {
+    "name": "smwrfzagusffdunbvldexcnxwwlekvhhzuadousqjqlzhfjyrjieurdsegqxaadncagszmgajcaoasevirpdknbggkemhnvgupmxxqfwbfkkpitdcjcowrrajpflaltrcdwfnicxxibboaqtkqr",
+    "email": "lemke.jillian@example.com",
+    "password": "nemo"
+}
+headers = {
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()
+</code></pre>
+
+<div id="execution-results-POSTapi-users" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-users"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-users"></code></pre>
+</div>
+<div id="execution-error-POSTapi-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-users"></code></pre>
+</div>
+<form id="form-POSTapi-users" data-method="POST"
+      data-path="api/users"
+      data-authed="0"
+      data-hasfiles=""
+      data-headers='{"Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-users"
+                    onclick="tryItOut('POSTapi-users');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-users"
+                    onclick="cancelTryOut('POSTapi-users');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-users" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/users</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="name" data-endpoint="POSTapi-users" data-component="body" required  hidden>
+<br>
+<p>The value must be at least 1 characters. The value must not be greater than 255 characters.</p>        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="email" data-endpoint="POSTapi-users" data-component="body" required  hidden>
+<br>
+<p>The value must be a valid email address.</p>        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="password" data-endpoint="POSTapi-users" data-component="body" required  hidden>
+<br>
+        </p>
+    
+    </form>
+
+            <h2 id="users-GETapi-users--id-">Fetch a user</h2>
+
+<p>
+</p>
+
+<p>This endpoint's response uses an Eloquent API resource, so we tell Scribe that using an annotation,
+and it figures out how to generate a sample. The 404 sample is gotten from a &quot;response file&quot;.</p>
+
+<blockquote>Example request:</blockquote>
+
+    <pre><code class="language-bash">
+curl --request GET \
+    --get "http://sideprojects.knuckles.wtf/api/users/8" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+    <pre><code class="language-javascript">
+const url = new URL(
+    "http://sideprojects.knuckles.wtf/api/users/8"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+</code></pre>    <pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://sideprojects.knuckles.wtf/api/users/8',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+</code></pre>
+    <pre><code class="language-python">
+import requests
+import json
+
+url = 'http://sideprojects.knuckles.wtf/api/users/8'
+headers = {
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()
+</code></pre>
+
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+{
+    &quot;data&quot;: {
+        &quot;id&quot;: 6,
+        &quot;name&quot;: &quot;Alvina Krajcik&quot;,
+        &quot;email&quot;: &quot;rhoda22@example.net&quot;,
+        &quot;side_projects&quot;: [
+            {
+                &quot;id&quot;: 10,
+                &quot;name&quot;: &quot;labore neque necessitatibus&quot;,
+                &quot;description&quot;: &quot;Et omnis occaecati aut ab porro est qui harum.&quot;,
+                &quot;url&quot;: null,
+                &quot;due_at&quot;: &quot;20250126&quot;,
+                &quot;created_at&quot;: &quot;2021-05-30T00:34:17.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-05-30T00:34:17.000000Z&quot;,
+                &quot;user_id&quot;: &quot;6&quot;
+            }
+        ]
+    }
+}
+ </code>
+        </pre>
+            <blockquote>
+            <p>Example response (404, User not found):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+{
+    &quot;message&quot;: &quot;Not found&quot;,
+    &quot;resource&quot;: &quot;user&quot;
+}
+ </code>
+        </pre>
+    <div id="execution-results-GETapi-users--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-users--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users--id-"></code></pre>
+</div>
+<div id="execution-error-GETapi-users--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-users--id-"></code></pre>
+</div>
+<form id="form-GETapi-users--id-" data-method="GET"
+      data-path="api/users/{id}"
+      data-authed="0"
+      data-hasfiles=""
+      data-headers='{"Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-users--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-users--id-"
+                    onclick="tryItOut('GETapi-users--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-users--id-"
+                    onclick="cancelTryOut('GETapi-users--id-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-users--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/users/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="id" data-endpoint="GETapi-users--id-" data-component="url" required  hidden>
+<br>
+<p>The ID of the user.</p>            </p>
+                    </form>
+
+            <h2 id="users-GETapi-users">View all users</h2>
+
+<p>
+</p>
+
+<p>This endpoint uses a custom Scribe strategy that parses a
+<code>@usesPagination</code> annotation to add some query parameters.</p>
+<p>The sample response is gotten by Scribe making a test API call (aka &quot;response call&quot;).</p>
+
+<blockquote>Example request:</blockquote>
+
+    <pre><code class="language-bash">
+curl --request GET \
+    --get "http://sideprojects.knuckles.wtf/api/users?page=1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+    <pre><code class="language-javascript">
+const url = new URL(
+    "http://sideprojects.knuckles.wtf/api/users"
+);
+
+let params = {
+    "page": "1",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+</code></pre>    <pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://sideprojects.knuckles.wtf/api/users',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+        ],
+        'query' => [
+            'page'=> '1',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+</code></pre>
+    <pre><code class="language-python">
+import requests
+import json
+
+url = 'http://sideprojects.knuckles.wtf/api/users'
+params = {
+  'page': '1',
+}
+headers = {
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers, params=params)
+response.json()
+</code></pre>
+
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre>
+            <code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 58
+access-control-allow-origin: *
+ </code>
+            </pre>
+        </details>         <pre>
+                <code class="language-json">
+{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Pete&quot;,
+            &quot;email&quot;: &quot;pete@home.com&quot;,
+            &quot;side_projects&quot;: [
+                {
+                    &quot;id&quot;: 2,
+                    &quot;name&quot;: &quot;iusto ut dolor&quot;,
+                    &quot;description&quot;: &quot;Voluptatem aspernatur dolorem quae quaerat harum.&quot;,
+                    &quot;url&quot;: null,
+                    &quot;due_at&quot;: &quot;20301215&quot;,
+                    &quot;created_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
+                    &quot;user_id&quot;: &quot;1&quot;
+                },
+                {
+                    &quot;id&quot;: 4,
+                    &quot;name&quot;: &quot;corporis consequuntur amet&quot;,
+                    &quot;description&quot;: &quot;Dolores eveniet deleniti voluptatem saepe expedita.&quot;,
+                    &quot;url&quot;: null,
+                    &quot;due_at&quot;: &quot;20230712&quot;,
+                    &quot;created_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
+                    &quot;user_id&quot;: &quot;1&quot;
+                },
+                {
+                    &quot;id&quot;: 6,
+                    &quot;name&quot;: &quot;nihil voluptate quaerat&quot;,
+                    &quot;description&quot;: &quot;Animi reprehenderit soluta id quo.&quot;,
+                    &quot;url&quot;: null,
+                    &quot;due_at&quot;: &quot;20290603&quot;,
+                    &quot;created_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
+                    &quot;user_id&quot;: &quot;1&quot;
+                },
+                {
+                    &quot;id&quot;: 8,
+                    &quot;name&quot;: &quot;vel perspiciatis quo&quot;,
+                    &quot;description&quot;: &quot;Et qui praesentium consequatur distinctio natus.&quot;,
+                    &quot;url&quot;: null,
+                    &quot;due_at&quot;: &quot;20210605&quot;,
+                    &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
+                    &quot;user_id&quot;: &quot;1&quot;
+                },
+                {
+                    &quot;id&quot;: 9,
+                    &quot;name&quot;: &quot;qui et totam&quot;,
+                    &quot;description&quot;: &quot;Veritatis quo dolorum soluta ut.&quot;,
+                    &quot;url&quot;: null,
+                    &quot;due_at&quot;: &quot;20270203&quot;,
+                    &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
+                    &quot;user_id&quot;: &quot;1&quot;
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;Alexane Weber&quot;,
+            &quot;email&quot;: &quot;lacy.wintheiser@example.net&quot;,
+            &quot;side_projects&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;name&quot;: &quot;voluptas assumenda maiores&quot;,
+                    &quot;description&quot;: &quot;Consequuntur aut ea est non.&quot;,
+                    &quot;url&quot;: null,
+                    &quot;due_at&quot;: &quot;20310222&quot;,
+                    &quot;created_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
+                    &quot;user_id&quot;: &quot;2&quot;
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;name&quot;: &quot;John Kshlerin II&quot;,
+            &quot;email&quot;: &quot;titus77@example.com&quot;,
+            &quot;side_projects&quot;: [
+                {
+                    &quot;id&quot;: 3,
+                    &quot;name&quot;: &quot;provident et consequatur&quot;,
+                    &quot;description&quot;: &quot;Quos et ipsum cum pariatur ex perspiciatis eius.&quot;,
+                    &quot;url&quot;: null,
+                    &quot;due_at&quot;: &quot;20231022&quot;,
+                    &quot;created_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
+                    &quot;user_id&quot;: &quot;3&quot;
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;name&quot;: &quot;Rebeca Morissette&quot;,
+            &quot;email&quot;: &quot;cole.geoffrey@example.com&quot;,
+            &quot;side_projects&quot;: [
+                {
+                    &quot;id&quot;: 5,
+                    &quot;name&quot;: &quot;optio excepturi ea&quot;,
+                    &quot;description&quot;: &quot;Error deleniti sint a nostrum consequuntur et.&quot;,
+                    &quot;url&quot;: null,
+                    &quot;due_at&quot;: &quot;20260324&quot;,
+                    &quot;created_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
+                    &quot;user_id&quot;: &quot;4&quot;
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;name&quot;: &quot;Prof. Adah Witting IV&quot;,
+            &quot;email&quot;: &quot;nswift@example.net&quot;,
+            &quot;side_projects&quot;: [
+                {
+                    &quot;id&quot;: 7,
+                    &quot;name&quot;: &quot;aspernatur architecto assumenda&quot;,
+                    &quot;description&quot;: &quot;Nisi ea aut vel sint vero voluptas tempore.&quot;,
+                    &quot;url&quot;: null,
+                    &quot;due_at&quot;: &quot;20280710&quot;,
+                    &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
+                    &quot;user_id&quot;: &quot;5&quot;
+                }
+            ]
+        }
+    ]
+}
+ </code>
+        </pre>
+    <div id="execution-results-GETapi-users" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-users"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users"></code></pre>
+</div>
+<div id="execution-error-GETapi-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-users"></code></pre>
+</div>
+<form id="form-GETapi-users" data-method="GET"
+      data-path="api/users"
+      data-authed="0"
+      data-hasfiles=""
+      data-headers='{"Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-users', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-users"
+                    onclick="tryItOut('GETapi-users');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-users"
+                    onclick="cancelTryOut('GETapi-users');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-users" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/users</code></b>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>page</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page" data-endpoint="GETapi-users" data-component="query"  hidden>
+<br>
+<p>Page number to return.</p>            </p>
+                    <p>
+                <b><code>pageSize</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="pageSize" data-endpoint="GETapi-users" data-component="query"  hidden>
+<br>
+<p>Number of items to return in a page. Defaults to 10.</p>            </p>
+                </form>
+
+            <h2 id="users-POSTapi-users--id--auth">Authenticate</h2>
+
+<p>
+</p>
+
+<p>Get a new API token.</p>
+<aside>Yes, we know you can impersonate any user.🙄</aside>
+
+<blockquote>Example request:</blockquote>
+
+    <pre><code class="language-bash">
+curl --request POST \
+    "http://sideprojects.knuckles.wtf/api/users/11/auth" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+    <pre><code class="language-javascript">
+const url = new URL(
+    "http://sideprojects.knuckles.wtf/api/users/11/auth"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response => response.json());
+</code></pre>    <pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://sideprojects.knuckles.wtf/api/users/11/auth',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+</code></pre>
+    <pre><code class="language-python">
+import requests
+import json
+
+url = 'http://sideprojects.knuckles.wtf/api/users/11/auth'
+headers = {
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers)
+response.json()
+</code></pre>
+
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+{
+    &quot;token&quot;: &quot;2|KLDoUXc68Ko0JaFDZoX9qYkUqWglwdGxQsvTGBCg&quot;
+}
+ </code>
+        </pre>
+    <div id="execution-results-POSTapi-users--id--auth" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-users--id--auth"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-users--id--auth"></code></pre>
+</div>
+<div id="execution-error-POSTapi-users--id--auth" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-users--id--auth"></code></pre>
+</div>
+<form id="form-POSTapi-users--id--auth" data-method="POST"
+      data-path="api/users/{id}/auth"
+      data-authed="0"
+      data-hasfiles=""
+      data-headers='{"Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users--id--auth', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-users--id--auth"
+                    onclick="tryItOut('POSTapi-users--id--auth');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-users--id--auth"
+                    onclick="cancelTryOut('POSTapi-users--id--auth');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-users--id--auth" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/users/{id}/auth</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="id" data-endpoint="POSTapi-users--id--auth" data-component="url" required  hidden>
+<br>
+<p>The ID of the user.</p>            </p>
+                    </form>
+
+    <h3>Response</h3>
+    <h4 class="fancy-heading-panel"><b>Response Fields</b></h4>
+            <p>
+            <b><code>token</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<br>
+<p>The new API token. Valid forever.</p>        </p>
+        
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                                    <a href="#" data-language-name="php">php</a>
+                                    <a href="#" data-language-name="python">python</a>
+                            </div>
+            </div>
+</div>
+<script>
+    $(function () {
+        var exampleLanguages = ["bash","javascript","php","python"];
+        setupLanguages(exampleLanguages);
+    });
+</script>
+</body>
+</html>
