@@ -60,19 +60,19 @@ endpoints:
         name: description
         description: 'A longer description of your side project. The value must not be greater than 255 characters.'
         required: false
-        example: szzvblztjfkdcmbnyysgwaagmzzqsujuvpbfznqhdmixenuexclndzcqzufmzfuqiwccyiaskjwvgupofzwbgfpegblnuzsqqpbqgsgfgujnefakxbecccbmogvbydjszntyazlkgsgsuhzyqiedsqyvwgepiotomphpxrfgxkhgeqpwtjtnkguxdbmuwsscywbgmerhulfvznigtfezrgmmngkmltynhsenqenrgwhpklflyedqiwuhkcyy
+        example: fgjbfzbzhamascqffkukusyxpfhhnexibriqgoylogtkynblcsjszzfmuiyixsoborxcppjuwtwugoxonwehwavbbmbycmufnnqlatfoqoxlylkouuojexovacalpbjnuwnmbcbgnwqidmlgcgplkzzbf
         type: string
       url:
         name: url
         description: 'A url to your side project. The value must be a valid URL.'
         required: false
-        example: 'http://www.lemke.info/id-nihil-earum-minima-ea-quis-tempora.html'
+        example: 'http://www.bayer.org/architecto-laudantium-perferendis-doloribus-sint'
         type: string
       due_at:
         name: due_at
         description: 'Due date for the side project. The value must be a valid date. The value must be a valid date in the format Ymd. The value must be a date after <code>today</code>.'
         required: false
-        example: '2062-01-04'
+        example: '2112-08-03'
         type: string
     responses: []
     responseFields: []
@@ -103,7 +103,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"name":"voluptatem mollitia odit","description":"Atque molestiae soluta libero vitae pariatur at.","due_date":"20240222","owner":{"id":1,"name":"Pete","email":"pete@home.com","email_verified_at":null,"created_at":"2021-05-29T22:53:05.000000Z","updated_at":"2021-05-29T22:53:05.000000Z"}}}'
+        content: '{"data":{"name":"omnis facere quia","description":"Porro atque exercitationem aspernatur doloribus reiciendis quo repellendus.","due_date":"20280807","owner":{"id":1,"name":"Pete","email":"pete@home.com","email_verified_at":null,"created_at":"2021-05-29T22:53:05.000000Z","updated_at":"2021-05-29T22:53:05.000000Z"}}}'
         headers: []
         description: null
     responseFields: []
@@ -124,7 +124,7 @@ endpoints:
         name: id
         description: 'The ID of the side project.'
         required: true
-        example: 3
+        example: 4
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -146,7 +146,7 @@ endpoints:
         name: id
         description: 'The ID of the side project.'
         required: true
-        example: 16
+        example: 6
         type: integer
     queryParameters: []
     bodyParameters: []

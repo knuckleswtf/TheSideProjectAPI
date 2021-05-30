@@ -109,15 +109,15 @@ paths:
                 description:
                   type: string
                   description: 'A longer description of your side project. The value must not be greater than 255 characters.'
-                  example: szzvblztjfkdcmbnyysgwaagmzzqsujuvpbfznqhdmixenuexclndzcqzufmzfuqiwccyiaskjwvgupofzwbgfpegblnuzsqqpbqgsgfgujnefakxbecccbmogvbydjszntyazlkgsgsuhzyqiedsqyvwgepiotomphpxrfgxkhgeqpwtjtnkguxdbmuwsscywbgmerhulfvznigtfezrgmmngkmltynhsenqenrgwhpklflyedqiwuhkcyy
+                  example: fgjbfzbzhamascqffkukusyxpfhhnexibriqgoylogtkynblcsjszzfmuiyixsoborxcppjuwtwugoxonwehwavbbmbycmufnnqlatfoqoxlylkouuojexovacalpbjnuwnmbcbgnwqidmlgcgplkzzbf
                 url:
                   type: string
                   description: 'A url to your side project. The value must be a valid URL.'
-                  example: 'http://www.lemke.info/id-nihil-earum-minima-ea-quis-tempora.html'
+                  example: 'http://www.bayer.org/architecto-laudantium-perferendis-doloribus-sint'
                 due_at:
                   type: string
                   description: 'Due date for the side project. The value must be a valid date. The value must be a valid date in the format Ymd. The value must be a date after <code>today</code>.'
-                  example: '2062-01-04'
+                  example: '2112-08-03'
               required:
                 - name
   '/api/side_projects/{id}':
@@ -140,9 +140,9 @@ paths:
               schema:
                 type: object
                 example:
-                  data: { name: 'voluptatem mollitia odit', description: 'Atque molestiae soluta libero vitae pariatur at.', due_date: '20240222', owner: { id: 1, name: Pete, email: pete@home.com, email_verified_at: null, created_at: '2021-05-29T22:53:05.000000Z', updated_at: '2021-05-29T22:53:05.000000Z' } }
+                  data: { name: 'omnis facere quia', description: 'Porro atque exercitationem aspernatur doloribus reiciendis quo repellendus.', due_date: '20280807', owner: { id: 1, name: Pete, email: pete@home.com, email_verified_at: null, created_at: '2021-05-29T22:53:05.000000Z', updated_at: '2021-05-29T22:53:05.000000Z' } }
                 properties:
-                  data: { type: object, example: { name: 'voluptatem mollitia odit', description: 'Atque molestiae soluta libero vitae pariatur at.', due_date: '20240222', owner: { id: 1, name: Pete, email: pete@home.com, email_verified_at: null, created_at: '2021-05-29T22:53:05.000000Z', updated_at: '2021-05-29T22:53:05.000000Z' } } }
+                  data: { type: object, example: { name: 'omnis facere quia', description: 'Porro atque exercitationem aspernatur doloribus reiciendis quo repellendus.', due_date: '20280807', owner: { id: 1, name: Pete, email: pete@home.com, email_verified_at: null, created_at: '2021-05-29T22:53:05.000000Z', updated_at: '2021-05-29T22:53:05.000000Z' } } }
       tags:
         - 'Side Projects'
       security: []
@@ -210,15 +210,15 @@ paths:
                 name:
                   type: string
                   description: 'The value must be at least 1 characters. The value must not be greater than 255 characters.'
-                  example: smwrfzagusffdunbvldexcnxwwlekvhhzuadousqjqlzhfjyrjieurdsegqxaadncagszmgajcaoasevirpdknbggkemhnvgupmxxqfwbfkkpitdcjcowrrajpflaltrcdwfnicxxibboaqtkqr
+                  example: meinzggvhunivpobtwkftopruribdemrysmmuudebsbyazghwgwjlslewevcvocfftaryqiuqxlfbbyguukraxzd
                 email:
                   type: string
                   description: 'The value must be a valid email address.'
-                  example: lemke.jillian@example.com
+                  example: shanahan.bridie@example.net
                 password:
                   type: string
                   description: ''
-                  example: nemo
+                  example: magni
               required:
                 - name
                 - email
@@ -289,9 +289,9 @@ paths:
               schema:
                 type: object
                 example:
-                  data: { id: 6, name: 'Alvina Krajcik', email: rhoda22@example.net, side_projects: [{ id: 10, name: 'labore neque necessitatibus', description: 'Et omnis occaecati aut ab porro est qui harum.', url: null, due_at: '20250126', created_at: '2021-05-30T00:34:17.000000Z', updated_at: '2021-05-30T00:34:17.000000Z', user_id: '6' }] }
+                  data: { id: 6, name: 'Maximillia Stracke', email: schaefer.marielle@example.net, side_projects: [{ id: 10, name: 'et eaque in', description: 'Error et mollitia pariatur enim.', url: null, due_at: '20281002', created_at: '2021-05-30T01:04:25.000000Z', updated_at: '2021-05-30T01:04:25.000000Z', user_id: '6' }] }
                 properties:
-                  data: { type: object, example: { id: 6, name: 'Alvina Krajcik', email: rhoda22@example.net, side_projects: [{ id: 10, name: 'labore neque necessitatibus', description: 'Et omnis occaecati aut ab porro est qui harum.', url: null, due_at: '20250126', created_at: '2021-05-30T00:34:17.000000Z', updated_at: '2021-05-30T00:34:17.000000Z', user_id: '6' }] } }
+                  data: { type: object, example: { id: 6, name: 'Maximillia Stracke', email: schaefer.marielle@example.net, side_projects: [{ id: 10, name: 'et eaque in', description: 'Error et mollitia pariatur enim.', url: null, due_at: '20281002', created_at: '2021-05-30T01:04:25.000000Z', updated_at: '2021-05-30T01:04:25.000000Z', user_id: '6' }] } }
         404:
           description: '404, User not found'
           content:
@@ -312,7 +312,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: 8
+        example: 4
         required: true
         schema:
           type: integer
@@ -347,7 +347,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: 11
+        example: 14
         required: true
         schema:
           type: integer

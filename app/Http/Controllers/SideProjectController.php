@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Transformers\BadWordTransformer;
 use App\Http\Transformers\SideProjectTransformer;
 use App\Models\SideProject;
 use Illuminate\Http\Request;

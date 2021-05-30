@@ -52,6 +52,10 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "docs": [
+            "@php artisan scribe:generate",
+            "@php copy-docs-for-gh-pages.php"
         ]
     },
     "extra": {
