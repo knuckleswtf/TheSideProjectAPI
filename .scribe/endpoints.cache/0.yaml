@@ -32,7 +32,7 @@ endpoints:
           x-ratelimit-limit:
             - 60
           x-ratelimit-remaining:
-            - 56
+            - 59
           access-control-allow-origin:
             - '*'
         description: null
