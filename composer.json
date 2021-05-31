@@ -55,7 +55,7 @@
         ],
         "docs": [
             "@php artisan scribe:generate",
-            "@php copy-docs-for-gh-pages.php"
+          "@php prep-docs-for-gh-pages.php"
         ]
     },
     "extra": {
