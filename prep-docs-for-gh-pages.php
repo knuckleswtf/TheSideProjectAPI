@@ -14,5 +14,5 @@ foreach(glob("public/docs/*/*.*") as $file) {
 }
 
 file_put_contents("docs/index.html", str_replace("../docs/", "", file_get_contents("docs/index.html")));
-file_put_contents("docs/CNAME", "sample.scribe.knuckles.wtf");
+file_put_contents("docs/CNAME", "demo.scribe.knuckles.wtf");
 echo "Copied docs for GH pages";
