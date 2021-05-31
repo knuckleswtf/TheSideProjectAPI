@@ -64,19 +64,19 @@ endpoints:
         name: description
         description: 'A longer description of your side project. Must not be greater than 255 characters.'
         required: false
-        example: pgqjigojmheiufuugyeraqcamzgjbqbfqbumnhjkamvcyqyjembuczzfvpzmyjfwqbejzuccxjojnmmnudzldufmhxtgjwzjehxpzsjczlumelaxizdfjh
+        example: sogdteihlaodtuesxlcjccmumvueaqrzmrjzxagwffmmojyubrekpbmhsbokzkztsiikazrxqdgtonbqleghxiwfoopcjvrhbdacaeylhnfyjkhcptvqkngkengcntvxqlsurucdxvuylbglmeyynmxreohvojahkyqyowxtlewslgeibjfwgyrjovircbjzllbjibvzjcuktprzuszolftzuxeafvmsfkqqsetgbzrjqovztqyxohzmncroo
         type: string
       url:
         name: url
         description: 'A url to your side project. Must be a valid URL.'
         required: false
-        example: 'http://heaney.info/officia-ducimus-ratione-quisquam-ut-ad-nulla-doloremque'
+        example: 'https://www.rohan.com/quia-aperiam-alias-qui-facere-vitae'
         type: string
       due_at:
         name: due_at
         description: 'Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.'
         required: false
-        example: '2038-07-30'
+        example: '2087-12-08'
         type: string
     responses: []
     responseFields: []
@@ -100,14 +100,14 @@ endpoints:
         name: id
         description: 'The ID of the side project.'
         required: true
-        example: 7
+        example: 9
         type: integer
     queryParameters: []
     bodyParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"name":"quia culpa quo","description":"Qui est maiores nulla perferendis aliquam.","due_date":"20230214","owner":{"id":1,"name":"Pete","email":"pete@home.com","email_verified_at":null,"created_at":"2021-05-29T22:53:05.000000Z","updated_at":"2021-05-29T22:53:05.000000Z"}}}'
+        content: '{"data":{"name":"incidunt laudantium cupiditate","description":"Accusantium ut dolores debitis ut et.","due_date":"20220707","owner":{"id":1,"name":"Pete","email":"pete@home.com","email_verified_at":null,"created_at":"2021-05-29T22:53:05.000000Z","updated_at":"2021-05-29T22:53:05.000000Z"}}}'
         headers: []
         description: null
     responseFields: []
@@ -128,7 +128,7 @@ endpoints:
         name: id
         description: 'The ID of the side project.'
         required: true
-        example: 7
+        example: 14
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -150,7 +150,7 @@ endpoints:
         name: id
         description: 'The ID of the side project.'
         required: true
-        example: 7
+        example: 14
         type: integer
     queryParameters: []
     bodyParameters: []

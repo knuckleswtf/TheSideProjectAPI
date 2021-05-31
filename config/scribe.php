@@ -237,7 +237,7 @@ return [
      * Text to place in the "Introduction" section, right after the `description`. Markdown and HTML are supported.
      */
     'intro_text' => <<<INTRO
-The SideProject API is a sample API, built to demonstrate Scribe's capabilities.
+The SideProject API is a sample API, built to demonstrate [Scribe's](http://scribe.knuckles.wtf) capabilities.
 
 Lke many side projects, it is itself an unfinished API, but hopefully it should be enough to convince you to try Scribe out.😉 You can check out the source code [on GitHub](https://github.com/knuckleswtf/TheSideProjectAPI/).
 
