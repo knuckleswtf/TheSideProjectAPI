@@ -50,7 +50,7 @@ paths:
   /api/side_projects:
     get:
       summary: 'View all side projects'
-      description: ''
+      description: "This endpoint's response was gotten via a \"response call\"—\nScribe called our API in a test environment to get a sample response."
       parameters:
         -
           in: header
@@ -104,20 +104,20 @@ paths:
               properties:
                 name:
                   type: string
-                  description: 'The name of your side project. The value must not be greater than 80 characters.'
+                  description: 'The name of your side project. Must not be greater than 80 characters.'
                   example: '"The SideProject API"'
                 description:
                   type: string
-                  description: 'A longer description of your side project. The value must not be greater than 255 characters.'
-                  example: fgjbfzbzhamascqffkukusyxpfhhnexibriqgoylogtkynblcsjszzfmuiyixsoborxcppjuwtwugoxonwehwavbbmbycmufnnqlatfoqoxlylkouuojexovacalpbjnuwnmbcbgnwqidmlgcgplkzzbf
+                  description: 'A longer description of your side project. Must not be greater than 255 characters.'
+                  example: kcgbeadgobhbdzlccwnzamesuompttmeksqctgdbrgynrertjhyookslffnsjuzlbrguogyiqxobvcvxblxayzwpwjznwllyluleza
                 url:
                   type: string
-                  description: 'A url to your side project. The value must be a valid URL.'
-                  example: 'http://www.bayer.org/architecto-laudantium-perferendis-doloribus-sint'
+                  description: 'A url to your side project. Must be a valid URL.'
+                  example: 'http://daniel.org/rerum-reiciendis-eum-est-quia-ut-culpa'
                 due_at:
                   type: string
-                  description: 'Due date for the side project. The value must be a valid date. The value must be a valid date in the format Ymd. The value must be a date after <code>today</code>.'
-                  example: '2112-08-03'
+                  description: 'Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.'
+                  example: '2046-05-03'
               required:
                 - name
   '/api/side_projects/{id}':
@@ -140,9 +140,9 @@ paths:
               schema:
                 type: object
                 example:
-                  data: { name: 'omnis facere quia', description: 'Porro atque exercitationem aspernatur doloribus reiciendis quo repellendus.', due_date: '20280807', owner: { id: 1, name: Pete, email: pete@home.com, email_verified_at: null, created_at: '2021-05-29T22:53:05.000000Z', updated_at: '2021-05-29T22:53:05.000000Z' } }
+                  data: { name: 'ducimus voluptatum officia', description: 'Explicabo voluptatem voluptas autem illo cumque.', due_date: '20210805', owner: { id: 1, name: Pete, email: pete@home.com, email_verified_at: null, created_at: '2021-05-29T22:53:05.000000Z', updated_at: '2021-05-29T22:53:05.000000Z' } }
                 properties:
-                  data: { type: object, example: { name: 'omnis facere quia', description: 'Porro atque exercitationem aspernatur doloribus reiciendis quo repellendus.', due_date: '20280807', owner: { id: 1, name: Pete, email: pete@home.com, email_verified_at: null, created_at: '2021-05-29T22:53:05.000000Z', updated_at: '2021-05-29T22:53:05.000000Z' } } }
+                  data: { type: object, example: { name: 'ducimus voluptatum officia', description: 'Explicabo voluptatem voluptas autem illo cumque.', due_date: '20210805', owner: { id: 1, name: Pete, email: pete@home.com, email_verified_at: null, created_at: '2021-05-29T22:53:05.000000Z', updated_at: '2021-05-29T22:53:05.000000Z' } } }
       tags:
         - 'Side Projects'
       security: []
@@ -181,7 +181,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the side project.'
-        example: 5
+        example: 12
         required: true
         schema:
           type: integer
@@ -209,16 +209,16 @@ paths:
               properties:
                 name:
                   type: string
-                  description: 'The value must be at least 1 characters. The value must not be greater than 255 characters.'
-                  example: meinzggvhunivpobtwkftopruribdemrysmmuudebsbyazghwgwjlslewevcvocfftaryqiuqxlfbbyguukraxzd
+                  description: 'Must be at least 1 characters. Must not be greater than 255 characters.'
+                  example: trqnxnemrkljkswgqtwrrmyeaigaohgzdqlmdxokxycgxzzkkwrnrjrvcxznvzmzxacdqwmrgpucbadfqzyzcoytogorigungqtkccunhmzscorjznbsucktstxyimtkducqrvgoprupzbxlxcotjbosqpgkhepmopdbtpjuwzzkhcparqhqbdymgtijxblnnmngptcfghxlplimlbbvahrzdxbho
                 email:
                   type: string
-                  description: 'The value must be a valid email address.'
-                  example: shanahan.bridie@example.net
+                  description: 'Must be a valid email address.'
+                  example: toconner@example.net
                 password:
                   type: string
                   description: ''
-                  example: magni
+                  example: est
               required:
                 - name
                 - email
@@ -289,9 +289,9 @@ paths:
               schema:
                 type: object
                 example:
-                  data: { id: 6, name: 'Maximillia Stracke', email: schaefer.marielle@example.net, side_projects: [{ id: 10, name: 'et eaque in', description: 'Error et mollitia pariatur enim.', url: null, due_at: '20281002', created_at: '2021-05-30T01:04:25.000000Z', updated_at: '2021-05-30T01:04:25.000000Z', user_id: '6' }] }
+                  data: { id: 6, name: 'Chaya Schinner', email: itorp@example.net, side_projects: [{ id: 10, name: 'a sed nulla', description: 'Illo ipsa alias tempore modi exercitationem molestias animi non.', url: null, due_at: '20240525', created_at: '2021-05-31T11:55:44.000000Z', updated_at: '2021-05-31T11:55:44.000000Z', user_id: '6' }] }
                 properties:
-                  data: { type: object, example: { id: 6, name: 'Maximillia Stracke', email: schaefer.marielle@example.net, side_projects: [{ id: 10, name: 'et eaque in', description: 'Error et mollitia pariatur enim.', url: null, due_at: '20281002', created_at: '2021-05-30T01:04:25.000000Z', updated_at: '2021-05-30T01:04:25.000000Z', user_id: '6' }] } }
+                  data: { type: object, example: { id: 6, name: 'Chaya Schinner', email: itorp@example.net, side_projects: [{ id: 10, name: 'a sed nulla', description: 'Illo ipsa alias tempore modi exercitationem molestias animi non.', url: null, due_at: '20240525', created_at: '2021-05-31T11:55:44.000000Z', updated_at: '2021-05-31T11:55:44.000000Z', user_id: '6' }] } }
         404:
           description: '404, User not found'
           content:
@@ -312,7 +312,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: 4
+        example: 7
         required: true
         schema:
           type: integer
@@ -347,7 +347,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: 14
+        example: 10
         required: true
         schema:
           type: integer

@@ -8,20 +8,20 @@
 
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/theme-default.style.css" media="screen">
-    <link rel="stylesheet" href="css/theme-default.print.css" media="print">
-    <script src="js/theme-default-3.0.0-alpha.js"></script>
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+    <script src="../docs/js/theme-default-3.0.0-alpha.js"></script>
 
     <link rel="stylesheet"
           href="//unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
     <script src="//unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
 
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
     <script>
         var baseUrl = "http://localhost:8000";
     </script>
-    <script src="js/tryitout-3.0.0-alpha.js"></script>
+    <script src="../docs/js/tryitout-3.0.0-alpha.js"></script>
 
 </head>
 
@@ -29,7 +29,7 @@
 <a href="#" id="nav-button">
       <span>
         MENU
-        <img src="images/navbar.png" alt="navbar-image" />
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
       </span>
 </a>
 <div class="tocify-wrapper">
@@ -48,11 +48,11 @@
     </ul>
 
             <ul class="toc-footer" id="toc-footer">
-                            <li><a href="./collection.json">View Postman collection</a></li>
-                            <li><a href="./openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: May 30 2021</li>
+            <li>Last updated: May 31 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -234,7 +234,8 @@ access-control-allow-origin: *
 <p>
 </p>
 
-
+<p>This endpoint's response was gotten via a &quot;response call&quot;—
+Scribe called our API in a test environment to get a sample response.</p>
 
 <blockquote>Example request:</blockquote>
 
@@ -451,7 +452,7 @@ curl --request POST \
     "http://sideprojects.knuckles.wtf/api/side_projects" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --data "{\"name\":\"\\\"The SideProject API\\\"\",\"description\":\"fgjbfzbzhamascqffkukusyxpfhhnexibriqgoylogtkynblcsjszzfmuiyixsoborxcppjuwtwugoxonwehwavbbmbycmufnnqlatfoqoxlylkouuojexovacalpbjnuwnmbcbgnwqidmlgcgplkzzbf\",\"url\":\"http:\\/\\/www.bayer.org\\/architecto-laudantium-perferendis-doloribus-sint\",\"due_at\":\"2112-08-03\"}"
+    --data "{\"name\":\"\\\"The SideProject API\\\"\",\"description\":\"kcgbeadgobhbdzlccwnzamesuompttmeksqctgdbrgynrertjhyookslffnsjuzlbrguogyiqxobvcvxblxayzwpwjznwllyluleza\",\"url\":\"http:\\/\\/daniel.org\\/rerum-reiciendis-eum-est-quia-ut-culpa\",\"due_at\":\"2046-05-03\"}"
 </code></pre>
     <pre><code class="language-javascript">
 const url = new URL(
@@ -465,9 +466,9 @@ let headers = {
 
 let body = {
     "name": "\"The SideProject API\"",
-    "description": "fgjbfzbzhamascqffkukusyxpfhhnexibriqgoylogtkynblcsjszzfmuiyixsoborxcppjuwtwugoxonwehwavbbmbycmufnnqlatfoqoxlylkouuojexovacalpbjnuwnmbcbgnwqidmlgcgplkzzbf",
-    "url": "http:\/\/www.bayer.org\/architecto-laudantium-perferendis-doloribus-sint",
-    "due_at": "2112-08-03"
+    "description": "kcgbeadgobhbdzlccwnzamesuompttmeksqctgdbrgynrertjhyookslffnsjuzlbrguogyiqxobvcvxblxayzwpwjznwllyluleza",
+    "url": "http:\/\/daniel.org\/rerum-reiciendis-eum-est-quia-ut-culpa",
+    "due_at": "2046-05-03"
 }
 
 fetch(url, {
@@ -485,9 +486,9 @@ $response = $client->post(
         ],
         'json' => [
             'name' => '"The SideProject API"',
-            'description' => 'fgjbfzbzhamascqffkukusyxpfhhnexibriqgoylogtkynblcsjszzfmuiyixsoborxcppjuwtwugoxonwehwavbbmbycmufnnqlatfoqoxlylkouuojexovacalpbjnuwnmbcbgnwqidmlgcgplkzzbf',
-            'url' => 'http://www.bayer.org/architecto-laudantium-perferendis-doloribus-sint',
-            'due_at' => '2112-08-03',
+            'description' => 'kcgbeadgobhbdzlccwnzamesuompttmeksqctgdbrgynrertjhyookslffnsjuzlbrguogyiqxobvcvxblxayzwpwjznwllyluleza',
+            'url' => 'http://daniel.org/rerum-reiciendis-eum-est-quia-ut-culpa',
+            'due_at' => '2046-05-03',
         ],
     ]
 );
@@ -501,9 +502,9 @@ import json
 url = 'http://sideprojects.knuckles.wtf/api/side_projects'
 payload = {
     "name": "\"The SideProject API\"",
-    "description": "fgjbfzbzhamascqffkukusyxpfhhnexibriqgoylogtkynblcsjszzfmuiyixsoborxcppjuwtwugoxonwehwavbbmbycmufnnqlatfoqoxlylkouuojexovacalpbjnuwnmbcbgnwqidmlgcgplkzzbf",
-    "url": "http:\/\/www.bayer.org\/architecto-laudantium-perferendis-doloribus-sint",
-    "due_at": "2112-08-03"
+    "description": "kcgbeadgobhbdzlccwnzamesuompttmeksqctgdbrgynrertjhyookslffnsjuzlbrguogyiqxobvcvxblxayzwpwjznwllyluleza",
+    "url": "http:\/\/daniel.org\/rerum-reiciendis-eum-est-quia-ut-culpa",
+    "due_at": "2046-05-03"
 }
 headers = {
   'Accept': 'application/json'
@@ -563,22 +564,22 @@ response.json()
             <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
 <input type="text" name="name" data-endpoint="POSTapi-side_projects" data-component="body" required  hidden>
 <br>
-<p>The name of your side project. The value must not be greater than 80 characters.</p>        </p>
+<p>The name of your side project. Must not be greater than 80 characters.</p>        </p>
                 <p>
             <b><code>description</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
 <input type="text" name="description" data-endpoint="POSTapi-side_projects" data-component="body"  hidden>
 <br>
-<p>A longer description of your side project. The value must not be greater than 255 characters.</p>        </p>
+<p>A longer description of your side project. Must not be greater than 255 characters.</p>        </p>
                 <p>
             <b><code>url</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
 <input type="text" name="url" data-endpoint="POSTapi-side_projects" data-component="body"  hidden>
 <br>
-<p>A url to your side project. The value must be a valid URL.</p>        </p>
+<p>A url to your side project. Must be a valid URL.</p>        </p>
                 <p>
             <b><code>due_at</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
 <input type="text" name="due_at" data-endpoint="POSTapi-side_projects" data-component="body"  hidden>
 <br>
-<p>Due date for the side project. The value must be a valid date. The value must be a valid date in the format Ymd. The value must be a date after <code>today</code>.</p>        </p>
+<p>Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.</p>        </p>
     
     </form>
 
@@ -595,12 +596,12 @@ and it figures out how to generate a sample. The 404 sample is gotten from a &qu
 
     <pre><code class="language-bash">
 curl --request GET \
-    --get "http://sideprojects.knuckles.wtf/api/side_projects/5" \
+    --get "http://sideprojects.knuckles.wtf/api/side_projects/12" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
     <pre><code class="language-javascript">
 const url = new URL(
-    "http://sideprojects.knuckles.wtf/api/side_projects/5"
+    "http://sideprojects.knuckles.wtf/api/side_projects/12"
 );
 
 let headers = {
@@ -616,7 +617,7 @@ fetch(url, {
 </code></pre>    <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://sideprojects.knuckles.wtf/api/side_projects/5',
+    'http://sideprojects.knuckles.wtf/api/side_projects/12',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -630,7 +631,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://sideprojects.knuckles.wtf/api/side_projects/5'
+url = 'http://sideprojects.knuckles.wtf/api/side_projects/12'
 headers = {
   'Accept': 'application/json'
 }
@@ -646,9 +647,9 @@ response.json()
                 <code class="language-json">
 {
     &quot;data&quot;: {
-        &quot;name&quot;: &quot;omnis facere quia&quot;,
-        &quot;description&quot;: &quot;Porro atque exercitationem aspernatur doloribus reiciendis quo repellendus.&quot;,
-        &quot;due_date&quot;: &quot;20280807&quot;,
+        &quot;name&quot;: &quot;ducimus voluptatum officia&quot;,
+        &quot;description&quot;: &quot;Explicabo voluptatem voluptas autem illo cumque.&quot;,
+        &quot;due_date&quot;: &quot;20210805&quot;,
         &quot;owner&quot;: {
             &quot;id&quot;: 1,
             &quot;name&quot;: &quot;Pete&quot;,
@@ -717,12 +718,12 @@ response.json()
 
     <pre><code class="language-bash">
 curl --request PUT \
-    "http://sideprojects.knuckles.wtf/api/side_projects/4" \
+    "http://sideprojects.knuckles.wtf/api/side_projects/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
     <pre><code class="language-javascript">
 const url = new URL(
-    "http://sideprojects.knuckles.wtf/api/side_projects/4"
+    "http://sideprojects.knuckles.wtf/api/side_projects/2"
 );
 
 let headers = {
@@ -738,7 +739,7 @@ fetch(url, {
 </code></pre>    <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client->put(
-    'http://sideprojects.knuckles.wtf/api/side_projects/4',
+    'http://sideprojects.knuckles.wtf/api/side_projects/2',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -752,7 +753,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://sideprojects.knuckles.wtf/api/side_projects/4'
+url = 'http://sideprojects.knuckles.wtf/api/side_projects/2'
 headers = {
   'Accept': 'application/json'
 }
@@ -929,7 +930,7 @@ curl --request POST \
     "http://sideprojects.knuckles.wtf/api/users" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --data "{\"name\":\"meinzggvhunivpobtwkftopruribdemrysmmuudebsbyazghwgwjlslewevcvocfftaryqiuqxlfbbyguukraxzd\",\"email\":\"shanahan.bridie@example.net\",\"password\":\"magni\"}"
+    --data "{\"name\":\"trqnxnemrkljkswgqtwrrmyeaigaohgzdqlmdxokxycgxzzkkwrnrjrvcxznvzmzxacdqwmrgpucbadfqzyzcoytogorigungqtkccunhmzscorjznbsucktstxyimtkducqrvgoprupzbxlxcotjbosqpgkhepmopdbtpjuwzzkhcparqhqbdymgtijxblnnmngptcfghxlplimlbbvahrzdxbho\",\"email\":\"toconner@example.net\",\"password\":\"est\"}"
 </code></pre>
     <pre><code class="language-javascript">
 const url = new URL(
@@ -942,9 +943,9 @@ let headers = {
 };
 
 let body = {
-    "name": "meinzggvhunivpobtwkftopruribdemrysmmuudebsbyazghwgwjlslewevcvocfftaryqiuqxlfbbyguukraxzd",
-    "email": "shanahan.bridie@example.net",
-    "password": "magni"
+    "name": "trqnxnemrkljkswgqtwrrmyeaigaohgzdqlmdxokxycgxzzkkwrnrjrvcxznvzmzxacdqwmrgpucbadfqzyzcoytogorigungqtkccunhmzscorjznbsucktstxyimtkducqrvgoprupzbxlxcotjbosqpgkhepmopdbtpjuwzzkhcparqhqbdymgtijxblnnmngptcfghxlplimlbbvahrzdxbho",
+    "email": "toconner@example.net",
+    "password": "est"
 }
 
 fetch(url, {
@@ -961,9 +962,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'name' => 'meinzggvhunivpobtwkftopruribdemrysmmuudebsbyazghwgwjlslewevcvocfftaryqiuqxlfbbyguukraxzd',
-            'email' => 'shanahan.bridie@example.net',
-            'password' => 'magni',
+            'name' => 'trqnxnemrkljkswgqtwrrmyeaigaohgzdqlmdxokxycgxzzkkwrnrjrvcxznvzmzxacdqwmrgpucbadfqzyzcoytogorigungqtkccunhmzscorjznbsucktstxyimtkducqrvgoprupzbxlxcotjbosqpgkhepmopdbtpjuwzzkhcparqhqbdymgtijxblnnmngptcfghxlplimlbbvahrzdxbho',
+            'email' => 'toconner@example.net',
+            'password' => 'est',
         ],
     ]
 );
@@ -976,9 +977,9 @@ import json
 
 url = 'http://sideprojects.knuckles.wtf/api/users'
 payload = {
-    "name": "meinzggvhunivpobtwkftopruribdemrysmmuudebsbyazghwgwjlslewevcvocfftaryqiuqxlfbbyguukraxzd",
-    "email": "shanahan.bridie@example.net",
-    "password": "magni"
+    "name": "trqnxnemrkljkswgqtwrrmyeaigaohgzdqlmdxokxycgxzzkkwrnrjrvcxznvzmzxacdqwmrgpucbadfqzyzcoytogorigungqtkccunhmzscorjznbsucktstxyimtkducqrvgoprupzbxlxcotjbosqpgkhepmopdbtpjuwzzkhcparqhqbdymgtijxblnnmngptcfghxlplimlbbvahrzdxbho",
+    "email": "toconner@example.net",
+    "password": "est"
 }
 headers = {
   'Accept': 'application/json'
@@ -1030,12 +1031,12 @@ response.json()
             <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
 <input type="text" name="name" data-endpoint="POSTapi-users" data-component="body" required  hidden>
 <br>
-<p>The value must be at least 1 characters. The value must not be greater than 255 characters.</p>        </p>
+<p>Must be at least 1 characters. Must not be greater than 255 characters.</p>        </p>
                 <p>
             <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
 <input type="text" name="email" data-endpoint="POSTapi-users" data-component="body" required  hidden>
 <br>
-<p>The value must be a valid email address.</p>        </p>
+<p>Must be a valid email address.</p>        </p>
                 <p>
             <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
 <input type="text" name="password" data-endpoint="POSTapi-users" data-component="body" required  hidden>
@@ -1056,12 +1057,12 @@ and it figures out how to generate a sample. The 404 sample is gotten from a &qu
 
     <pre><code class="language-bash">
 curl --request GET \
-    --get "http://sideprojects.knuckles.wtf/api/users/4" \
+    --get "http://sideprojects.knuckles.wtf/api/users/7" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
     <pre><code class="language-javascript">
 const url = new URL(
-    "http://sideprojects.knuckles.wtf/api/users/4"
+    "http://sideprojects.knuckles.wtf/api/users/7"
 );
 
 let headers = {
@@ -1077,7 +1078,7 @@ fetch(url, {
 </code></pre>    <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://sideprojects.knuckles.wtf/api/users/4',
+    'http://sideprojects.knuckles.wtf/api/users/7',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -1091,7 +1092,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://sideprojects.knuckles.wtf/api/users/4'
+url = 'http://sideprojects.knuckles.wtf/api/users/7'
 headers = {
   'Accept': 'application/json'
 }
@@ -1108,17 +1109,17 @@ response.json()
 {
     &quot;data&quot;: {
         &quot;id&quot;: 6,
-        &quot;name&quot;: &quot;Maximillia Stracke&quot;,
-        &quot;email&quot;: &quot;schaefer.marielle@example.net&quot;,
+        &quot;name&quot;: &quot;Chaya Schinner&quot;,
+        &quot;email&quot;: &quot;itorp@example.net&quot;,
         &quot;side_projects&quot;: [
             {
                 &quot;id&quot;: 10,
-                &quot;name&quot;: &quot;et eaque in&quot;,
-                &quot;description&quot;: &quot;Error et mollitia pariatur enim.&quot;,
+                &quot;name&quot;: &quot;a sed nulla&quot;,
+                &quot;description&quot;: &quot;Illo ipsa alias tempore modi exercitationem molestias animi non.&quot;,
                 &quot;url&quot;: null,
-                &quot;due_at&quot;: &quot;20281002&quot;,
-                &quot;created_at&quot;: &quot;2021-05-30T01:04:25.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-05-30T01:04:25.000000Z&quot;,
+                &quot;due_at&quot;: &quot;20240525&quot;,
+                &quot;created_at&quot;: &quot;2021-05-31T11:55:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-05-31T11:55:44.000000Z&quot;,
                 &quot;user_id&quot;: &quot;6&quot;
             }
         ]
@@ -1461,12 +1462,12 @@ access-control-allow-origin: *
 
     <pre><code class="language-bash">
 curl --request POST \
-    "http://sideprojects.knuckles.wtf/api/users/14/auth" \
+    "http://sideprojects.knuckles.wtf/api/users/10/auth" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
     <pre><code class="language-javascript">
 const url = new URL(
-    "http://sideprojects.knuckles.wtf/api/users/14/auth"
+    "http://sideprojects.knuckles.wtf/api/users/10/auth"
 );
 
 let headers = {
@@ -1482,7 +1483,7 @@ fetch(url, {
 </code></pre>    <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://sideprojects.knuckles.wtf/api/users/14/auth',
+    'http://sideprojects.knuckles.wtf/api/users/10/auth',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -1496,7 +1497,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://sideprojects.knuckles.wtf/api/users/14/auth'
+url = 'http://sideprojects.knuckles.wtf/api/users/10/auth'
 headers = {
   'Accept': 'application/json'
 }

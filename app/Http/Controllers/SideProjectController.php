@@ -21,6 +21,8 @@ class SideProjectController extends Controller
     /**
      * View all side projects
      *
+     * This endpoint's response was gotten via a "response call"—
+     * Scribe called our API in a test environment to get a sample response.
      */
     public function index()
     {
