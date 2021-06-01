@@ -58,7 +58,7 @@ endpoints:
         name: name
         description: 'The name of your side project. Must not be greater than 80 characters.'
         required: true
-        example: '"The SideProject API"'
+        example: 'The SideProject API'
         type: string
       description:
         name: description

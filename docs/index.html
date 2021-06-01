@@ -25,7 +25,7 @@
 
 </head>
 
-<body class="" data-languages="[&quot;bash&quot;,&quot;javascript&quot;,&quot;php&quot;,&quot;python&quot;]">
+<body class="" data-languages="[&quot;bash&quot;,&quot;javascript&quot;,&quot;php&quot;,&quot;python&quot;,&quot;ruby&quot;]">
 <a href="#" id="nav-button">
       <span>
         MENU
@@ -38,6 +38,7 @@
                             <a href="#" data-language-name="javascript">javascript</a>
                             <a href="#" data-language-name="php">php</a>
                             <a href="#" data-language-name="python">python</a>
+                            <a href="#" data-language-name="ruby">ruby</a>
                     </div>
         <div class="search">
         <input type="text" class="search" id="input-search" placeholder="Search">
@@ -52,7 +53,7 @@
                             <li><a href="openapi.yaml">View OpenAPI spec</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: May 31 2021</li>
+            <li>Last updated: June 1 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -69,7 +70,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <blockquote>
 <p>Base URL</p>
 </blockquote>
-<pre><code class="language-yaml">http://sideprojects.knuckles.wtf</code></pre>
+<pre><code class="language-yaml">http://testapi.com</code></pre>
 
         <h1>Authenticating requests</h1>
 <p>This API is not authenticated.</p>
@@ -89,14 +90,15 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <blockquote>Example request:</blockquote>
 
-    <pre><code class="language-bash">
+
+<pre><code class="language-bash">
 curl --request GET \
-    --get "http://sideprojects.knuckles.wtf/api/healthcheck" \
+    --get "http://testapi.com/api/healthcheck" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
-    <pre><code class="language-javascript">
-const url = new URL(
-    "http://sideprojects.knuckles.wtf/api/healthcheck"
+    --header "Accept: application/json"```</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/healthcheck"
 );
 
 let headers = {
@@ -104,35 +106,47 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "GET",
     headers,
-}).then(response => response.json());
-</code></pre>    <pre><code class="language-php">
-$client = new \GuzzleHttp\Client();
-$response = $client->get(
-    'http://sideprojects.knuckles.wtf/api/healthcheck',
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://testapi.com/api/healthcheck',
     [
-        'headers' => [
-            'Accept' => 'application/json',
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
         ],
     ]
 );
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-</code></pre>
-    <pre><code class="language-python">
-import requests
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
 import json
 
-url = 'http://sideprojects.knuckles.wtf/api/healthcheck'
+url = 'http://testapi.com/api/healthcheck'
 headers = {
   'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers)
-response.json()
+response.json()</code></pre>
+
+<pre><code class="language-ruby">
+require 'rest-client'
+
+headers = {
+    "Accept": "application/json",
+}
+
+response = RestClient.get(
+  'http://testapi.com/api/healthcheck',
+  headers
+)
+
+p response.body
 </code></pre>
 
             <blockquote>
@@ -239,14 +253,15 @@ Scribe called our API in a test environment to get a sample response.</p>
 
 <blockquote>Example request:</blockquote>
 
-    <pre><code class="language-bash">
+
+<pre><code class="language-bash">
 curl --request GET \
-    --get "http://sideprojects.knuckles.wtf/api/side_projects" \
+    --get "http://testapi.com/api/side_projects" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
-    <pre><code class="language-javascript">
-const url = new URL(
-    "http://sideprojects.knuckles.wtf/api/side_projects"
+    --header "Accept: application/json"```</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/side_projects"
 );
 
 let headers = {
@@ -254,35 +269,47 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "GET",
     headers,
-}).then(response => response.json());
-</code></pre>    <pre><code class="language-php">
-$client = new \GuzzleHttp\Client();
-$response = $client->get(
-    'http://sideprojects.knuckles.wtf/api/side_projects',
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://testapi.com/api/side_projects',
     [
-        'headers' => [
-            'Accept' => 'application/json',
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
         ],
     ]
 );
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-</code></pre>
-    <pre><code class="language-python">
-import requests
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
 import json
 
-url = 'http://sideprojects.knuckles.wtf/api/side_projects'
+url = 'http://testapi.com/api/side_projects'
 headers = {
   'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers)
-response.json()
+response.json()</code></pre>
+
+<pre><code class="language-ruby">
+require 'rest-client'
+
+headers = {
+    "Accept": "application/json",
+}
+
+response = RestClient.get(
+  'http://testapi.com/api/side_projects',
+  headers
+)
+
+p response.body
 </code></pre>
 
             <blockquote>
@@ -447,16 +474,15 @@ from the controller's code. Check out the source! </aside></p>
 
 <blockquote>Example request:</blockquote>
 
-    <pre><code class="language-bash">
-curl --request POST \
-    "http://sideprojects.knuckles.wtf/api/side_projects" \
+
+<pre><code class="language-bash">curl --request POST \
+    "http://testapi.com/api/side_projects" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --data "{\"name\":\"\\\"The SideProject API\\\"\",\"description\":\"sogdteihlaodtuesxlcjccmumvueaqrzmrjzxagwffmmojyubrekpbmhsbokzkztsiikazrxqdgtonbqleghxiwfoopcjvrhbdacaeylhnfyjkhcptvqkngkengcntvxqlsurucdxvuylbglmeyynmxreohvojahkyqyowxtlewslgeibjfwgyrjovircbjzllbjibvzjcuktprzuszolftzuxeafvmsfkqqsetgbzrjqovztqyxohzmncroo\",\"url\":\"https:\\/\\/www.rohan.com\\/quia-aperiam-alias-qui-facere-vitae\",\"due_at\":\"2087-12-08\"}"
-</code></pre>
-    <pre><code class="language-javascript">
-const url = new URL(
-    "http://sideprojects.knuckles.wtf/api/side_projects"
+    --data "{\"name\":\"The SideProject API\",\"description\":\"ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua\",\"url\":\"http:\\/\\/www.smitham.info\\/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html\",\"due_at\":\"2077-09-25\"}"</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/side_projects"
 );
 
 let headers = {
@@ -465,53 +491,73 @@ let headers = {
 };
 
 let body = {
-    "name": "\"The SideProject API\"",
-    "description": "sogdteihlaodtuesxlcjccmumvueaqrzmrjzxagwffmmojyubrekpbmhsbokzkztsiikazrxqdgtonbqleghxiwfoopcjvrhbdacaeylhnfyjkhcptvqkngkengcntvxqlsurucdxvuylbglmeyynmxreohvojahkyqyowxtlewslgeibjfwgyrjovircbjzllbjibvzjcuktprzuszolftzuxeafvmsfkqqsetgbzrjqovztqyxohzmncroo",
-    "url": "https:\/\/www.rohan.com\/quia-aperiam-alias-qui-facere-vitae",
-    "due_at": "2087-12-08"
+    "name": "The SideProject API",
+    "description": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
+    "url": "http:\/\/www.smitham.info\/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html",
+    "due_at": "2077-09-25"
 }
 
 fetch(url, {
     method: "POST",
     headers,
     body: JSON.stringify(body),
-}).then(response => response.json());
-</code></pre>    <pre><code class="language-php">
-$client = new \GuzzleHttp\Client();
-$response = $client->post(
-    'http://sideprojects.knuckles.wtf/api/side_projects',
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://testapi.com/api/side_projects',
     [
-        'headers' => [
-            'Accept' => 'application/json',
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
         ],
-        'json' => [
-            'name' => '"The SideProject API"',
-            'description' => 'sogdteihlaodtuesxlcjccmumvueaqrzmrjzxagwffmmojyubrekpbmhsbokzkztsiikazrxqdgtonbqleghxiwfoopcjvrhbdacaeylhnfyjkhcptvqkngkengcntvxqlsurucdxvuylbglmeyynmxreohvojahkyqyowxtlewslgeibjfwgyrjovircbjzllbjibvzjcuktprzuszolftzuxeafvmsfkqqsetgbzrjqovztqyxohzmncroo',
-            'url' => 'https://www.rohan.com/quia-aperiam-alias-qui-facere-vitae',
-            'due_at' => '2087-12-08',
+        'json' =&gt; [
+            'name' =&gt; 'The SideProject API',
+            'description' =&gt; 'ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua',
+            'url' =&gt; 'http://www.smitham.info/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html',
+            'due_at' =&gt; '2077-09-25',
         ],
     ]
 );
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-</code></pre>
-    <pre><code class="language-python">
-import requests
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
 import json
 
-url = 'http://sideprojects.knuckles.wtf/api/side_projects'
+url = 'http://testapi.com/api/side_projects'
 payload = {
-    "name": "\"The SideProject API\"",
-    "description": "sogdteihlaodtuesxlcjccmumvueaqrzmrjzxagwffmmojyubrekpbmhsbokzkztsiikazrxqdgtonbqleghxiwfoopcjvrhbdacaeylhnfyjkhcptvqkngkengcntvxqlsurucdxvuylbglmeyynmxreohvojahkyqyowxtlewslgeibjfwgyrjovircbjzllbjibvzjcuktprzuszolftzuxeafvmsfkqqsetgbzrjqovztqyxohzmncroo",
-    "url": "https:\/\/www.rohan.com\/quia-aperiam-alias-qui-facere-vitae",
-    "due_at": "2087-12-08"
+    "name": "The SideProject API",
+    "description": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
+    "url": "http:\/\/www.smitham.info\/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html",
+    "due_at": "2077-09-25"
 }
 headers = {
   'Accept': 'application/json'
 }
 
 response = requests.request('POST', url, headers=headers, json=payload)
-response.json()
+response.json()</code></pre>
+
+<pre><code class="language-ruby">
+require 'rest-client'
+
+body = {
+    "name": "The SideProject API",
+    "description": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
+    "url": "http:\/\/www.smitham.info\/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html",
+    "due_at": "2077-09-25"
+}
+headers = {
+    "Accept": "application/json",
+}
+
+response = RestClient.post(
+  'http://testapi.com/api/side_projects',
+  body ,
+  headers
+)
+
+p response.body
 </code></pre>
 
 <div id="execution-results-POSTapi-side_projects" hidden>
@@ -594,14 +640,15 @@ and it figures out how to generate a sample. The 404 sample is gotten from a &qu
 
 <blockquote>Example request:</blockquote>
 
-    <pre><code class="language-bash">
+
+<pre><code class="language-bash">
 curl --request GET \
-    --get "http://sideprojects.knuckles.wtf/api/side_projects/9" \
+    --get "http://testapi.com/api/side_projects/12" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
-    <pre><code class="language-javascript">
-const url = new URL(
-    "http://sideprojects.knuckles.wtf/api/side_projects/9"
+    --header "Accept: application/json"```</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/side_projects/12"
 );
 
 let headers = {
@@ -609,35 +656,47 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "GET",
     headers,
-}).then(response => response.json());
-</code></pre>    <pre><code class="language-php">
-$client = new \GuzzleHttp\Client();
-$response = $client->get(
-    'http://sideprojects.knuckles.wtf/api/side_projects/9',
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://testapi.com/api/side_projects/12',
     [
-        'headers' => [
-            'Accept' => 'application/json',
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
         ],
     ]
 );
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-</code></pre>
-    <pre><code class="language-python">
-import requests
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
 import json
 
-url = 'http://sideprojects.knuckles.wtf/api/side_projects/9'
+url = 'http://testapi.com/api/side_projects/12'
 headers = {
   'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers)
-response.json()
+response.json()</code></pre>
+
+<pre><code class="language-ruby">
+require 'rest-client'
+
+headers = {
+    "Accept": "application/json",
+}
+
+response = RestClient.get(
+  'http://testapi.com/api/side_projects/12',
+  headers
+)
+
+p response.body
 </code></pre>
 
             <blockquote>
@@ -647,9 +706,9 @@ response.json()
                 <code class="language-json">
 {
     &quot;data&quot;: {
-        &quot;name&quot;: &quot;incidunt laudantium cupiditate&quot;,
-        &quot;description&quot;: &quot;Accusantium ut dolores debitis ut et.&quot;,
-        &quot;due_date&quot;: &quot;20220707&quot;,
+        &quot;name&quot;: &quot;quo quo molestias&quot;,
+        &quot;description&quot;: &quot;Tempora aspernatur officiis omnis sed similique et et.&quot;,
+        &quot;due_date&quot;: &quot;20241229&quot;,
         &quot;owner&quot;: {
             &quot;id&quot;: 1,
             &quot;name&quot;: &quot;Pete&quot;,
@@ -716,14 +775,15 @@ response.json()
 
 <blockquote>Example request:</blockquote>
 
-    <pre><code class="language-bash">
+
+<pre><code class="language-bash">
 curl --request PUT \
-    "http://sideprojects.knuckles.wtf/api/side_projects/14" \
+    "http://testapi.com/api/side_projects/12" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
-    <pre><code class="language-javascript">
-const url = new URL(
-    "http://sideprojects.knuckles.wtf/api/side_projects/14"
+    --header "Accept: application/json"```</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/side_projects/12"
 );
 
 let headers = {
@@ -731,35 +791,47 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "PUT",
     headers,
-}).then(response => response.json());
-</code></pre>    <pre><code class="language-php">
-$client = new \GuzzleHttp\Client();
-$response = $client->put(
-    'http://sideprojects.knuckles.wtf/api/side_projects/14',
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'http://testapi.com/api/side_projects/12',
     [
-        'headers' => [
-            'Accept' => 'application/json',
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
         ],
     ]
 );
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-</code></pre>
-    <pre><code class="language-python">
-import requests
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
 import json
 
-url = 'http://sideprojects.knuckles.wtf/api/side_projects/14'
+url = 'http://testapi.com/api/side_projects/12'
 headers = {
   'Accept': 'application/json'
 }
 
 response = requests.request('PUT', url, headers=headers)
-response.json()
+response.json()</code></pre>
+
+<pre><code class="language-ruby">
+require 'rest-client'
+
+headers = {
+    "Accept": "application/json",
+}
+
+response = RestClient.put(
+  'http://testapi.com/api/side_projects/12',
+  headers
+)
+
+p response.body
 </code></pre>
 
 <div id="execution-results-PUTapi-side_projects--id-" hidden>
@@ -820,14 +892,15 @@ response.json()
 
 <blockquote>Example request:</blockquote>
 
-    <pre><code class="language-bash">
+
+<pre><code class="language-bash">
 curl --request DELETE \
-    "http://sideprojects.knuckles.wtf/api/side_projects/14" \
+    "http://testapi.com/api/side_projects/12" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
-    <pre><code class="language-javascript">
-const url = new URL(
-    "http://sideprojects.knuckles.wtf/api/side_projects/14"
+    --header "Accept: application/json"```</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/side_projects/12"
 );
 
 let headers = {
@@ -835,35 +908,47 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "DELETE",
     headers,
-}).then(response => response.json());
-</code></pre>    <pre><code class="language-php">
-$client = new \GuzzleHttp\Client();
-$response = $client->delete(
-    'http://sideprojects.knuckles.wtf/api/side_projects/14',
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://testapi.com/api/side_projects/12',
     [
-        'headers' => [
-            'Accept' => 'application/json',
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
         ],
     ]
 );
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-</code></pre>
-    <pre><code class="language-python">
-import requests
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
 import json
 
-url = 'http://sideprojects.knuckles.wtf/api/side_projects/14'
+url = 'http://testapi.com/api/side_projects/12'
 headers = {
   'Accept': 'application/json'
 }
 
 response = requests.request('DELETE', url, headers=headers)
-response.json()
+response.json()</code></pre>
+
+<pre><code class="language-ruby">
+require 'rest-client'
+
+headers = {
+    "Accept": "application/json",
+}
+
+response = RestClient.delete(
+  'http://testapi.com/api/side_projects/12',
+  headers
+)
+
+p response.body
 </code></pre>
 
 <div id="execution-results-DELETEapi-side_projects--id-" hidden>
@@ -925,16 +1010,15 @@ response.json()
 
 <blockquote>Example request:</blockquote>
 
-    <pre><code class="language-bash">
-curl --request POST \
-    "http://sideprojects.knuckles.wtf/api/users" \
+
+<pre><code class="language-bash">curl --request POST \
+    "http://testapi.com/api/users" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --data "{\"name\":\"iyvesjvapprtnqekbbuconazxeqwxsdisrbawwoxwbrpoalydexicizlwatouoarqlvu\",\"email\":\"felipa38@example.net\",\"password\":\"soluta\"}"
-</code></pre>
-    <pre><code class="language-javascript">
-const url = new URL(
-    "http://sideprojects.knuckles.wtf/api/users"
+    --data "{\"name\":\"ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua\",\"email\":\"mckayla50@example.net\",\"password\":\"error\"}"</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/users"
 );
 
 let headers = {
@@ -943,50 +1027,69 @@ let headers = {
 };
 
 let body = {
-    "name": "iyvesjvapprtnqekbbuconazxeqwxsdisrbawwoxwbrpoalydexicizlwatouoarqlvu",
-    "email": "felipa38@example.net",
-    "password": "soluta"
+    "name": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
+    "email": "mckayla50@example.net",
+    "password": "error"
 }
 
 fetch(url, {
     method: "POST",
     headers,
     body: JSON.stringify(body),
-}).then(response => response.json());
-</code></pre>    <pre><code class="language-php">
-$client = new \GuzzleHttp\Client();
-$response = $client->post(
-    'http://sideprojects.knuckles.wtf/api/users',
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://testapi.com/api/users',
     [
-        'headers' => [
-            'Accept' => 'application/json',
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
         ],
-        'json' => [
-            'name' => 'iyvesjvapprtnqekbbuconazxeqwxsdisrbawwoxwbrpoalydexicizlwatouoarqlvu',
-            'email' => 'felipa38@example.net',
-            'password' => 'soluta',
+        'json' =&gt; [
+            'name' =&gt; 'ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua',
+            'email' =&gt; 'mckayla50@example.net',
+            'password' =&gt; 'error',
         ],
     ]
 );
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-</code></pre>
-    <pre><code class="language-python">
-import requests
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
 import json
 
-url = 'http://sideprojects.knuckles.wtf/api/users'
+url = 'http://testapi.com/api/users'
 payload = {
-    "name": "iyvesjvapprtnqekbbuconazxeqwxsdisrbawwoxwbrpoalydexicizlwatouoarqlvu",
-    "email": "felipa38@example.net",
-    "password": "soluta"
+    "name": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
+    "email": "mckayla50@example.net",
+    "password": "error"
 }
 headers = {
   'Accept': 'application/json'
 }
 
 response = requests.request('POST', url, headers=headers, json=payload)
-response.json()
+response.json()</code></pre>
+
+<pre><code class="language-ruby">
+require 'rest-client'
+
+body = {
+    "name": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
+    "email": "mckayla50@example.net",
+    "password": "error"
+}
+headers = {
+    "Accept": "application/json",
+}
+
+response = RestClient.post(
+  'http://testapi.com/api/users',
+  body ,
+  headers
+)
+
+p response.body
 </code></pre>
 
 <div id="execution-results-POSTapi-users" hidden>
@@ -1055,14 +1158,15 @@ and it figures out how to generate a sample. The 404 sample is gotten from a &qu
 
 <blockquote>Example request:</blockquote>
 
-    <pre><code class="language-bash">
+
+<pre><code class="language-bash">
 curl --request GET \
-    --get "http://sideprojects.knuckles.wtf/api/users/9" \
+    --get "http://testapi.com/api/users/12" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
-    <pre><code class="language-javascript">
-const url = new URL(
-    "http://sideprojects.knuckles.wtf/api/users/9"
+    --header "Accept: application/json"```</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/users/12"
 );
 
 let headers = {
@@ -1070,35 +1174,47 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "GET",
     headers,
-}).then(response => response.json());
-</code></pre>    <pre><code class="language-php">
-$client = new \GuzzleHttp\Client();
-$response = $client->get(
-    'http://sideprojects.knuckles.wtf/api/users/9',
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://testapi.com/api/users/12',
     [
-        'headers' => [
-            'Accept' => 'application/json',
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
         ],
     ]
 );
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-</code></pre>
-    <pre><code class="language-python">
-import requests
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
 import json
 
-url = 'http://sideprojects.knuckles.wtf/api/users/9'
+url = 'http://testapi.com/api/users/12'
 headers = {
   'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers)
-response.json()
+response.json()</code></pre>
+
+<pre><code class="language-ruby">
+require 'rest-client'
+
+headers = {
+    "Accept": "application/json",
+}
+
+response = RestClient.get(
+  'http://testapi.com/api/users/12',
+  headers
+)
+
+p response.body
 </code></pre>
 
             <blockquote>
@@ -1109,17 +1225,17 @@ response.json()
 {
     &quot;data&quot;: {
         &quot;id&quot;: 6,
-        &quot;name&quot;: &quot;Waylon Dickinson&quot;,
-        &quot;email&quot;: &quot;wfriesen@example.org&quot;,
+        &quot;name&quot;: &quot;Dr. Kallie Schroeder&quot;,
+        &quot;email&quot;: &quot;boyle.krista@example.com&quot;,
         &quot;side_projects&quot;: [
             {
                 &quot;id&quot;: 10,
-                &quot;name&quot;: &quot;iusto dolor neque&quot;,
-                &quot;description&quot;: &quot;Aliquam quia quis ratione iure.&quot;,
+                &quot;name&quot;: &quot;similique et et&quot;,
+                &quot;description&quot;: &quot;Odit molestiae non est nostrum sunt.&quot;,
                 &quot;url&quot;: null,
-                &quot;due_at&quot;: &quot;20280228&quot;,
-                &quot;created_at&quot;: &quot;2021-05-31T16:44:48.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-05-31T16:44:48.000000Z&quot;,
+                &quot;due_at&quot;: &quot;20221027&quot;,
+                &quot;created_at&quot;: &quot;2021-06-01T16:38:10.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-01T16:38:10.000000Z&quot;,
                 &quot;user_id&quot;: &quot;6&quot;
             }
         ]
@@ -1194,53 +1310,52 @@ response.json()
 
 <blockquote>Example request:</blockquote>
 
-    <pre><code class="language-bash">
+
+<pre><code class="language-bash">
 curl --request GET \
-    --get "http://sideprojects.knuckles.wtf/api/users?page=1" \
+    --get "http://testapi.com/api/users?page=1" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
-    <pre><code class="language-javascript">
-const url = new URL(
-    "http://sideprojects.knuckles.wtf/api/users"
+    --header "Accept: application/json"```</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/users"
 );
 
 let params = {
     "page": "1",
 };
 Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "GET",
     headers,
-}).then(response => response.json());
-</code></pre>    <pre><code class="language-php">
-$client = new \GuzzleHttp\Client();
-$response = $client->get(
-    'http://sideprojects.knuckles.wtf/api/users',
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://testapi.com/api/users',
     [
-        'headers' => [
-            'Accept' => 'application/json',
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
         ],
-        'query' => [
-            'page'=> '1',
+        'query' =&gt; [
+            'page'=&gt; '1',
         ],
     ]
 );
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-</code></pre>
-    <pre><code class="language-python">
-import requests
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
 import json
 
-url = 'http://sideprojects.knuckles.wtf/api/users'
+url = 'http://testapi.com/api/users'
 params = {
   'page': '1',
 }
@@ -1249,7 +1364,21 @@ headers = {
 }
 
 response = requests.request('GET', url, headers=headers, params=params)
-response.json()
+response.json()</code></pre>
+
+<pre><code class="language-ruby">
+require 'rest-client'
+
+headers = {
+    "Accept": "application/json",
+}
+
+response = RestClient.get(
+  'http://testapi.com/api/users',
+  headers
+)
+
+p response.body
 </code></pre>
 
             <blockquote>
@@ -1460,14 +1589,15 @@ access-control-allow-origin: *
 
 <blockquote>Example request:</blockquote>
 
-    <pre><code class="language-bash">
+
+<pre><code class="language-bash">
 curl --request POST \
-    "http://sideprojects.knuckles.wtf/api/users/4/auth" \
+    "http://testapi.com/api/users/12/auth" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
-    <pre><code class="language-javascript">
-const url = new URL(
-    "http://sideprojects.knuckles.wtf/api/users/4/auth"
+    --header "Accept: application/json"```</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/users/12/auth"
 );
 
 let headers = {
@@ -1475,35 +1605,47 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "POST",
     headers,
-}).then(response => response.json());
-</code></pre>    <pre><code class="language-php">
-$client = new \GuzzleHttp\Client();
-$response = $client->post(
-    'http://sideprojects.knuckles.wtf/api/users/4/auth',
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://testapi.com/api/users/12/auth',
     [
-        'headers' => [
-            'Accept' => 'application/json',
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
         ],
     ]
 );
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-</code></pre>
-    <pre><code class="language-python">
-import requests
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
 import json
 
-url = 'http://sideprojects.knuckles.wtf/api/users/4/auth'
+url = 'http://testapi.com/api/users/12/auth'
 headers = {
   'Accept': 'application/json'
 }
 
 response = requests.request('POST', url, headers=headers)
-response.json()
+response.json()</code></pre>
+
+<pre><code class="language-ruby">
+require 'rest-client'
+
+headers = {
+    "Accept": "application/json",
+}
+
+response = RestClient.post(
+  'http://testapi.com/api/users/12/auth',
+  headers
+)
+
+p response.body
 </code></pre>
 
             <blockquote>
@@ -1577,12 +1719,13 @@ response.json()
                                     <a href="#" data-language-name="javascript">javascript</a>
                                     <a href="#" data-language-name="php">php</a>
                                     <a href="#" data-language-name="python">python</a>
+                                    <a href="#" data-language-name="ruby">ruby</a>
                             </div>
             </div>
 </div>
 <script>
     $(function () {
-        var exampleLanguages = ["bash","javascript","php","python"];
+        var exampleLanguages = ["bash","javascript","php","python","ruby"];
         setupLanguages(exampleLanguages);
     });
 </script>

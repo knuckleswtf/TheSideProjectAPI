@@ -62,7 +62,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":6,"name":"Dr. Kallie Schroeder","email":"boyle.krista@example.com","side_projects":[{"id":10,"name":"similique et et","description":"Odit molestiae non est nostrum sunt.","url":null,"due_at":"20221026","created_at":"2021-06-01T13:45:30.000000Z","updated_at":"2021-06-01T13:45:30.000000Z","user_id":"6"}]}}'
+        content: '{"data":{"id":6,"name":"Dr. Kallie Schroeder","email":"boyle.krista@example.com","side_projects":[{"id":10,"name":"similique et et","description":"Odit molestiae non est nostrum sunt.","url":null,"due_at":"20221027","created_at":"2021-06-01T16:38:10.000000Z","updated_at":"2021-06-01T16:38:10.000000Z","user_id":"6"}]}}'
         headers: []
         description: null
       -

@@ -19,7 +19,7 @@ return [
     /*
      * The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url').
      */
-    'base_url' => 'http://sideprojects.knuckles.wtf',
+    'base_url' => 'http://testapi.com',
 
     /*
      * Tell Scribe what routes to generate documentation for.
@@ -260,6 +260,7 @@ INTRO
         'javascript',
         'php',
         'python',
+        'ruby',
     ],
 
     /*

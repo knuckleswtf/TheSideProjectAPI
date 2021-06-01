@@ -42,7 +42,7 @@ class SideProjectController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            // The name of your side project. Example: "The SideProject API"
+            // The name of your side project. Example: The SideProject API
             'name' => 'string|max:80|required',
             // A longer description of your side project.
             'description' => 'string|max:255',
