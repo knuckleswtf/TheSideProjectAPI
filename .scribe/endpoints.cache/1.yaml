@@ -64,19 +64,19 @@ endpoints:
         name: description
         description: 'A longer description of your side project. Must not be greater than 255 characters.'
         required: false
-        example: sogdteihlaodtuesxlcjccmumvueaqrzmrjzxagwffmmojyubrekpbmhsbokzkztsiikazrxqdgtonbqleghxiwfoopcjvrhbdacaeylhnfyjkhcptvqkngkengcntvxqlsurucdxvuylbglmeyynmxreohvojahkyqyowxtlewslgeibjfwgyrjovircbjzllbjibvzjcuktprzuszolftzuxeafvmsfkqqsetgbzrjqovztqyxohzmncroo
+        example: ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua
         type: string
       url:
         name: url
         description: 'A url to your side project. Must be a valid URL.'
         required: false
-        example: 'https://www.rohan.com/quia-aperiam-alias-qui-facere-vitae'
+        example: 'http://www.smitham.info/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html'
         type: string
       due_at:
         name: due_at
         description: 'Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.'
         required: false
-        example: '2087-12-08'
+        example: '2077-09-25'
         type: string
     responses: []
     responseFields: []
@@ -100,14 +100,14 @@ endpoints:
         name: id
         description: 'The ID of the side project.'
         required: true
-        example: 9
+        example: 12
         type: integer
     queryParameters: []
     bodyParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"name":"incidunt laudantium cupiditate","description":"Accusantium ut dolores debitis ut et.","due_date":"20220707","owner":{"id":1,"name":"Pete","email":"pete@home.com","email_verified_at":null,"created_at":"2021-05-29T22:53:05.000000Z","updated_at":"2021-05-29T22:53:05.000000Z"}}}'
+        content: '{"data":{"name":"quo quo molestias","description":"Tempora aspernatur officiis omnis sed similique et et.","due_date":"20241229","owner":{"id":1,"name":"Pete","email":"pete@home.com","email_verified_at":null,"created_at":"2021-05-29T22:53:05.000000Z","updated_at":"2021-05-29T22:53:05.000000Z"}}}'
         headers: []
         description: null
     responseFields: []
@@ -128,7 +128,7 @@ endpoints:
         name: id
         description: 'The ID of the side project.'
         required: true
-        example: 14
+        example: 12
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -150,7 +150,7 @@ endpoints:
         name: id
         description: 'The ID of the side project.'
         required: true
-        example: 14
+        example: 12
         type: integer
     queryParameters: []
     bodyParameters: []

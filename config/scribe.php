@@ -317,7 +317,7 @@ INTRO
      * If you would like the package to generate the same example values for parameters on each run,
      * set this to any number (eg. 1234)
      */
-    'faker_seed' => null,
+    'faker_seed' => 9743,
 
     /**
      * The strategies Scribe will use to extract information about your routes at each stage.
