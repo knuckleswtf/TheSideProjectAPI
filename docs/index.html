@@ -53,7 +53,7 @@
                             <li><a href="openapi.yaml">View OpenAPI spec</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: June 1 2021</li>
+            <li>Last updated: June 2 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -73,7 +73,9 @@ You can switch the language used with the tabs at the top right (or from the nav
 <pre><code class="language-yaml">http://testapi.com</code></pre>
 
         <h1>Authenticating requests</h1>
-<p>This API is not authenticated.</p>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+<p>You can retrieve your token by using the <code>users/auth</code> endpoint.</p>
 
         <h1 id="general">General</h1>
     <p>
@@ -477,15 +479,17 @@ from the controller's code. Check out the source! </aside></p>
 
 <pre><code class="language-bash">curl --request POST \
     "http://testapi.com/api/side_projects" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --data "{\"name\":\"The SideProject API\",\"description\":\"ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua\",\"url\":\"http:\\/\\/www.smitham.info\\/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html\",\"due_at\":\"2077-09-25\"}"</code></pre>
+    --data "{\"name\":\"The SideProject API\",\"description\":\"ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua\",\"url\":\"http:\\/\\/www.smitham.info\\/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html\",\"due_at\":\"2077-09-26\"}"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
     "http://testapi.com/api/side_projects"
 );
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -494,7 +498,7 @@ let body = {
     "name": "The SideProject API",
     "description": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
     "url": "http:\/\/www.smitham.info\/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html",
-    "due_at": "2077-09-25"
+    "due_at": "2077-09-26"
 }
 
 fetch(url, {
@@ -508,13 +512,14 @@ $response = $client-&gt;post(
     'http://testapi.com/api/side_projects',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
             'name' =&gt; 'The SideProject API',
             'description' =&gt; 'ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua',
             'url' =&gt; 'http://www.smitham.info/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html',
-            'due_at' =&gt; '2077-09-25',
+            'due_at' =&gt; '2077-09-26',
         ],
     ]
 );
@@ -529,9 +534,10 @@ payload = {
     "name": "The SideProject API",
     "description": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
     "url": "http:\/\/www.smitham.info\/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html",
-    "due_at": "2077-09-25"
+    "due_at": "2077-09-26"
 }
 headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Accept': 'application/json'
 }
 
@@ -545,9 +551,10 @@ body = {
     "name": "The SideProject API",
     "description": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
     "url": "http:\/\/www.smitham.info\/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html",
-    "due_at": "2077-09-25"
+    "due_at": "2077-09-26"
 }
 headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Accept": "application/json",
 }
 
@@ -574,7 +581,7 @@ p response.body
       data-path="api/side_projects"
       data-authed="1"
       data-hasfiles=""
-      data-headers='{"Accept":"application\/json"}'
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}'
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-side_projects', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
@@ -708,7 +715,7 @@ p response.body
     &quot;data&quot;: {
         &quot;name&quot;: &quot;quo quo molestias&quot;,
         &quot;description&quot;: &quot;Tempora aspernatur officiis omnis sed similique et et.&quot;,
-        &quot;due_date&quot;: &quot;20241229&quot;,
+        &quot;due_date&quot;: &quot;20241230&quot;,
         &quot;owner&quot;: {
             &quot;id&quot;: 1,
             &quot;name&quot;: &quot;Pete&quot;,
@@ -1234,8 +1241,8 @@ p response.body
                 &quot;description&quot;: &quot;Odit molestiae non est nostrum sunt.&quot;,
                 &quot;url&quot;: null,
                 &quot;due_at&quot;: &quot;20221027&quot;,
-                &quot;created_at&quot;: &quot;2021-06-01T16:38:10.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-06-01T16:38:10.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2021-06-02T12:17:43.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-02T12:17:43.000000Z&quot;,
                 &quot;user_id&quot;: &quot;6&quot;
             }
         ]
@@ -1711,7 +1718,9 @@ p response.body
 <p>The new API token. Valid forever.</p>        </p>
         
 
-        
+        <h1>Some extra info</h1>
+<p>Just some extra info added via an <code>append.md</code> file.</p>
+<p>Go on, <a href="https://github.com/knuckleswtf/scribe">go check Scribe out</a> 😄.</p>
     </div>
     <div class="dark-box">
                     <div class="lang-selector">

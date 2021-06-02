@@ -87,6 +87,13 @@ paths:
       parameters:
         -
           in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
           name: Accept
           description: ''
           example: application/json
@@ -117,7 +124,7 @@ paths:
                 due_at:
                   type: string
                   description: 'Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.'
-                  example: '2077-09-25'
+                  example: '2077-09-26'
               required:
                 - name
   '/api/side_projects/{id}':
@@ -140,9 +147,9 @@ paths:
               schema:
                 type: object
                 example:
-                  data: { name: 'quo quo molestias', description: 'Tempora aspernatur officiis omnis sed similique et et.', due_date: '20241229', owner: { id: 1, name: Pete, email: pete@home.com, email_verified_at: null, created_at: '2021-05-29T22:53:05.000000Z', updated_at: '2021-05-29T22:53:05.000000Z' } }
+                  data: { name: 'quo quo molestias', description: 'Tempora aspernatur officiis omnis sed similique et et.', due_date: '20241230', owner: { id: 1, name: Pete, email: pete@home.com, email_verified_at: null, created_at: '2021-05-29T22:53:05.000000Z', updated_at: '2021-05-29T22:53:05.000000Z' } }
                 properties:
-                  data: { type: object, example: { name: 'quo quo molestias', description: 'Tempora aspernatur officiis omnis sed similique et et.', due_date: '20241229', owner: { id: 1, name: Pete, email: pete@home.com, email_verified_at: null, created_at: '2021-05-29T22:53:05.000000Z', updated_at: '2021-05-29T22:53:05.000000Z' } } }
+                  data: { type: object, example: { name: 'quo quo molestias', description: 'Tempora aspernatur officiis omnis sed similique et et.', due_date: '20241230', owner: { id: 1, name: Pete, email: pete@home.com, email_verified_at: null, created_at: '2021-05-29T22:53:05.000000Z', updated_at: '2021-05-29T22:53:05.000000Z' } } }
       tags:
         - 'Side Projects'
       security: []
@@ -289,9 +296,9 @@ paths:
               schema:
                 type: object
                 example:
-                  data: { id: 6, name: 'Dr. Kallie Schroeder', email: boyle.krista@example.com, side_projects: [{ id: 10, name: 'similique et et', description: 'Odit molestiae non est nostrum sunt.', url: null, due_at: '20221027', created_at: '2021-06-01T16:38:10.000000Z', updated_at: '2021-06-01T16:38:10.000000Z', user_id: '6' }] }
+                  data: { id: 6, name: 'Dr. Kallie Schroeder', email: boyle.krista@example.com, side_projects: [{ id: 10, name: 'similique et et', description: 'Odit molestiae non est nostrum sunt.', url: null, due_at: '20221027', created_at: '2021-06-02T12:17:43.000000Z', updated_at: '2021-06-02T12:17:43.000000Z', user_id: '6' }] }
                 properties:
-                  data: { type: object, example: { id: 6, name: 'Dr. Kallie Schroeder', email: boyle.krista@example.com, side_projects: [{ id: 10, name: 'similique et et', description: 'Odit molestiae non est nostrum sunt.', url: null, due_at: '20221027', created_at: '2021-06-01T16:38:10.000000Z', updated_at: '2021-06-01T16:38:10.000000Z', user_id: '6' }] } }
+                  data: { type: object, example: { id: 6, name: 'Dr. Kallie Schroeder', email: boyle.krista@example.com, side_projects: [{ id: 10, name: 'similique et et', description: 'Odit molestiae non est nostrum sunt.', url: null, due_at: '20221027', created_at: '2021-06-02T12:17:43.000000Z', updated_at: '2021-06-02T12:17:43.000000Z', user_id: '6' }] } }
         404:
           description: '404, User not found'
           content:
@@ -351,3 +358,12 @@ paths:
         required: true
         schema:
           type: integer
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

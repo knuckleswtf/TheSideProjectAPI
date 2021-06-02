@@ -47,6 +47,7 @@ endpoints:
         from the controller's code. Check out the source! </aside>
       authenticated: true
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -74,7 +75,7 @@ endpoints:
         name: due_at
         description: 'Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.'
         required: false
-        example: '2077-09-25'
+        example: '2077-09-26'
         type: string
     responses: []
     responseFields: []
@@ -105,7 +106,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"name":"quo quo molestias","description":"Tempora aspernatur officiis omnis sed similique et et.","due_date":"20241229","owner":{"id":1,"name":"Pete","email":"pete@home.com","email_verified_at":null,"created_at":"2021-05-29T22:53:05.000000Z","updated_at":"2021-05-29T22:53:05.000000Z"}}}'
+        content: '{"data":{"name":"quo quo molestias","description":"Tempora aspernatur officiis omnis sed similique et et.","due_date":"20241230","owner":{"id":1,"name":"Pete","email":"pete@home.com","email_verified_at":null,"created_at":"2021-05-29T22:53:05.000000Z","updated_at":"2021-05-29T22:53:05.000000Z"}}}'
         headers: []
         description: null
     responseFields: []
