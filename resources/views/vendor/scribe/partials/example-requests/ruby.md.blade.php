@@ -18,10 +18,10 @@ headers = {
 @endif
 
 response = RestClient.{{strtolower($endpoint->httpMethods[0])}}(
-  '{{ $baseUrl }}/{{ $endpoint->boundUri }}'@if(!empty($endpoint->cleanBodyParameters)),
-  body @endif
+    '{{ $baseUrl }}/{{ $endpoint->boundUri }}'@if(!empty($endpoint->cleanBodyParameters)),
+    body @endif
 @if(!empty($endpoint->headers)),
-  headers
+    headers
 @endif
 )
 
