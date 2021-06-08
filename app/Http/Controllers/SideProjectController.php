@@ -49,7 +49,7 @@ class SideProjectController extends Controller
             // A url to your side project.
             'url' => 'string|url',
             // Due date for the side project.
-            'due_at' => 'date|date_format:Ymd|after:today',
+            'due_at' => ['date', 'date_format:Ymd', 'after:today'],
         ]);
 
         $validated['user_id'] = auth()->id();

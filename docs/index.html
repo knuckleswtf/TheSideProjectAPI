@@ -53,7 +53,7 @@
                             <li><a href="openapi.yaml">View OpenAPI spec</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: June 2 2021</li>
+            <li>Last updated: June 8 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -76,6 +76,318 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by using the <code>users/auth</code> endpoint.</p>
+
+        <h1 id="dummy-endpoints">Dummy endpoints</h1>
+    <p>
+        
+    </p>
+
+            <h2 id="dummy-endpoints-POSTapi-array-body">Body content array</h2>
+
+<p>
+</p>
+
+
+
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "http://testapi.com/api/array-body" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "[{\"row_id\":\"700\",\"name\":\"My item name\",\"description\":\"error\"},{\"name\":\"My item name\",\"description\":\"error\"}]"</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/array-body"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = [
+    {
+        "row_id": "700",
+        "name": "My item name",
+        "description": "error"
+    },
+    {
+        "name": "My item name",
+        "description": "error"
+    }
+]
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://testapi.com/api/array-body',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            [
+                'row_id' =&gt; '700',
+                'name' =&gt; 'My item name',
+                'description' =&gt; 'error',
+            ],
+            [
+                'name' =&gt; 'My item name',
+                'description' =&gt; 'error',
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://testapi.com/api/array-body'
+payload = [
+    {
+        "row_id": "700",
+        "name": "My item name",
+        "description": "error"
+    },
+    {
+        "name": "My item name",
+        "description": "error"
+    }
+]
+headers = {
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+
+<pre><code class="language-ruby">
+require 'rest-client'
+
+body = [
+    {
+        "row_id": "700",
+        "name": "My item name",
+        "description": "error"
+    },
+    {
+        "name": "My item name",
+        "description": "error"
+    }
+]
+headers = {
+    "Accept": "application/json",
+}
+
+response = RestClient.post(
+    'http://testapi.com/api/array-body',
+    body ,
+    headers
+)
+
+p response.body
+</code></pre>
+
+<div id="execution-results-POSTapi-array-body" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-array-body"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-array-body"></code></pre>
+</div>
+<div id="execution-error-POSTapi-array-body" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-array-body"></code></pre>
+</div>
+<form id="form-POSTapi-array-body" data-method="POST"
+      data-path="api/array-body"
+      data-authed="0"
+      data-hasfiles=""
+      data-headers='{"Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-array-body', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-array-body"
+                    onclick="tryItOut('POSTapi-array-body');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-array-body"
+                    onclick="cancelTryOut('POSTapi-array-body');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-array-body" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/array-body</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            Body: <code>object[]</code> 
+                                                <p>
+                        <b><code>[].row_id</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name=".0.row_id" data-endpoint="POSTapi-array-body" data-component="body"  hidden>
+<br>
+<p>A unique ID.</p>                    </p>
+                                                                <p>
+                        <b><code>[].name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name=".0.name" data-endpoint="POSTapi-array-body" data-component="body" required  hidden>
+<br>
+<p>An element name.</p>                    </p>
+                                                                <p>
+                        <b><code>[].description</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name=".0.description" data-endpoint="POSTapi-array-body" data-component="body"  hidden>
+<br>
+<p>An optional description of the element.</p>                    </p>
+                                    </p>
+    
+    </form>
+
+            <h2 id="dummy-endpoints-POSTapi-file-input">File input</h2>
+
+<p>
+</p>
+
+
+
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">
+curl --request POST \
+    "http://testapi.com/api/file-input" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "0=@C:\Users\shalvah\AppData\Local\Temp\php8AD2.tmp" \
+    --form "1=@C:\Users\shalvah\AppData\Local\Temp\php8AD3.tmp" ```</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/file-input"
+);
+
+let headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('0', document.querySelector('input[name="0"]').files[0]);
+body.append('1', document.querySelector('input[name="1"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://testapi.com/api/file-input',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+        'multipart' =&gt; [
+            [
+                'name' =&gt; '0',
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php8AD2.tmp', 'r')
+            ],
+            [
+                'name' =&gt; '1',
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php8AD3.tmp', 'r')
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://testapi.com/api/file-input'
+files = {
+  '0': open('C:\Users\shalvah\AppData\Local\Temp\php8AD2.tmp', 'rb'),
+  '1': open('C:\Users\shalvah\AppData\Local\Temp\php8AD3.tmp', 'rb')
+}
+headers = {
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, files=files)
+response.json()</code></pre>
+
+<pre><code class="language-ruby">
+require 'rest-client'
+
+headers = {
+    "Accept": "application/json",
+}
+
+response = RestClient.post(
+    'http://testapi.com/api/file-input',
+    headers
+)
+
+p response.body
+</code></pre>
+
+<div id="execution-results-POSTapi-file-input" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-file-input"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-file-input"></code></pre>
+</div>
+<div id="execution-error-POSTapi-file-input" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-file-input"></code></pre>
+</div>
+<form id="form-POSTapi-file-input" data-method="POST"
+      data-path="api/file-input"
+      data-authed="0"
+      data-hasfiles="1"
+      data-headers='{"Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-file-input', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-file-input"
+                    onclick="tryItOut('POSTapi-file-input');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-file-input"
+                    onclick="cancelTryOut('POSTapi-file-input');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-file-input" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/file-input</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            Body: <code>file[]</code> <p>List of files.</p>
+                    </p>
+    
+    </form>
 
         <h1 id="general">General</h1>
     <p>
@@ -144,8 +456,8 @@ headers = {
 }
 
 response = RestClient.get(
-  'http://testapi.com/api/healthcheck',
-  headers
+    'http://testapi.com/api/healthcheck',
+    headers
 )
 
 p response.body
@@ -162,7 +474,7 @@ p response.body
             <code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 59
+x-ratelimit-remaining: 56
 access-control-allow-origin: *
  </code>
             </pre>
@@ -307,8 +619,8 @@ headers = {
 }
 
 response = RestClient.get(
-  'http://testapi.com/api/side_projects',
-  headers
+    'http://testapi.com/api/side_projects',
+    headers
 )
 
 p response.body
@@ -325,7 +637,7 @@ p response.body
             <code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 57
+x-ratelimit-remaining: 54
 access-control-allow-origin: *
  </code>
             </pre>
@@ -482,7 +794,7 @@ from the controller's code. Check out the source! </aside></p>
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --data "{\"name\":\"The SideProject API\",\"description\":\"ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua\",\"url\":\"http:\\/\\/www.smitham.info\\/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html\",\"due_at\":\"2077-09-26\"}"</code></pre>
+    --data "{\"name\":\"The SideProject API\",\"description\":\"ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua\",\"url\":\"http:\\/\\/www.smitham.info\\/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html\",\"due_at\":\"2077-10-01\"}"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
     "http://testapi.com/api/side_projects"
@@ -498,7 +810,7 @@ let body = {
     "name": "The SideProject API",
     "description": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
     "url": "http:\/\/www.smitham.info\/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html",
-    "due_at": "2077-09-26"
+    "due_at": "2077-10-01"
 }
 
 fetch(url, {
@@ -519,7 +831,7 @@ $response = $client-&gt;post(
             'name' =&gt; 'The SideProject API',
             'description' =&gt; 'ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua',
             'url' =&gt; 'http://www.smitham.info/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html',
-            'due_at' =&gt; '2077-09-26',
+            'due_at' =&gt; '2077-10-01',
         ],
     ]
 );
@@ -534,7 +846,7 @@ payload = {
     "name": "The SideProject API",
     "description": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
     "url": "http:\/\/www.smitham.info\/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html",
-    "due_at": "2077-09-26"
+    "due_at": "2077-10-01"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -551,7 +863,7 @@ body = {
     "name": "The SideProject API",
     "description": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
     "url": "http:\/\/www.smitham.info\/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html",
-    "due_at": "2077-09-26"
+    "due_at": "2077-10-01"
 }
 headers = {
     "Authorization": "Bearer {YOUR_AUTH_KEY}",
@@ -559,9 +871,9 @@ headers = {
 }
 
 response = RestClient.post(
-  'http://testapi.com/api/side_projects',
-  body ,
-  headers
+    'http://testapi.com/api/side_projects',
+    body ,
+    headers
 )
 
 p response.body
@@ -699,8 +1011,8 @@ headers = {
 }
 
 response = RestClient.get(
-  'http://testapi.com/api/side_projects/12',
-  headers
+    'http://testapi.com/api/side_projects/12',
+    headers
 )
 
 p response.body
@@ -715,7 +1027,7 @@ p response.body
     &quot;data&quot;: {
         &quot;name&quot;: &quot;quo quo molestias&quot;,
         &quot;description&quot;: &quot;Tempora aspernatur officiis omnis sed similique et et.&quot;,
-        &quot;due_date&quot;: &quot;20241230&quot;,
+        &quot;due_date&quot;: &quot;20250105&quot;,
         &quot;owner&quot;: {
             &quot;id&quot;: 1,
             &quot;name&quot;: &quot;Pete&quot;,
@@ -834,8 +1146,8 @@ headers = {
 }
 
 response = RestClient.put(
-  'http://testapi.com/api/side_projects/12',
-  headers
+    'http://testapi.com/api/side_projects/12',
+    headers
 )
 
 p response.body
@@ -951,8 +1263,8 @@ headers = {
 }
 
 response = RestClient.delete(
-  'http://testapi.com/api/side_projects/12',
-  headers
+    'http://testapi.com/api/side_projects/12',
+    headers
 )
 
 p response.body
@@ -1007,153 +1319,6 @@ p response.body
     <p>
         
     </p>
-
-            <h2 id="users-POSTapi-users">Create a user</h2>
-
-<p>
-</p>
-
-<p>This endpoint's body parameters are automatically generated from a FormRequest.</p>
-
-<blockquote>Example request:</blockquote>
-
-
-<pre><code class="language-bash">curl --request POST \
-    "http://testapi.com/api/users" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{\"name\":\"ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua\",\"email\":\"mckayla50@example.net\",\"password\":\"error\"}"</code></pre>
-
-<pre><code class="language-javascript">const url = new URL(
-    "http://testapi.com/api/users"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "name": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
-    "email": "mckayla50@example.net",
-    "password": "error"
-}
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre>
-
-<pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post(
-    'http://testapi.com/api/users',
-    [
-        'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'name' =&gt; 'ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua',
-            'email' =&gt; 'mckayla50@example.net',
-            'password' =&gt; 'error',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
-
-<pre><code class="language-python">import requests
-import json
-
-url = 'http://testapi.com/api/users'
-payload = {
-    "name": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
-    "email": "mckayla50@example.net",
-    "password": "error"
-}
-headers = {
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre>
-
-<pre><code class="language-ruby">
-require 'rest-client'
-
-body = {
-    "name": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
-    "email": "mckayla50@example.net",
-    "password": "error"
-}
-headers = {
-    "Accept": "application/json",
-}
-
-response = RestClient.post(
-  'http://testapi.com/api/users',
-  body ,
-  headers
-)
-
-p response.body
-</code></pre>
-
-<div id="execution-results-POSTapi-users" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-users"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-users"></code></pre>
-</div>
-<div id="execution-error-POSTapi-users" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-users"></code></pre>
-</div>
-<form id="form-POSTapi-users" data-method="POST"
-      data-path="api/users"
-      data-authed="0"
-      data-hasfiles=""
-      data-headers='{"Accept":"application\/json"}'
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-users"
-                    onclick="tryItOut('POSTapi-users');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-users"
-                    onclick="cancelTryOut('POSTapi-users');" hidden>Cancel
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-users" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/users</code></b>
-        </p>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <p>
-            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="name" data-endpoint="POSTapi-users" data-component="body" required  hidden>
-<br>
-<p>Must be at least 1 characters. Must not be greater than 255 characters.</p>        </p>
-                <p>
-            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="email" data-endpoint="POSTapi-users" data-component="body" required  hidden>
-<br>
-<p>Must be a valid email address.</p>        </p>
-                <p>
-            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="password" data-endpoint="POSTapi-users" data-component="body" required  hidden>
-<br>
-        </p>
-    
-    </form>
 
             <h2 id="users-GETapi-users--id-">Fetch a user</h2>
 
@@ -1217,8 +1382,8 @@ headers = {
 }
 
 response = RestClient.get(
-  'http://testapi.com/api/users/12',
-  headers
+    'http://testapi.com/api/users/12',
+    headers
 )
 
 p response.body
@@ -1240,9 +1405,9 @@ p response.body
                 &quot;name&quot;: &quot;similique et et&quot;,
                 &quot;description&quot;: &quot;Odit molestiae non est nostrum sunt.&quot;,
                 &quot;url&quot;: null,
-                &quot;due_at&quot;: &quot;20221027&quot;,
-                &quot;created_at&quot;: &quot;2021-06-02T12:17:43.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-06-02T12:17:43.000000Z&quot;,
+                &quot;due_at&quot;: &quot;20221102&quot;,
+                &quot;created_at&quot;: &quot;2021-06-08T09:15:41.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-08T09:15:41.000000Z&quot;,
                 &quot;user_id&quot;: &quot;6&quot;
             }
         ]
@@ -1381,8 +1546,8 @@ headers = {
 }
 
 response = RestClient.get(
-  'http://testapi.com/api/users',
-  headers
+    'http://testapi.com/api/users',
+    headers
 )
 
 p response.body
@@ -1399,7 +1564,7 @@ p response.body
             <code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 58
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code>
             </pre>
@@ -1648,8 +1813,8 @@ headers = {
 }
 
 response = RestClient.post(
-  'http://testapi.com/api/users/12/auth',
-  headers
+    'http://testapi.com/api/users/12/auth',
+    headers
 )
 
 p response.body
@@ -1716,11 +1881,156 @@ p response.body
             <b><code>token</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
 <br>
 <p>The new API token. Valid forever.</p>        </p>
-        
+                <h2 id="users-POSTapi-users">Create a user</h2>
 
-        <h1>Some extra info</h1>
-<p>Just some extra info added via an <code>append.md</code> file.</p>
-<p>Go on, <a href="https://github.com/knuckleswtf/scribe">go check Scribe out</a> 😄.</p>
+<p>
+</p>
+
+<p>This endpoint's body parameters are automatically generated from a FormRequest.</p>
+
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">curl --request POST \
+    "http://testapi.com/api/users" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{\"name\":\"ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua\",\"email\":\"mckayla50@example.net\",\"password\":\"error\"}"</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/users"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
+    "email": "mckayla50@example.net",
+    "password": "error"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://testapi.com/api/users',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua',
+            'email' =&gt; 'mckayla50@example.net',
+            'password' =&gt; 'error',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://testapi.com/api/users'
+payload = {
+    "name": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
+    "email": "mckayla50@example.net",
+    "password": "error"
+}
+headers = {
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+
+<pre><code class="language-ruby">
+require 'rest-client'
+
+body = {
+    "name": "ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua",
+    "email": "mckayla50@example.net",
+    "password": "error"
+}
+headers = {
+    "Accept": "application/json",
+}
+
+response = RestClient.post(
+    'http://testapi.com/api/users',
+    body ,
+    headers
+)
+
+p response.body
+</code></pre>
+
+<div id="execution-results-POSTapi-users" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-users"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-users"></code></pre>
+</div>
+<div id="execution-error-POSTapi-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-users"></code></pre>
+</div>
+<form id="form-POSTapi-users" data-method="POST"
+      data-path="api/users"
+      data-authed="0"
+      data-hasfiles=""
+      data-headers='{"Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-users"
+                    onclick="tryItOut('POSTapi-users');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-users"
+                    onclick="cancelTryOut('POSTapi-users');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-users" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/users</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="name" data-endpoint="POSTapi-users" data-component="body" required  hidden>
+<br>
+<p>Must be at least 1 characters. Must not be greater than 255 characters.</p>        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="email" data-endpoint="POSTapi-users" data-component="body" required  hidden>
+<br>
+<p>Must be a valid email address.</p>        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="password" data-endpoint="POSTapi-users" data-component="body" required  hidden>
+<br>
+        </p>
+    
+    </form>
+
+    
+
+        
     </div>
     <div class="dark-box">
                     <div class="lang-selector">

@@ -7,6 +7,67 @@ servers:
   -
     url: 'http://testapi.com'
 paths:
+  /api/array-body:
+    post:
+      summary: 'Body content array'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Dummy endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              description: ''
+              example:
+                description: error
+              items:
+                type: object
+                properties:
+                  row_id: { type: string, description: 'A unique ID.', example: '700' }
+                  name: { type: string, description: 'An element name.', example: 'My item name' }
+                  description: { type: string, description: 'An optional description of the element.', example: error }
+                required:
+                  - name
+      security: []
+  /api/file-input:
+    post:
+      summary: 'File input'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Dummy endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              description: 'List of files.'
+              example:
+                - null
+                - null
+              items:
+                type: file
+      security: []
   /api/healthcheck:
     get:
       summary: Healthcheck
@@ -124,7 +185,7 @@ paths:
                 due_at:
                   type: string
                   description: 'Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.'
-                  example: '2077-09-26'
+                  example: '2077-10-01'
               required:
                 - name
   '/api/side_projects/{id}':
@@ -147,9 +208,9 @@ paths:
               schema:
                 type: object
                 example:
-                  data: { name: 'quo quo molestias', description: 'Tempora aspernatur officiis omnis sed similique et et.', due_date: '20241230', owner: { id: 1, name: Pete, email: pete@home.com, email_verified_at: null, created_at: '2021-05-29T22:53:05.000000Z', updated_at: '2021-05-29T22:53:05.000000Z' } }
+                  data: { name: 'quo quo molestias', description: 'Tempora aspernatur officiis omnis sed similique et et.', due_date: '20250105', owner: { id: 1, name: Pete, email: pete@home.com, email_verified_at: null, created_at: '2021-05-29T22:53:05.000000Z', updated_at: '2021-05-29T22:53:05.000000Z' } }
                 properties:
-                  data: { type: object, example: { name: 'quo quo molestias', description: 'Tempora aspernatur officiis omnis sed similique et et.', due_date: '20241230', owner: { id: 1, name: Pete, email: pete@home.com, email_verified_at: null, created_at: '2021-05-29T22:53:05.000000Z', updated_at: '2021-05-29T22:53:05.000000Z' } } }
+                  data: { type: object, example: { name: 'quo quo molestias', description: 'Tempora aspernatur officiis omnis sed similique et et.', due_date: '20250105', owner: { id: 1, name: Pete, email: pete@home.com, email_verified_at: null, created_at: '2021-05-29T22:53:05.000000Z', updated_at: '2021-05-29T22:53:05.000000Z' } } }
       tags:
         - 'Side Projects'
       security: []
@@ -192,10 +253,10 @@ paths:
         required: true
         schema:
           type: integer
-  /api/users:
-    post:
-      summary: 'Create a user'
-      description: 'This endpoint''s body parameters are automatically generated from a FormRequest.'
+  '/api/users/{id}':
+    get:
+      summary: 'Fetch a user'
+      description: "This endpoint's response uses an Eloquent API resource, so we tell Scribe that using an annotation,\nand it figures out how to generate a sample. The 404 sample is gotten from a \"response file\"."
       parameters:
         -
           in: header
@@ -204,33 +265,42 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: { id: 6, name: 'Dr. Kallie Schroeder', email: boyle.krista@example.com, side_projects: [{ id: 10, name: 'similique et et', description: 'Odit molestiae non est nostrum sunt.', url: null, due_at: '20221102', created_at: '2021-06-08T09:15:41.000000Z', updated_at: '2021-06-08T09:15:41.000000Z', user_id: '6' }] }
+                properties:
+                  data: { type: object, example: { id: 6, name: 'Dr. Kallie Schroeder', email: boyle.krista@example.com, side_projects: [{ id: 10, name: 'similique et et', description: 'Odit molestiae non est nostrum sunt.', url: null, due_at: '20221102', created_at: '2021-06-08T09:15:41.000000Z', updated_at: '2021-06-08T09:15:41.000000Z', user_id: '6' }] } }
+        404:
+          description: '404, User not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Not found'
+                  resource: user
+                properties:
+                  message: { type: string, example: 'Not found' }
+                  resource: { type: string, example: user }
       tags:
         - Users
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must be at least 1 characters. Must not be greater than 255 characters.'
-                  example: ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua
-                email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: mckayla50@example.net
-                password:
-                  type: string
-                  description: ''
-                  example: error
-              required:
-                - name
-                - email
-                - password
       security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 12
+        required: true
+        schema:
+          type: integer
+  /api/users:
     get:
       summary: 'View all users'
       description: "This endpoint uses a custom Scribe strategy that parses a\n`@usesPagination` annotation to add some query parameters.\n\nThe sample response is gotten by Scribe making a test API call (aka \"response call\")."
@@ -276,10 +346,9 @@ paths:
       tags:
         - Users
       security: []
-  '/api/users/{id}':
-    get:
-      summary: 'Fetch a user'
-      description: "This endpoint's response uses an Eloquent API resource, so we tell Scribe that using an annotation,\nand it figures out how to generate a sample. The 404 sample is gotten from a \"response file\"."
+    post:
+      summary: 'Create a user'
+      description: 'This endpoint''s body parameters are automatically generated from a FormRequest.'
       parameters:
         -
           in: header
@@ -288,41 +357,33 @@ paths:
           example: application/json
           schema:
             type: string
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  data: { id: 6, name: 'Dr. Kallie Schroeder', email: boyle.krista@example.com, side_projects: [{ id: 10, name: 'similique et et', description: 'Odit molestiae non est nostrum sunt.', url: null, due_at: '20221027', created_at: '2021-06-02T12:17:43.000000Z', updated_at: '2021-06-02T12:17:43.000000Z', user_id: '6' }] }
-                properties:
-                  data: { type: object, example: { id: 6, name: 'Dr. Kallie Schroeder', email: boyle.krista@example.com, side_projects: [{ id: 10, name: 'similique et et', description: 'Odit molestiae non est nostrum sunt.', url: null, due_at: '20221027', created_at: '2021-06-02T12:17:43.000000Z', updated_at: '2021-06-02T12:17:43.000000Z', user_id: '6' }] } }
-        404:
-          description: '404, User not found'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'Not found'
-                  resource: user
-                properties:
-                  message: { type: string, example: 'Not found' }
-                  resource: { type: string, example: user }
+      responses: {  }
       tags:
         - Users
-      security: []
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the user.'
-        example: 12
+      requestBody:
         required: true
-        schema:
-          type: integer
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must be at least 1 characters. Must not be greater than 255 characters.'
+                  example: ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: mckayla50@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: error
+              required:
+                - name
+                - email
+                - password
+      security: []
   '/api/users/{id}/auth':
     post:
       summary: Authenticate

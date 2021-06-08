@@ -48,3 +48,27 @@ Route::get('users/', [UserController::class, 'index']);
 Route::post('users/{id}/auth', [UserController::class, 'authenticate']);
 
 Route::apiResource('side_projects', SideProjectController::class);
+
+/**
+ * Body content array
+ *
+ * @group Dummy endpoints
+ * @bodyParam [].row_id string A unique ID. Example: 700
+ * @bodyParam [].name string required An element name. Example: My item name
+ * @bodyParam [].description string An optional description of the element.
+ */
+Route::post('/array-body', function () {
+    return [
+    ];
+});
+
+/**
+ * File input
+ *
+ * @group Dummy endpoints
+ * @bodyParam [] file[] required List of files.
+ */
+Route::post('/file-input', function () {
+    return [
+    ];
+});
