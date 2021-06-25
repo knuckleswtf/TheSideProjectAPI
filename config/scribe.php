@@ -1,5 +1,6 @@
 <?php
 
+use Knuckles\Scribe\Extracting\Strategies;
 use App\Docs\Strategies\AddPaginationParameters;
 
 return [
@@ -28,109 +29,80 @@ return [
      */
     'routes' => [
         [
+        /*
+         * Specify conditions to determine what routes will be a part of this group.
+         * A route must fulfill ALL conditions to be included.
+         */
+        'match' => [
             /*
-             * Specify conditions to determine what routes will be a part of this group.
-             * A route must fulfill ALL conditions to be included.
+             * Match only routes whose domains match this pattern (use * as a wildcard to match any characters). Example: 'api.*'.
              */
-            'match' => [
-                /*
-                 * Match only routes whose domains match this pattern (use * as a wildcard to match any characters). Example: 'api.*'.
-                 */
-                'domains' => ['*'],
-
-                /*
-                 * Match only routes whose paths match this pattern (use * as a wildcard to match any characters). Example: 'users/*'.
-                 */
-                'prefixes' => ['api/*'],
-
-                /*
-                 * [Dingo router only] Match only routes registered under this version. Wildcards are not supported.
-                 */
-                'versions' => ['v1'],
-            ],
-
+            'domains' => ['*'],
             /*
-             * Include these routes even if they did not match the rules above.
-             * The route can be referenced by name or path here. Wildcards are supported.
+             * Match only routes whose paths match this pattern (use * as a wildcard to match any characters). Example: 'users/*'.
              */
-            'include' => [
-                // 'users.index', 'healthcheck*'
-            ],
-
+            'prefixes' => ['api/*'],
             /*
-             * Exclude these routes even if they matched the rules above.
-             * The route can be referenced by name or path here. Wildcards are supported.
+             * [Dingo router only] Match only routes registered under this version. Wildcards are not supported.
              */
-            'exclude' => [
-                // '/health', 'admin.*'
-            ],
-
+            'versions' => ['v1'],
+        ],
+        /*
+         * Include these routes even if they did not match the rules above.
+         * The route can be referenced by name or path here. Wildcards are supported.
+         */
+        'include' => [],
+        /*
+         * Exclude these routes even if they matched the rules above.
+         * The route can be referenced by name or path here. Wildcards are supported.
+         */
+        'exclude' => [],
+        /*
+         * Settings to be applied to all the matched routes in this group when generating documentation
+         */
+        'apply' => [
             /*
-             * Settings to be applied to all the matched routes in this group when generating documentation
+             * Additional headers to be added to the example requests
              */
-            'apply' => [
+            'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json'],
+            /*
+             * If no @response or @transformer declarations are found for the route,
+             * Scribe will try to get a sample response by attempting an API call.
+             * Configure the settings for the API call here.
+             */
+            'response_calls' => [
                 /*
-                 * Additional headers to be added to the example requests
+                 * API calls will be made only for routes in this group matching these HTTP methods (GET, POST, etc).
+                 * List the methods here or use '*' to mean all methods. Leave empty to disable API calls.
                  */
-                'headers' => [
-                    'Content-Type' => 'application/json',
-                    'Accept' => 'application/json',
-                ],
-
+                'methods' => ['GET'],
                 /*
-                 * If no @response or @transformer declarations are found for the route,
-                 * Scribe will try to get a sample response by attempting an API call.
-                 * Configure the settings for the API call here.
+                 * Laravel config variables which should be set for the API call.
+                 * This is a good place to ensure that notifications, emails and other external services
+                 * are not triggered during the documentation API calls.
+                 * You can also create a `.env.docs` file and run the generate command with `--env docs`.
                  */
-                'response_calls' => [
-                    /*
-                     * API calls will be made only for routes in this group matching these HTTP methods (GET, POST, etc).
-                     * List the methods here or use '*' to mean all methods. Leave empty to disable API calls.
-                     */
-                    'methods' => ['GET'],
-
-                    /*
-                     * Laravel config variables which should be set for the API call.
-                     * This is a good place to ensure that notifications, emails and other external services
-                     * are not triggered during the documentation API calls.
-                     * You can also create a `.env.docs` file and run the generate command with `--env docs`.
-                     */
-                    'config' => [
-                        'app.env' => 'documentation',
-                        // 'app.debug' => false,
-                    ],
-
-                    /*
-                     * Query parameters which should be sent with the API call.
-                     */
-                    'queryParams' => [
-                        // 'key' => 'value',
-                    ],
-
-                    /*
-                     * Body parameters which should be sent with the API call.
-                     */
-                    'bodyParams' => [
-                        // 'key' => 'value',
-                    ],
-
-                    /*
-                     * Files which should be sent with the API call.
-                     * Each value should be a valid path (absolute or relative to your project directory) to a file on this machine (but not in the project root).
-                     */
-                    'fileParams' => [
-                        // 'key' => 'storage/app/image.png',
-                    ],
-
-                    /*
-                     * Cookies which should be sent with the API call.
-                     */
-                    'cookies' => [
-                        // 'name' => 'value'
-                    ],
-                ],
+                'config' => ['app.env' => 'documentation'],
+                /*
+                 * Query parameters which should be sent with the API call.
+                 */
+                'queryParams' => [],
+                /*
+                 * Body parameters which should be sent with the API call.
+                 */
+                'bodyParams' => [],
+                /*
+                 * Files which should be sent with the API call.
+                 * Each value should be a valid path (absolute or relative to your project directory) to a file on this machine (but not in the project root).
+                 */
+                'fileParams' => [],
+                /*
+                 * Cookies which should be sent with the API call.
+                 */
+                'cookies' => [],
             ],
         ],
+        ]
     ],
 
     /*
@@ -252,7 +224,7 @@ INTRO
     /*
      * Example requests for each endpoint will be shown in each of these languages.
      * Supported options are: bash, javascript, php, python
-     * To add a language of your own, see https://scribe.readthedocs.io/en/latest/customization.html
+     * To add a language of your own, see https://scribe.knuckles.wtf/laravel/advanced/adding-example-languages
      *
      */
     'example_languages' => [
@@ -298,14 +270,13 @@ INTRO
     ],
 
     /*
-     * Name for the group of endpoints which do not have a @group set.
+     * Endpoints which don't have a @group will be placed in this default group.
      */
     'default_group' => 'General',
 
     /*
      * Custom logo path. This will be used as the value of the src attribute for the <img> tag,
-     * so make sure it points to a public URL or path accessible from your web server. For best results, the image width should be 230px.
-     * Set this to false to not use a logo.
+     * so make sure it points to an accessible URL or path. Set to false to not use a logo.
      *
      * For example, if your logo is in public/img:
      * - 'logo' => '../img/logo.png' // for `static` type (output folder is public/docs)
@@ -322,45 +293,44 @@ INTRO
 
     /**
      * The strategies Scribe will use to extract information about your routes at each stage.
-     * If you write or install a custom strategy, add it here.
+     * If you create or install a custom strategy, add it here.
      */
     'strategies' => [
         'metadata' => [
-            \Knuckles\Scribe\Extracting\Strategies\Metadata\GetFromDocBlocks::class,
+            Strategies\Metadata\GetFromDocBlocks::class,
         ],
         'urlParameters' => [
-            \Knuckles\Scribe\Extracting\Strategies\UrlParameters\GetFromLaravelAPI::class,
-            \Knuckles\Scribe\Extracting\Strategies\UrlParameters\GetFromLumenAPI::class,
-            \Knuckles\Scribe\Extracting\Strategies\UrlParameters\GetFromUrlParamTag::class,
+            Strategies\UrlParameters\GetFromLaravelAPI::class,
+            Strategies\UrlParameters\GetFromLumenAPI::class,
+            Strategies\UrlParameters\GetFromUrlParamTag::class,
         ],
         'queryParameters' => [
+            Strategies\QueryParameters\GetFromFormRequest::class,
+            Strategies\QueryParameters\GetFromInlineValidator::class,
+            Strategies\QueryParameters\GetFromQueryParamTag::class,
             AddPaginationParameters::class,
-            \Knuckles\Scribe\Extracting\Strategies\QueryParameters\GetFromQueryParamTag::class,
         ],
         'headers' => [
-            \Knuckles\Scribe\Extracting\Strategies\Headers\GetFromRouteRules::class,
-            \Knuckles\Scribe\Extracting\Strategies\Headers\GetFromHeaderTag::class,
+            Strategies\Headers\GetFromRouteRules::class,
+            Strategies\Headers\GetFromHeaderTag::class,
         ],
         'bodyParameters' => [
-            \Knuckles\Scribe\Extracting\Strategies\BodyParameters\GetFromFormRequest::class,
-            \Knuckles\Scribe\Extracting\Strategies\BodyParameters\GetFromInlineValidator::class,
-            \Knuckles\Scribe\Extracting\Strategies\BodyParameters\GetFromBodyParamTag::class,
+            Strategies\BodyParameters\GetFromFormRequest::class,
+            Strategies\BodyParameters\GetFromInlineValidator::class,
+            Strategies\BodyParameters\GetFromBodyParamTag::class,
         ],
         'responses' => [
-            \Knuckles\Scribe\Extracting\Strategies\Responses\UseTransformerTags::class,
-            \Knuckles\Scribe\Extracting\Strategies\Responses\UseResponseTag::class,
-            \Knuckles\Scribe\Extracting\Strategies\Responses\UseResponseFileTag::class,
-            \Knuckles\Scribe\Extracting\Strategies\Responses\UseApiResourceTags::class,
-            \Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls::class,
+            Strategies\Responses\UseTransformerTags::class,
+            Strategies\Responses\UseResponseTag::class,
+            Strategies\Responses\UseResponseFileTag::class,
+            Strategies\Responses\UseApiResourceTags::class,
+            Strategies\Responses\ResponseCalls::class,
         ],
         'responseFields' => [
-            \Knuckles\Scribe\Extracting\Strategies\ResponseFields\GetFromResponseFieldTag::class,
+            Strategies\ResponseFields\GetFromResponseFieldTag::class,
         ],
     ],
 
-    /*
-     * Configure how responses are transformed using @transformer and @transformerCollection (requires league/fractal package)
-     */
     'fractal' => [
         /* If you are using a custom serializer with league/fractal, you can specify it here.
          * Leave as null to use no serializer or return simple JSON.
@@ -369,15 +339,16 @@ INTRO
     ],
 
     /*
-     * [Advanced] If you would like to customize how routes are matched beyond the route configuration you may
-     * declare your own implementation of RouteMatcherInterface
+     * [Advanced] Custom implementation of RouteMatcherInterface to customise how routes are matched
      *
      */
     'routeMatcher' => \Knuckles\Scribe\Matching\RouteMatcher::class,
 
     /**
-     * For response calls, api resource responses and transformer responses, Scribe will try to start database transactions, so no changes are persisted to your database.
-     * Tell Scribe which connections should be transacted here. If you only use the default db connection, you can leave this as is.
+     * For response calls, API resource responses and transformer responses,
+     * Scribe will try to start database transactions, so no changes are persisted to your database.
+     * Tell Scribe which connections should be transacted here.
+     * If you only use one db connection, you can leave this as is.
      */
     'database_connections_to_transact' => [config('database.default')]
 ];
