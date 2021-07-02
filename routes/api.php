@@ -57,6 +57,7 @@ Route::apiResource('side_projects', SideProjectController::class);
  * @bodyParam data.name string required A string field.
  * @bodyParam data.size int A number. Example: 5
  * @bodyParam data.things string[] An array of strings
+ * @bodyParam data.picture file A picture.
  * @bodyParam data.objects object[] An array of objects
  * @bodyParam data.objects[].a string A field in the array of objects
  * @bodyParam data.objects[].b string A field in the array of objects
@@ -73,7 +74,7 @@ Route::post('/nested', function () {
  * @bodyParam [] object[] List of items
  * @bodyParam [].row_id string A unique ID. Example: 700
  * @bodyParam [].name string required An element name. Example: My item name
- * @bodyParam [].description string An optional description of the element.
+ * @bodyParam [].picture file An optional picture of the element.
  */
 Route::post('/array-body', function () {
     return [
@@ -84,7 +85,10 @@ Route::post('/array-body', function () {
  * File input
  *
  * @group Dummy endpoints
- * @bodyParam [] file[] required List of files.
+ * @bodyParam the_file file required Just a file.
+ * @bodyParam nested object required
+ * @bodyParam nested._string string required A nested string.
+ * @bodyParam nested._file file required A nested file.
  */
 Route::post('/file-input', function () {
     return [
