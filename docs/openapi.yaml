@@ -7,11 +7,197 @@ servers:
   -
     url: 'http://testapi.com'
 paths:
+  /api/nested:
+    post:
+      summary: 'Nested fields'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: multipart/form-data
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Dummy endpoints'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  description: 'The data'
+                  example: []
+                  properties:
+                    name:
+                      type: string
+                      description: 'A string field.'
+                      example: et
+                    size:
+                      type: integer
+                      description: 'A number.'
+                      example: 5
+                    things:
+                      type: array
+                      description: 'An array of strings'
+                      example:
+                        - et
+                        - et
+                      items:
+                        type: string
+                    picture:
+                      type: string
+                      format: binary
+                      description: 'A picture.'
+                    objects:
+                      type: array
+                      description: 'An array of objects'
+                      example:
+                        - []
+                        - []
+                      items:
+                        type: object
+                        properties:
+                          a:
+                            type: string
+                            description: 'A field in the array of objects'
+                            example: et
+                          b:
+                            type: string
+                            description: 'A field in the array of objects'
+                            example: et
+              required:
+                - data
+      security: []
+  /api/array-body:
+    post:
+      summary: 'Body content array'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: multipart/form-data
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Dummy endpoints'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: array
+              description: 'List of items'
+              example:
+                -
+                  row_id: '700'
+                  name: 'My item name'
+                  picture: null
+                -
+                  row_id: '700'
+                  name: 'My item name'
+              items:
+                type: object
+                properties:
+                  row_id:
+                    type: string
+                    description: 'A unique ID.'
+                    example: '700'
+                  name:
+                    type: string
+                    description: 'An element name.'
+                    example: 'My item name'
+                  picture:
+                    type: string
+                    format: binary
+                    description: 'An optional picture of the element.'
+                required:
+                  - name
+      security: []
+  /api/file-input:
+    post:
+      summary: 'File input'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: multipart/form-data
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Dummy endpoints'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                the_file:
+                  type: string
+                  format: binary
+                  description: 'Just a file.'
+                nested:
+                  type: object
+                  description: ''
+                  example: []
+                  properties:
+                    _string:
+                      type: string
+                      description: 'A nested string.'
+                      example: et
+                    _file:
+                      type: string
+                      format: binary
+                      description: 'A nested file.'
+              required:
+                - the_file
+                - nested
+      security: []
   /api/healthcheck:
     get:
       summary: Healthcheck
       description: "Check that the service is up. If everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with a 400 error, and a response listing the failed services."
       parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
         -
           in: header
           name: Accept
@@ -72,6 +258,13 @@ paths:
       summary: 'View all side projects'
       description: "This endpoint's response was gotten via a \"response call\"—\nScribe called our API in a test environment to get a sample response."
       parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
         -
           in: header
           name: Accept
@@ -186,6 +379,13 @@ paths:
             type: string
         -
           in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
           name: Accept
           description: ''
           example: application/json
@@ -208,15 +408,15 @@ paths:
                 description:
                   type: string
                   description: 'A longer description of your side project. Must not be greater than 255 characters.'
-                  example: ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua
+                  example: pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv
                 url:
                   type: string
                   description: 'A url to your side project. Must be a valid URL.'
-                  example: 'http://www.smitham.info/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html'
+                  example: 'http://hartmann.com/magnam-tenetur-quia-nemo-sit-est-numquam'
                 due_at:
                   type: string
                   description: 'Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.'
-                  example: '2077-10-19'
+                  example: '2082-12-20'
               required:
                 - name
   '/api/side_projects/{id}':
@@ -224,6 +424,13 @@ paths:
       summary: 'View a side project'
       description: "This endpoint's response uses a Fractal transformer, so we tell Scribe that using an annotation,\nand it figures out how to generate a sample. The 404 sample is gotten from a \"response file\".\n\n<aside class=\"success\">Also, pretty cool: this endpoint's (and many others') URL parameters were figured out entirely by Scribe!</aside>"
       parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
         -
           in: header
           name: Accept
@@ -240,9 +447,9 @@ paths:
                 type: object
                 example:
                   data:
-                    name: 'quo quo molestias'
-                    description: 'Tempora aspernatur officiis omnis sed similique et et.'
-                    due_date: '20250122'
+                    name: 'suscipit qui cumque'
+                    description: 'Tenetur quia nemo sit est.'
+                    due_date: '20230829'
                     owner:
                       id: 1
                       name: Pete
@@ -254,9 +461,9 @@ paths:
                   data:
                     type: object
                     example:
-                      name: 'quo quo molestias'
-                      description: 'Tempora aspernatur officiis omnis sed similique et et.'
-                      due_date: '20250122'
+                      name: 'suscipit qui cumque'
+                      description: 'Tenetur quia nemo sit est.'
+                      due_date: '20230829'
                       owner:
                         id: 1
                         name: Pete
@@ -271,6 +478,13 @@ paths:
       summary: 'Update a side project'
       description: ''
       parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
         -
           in: header
           name: Accept
@@ -288,6 +502,13 @@ paths:
       parameters:
         -
           in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
           name: Accept
           description: ''
           example: application/json
@@ -302,7 +523,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the side project.'
-        example: 12
+        example: 13
         required: true
         schema:
           type: integer
@@ -311,6 +532,13 @@ paths:
       summary: 'Create a user'
       description: 'This endpoint''s body parameters are automatically generated from a FormRequest.'
       parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
         -
           in: header
           name: Accept
@@ -331,15 +559,15 @@ paths:
                 name:
                   type: string
                   description: 'Must be at least 1 characters. Must not be greater than 255 characters.'
-                  example: ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua
+                  example: pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: mckayla50@example.net
+                  example: casimir70@example.com
                 password:
                   type: string
                   description: ''
-                  example: error
+                  example: et
               required:
                 - name
                 - email
@@ -369,6 +597,13 @@ paths:
             type: string
             description: 'Number of items to return in a page. Defaults to 10.'
             example: null
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
         -
           in: header
           name: Accept
@@ -613,6 +848,13 @@ paths:
       parameters:
         -
           in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
           name: Accept
           description: ''
           example: application/json
@@ -628,34 +870,34 @@ paths:
                 example:
                   data:
                     id: 6
-                    name: 'Dr. Kallie Schroeder'
-                    email: boyle.krista@example.com
+                    name: 'Mr. Merlin Friesen'
+                    email: hdoyle@example.com
                     side_projects:
                       -
                         id: 10
-                        name: 'similique et et'
-                        description: 'Odit molestiae non est nostrum sunt.'
+                        name: 'est numquam consequuntur'
+                        description: 'Atque nobis ut natus aut dolores eveniet.'
                         url: null
-                        due_at: '20221119'
-                        created_at: '2021-06-25T12:19:37.000000Z'
-                        updated_at: '2021-06-25T12:19:37.000000Z'
+                        due_at: '20241013'
+                        created_at: '2021-07-02T13:13:46.000000Z'
+                        updated_at: '2021-07-02T13:13:46.000000Z'
                         user_id: '6'
                 properties:
                   data:
                     type: object
                     example:
                       id: 6
-                      name: 'Dr. Kallie Schroeder'
-                      email: boyle.krista@example.com
+                      name: 'Mr. Merlin Friesen'
+                      email: hdoyle@example.com
                       side_projects:
                         -
                           id: 10
-                          name: 'similique et et'
-                          description: 'Odit molestiae non est nostrum sunt.'
+                          name: 'est numquam consequuntur'
+                          description: 'Atque nobis ut natus aut dolores eveniet.'
                           url: null
-                          due_at: '20221119'
-                          created_at: '2021-06-25T12:19:37.000000Z'
-                          updated_at: '2021-06-25T12:19:37.000000Z'
+                          due_at: '20241013'
+                          created_at: '2021-07-02T13:13:46.000000Z'
+                          updated_at: '2021-07-02T13:13:46.000000Z'
                           user_id: '6'
         404:
           description: '404, User not found'
@@ -681,7 +923,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: 12
+        example: 13
         required: true
         schema:
           type: integer
@@ -690,6 +932,13 @@ paths:
       summary: Authenticate
       description: "Get a new API token.\n\n<aside>Yes, we know you can impersonate any user.🙄</aside>"
       parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
         -
           in: header
           name: Accept
@@ -719,147 +968,10 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: 12
+        example: 13
         required: true
         schema:
           type: integer
-  /api/array-body:
-    post:
-      summary: 'Body content array'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - 'Dummy endpoints'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: array
-              description: 'List of items'
-              example:
-                -
-                  row_id: '700'
-                  name: 'My item name'
-                  description: error
-                -
-                  name: 'My item name'
-                  description: error
-              items:
-                type: object
-                properties:
-                  row_id:
-                    type: string
-                    description: 'A unique ID.'
-                    example: '700'
-                  name:
-                    type: string
-                    description: 'An element name.'
-                    example: 'My item name'
-                  description:
-                    type: string
-                    description: 'An optional description of the element.'
-                    example: error
-                required:
-                  - name
-      security: []
-  /api/file-input:
-    post:
-      summary: 'File input'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - 'Dummy endpoints'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: array
-              description: 'List of files.'
-              items:
-                type: string
-                format: binary
-      security: []
-  /api/nested:
-    post:
-      summary: 'Nested fields'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - 'Dummy endpoints'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                data:
-                  type: object
-                  description: 'The data'
-                  example: []
-                  properties:
-                    name:
-                      type: string
-                      description: 'A string field.'
-                      example: error
-                    size:
-                      type: integer
-                      description: 'A number.'
-                      example: 5
-                    things:
-                      type: array
-                      description: 'An array of strings'
-                      example:
-                        - error
-                        - error
-                      items:
-                        type: string
-                    objects:
-                      type: array
-                      description: 'An array of objects'
-                      example:
-                        - []
-                        - []
-                      items:
-                        type: object
-                        properties:
-                          a:
-                            type: string
-                            description: 'A field in the array of objects'
-                            example: error
-                          b:
-                            type: string
-                            description: 'A field in the array of objects'
-                            example: error
-              required:
-                - data
-      security: []
 components:
   securitySchemes:
     default:

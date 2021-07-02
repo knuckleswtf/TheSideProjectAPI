@@ -10,12 +10,192 @@
     ],
     "info": {
         "name": "The SideProject API",
-        "_postman_id": "fe03234e-f6f0-4fb4-a28b-19a8040131a7",
+        "_postman_id": "4ff532b0-d4fb-4000-9a0c-65d9469e58bb",
         "description": "Start (and never finish) side projects with this API.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
-    "item": {
-        "1": {
+    "item": [
+        {
+            "name": "Dummy endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Nested fields",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/nested",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/nested"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "data[name]",
+                                    "value": "et",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "data[size]",
+                                    "value": 5,
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "data[things][0]",
+                                    "value": "et",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "data[things][1]",
+                                    "value": "et",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "data[objects][0][a]",
+                                    "value": "et",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "data[objects][0][b]",
+                                    "value": "et",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "data[picture]",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Body content array",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/array-body",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/array-body"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "row_id",
+                                    "value": "700",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "name",
+                                    "value": "My item name",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "1[row_id]",
+                                    "value": "700",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "1[name]",
+                                    "value": "My item name",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "0[picture]",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "File input",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/file-input",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/file-input"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "nested[_string]",
+                                    "value": "et",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "the_file",
+                                    "src": [],
+                                    "type": "file"
+                                },
+                                {
+                                    "key": "nested[_file]",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
             "name": "General",
             "description": "",
             "item": [
@@ -31,6 +211,10 @@
                         },
                         "method": "GET",
                         "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
@@ -80,7 +264,7 @@
                 }
             ]
         },
-        "2": {
+        {
             "name": "Side Projects",
             "description": "",
             "item": [
@@ -96,6 +280,10 @@
                         },
                         "method": "GET",
                         "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
@@ -150,13 +338,17 @@
                         "method": "POST",
                         "header": [
                             {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
                                 "key": "Accept",
                                 "value": "application\/json"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"The SideProject API\",\"description\":\"ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua\",\"url\":\"http:\\\/\\\/www.smitham.info\\\/consequatur-tempora-aspernatur-officiis-omnis-sed-similique.html\",\"due_at\":\"2077-10-19\"}"
+                            "raw": "{\"name\":\"The SideProject API\",\"description\":\"pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv\",\"url\":\"http:\\\/\\\/hartmann.com\\\/magnam-tenetur-quia-nemo-sit-est-numquam\",\"due_at\":\"2082-12-20\"}"
                         },
                         "description": "_Even though we both know you'll never finish it._\n\nThis endpoint's body parameters were automatically generated by Scribe\nfrom the controller's code. Check out the source! <\/aside>"
                     },
@@ -175,13 +367,17 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "12",
+                                    "value": "13",
                                     "description": "The ID of the side project."
                                 }
                             ]
                         },
                         "method": "GET",
                         "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
@@ -197,7 +393,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"name\":\"quo quo molestias\",\"description\":\"Tempora aspernatur officiis omnis sed similique et et.\",\"due_date\":\"20250122\",\"owner\":{\"id\":1,\"name\":\"Pete\",\"email\":\"pete@home.com\",\"email_verified_at\":null,\"created_at\":\"2021-05-29T22:53:05.000000Z\",\"updated_at\":\"2021-05-29T22:53:05.000000Z\"}}}",
+                            "body": "{\"data\":{\"name\":\"suscipit qui cumque\",\"description\":\"Tenetur quia nemo sit est.\",\"due_date\":\"20230829\",\"owner\":{\"id\":1,\"name\":\"Pete\",\"email\":\"pete@home.com\",\"email_verified_at\":null,\"created_at\":\"2021-05-29T22:53:05.000000Z\",\"updated_at\":\"2021-05-29T22:53:05.000000Z\"}}}",
                             "name": null
                         }
                     ]
@@ -215,13 +411,17 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "12",
+                                    "value": "13",
                                     "description": "The ID of the side project."
                                 }
                             ]
                         },
                         "method": "PUT",
                         "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
@@ -248,13 +448,17 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "12",
+                                    "value": "13",
                                     "description": "The ID of the side project."
                                 }
                             ]
                         },
                         "method": "DELETE",
                         "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
@@ -270,7 +474,7 @@
                 }
             ]
         },
-        "3": {
+        {
             "name": "Users",
             "description": "",
             "item": [
@@ -287,13 +491,17 @@
                         "method": "POST",
                         "header": [
                             {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
                                 "key": "Accept",
                                 "value": "application\/json"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"ovsnvfcwodowljclfphodypoplikvyotjovrjudbmxqvvdlccjyfgdivsjtacjokurmwmxjffismejdaobevyfcbyleqjgqcoefmvdnrazszstfwulwyendppvmxeocdljwpxkslcereqwua\",\"email\":\"mckayla50@example.net\",\"password\":\"error\"}"
+                            "raw": "{\"name\":\"pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv\",\"email\":\"casimir70@example.com\",\"password\":\"et\"}"
                         },
                         "description": "This endpoint's body parameters are automatically generated from a FormRequest.",
                         "auth": {
@@ -315,13 +523,17 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "12",
+                                    "value": "13",
                                     "description": "The ID of the user."
                                 }
                             ]
                         },
                         "method": "GET",
                         "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
@@ -337,7 +549,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":6,\"name\":\"Dr. Kallie Schroeder\",\"email\":\"boyle.krista@example.com\",\"side_projects\":[{\"id\":10,\"name\":\"similique et et\",\"description\":\"Odit molestiae non est nostrum sunt.\",\"url\":null,\"due_at\":\"20221119\",\"created_at\":\"2021-06-25T12:19:37.000000Z\",\"updated_at\":\"2021-06-25T12:19:37.000000Z\",\"user_id\":\"6\"}]}}",
+                            "body": "{\"data\":{\"id\":6,\"name\":\"Mr. Merlin Friesen\",\"email\":\"hdoyle@example.com\",\"side_projects\":[{\"id\":10,\"name\":\"est numquam consequuntur\",\"description\":\"Atque nobis ut natus aut dolores eveniet.\",\"url\":null,\"due_at\":\"20241013\",\"created_at\":\"2021-07-02T13:13:46.000000Z\",\"updated_at\":\"2021-07-02T13:13:46.000000Z\",\"user_id\":\"6\"}]}}",
                             "name": null
                         },
                         {
@@ -373,6 +585,10 @@
                         },
                         "method": "GET",
                         "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
@@ -427,13 +643,17 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "12",
+                                    "value": "13",
                                     "description": "The ID of the user."
                                 }
                             ]
                         },
                         "method": "POST",
                         "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
@@ -455,98 +675,8 @@
                     ]
                 }
             ]
-        },
-        "0": {
-            "name": "Dummy endpoints",
-            "description": "",
-            "item": [
-                {
-                    "name": "Body content array",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/array-body",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/array-body"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[{\"row_id\":\"700\",\"name\":\"My item name\",\"description\":\"error\"},{\"name\":\"My item name\",\"description\":\"error\"}]"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "File input",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/file-input",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/file-input"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Nested fields",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/nested",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/nested"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"data\":{\"name\":\"error\",\"size\":5,\"things\":[\"error\",\"error\"],\"objects\":[{\"a\":\"error\",\"b\":\"error\"},{\"a\":\"error\",\"b\":\"error\"}]}}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                }
-            ]
         }
-    },
+    ],
     "auth": {
         "type": "bearer"
     }
