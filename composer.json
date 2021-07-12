@@ -6,9 +6,11 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "ajcastro/scribe-tdd": "dev-master",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "knuckleswtf/scribe": "dev-master",
         "laravel/framework": "^8.40",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
@@ -21,13 +23,16 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3",
-        "knuckleswtf/scribe": "@dev"
+        "phpunit/phpunit": "^9.3.3"
     },
     "repositories": [
         {
             "type": "path",
-            "url": "../scribe"
+            "url": "../ajcastro/scribe"
+        },
+        {
+            "type": "path",
+            "url": "../ajcastro/scribe-tdd"
         }
     ],
     "autoload": {

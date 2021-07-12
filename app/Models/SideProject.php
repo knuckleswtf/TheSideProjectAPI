@@ -9,6 +9,13 @@ class SideProject extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'description',
+        'due_at',
+        'user_id',
+    ];
+
     public function owner()
     {
         return $this->belongsTo(User::class, 'user_id');
