@@ -16,17 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/**
- * Healthcheck
- *
- * Check that the service is up. If everything is okay, you'll get a 200 OK response.
- *
- * Otherwise, the request will fail with a 400 error, and a response listing the failed services.
- *
- * @response 400 scenario="Service is unhealthy" {"status": "down", "services": {"database": "up", "redis": "down"}}
- * @responseField status The status of this API (`up` or `down`).
- * @responseField services Map of each downstream service and their status (`up` or `down`).
- */
 Route::get('/healthcheck', function () {
     return [
         'status' => 'up',
@@ -34,6 +23,15 @@ Route::get('/healthcheck', function () {
             'database' => 'up',
             'redis' => 'up',
         ],
+    ];
+});
+
+/**
+ * @urlParam name string required This urlParam is not parsed because it is overwritten in the urlParam located in DynamicDataTest.
+ */
+Route::get('/dynamic_data/{name}', function ($name) {
+    return [
+        'name' => $name,
     ];
 });
 
