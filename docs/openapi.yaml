@@ -16,7 +16,7 @@ paths:
           in: header
           name: Content-Type
           description: ''
-          example: multipart/form-data
+          example: application/json
           schema:
             type: string
         -
@@ -32,7 +32,7 @@ paths:
       requestBody:
         required: true
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: object
               properties:
@@ -57,10 +57,6 @@ paths:
                         - et
                       items:
                         type: string
-                    picture:
-                      type: string
-                      format: binary
-                      description: 'A picture.'
                     objects:
                       type: array
                       description: 'An array of objects'
@@ -90,7 +86,7 @@ paths:
           in: header
           name: Content-Type
           description: ''
-          example: multipart/form-data
+          example: application/json
           schema:
             type: string
         -
@@ -106,7 +102,7 @@ paths:
       requestBody:
         required: true
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: array
               description: 'List of items'
@@ -114,7 +110,6 @@ paths:
                 -
                   row_id: '700'
                   name: 'My item name'
-                  picture: null
                 -
                   row_id: '700'
                   name: 'My item name'
@@ -129,10 +124,6 @@ paths:
                     type: string
                     description: 'An element name.'
                     example: 'My item name'
-                  picture:
-                    type: string
-                    format: binary
-                    description: 'An optional picture of the element.'
                 required:
                   - name
       security: []
@@ -206,6 +197,28 @@ paths:
           schema:
             type: string
       responses:
+        400:
+          description: 'Service is unhealthy'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: down
+                  services:
+                    database: up
+                    redis: down
+                properties:
+                  status:
+                    type: string
+                    example: down
+                    description: 'The status of this API (`up` or `down`).'
+                  services:
+                    type: object
+                    example:
+                      database: up
+                      redis: down
+                    description: 'Map of each downstream service and their status (`up` or `down`).'
         200:
           description: ''
           content:
@@ -227,28 +240,6 @@ paths:
                     example:
                       database: up
                       redis: up
-                    description: 'Map of each downstream service and their status (`up` or `down`).'
-        400:
-          description: '400, Service is unhealthy'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  status: down
-                  services:
-                    database: up
-                    redis: down
-                properties:
-                  status:
-                    type: string
-                    example: down
-                    description: 'The status of this API (`up` or `down`).'
-                  services:
-                    type: object
-                    example:
-                      database: up
-                      redis: down
                     description: 'Map of each downstream service and their status (`up` or `down`).'
       tags:
         - General
@@ -416,7 +407,7 @@ paths:
                 due_at:
                   type: string
                   description: 'Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.'
-                  example: '2082-12-20'
+                  example: '2083-02-08'
               required:
                 - name
   '/api/side_projects/{id}':
@@ -449,7 +440,7 @@ paths:
                   data:
                     name: 'suscipit qui cumque'
                     description: 'Tenetur quia nemo sit est.'
-                    due_date: '20230829'
+                    due_date: '20231018'
                     owner:
                       id: 1
                       name: Pete
@@ -463,7 +454,7 @@ paths:
                     example:
                       name: 'suscipit qui cumque'
                       description: 'Tenetur quia nemo sit est.'
-                      due_date: '20230829'
+                      due_date: '20231018'
                       owner:
                         id: 1
                         name: Pete
@@ -514,7 +505,9 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+      responses:
+        204:
+          description: 'Nothing to see here'
       tags:
         - 'Side Projects'
       security: []
@@ -861,6 +854,22 @@ paths:
           schema:
             type: string
       responses:
+        404:
+          description: 'User not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Not found'
+                  resource: user
+                properties:
+                  message:
+                    type: string
+                    example: 'Not found'
+                  resource:
+                    type: string
+                    example: user
         200:
           description: ''
           content:
@@ -878,9 +887,9 @@ paths:
                         name: 'est numquam consequuntur'
                         description: 'Atque nobis ut natus aut dolores eveniet.'
                         url: null
-                        due_at: '20241013'
-                        created_at: '2021-07-02T13:13:46.000000Z'
-                        updated_at: '2021-07-02T13:13:46.000000Z'
+                        due_at: '20241202'
+                        created_at: '2021-08-21T09:12:26.000000Z'
+                        updated_at: '2021-08-21T09:12:26.000000Z'
                         user_id: '6'
                 properties:
                   data:
@@ -895,26 +904,10 @@ paths:
                           name: 'est numquam consequuntur'
                           description: 'Atque nobis ut natus aut dolores eveniet.'
                           url: null
-                          due_at: '20241013'
-                          created_at: '2021-07-02T13:13:46.000000Z'
-                          updated_at: '2021-07-02T13:13:46.000000Z'
+                          due_at: '20241202'
+                          created_at: '2021-08-21T09:12:26.000000Z'
+                          updated_at: '2021-08-21T09:12:26.000000Z'
                           user_id: '6'
-        404:
-          description: '404, User not found'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'Not found'
-                  resource: user
-                properties:
-                  message:
-                    type: string
-                    example: 'Not found'
-                  resource:
-                    type: string
-                    example: user
       tags:
         - Users
       security: []
@@ -948,7 +941,7 @@ paths:
             type: string
       responses:
         200:
-          description: '200'
+          description: ''
           content:
             application/json:
               schema:
@@ -972,6 +965,19 @@ paths:
         required: true
         schema:
           type: integer
+tags:
+  -
+    name: 'Dummy endpoints'
+    description: ''
+  -
+    name: General
+    description: ''
+  -
+    name: 'Side Projects'
+    description: "\nAPIs for managing side projects."
+  -
+    name: Users
+    description: ''
 components:
   securitySchemes:
     default:

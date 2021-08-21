@@ -10,6 +10,8 @@ use League\Fractal\Resource\Item;
 
 /**
  * @group Side Projects
+ *
+ * APIs for managing side projects.
  */
 class SideProjectController extends Controller
 {
@@ -86,6 +88,8 @@ class SideProjectController extends Controller
 
     /**
      * Delete a side project
+     *
+     * @response 204 scenario="Nothing to see here"
      *
      */
     public function destroy(SideProject $sideProject)

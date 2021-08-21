@@ -41,7 +41,6 @@ Route::get('/healthcheck', function () {
 Route::middleware('auth:api')->get('/me', function (Request $request) {
     return $request->user();
 });*/
-
 Route::post('users/', [UserController::class, 'store']);
 Route::get('users/{id}', [UserController::class, 'show']);
 Route::get('users/', [UserController::class, 'index']);
@@ -57,14 +56,12 @@ Route::apiResource('side_projects', SideProjectController::class);
  * @bodyParam data.name string required A string field.
  * @bodyParam data.size int A number. Example: 5
  * @bodyParam data.things string[] An array of strings
- * @bodyParam data.picture file A picture.
  * @bodyParam data.objects object[] An array of objects
  * @bodyParam data.objects[].a string A field in the array of objects
  * @bodyParam data.objects[].b string A field in the array of objects
  */
 Route::post('/nested', function () {
-    return [
-    ];
+    return request()->all();
 });
 
 /**
@@ -74,11 +71,9 @@ Route::post('/nested', function () {
  * @bodyParam [] object[] List of items
  * @bodyParam [].row_id string A unique ID. Example: 700
  * @bodyParam [].name string required An element name. Example: My item name
- * @bodyParam [].picture file An optional picture of the element.
  */
 Route::post('/array-body', function () {
-    return [
-    ];
+    return request()->all();
 });
 
 /**
@@ -91,6 +86,5 @@ Route::post('/array-body', function () {
  * @bodyParam nested._file file required A nested file.
  */
 Route::post('/file-input', function () {
-    return [
-    ];
+    return request()->all();
 });

@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "The SideProject API",
-        "_postman_id": "4ff532b0-d4fb-4000-9a0c-65d9469e58bb",
+        "_postman_id": "520d1a4d-03b4-45b3-96c4-a9cda7685d32",
         "description": "Start (and never finish) side projects with this API.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -33,7 +33,7 @@
                         "header": [
                             {
                                 "key": "Content-Type",
-                                "value": "multipart\/form-data"
+                                "value": "application\/json"
                             },
                             {
                                 "key": "Accept",
@@ -41,44 +41,8 @@
                             }
                         ],
                         "body": {
-                            "mode": "formdata",
-                            "formdata": [
-                                {
-                                    "key": "data[name]",
-                                    "value": "et",
-                                    "type": "text"
-                                },
-                                {
-                                    "key": "data[size]",
-                                    "value": 5,
-                                    "type": "text"
-                                },
-                                {
-                                    "key": "data[things][0]",
-                                    "value": "et",
-                                    "type": "text"
-                                },
-                                {
-                                    "key": "data[things][1]",
-                                    "value": "et",
-                                    "type": "text"
-                                },
-                                {
-                                    "key": "data[objects][0][a]",
-                                    "value": "et",
-                                    "type": "text"
-                                },
-                                {
-                                    "key": "data[objects][0][b]",
-                                    "value": "et",
-                                    "type": "text"
-                                },
-                                {
-                                    "key": "data[picture]",
-                                    "src": [],
-                                    "type": "file"
-                                }
-                            ]
+                            "mode": "raw",
+                            "raw": "{\"data\":{\"name\":\"et\",\"size\":5,\"things\":[\"et\",\"et\"],\"objects\":[{\"a\":\"et\",\"b\":\"et\"}]}}"
                         },
                         "description": "",
                         "auth": {
@@ -101,7 +65,7 @@
                         "header": [
                             {
                                 "key": "Content-Type",
-                                "value": "multipart\/form-data"
+                                "value": "application\/json"
                             },
                             {
                                 "key": "Accept",
@@ -109,34 +73,8 @@
                             }
                         ],
                         "body": {
-                            "mode": "formdata",
-                            "formdata": [
-                                {
-                                    "key": "row_id",
-                                    "value": "700",
-                                    "type": "text"
-                                },
-                                {
-                                    "key": "name",
-                                    "value": "My item name",
-                                    "type": "text"
-                                },
-                                {
-                                    "key": "1[row_id]",
-                                    "value": "700",
-                                    "type": "text"
-                                },
-                                {
-                                    "key": "1[name]",
-                                    "value": "My item name",
-                                    "type": "text"
-                                },
-                                {
-                                    "key": "0[picture]",
-                                    "src": [],
-                                    "type": "file"
-                                }
-                            ]
+                            "mode": "raw",
+                            "raw": "[{\"row_id\":\"700\",\"name\":\"My item name\"},{\"row_id\":\"700\",\"name\":\"My item name\"}]"
                         },
                         "description": "",
                         "auth": {
@@ -228,6 +166,12 @@
                     },
                     "response": [
                         {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\"status\": \"down\", \"services\": {\"database\": \"up\", \"redis\": \"down\"}}",
+                            "name": "Service is unhealthy"
+                        },
+                        {
                             "header": [
                                 {
                                     "key": "cache-control",
@@ -243,7 +187,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "56"
+                                    "value": "59"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -252,13 +196,7 @@
                             ],
                             "code": 200,
                             "body": "{\"status\":\"up\",\"services\":{\"database\":\"up\",\"redis\":\"up\"}}",
-                            "name": null
-                        },
-                        {
-                            "header": [],
-                            "code": 400,
-                            "body": "{\"status\": \"down\", \"services\": {\"database\": \"up\", \"redis\": \"down\"}}",
-                            "name": "400, Service is unhealthy"
+                            "name": ""
                         }
                     ]
                 }
@@ -266,7 +204,7 @@
         },
         {
             "name": "Side Projects",
-            "description": "",
+            "description": "\nAPIs for managing side projects.",
             "item": [
                 {
                     "name": "View all side projects",
@@ -312,7 +250,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "54"
+                                    "value": "57"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -321,7 +259,7 @@
                             ],
                             "code": 200,
                             "body": "[{\"id\":1,\"name\":\"voluptas assumenda maiores\",\"description\":\"Consequuntur aut ea est non.\",\"url\":null,\"due_at\":\"20310222\",\"created_at\":\"2021-05-30T00:21:59.000000Z\",\"updated_at\":\"2021-05-30T00:21:59.000000Z\",\"user_id\":\"2\"},{\"id\":2,\"name\":\"iusto ut dolor\",\"description\":\"Voluptatem aspernatur dolorem quae quaerat harum.\",\"url\":null,\"due_at\":\"20301215\",\"created_at\":\"2021-05-30T00:21:59.000000Z\",\"updated_at\":\"2021-05-30T00:21:59.000000Z\",\"user_id\":\"1\"},{\"id\":3,\"name\":\"provident et consequatur\",\"description\":\"Quos et ipsum cum pariatur ex perspiciatis eius.\",\"url\":null,\"due_at\":\"20231022\",\"created_at\":\"2021-05-30T00:23:25.000000Z\",\"updated_at\":\"2021-05-30T00:23:25.000000Z\",\"user_id\":\"3\"},{\"id\":4,\"name\":\"corporis consequuntur amet\",\"description\":\"Dolores eveniet deleniti voluptatem saepe expedita.\",\"url\":null,\"due_at\":\"20230712\",\"created_at\":\"2021-05-30T00:23:25.000000Z\",\"updated_at\":\"2021-05-30T00:23:25.000000Z\",\"user_id\":\"1\"},{\"id\":5,\"name\":\"optio excepturi ea\",\"description\":\"Error deleniti sint a nostrum consequuntur et.\",\"url\":null,\"due_at\":\"20260324\",\"created_at\":\"2021-05-30T00:24:27.000000Z\",\"updated_at\":\"2021-05-30T00:24:27.000000Z\",\"user_id\":\"4\"},{\"id\":6,\"name\":\"nihil voluptate quaerat\",\"description\":\"Animi reprehenderit soluta id quo.\",\"url\":null,\"due_at\":\"20290603\",\"created_at\":\"2021-05-30T00:24:27.000000Z\",\"updated_at\":\"2021-05-30T00:24:27.000000Z\",\"user_id\":\"1\"},{\"id\":7,\"name\":\"aspernatur architecto assumenda\",\"description\":\"Nisi ea aut vel sint vero voluptas tempore.\",\"url\":null,\"due_at\":\"20280710\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"5\"},{\"id\":8,\"name\":\"vel perspiciatis quo\",\"description\":\"Et qui praesentium consequatur distinctio natus.\",\"url\":null,\"due_at\":\"20210605\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"1\"},{\"id\":9,\"name\":\"qui et totam\",\"description\":\"Veritatis quo dolorum soluta ut.\",\"url\":null,\"due_at\":\"20270203\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"1\"}]",
-                            "name": null
+                            "name": ""
                         }
                     ]
                 },
@@ -348,7 +286,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"The SideProject API\",\"description\":\"pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv\",\"url\":\"http:\\\/\\\/hartmann.com\\\/magnam-tenetur-quia-nemo-sit-est-numquam\",\"due_at\":\"2082-12-20\"}"
+                            "raw": "{\"name\":\"The SideProject API\",\"description\":\"pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv\",\"url\":\"http:\\\/\\\/hartmann.com\\\/magnam-tenetur-quia-nemo-sit-est-numquam\",\"due_at\":\"2083-02-08\"}"
                         },
                         "description": "_Even though we both know you'll never finish it._\n\nThis endpoint's body parameters were automatically generated by Scribe\nfrom the controller's code. Check out the source! <\/aside>"
                     },
@@ -393,8 +331,8 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"name\":\"suscipit qui cumque\",\"description\":\"Tenetur quia nemo sit est.\",\"due_date\":\"20230829\",\"owner\":{\"id\":1,\"name\":\"Pete\",\"email\":\"pete@home.com\",\"email_verified_at\":null,\"created_at\":\"2021-05-29T22:53:05.000000Z\",\"updated_at\":\"2021-05-29T22:53:05.000000Z\"}}}",
-                            "name": null
+                            "body": "{\"data\":{\"name\":\"suscipit qui cumque\",\"description\":\"Tenetur quia nemo sit est.\",\"due_date\":\"20231018\",\"owner\":{\"id\":1,\"name\":\"Pete\",\"email\":\"pete@home.com\",\"email_verified_at\":null,\"created_at\":\"2021-05-29T22:53:05.000000Z\",\"updated_at\":\"2021-05-29T22:53:05.000000Z\"}}}",
+                            "name": ""
                         }
                     ]
                 },
@@ -470,7 +408,14 @@
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "",
+                            "name": "Nothing to see here"
+                        }
+                    ]
                 }
             ]
         },
@@ -548,15 +493,15 @@
                     "response": [
                         {
                             "header": [],
-                            "code": 200,
-                            "body": "{\"data\":{\"id\":6,\"name\":\"Mr. Merlin Friesen\",\"email\":\"hdoyle@example.com\",\"side_projects\":[{\"id\":10,\"name\":\"est numquam consequuntur\",\"description\":\"Atque nobis ut natus aut dolores eveniet.\",\"url\":null,\"due_at\":\"20241013\",\"created_at\":\"2021-07-02T13:13:46.000000Z\",\"updated_at\":\"2021-07-02T13:13:46.000000Z\",\"user_id\":\"6\"}]}}",
-                            "name": null
+                            "code": 404,
+                            "body": "{\"message\":\"Not found\",\"resource\":\"user\"}",
+                            "name": "User not found"
                         },
                         {
                             "header": [],
-                            "code": 404,
-                            "body": "{\"message\":\"Not found\",\"resource\":\"user\"}",
-                            "name": "404, User not found"
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":6,\"name\":\"Mr. Merlin Friesen\",\"email\":\"hdoyle@example.com\",\"side_projects\":[{\"id\":10,\"name\":\"est numquam consequuntur\",\"description\":\"Atque nobis ut natus aut dolores eveniet.\",\"url\":null,\"due_at\":\"20241202\",\"created_at\":\"2021-08-21T09:12:26.000000Z\",\"updated_at\":\"2021-08-21T09:12:26.000000Z\",\"user_id\":\"6\"}]}}",
+                            "name": ""
                         }
                     ]
                 },
@@ -617,7 +562,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "55"
+                                    "value": "58"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -626,7 +571,7 @@
                             ],
                             "code": 200,
                             "body": "{\"data\":[{\"id\":1,\"name\":\"Pete\",\"email\":\"pete@home.com\",\"side_projects\":[{\"id\":2,\"name\":\"iusto ut dolor\",\"description\":\"Voluptatem aspernatur dolorem quae quaerat harum.\",\"url\":null,\"due_at\":\"20301215\",\"created_at\":\"2021-05-30T00:21:59.000000Z\",\"updated_at\":\"2021-05-30T00:21:59.000000Z\",\"user_id\":\"1\"},{\"id\":4,\"name\":\"corporis consequuntur amet\",\"description\":\"Dolores eveniet deleniti voluptatem saepe expedita.\",\"url\":null,\"due_at\":\"20230712\",\"created_at\":\"2021-05-30T00:23:25.000000Z\",\"updated_at\":\"2021-05-30T00:23:25.000000Z\",\"user_id\":\"1\"},{\"id\":6,\"name\":\"nihil voluptate quaerat\",\"description\":\"Animi reprehenderit soluta id quo.\",\"url\":null,\"due_at\":\"20290603\",\"created_at\":\"2021-05-30T00:24:27.000000Z\",\"updated_at\":\"2021-05-30T00:24:27.000000Z\",\"user_id\":\"1\"},{\"id\":8,\"name\":\"vel perspiciatis quo\",\"description\":\"Et qui praesentium consequatur distinctio natus.\",\"url\":null,\"due_at\":\"20210605\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"1\"},{\"id\":9,\"name\":\"qui et totam\",\"description\":\"Veritatis quo dolorum soluta ut.\",\"url\":null,\"due_at\":\"20270203\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"1\"}]},{\"id\":2,\"name\":\"Alexane Weber\",\"email\":\"lacy.wintheiser@example.net\",\"side_projects\":[{\"id\":1,\"name\":\"voluptas assumenda maiores\",\"description\":\"Consequuntur aut ea est non.\",\"url\":null,\"due_at\":\"20310222\",\"created_at\":\"2021-05-30T00:21:59.000000Z\",\"updated_at\":\"2021-05-30T00:21:59.000000Z\",\"user_id\":\"2\"}]},{\"id\":3,\"name\":\"John Kshlerin II\",\"email\":\"titus77@example.com\",\"side_projects\":[{\"id\":3,\"name\":\"provident et consequatur\",\"description\":\"Quos et ipsum cum pariatur ex perspiciatis eius.\",\"url\":null,\"due_at\":\"20231022\",\"created_at\":\"2021-05-30T00:23:25.000000Z\",\"updated_at\":\"2021-05-30T00:23:25.000000Z\",\"user_id\":\"3\"}]},{\"id\":4,\"name\":\"Rebeca Morissette\",\"email\":\"cole.geoffrey@example.com\",\"side_projects\":[{\"id\":5,\"name\":\"optio excepturi ea\",\"description\":\"Error deleniti sint a nostrum consequuntur et.\",\"url\":null,\"due_at\":\"20260324\",\"created_at\":\"2021-05-30T00:24:27.000000Z\",\"updated_at\":\"2021-05-30T00:24:27.000000Z\",\"user_id\":\"4\"}]},{\"id\":5,\"name\":\"Prof. Adah Witting IV\",\"email\":\"nswift@example.net\",\"side_projects\":[{\"id\":7,\"name\":\"aspernatur architecto assumenda\",\"description\":\"Nisi ea aut vel sint vero voluptas tempore.\",\"url\":null,\"due_at\":\"20280710\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"5\"}]}]}",
-                            "name": null
+                            "name": ""
                         }
                     ]
                 },
@@ -670,7 +615,7 @@
                             "header": [],
                             "code": 200,
                             "body": "{\"token\": \"2|KLDoUXc68Ko0JaFDZoX9qYkUqWglwdGxQsvTGBCg\"}",
-                            "name": "200"
+                            "name": ""
                         }
                     ]
                 }
