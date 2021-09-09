@@ -177,7 +177,7 @@ paths:
                 - the_file
                 - nested
       security: []
-  /api/healthcheck:
+  '/api/healthcheck/{unnecessaryParam}':
     get:
       summary: Healthcheck
       description: "Check that the service is up. If everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with a 400 error, and a response listing the failed services."
@@ -244,6 +244,21 @@ paths:
       tags:
         - General
       security: []
+    parameters:
+      -
+        in: path
+        name: unnecessaryParam
+        description: 'Optional parameter.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: et
   /api/side_projects:
     get:
       summary: 'View all side projects'
@@ -365,7 +380,7 @@ paths:
           in: header
           name: Authorization
           description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
+          example: 'Bearer {BEARER_TOKEN}'
           schema:
             type: string
         -
@@ -407,7 +422,7 @@ paths:
                 due_at:
                   type: string
                   description: 'Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.'
-                  example: '2083-02-08'
+                  example: '2083-02-27'
               required:
                 - name
   '/api/side_projects/{id}':
@@ -440,7 +455,7 @@ paths:
                   data:
                     name: 'suscipit qui cumque'
                     description: 'Tenetur quia nemo sit est.'
-                    due_date: '20231018'
+                    due_date: '20231106'
                     owner:
                       id: 1
                       name: Pete
@@ -454,7 +469,7 @@ paths:
                     example:
                       name: 'suscipit qui cumque'
                       description: 'Tenetur quia nemo sit est.'
-                      due_date: '20231018'
+                      due_date: '20231106'
                       owner:
                         id: 1
                         name: Pete
@@ -462,6 +477,22 @@ paths:
                         email_verified_at: null
                         created_at: '2021-05-29T22:53:05.000000Z'
                         updated_at: '2021-05-29T22:53:05.000000Z'
+        404:
+          description: 'Side project not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Not found'
+                  resource: 'Side project'
+                properties:
+                  message:
+                    type: string
+                    example: 'Not found'
+                  resource:
+                    type: string
+                    example: 'Side project'
       tags:
         - 'Side Projects'
       security: []
@@ -887,9 +918,9 @@ paths:
                         name: 'est numquam consequuntur'
                         description: 'Atque nobis ut natus aut dolores eveniet.'
                         url: null
-                        due_at: '20241202'
-                        created_at: '2021-08-21T09:12:26.000000Z'
-                        updated_at: '2021-08-21T09:12:26.000000Z'
+                        due_at: '20241221'
+                        created_at: '2021-09-09T12:16:30.000000Z'
+                        updated_at: '2021-09-09T12:16:30.000000Z'
                         user_id: '6'
                 properties:
                   data:
@@ -904,9 +935,9 @@ paths:
                           name: 'est numquam consequuntur'
                           description: 'Atque nobis ut natus aut dolores eveniet.'
                           url: null
-                          due_at: '20241202'
-                          created_at: '2021-08-21T09:12:26.000000Z'
-                          updated_at: '2021-08-21T09:12:26.000000Z'
+                          due_at: '20241221'
+                          created_at: '2021-09-09T12:16:30.000000Z'
+                          updated_at: '2021-09-09T12:16:30.000000Z'
                           user_id: '6'
       tags:
         - Users

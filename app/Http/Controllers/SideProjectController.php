@@ -69,6 +69,7 @@ class SideProjectController extends Controller
      *
      * @transformer  App\Http\Transformers\SideProjectTransformer
      * @transformerModel App\Models\SideProject with=owner
+     * @responseFile 404 scenario="Side project not found" responses/not_found.json {"resource": "Side project"}
      */
     public function show(SideProject $id)
     {

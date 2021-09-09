@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="./css/theme-default.style.css" media="screen">
     <link rel="stylesheet" href="./css/theme-default.print.css" media="print">
-    <script src="./js/theme-default-3.9.0.js"></script>
+    <script src="./js/theme-default-3.10.0.js"></script>
 
     <link rel="stylesheet"
           href="//unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
@@ -21,7 +21,7 @@
     <script>
         var baseUrl = "http://localhost:8000";
     </script>
-    <script src="./js/tryitout-3.9.0.js"></script>
+    <script src="./js/tryitout-3.10.0.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: August 21 2021</li>
+            <li>Last updated: September 9 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -74,7 +74,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <pre><code class="language-yaml">http://testapi.com</code></pre>
 
         <h1>Authenticating requests</h1>
-<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {BEARER_TOKEN}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by using the <code>users/auth</code> endpoint.</p>
 
@@ -511,7 +511,7 @@ p response.body
         </p>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <p>
-            Body: <code>object[]</code> <p>List of items</p>
+            <p>The request body is an array (<code>object[]</code>`), representing list of items.</p>
         </p>
                                             <p>
                         <b><code>[].row_id</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
@@ -548,8 +548,8 @@ p response.body
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "nested[_string]=et" \
-    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\phpE5DD.tmp" \
-    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\phpE5DE.tmp" </code></pre>
+    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\php8687.tmp" \
+    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\php8688.tmp" </code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
     "http://testapi.com/api/file-input"
@@ -585,11 +585,11 @@ $response = $client-&gt;post(
             ],
             [
                 'name' =&gt; 'the_file',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpE5DD.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php8687.tmp', 'r')
             ],
             [
                 'name' =&gt; 'nested[_file]',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpE5DE.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php8688.tmp', 'r')
             ],
         ],
     ]
@@ -602,8 +602,8 @@ import json
 
 url = 'http://testapi.com/api/file-input'
 files = {
-  'the_file': open('C:\Users\shalvah\AppData\Local\Temp\phpE5DD.tmp', 'rb'),
-  'nested[_file]': open('C:\Users\shalvah\AppData\Local\Temp\phpE5DE.tmp', 'rb')
+  'the_file': open('C:\Users\shalvah\AppData\Local\Temp\php8687.tmp', 'rb'),
+  'nested[_file]': open('C:\Users\shalvah\AppData\Local\Temp\php8688.tmp', 'rb')
 }
 payload = {
     "nested": {
@@ -722,7 +722,7 @@ p response.body
 
     
 
-            <h2 id="general-GETapi-healthcheck">Healthcheck</h2>
+            <h2 id="general-GETapi-healthcheck--unnecessaryParam--">Healthcheck</h2>
 
 <p>
 </p>
@@ -730,17 +730,17 @@ p response.body
 <p>Check that the service is up. If everything is okay, you'll get a 200 OK response.</p>
 <p>Otherwise, the request will fail with a 400 error, and a response listing the failed services.</p>
 
-<span id="example-requests-GETapi-healthcheck">
+<span id="example-requests-GETapi-healthcheck--unnecessaryParam--">
 <blockquote>Example request:</blockquote>
 
 
 <pre><code class="language-bash">curl --request GET \
-    --get "http://testapi.com/api/healthcheck" \
+    --get "http://testapi.com/api/healthcheck/et" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://testapi.com/api/healthcheck"
+    "http://testapi.com/api/healthcheck/et"
 );
 
 const headers = {
@@ -755,7 +755,7 @@ fetch(url, {
 
 <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://testapi.com/api/healthcheck',
+    'http://testapi.com/api/healthcheck/et',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -768,7 +768,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://testapi.com/api/healthcheck'
+url = 'http://testapi.com/api/healthcheck/et'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -786,7 +786,7 @@ headers = {
 }
 
 response = RestClient.get(
-    'http://testapi.com/api/healthcheck',
+    'http://testapi.com/api/healthcheck/et',
     headers
 )
 
@@ -794,7 +794,7 @@ p response.body
 </code></pre>
 </span>
 
-<span id="example-responses-GETapi-healthcheck">
+<span id="example-responses-GETapi-healthcheck--unnecessaryParam--">
             <blockquote>
             <p>Example response (400, Service is unhealthy):</p>
         </blockquote>
@@ -818,7 +818,7 @@ p response.body
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 59
+x-ratelimit-remaining: 56
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -832,45 +832,54 @@ access-control-allow-origin: *
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-healthcheck" hidden>
+<span id="execution-results-GETapi-healthcheck--unnecessaryParam--" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-healthcheck"></span>:
+                id="execution-response-status-GETapi-healthcheck--unnecessaryParam--"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-healthcheck"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-healthcheck--unnecessaryParam--"></code></pre>
 </span>
-<span id="execution-error-GETapi-healthcheck" hidden>
+<span id="execution-error-GETapi-healthcheck--unnecessaryParam--" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-healthcheck"></code></pre>
+    <pre><code id="execution-error-message-GETapi-healthcheck--unnecessaryParam--"></code></pre>
 </span>
-<form id="form-GETapi-healthcheck" data-method="GET"
-      data-path="api/healthcheck"
+<form id="form-GETapi-healthcheck--unnecessaryParam--" data-method="GET"
+      data-path="api/healthcheck/{unnecessaryParam?}"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-healthcheck', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-healthcheck--unnecessaryParam--', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-healthcheck"
-                    onclick="tryItOut('GETapi-healthcheck');">Try it out ⚡
+                    id="btn-tryout-GETapi-healthcheck--unnecessaryParam--"
+                    onclick="tryItOut('GETapi-healthcheck--unnecessaryParam--');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-healthcheck"
-                    onclick="cancelTryOut('GETapi-healthcheck');" hidden>Cancel
+                    id="btn-canceltryout-GETapi-healthcheck--unnecessaryParam--"
+                    onclick="cancelTryOut('GETapi-healthcheck--unnecessaryParam--');" hidden>Cancel
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-healthcheck" hidden>Send Request 💥
+                    id="btn-executetryout-GETapi-healthcheck--unnecessaryParam--" hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/healthcheck</code></b>
+            <b><code>api/healthcheck/{unnecessaryParam?}</code></b>
         </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>unnecessaryParam</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="unnecessaryParam"
+               data-endpoint="GETapi-healthcheck--unnecessaryParam--"
+               data-component="url"  hidden>
+    <br>
+            </p>
                     </form>
 
     <h3>Response</h3>
@@ -970,7 +979,7 @@ p response.body
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 57
+x-ratelimit-remaining: 54
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -1126,14 +1135,14 @@ from the controller's code. Check out the source! </aside></p>
 
 <pre><code class="language-bash">curl --request POST \
     "http://testapi.com/api/side_projects" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Authorization: Bearer {BEARER_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"name\": \"The SideProject API\",
     \"description\": \"pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv\",
     \"url\": \"http:\\/\\/hartmann.com\\/magnam-tenetur-quia-nemo-sit-est-numquam\",
-    \"due_at\": \"2083-02-08\"
+    \"due_at\": \"2083-02-27\"
 }"
 </code></pre>
 
@@ -1142,7 +1151,7 @@ from the controller's code. Check out the source! </aside></p>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer {BEARER_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1151,7 +1160,7 @@ let body = {
     "name": "The SideProject API",
     "description": "pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv",
     "url": "http:\/\/hartmann.com\/magnam-tenetur-quia-nemo-sit-est-numquam",
-    "due_at": "2083-02-08"
+    "due_at": "2083-02-27"
 }
 
 fetch(url, {
@@ -1165,14 +1174,14 @@ $response = $client-&gt;post(
     'http://testapi.com/api/side_projects',
     [
         'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Authorization' =&gt; 'Bearer {BEARER_TOKEN}',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
             'name' =&gt; 'The SideProject API',
             'description' =&gt; 'pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv',
             'url' =&gt; 'http://hartmann.com/magnam-tenetur-quia-nemo-sit-est-numquam',
-            'due_at' =&gt; '2083-02-08',
+            'due_at' =&gt; '2083-02-27',
         ],
     ]
 );
@@ -1187,10 +1196,10 @@ payload = {
     "name": "The SideProject API",
     "description": "pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv",
     "url": "http:\/\/hartmann.com\/magnam-tenetur-quia-nemo-sit-est-numquam",
-    "due_at": "2083-02-08"
+    "due_at": "2083-02-27"
 }
 headers = {
-  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
+  'Authorization': 'Bearer {BEARER_TOKEN}',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -1205,10 +1214,10 @@ body = {
     "name": "The SideProject API",
     "description": "pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv",
     "url": "http:\/\/hartmann.com\/magnam-tenetur-quia-nemo-sit-est-numquam",
-    "due_at": "2083-02-08"
+    "due_at": "2083-02-27"
 }
 headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer {BEARER_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 }
@@ -1240,7 +1249,7 @@ p response.body
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Authorization":"Bearer {BEARER_TOKEN}","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-side_projects', this);">
     <h3>
@@ -1391,7 +1400,7 @@ p response.body
     &quot;data&quot;: {
         &quot;name&quot;: &quot;suscipit qui cumque&quot;,
         &quot;description&quot;: &quot;Tenetur quia nemo sit est.&quot;,
-        &quot;due_date&quot;: &quot;20231018&quot;,
+        &quot;due_date&quot;: &quot;20231106&quot;,
         &quot;owner&quot;: {
             &quot;id&quot;: 1,
             &quot;name&quot;: &quot;Pete&quot;,
@@ -1401,6 +1410,16 @@ p response.body
             &quot;updated_at&quot;: &quot;2021-05-29T22:53:05.000000Z&quot;
         }
     }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, Side project not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Not found&quot;,
+    &quot;resource&quot;: &quot;Side project&quot;
 }</code>
  </pre>
     </span>
@@ -1982,9 +2001,9 @@ p response.body
                 &quot;name&quot;: &quot;est numquam consequuntur&quot;,
                 &quot;description&quot;: &quot;Atque nobis ut natus aut dolores eveniet.&quot;,
                 &quot;url&quot;: null,
-                &quot;due_at&quot;: &quot;20241202&quot;,
-                &quot;created_at&quot;: &quot;2021-08-21T09:12:26.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-08-21T09:12:26.000000Z&quot;,
+                &quot;due_at&quot;: &quot;20241221&quot;,
+                &quot;created_at&quot;: &quot;2021-09-09T12:16:30.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-09-09T12:16:30.000000Z&quot;,
                 &quot;user_id&quot;: &quot;6&quot;
             }
         ]
@@ -2138,7 +2157,7 @@ p response.body
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 58
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>

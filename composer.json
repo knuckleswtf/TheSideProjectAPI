@@ -28,6 +28,10 @@
         {
             "type": "path",
             "url": "../scribe"
+        },
+        {
+            "type": "github",
+            "url": "https://github.com/shalvah/upgrader"
         }
     ],
     "autoload": {

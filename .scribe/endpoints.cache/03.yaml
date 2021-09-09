@@ -67,7 +67,7 @@ endpoints:
         description: '404, User not found'
       -
         status: 200
-        content: '{"data":{"id":6,"name":"Mr. Merlin Friesen","email":"hdoyle@example.com","side_projects":[{"id":10,"name":"est numquam consequuntur","description":"Atque nobis ut natus aut dolores eveniet.","url":null,"due_at":"20241202","created_at":"2021-08-21T09:12:26.000000Z","updated_at":"2021-08-21T09:12:26.000000Z","user_id":"6"}]}}'
+        content: '{"data":{"id":6,"name":"Mr. Merlin Friesen","email":"hdoyle@example.com","side_projects":[{"id":10,"name":"est numquam consequuntur","description":"Atque nobis ut natus aut dolores eveniet.","url":null,"due_at":"20241221","created_at":"2021-09-09T12:16:30.000000Z","updated_at":"2021-09-09T12:16:30.000000Z","user_id":"6"}]}}'
         headers: []
         description: null
     responseFields: []
@@ -109,7 +109,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '58'
+          x-ratelimit-remaining: '55'
           access-control-allow-origin: '*'
         description: null
     responseFields: []

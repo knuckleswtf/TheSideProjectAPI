@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Route;
  * @responseField status The status of this API (`up` or `down`).
  * @responseField services Map of each downstream service and their status (`up` or `down`).
  */
-Route::get('/healthcheck', function () {
+Route::get('/healthcheck/{unnecessaryParam?}', function () {
     return [
         'status' => 'up',
         'services' => [
