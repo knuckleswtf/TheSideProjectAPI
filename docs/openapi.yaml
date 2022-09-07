@@ -13,6 +13,16 @@ paths:
       description: ''
       parameters:
         -
+          in: query
+          name: random
+          description: 'A random query parameter.'
+          example: et
+          required: false
+          schema:
+            type: string
+            description: 'A random query parameter.'
+            example: et
+        -
           in: header
           name: Content-Type
           description: ''
@@ -49,11 +59,14 @@ paths:
                       type: integer
                       description: 'A number.'
                       example: 5
+                    other:
+                      type: string
+                      description: 'Optional thing.'
+                      example: null
                     things:
                       type: array
-                      description: 'An array of strings'
+                      description: 'An array of strings.'
                       example:
-                        - et
                         - et
                       items:
                         type: string
@@ -61,7 +74,6 @@ paths:
                       type: array
                       description: 'An array of objects'
                       example:
-                        - []
                         - []
                       items:
                         type: object
@@ -107,9 +119,6 @@ paths:
               type: array
               description: 'List of items'
               example:
-                -
-                  row_id: '700'
-                  name: 'My item name'
                 -
                   row_id: '700'
                   name: 'My item name'
@@ -176,6 +185,45 @@ paths:
               required:
                 - the_file
                 - nested
+      security: []
+  /api/v1/languages:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Test
+          description: ''
+          example: Value
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example: []
+      tags:
+        - 'Dummy endpoints'
       security: []
   '/api/healthcheck/{unnecessaryParam}':
     get:
@@ -259,6 +307,41 @@ paths:
           present:
             summary: 'When the value is present'
             value: et
+  /api/me:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - General
+      security: []
   /api/side_projects:
     get:
       summary: 'View all side projects'
@@ -293,82 +376,82 @@ paths:
                     name: 'voluptas assumenda maiores'
                     description: 'Consequuntur aut ea est non.'
                     url: null
-                    due_at: '20310222'
+                    due_at: 20310222
                     created_at: '2021-05-30T00:21:59.000000Z'
                     updated_at: '2021-05-30T00:21:59.000000Z'
-                    user_id: '2'
+                    user_id: 2
                   -
                     id: 2
                     name: 'iusto ut dolor'
                     description: 'Voluptatem aspernatur dolorem quae quaerat harum.'
                     url: null
-                    due_at: '20301215'
+                    due_at: 20301215
                     created_at: '2021-05-30T00:21:59.000000Z'
                     updated_at: '2021-05-30T00:21:59.000000Z'
-                    user_id: '1'
+                    user_id: 1
                   -
                     id: 3
                     name: 'provident et consequatur'
                     description: 'Quos et ipsum cum pariatur ex perspiciatis eius.'
                     url: null
-                    due_at: '20231022'
+                    due_at: 20231022
                     created_at: '2021-05-30T00:23:25.000000Z'
                     updated_at: '2021-05-30T00:23:25.000000Z'
-                    user_id: '3'
+                    user_id: 3
                   -
                     id: 4
                     name: 'corporis consequuntur amet'
                     description: 'Dolores eveniet deleniti voluptatem saepe expedita.'
                     url: null
-                    due_at: '20230712'
+                    due_at: 20230712
                     created_at: '2021-05-30T00:23:25.000000Z'
                     updated_at: '2021-05-30T00:23:25.000000Z'
-                    user_id: '1'
+                    user_id: 1
                   -
                     id: 5
                     name: 'optio excepturi ea'
                     description: 'Error deleniti sint a nostrum consequuntur et.'
                     url: null
-                    due_at: '20260324'
+                    due_at: 20260324
                     created_at: '2021-05-30T00:24:27.000000Z'
                     updated_at: '2021-05-30T00:24:27.000000Z'
-                    user_id: '4'
+                    user_id: 4
                   -
                     id: 6
                     name: 'nihil voluptate quaerat'
                     description: 'Animi reprehenderit soluta id quo.'
                     url: null
-                    due_at: '20290603'
+                    due_at: 20290603
                     created_at: '2021-05-30T00:24:27.000000Z'
                     updated_at: '2021-05-30T00:24:27.000000Z'
-                    user_id: '1'
+                    user_id: 1
                   -
                     id: 7
                     name: 'aspernatur architecto assumenda'
                     description: 'Nisi ea aut vel sint vero voluptas tempore.'
                     url: null
-                    due_at: '20280710'
+                    due_at: 20280710
                     created_at: '2021-05-30T00:25:43.000000Z'
                     updated_at: '2021-05-30T00:25:43.000000Z'
-                    user_id: '5'
+                    user_id: 5
                   -
                     id: 8
                     name: 'vel perspiciatis quo'
                     description: 'Et qui praesentium consequatur distinctio natus.'
                     url: null
-                    due_at: '20210605'
+                    due_at: 20210605
                     created_at: '2021-05-30T00:25:43.000000Z'
                     updated_at: '2021-05-30T00:25:43.000000Z'
-                    user_id: '1'
+                    user_id: 1
                   -
                     id: 9
                     name: 'qui et totam'
                     description: 'Veritatis quo dolorum soluta ut.'
                     url: null
-                    due_at: '20270203'
+                    due_at: 20270203
                     created_at: '2021-05-30T00:25:43.000000Z'
                     updated_at: '2021-05-30T00:25:43.000000Z'
-                    user_id: '1'
+                    user_id: 1
       tags:
         - 'Side Projects'
       security: []
@@ -422,7 +505,7 @@ paths:
                 due_at:
                   type: string
                   description: 'Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.'
-                  example: '2083-02-27'
+                  example: '2084-02-25'
               required:
                 - name
   '/api/side_projects/{id}':
@@ -455,28 +538,28 @@ paths:
                   data:
                     name: 'suscipit qui cumque'
                     description: 'Tenetur quia nemo sit est.'
-                    due_date: '20231106'
+                    due_date: '20241103'
                     owner:
-                      id: 1
-                      name: Pete
-                      email: pete@home.com
-                      email_verified_at: null
-                      created_at: '2021-05-29T22:53:05.000000Z'
-                      updated_at: '2021-05-29T22:53:05.000000Z'
+                      id: 6
+                      name: 'Kurt Kub'
+                      email: juvenal97@example.org
+                      email_verified_at: '2022-09-07T22:37:54.000000Z'
+                      created_at: '2022-09-07T22:37:54.000000Z'
+                      updated_at: '2022-09-07T22:37:54.000000Z'
                 properties:
                   data:
                     type: object
                     example:
                       name: 'suscipit qui cumque'
                       description: 'Tenetur quia nemo sit est.'
-                      due_date: '20231106'
+                      due_date: '20241103'
                       owner:
-                        id: 1
-                        name: Pete
-                        email: pete@home.com
-                        email_verified_at: null
-                        created_at: '2021-05-29T22:53:05.000000Z'
-                        updated_at: '2021-05-29T22:53:05.000000Z'
+                        id: 6
+                        name: 'Kurt Kub'
+                        email: juvenal97@example.org
+                        email_verified_at: '2022-09-07T22:37:54.000000Z'
+                        created_at: '2022-09-07T22:37:54.000000Z'
+                        updated_at: '2022-09-07T22:37:54.000000Z'
         404:
           description: 'Side project not found'
           content:
@@ -547,14 +630,14 @@ paths:
         in: path
         name: id
         description: 'The ID of the side project.'
-        example: 13
+        example: 1
         required: true
         schema:
           type: integer
   /api/users:
     post:
       summary: 'Create a user'
-      description: 'This endpoint''s body parameters are automatically generated from a FormRequest.'
+      description: "This endpoint's body parameters are automatically generated from a FormRequest."
       parameters:
         -
           in: header
@@ -654,46 +737,46 @@ paths:
                           name: 'iusto ut dolor'
                           description: 'Voluptatem aspernatur dolorem quae quaerat harum.'
                           url: null
-                          due_at: '20301215'
+                          due_at: 20301215
                           created_at: '2021-05-30T00:21:59.000000Z'
                           updated_at: '2021-05-30T00:21:59.000000Z'
-                          user_id: '1'
+                          user_id: 1
                         -
                           id: 4
                           name: 'corporis consequuntur amet'
                           description: 'Dolores eveniet deleniti voluptatem saepe expedita.'
                           url: null
-                          due_at: '20230712'
+                          due_at: 20230712
                           created_at: '2021-05-30T00:23:25.000000Z'
                           updated_at: '2021-05-30T00:23:25.000000Z'
-                          user_id: '1'
+                          user_id: 1
                         -
                           id: 6
                           name: 'nihil voluptate quaerat'
                           description: 'Animi reprehenderit soluta id quo.'
                           url: null
-                          due_at: '20290603'
+                          due_at: 20290603
                           created_at: '2021-05-30T00:24:27.000000Z'
                           updated_at: '2021-05-30T00:24:27.000000Z'
-                          user_id: '1'
+                          user_id: 1
                         -
                           id: 8
                           name: 'vel perspiciatis quo'
                           description: 'Et qui praesentium consequatur distinctio natus.'
                           url: null
-                          due_at: '20210605'
+                          due_at: 20210605
                           created_at: '2021-05-30T00:25:43.000000Z'
                           updated_at: '2021-05-30T00:25:43.000000Z'
-                          user_id: '1'
+                          user_id: 1
                         -
                           id: 9
                           name: 'qui et totam'
                           description: 'Veritatis quo dolorum soluta ut.'
                           url: null
-                          due_at: '20270203'
+                          due_at: 20270203
                           created_at: '2021-05-30T00:25:43.000000Z'
                           updated_at: '2021-05-30T00:25:43.000000Z'
-                          user_id: '1'
+                          user_id: 1
                     -
                       id: 2
                       name: 'Alexane Weber'
@@ -704,10 +787,10 @@ paths:
                           name: 'voluptas assumenda maiores'
                           description: 'Consequuntur aut ea est non.'
                           url: null
-                          due_at: '20310222'
+                          due_at: 20310222
                           created_at: '2021-05-30T00:21:59.000000Z'
                           updated_at: '2021-05-30T00:21:59.000000Z'
-                          user_id: '2'
+                          user_id: 2
                     -
                       id: 3
                       name: 'John Kshlerin II'
@@ -718,10 +801,10 @@ paths:
                           name: 'provident et consequatur'
                           description: 'Quos et ipsum cum pariatur ex perspiciatis eius.'
                           url: null
-                          due_at: '20231022'
+                          due_at: 20231022
                           created_at: '2021-05-30T00:23:25.000000Z'
                           updated_at: '2021-05-30T00:23:25.000000Z'
-                          user_id: '3'
+                          user_id: 3
                     -
                       id: 4
                       name: 'Rebeca Morissette'
@@ -732,10 +815,10 @@ paths:
                           name: 'optio excepturi ea'
                           description: 'Error deleniti sint a nostrum consequuntur et.'
                           url: null
-                          due_at: '20260324'
+                          due_at: 20260324
                           created_at: '2021-05-30T00:24:27.000000Z'
                           updated_at: '2021-05-30T00:24:27.000000Z'
-                          user_id: '4'
+                          user_id: 4
                     -
                       id: 5
                       name: 'Prof. Adah Witting IV'
@@ -746,10 +829,10 @@ paths:
                           name: 'aspernatur architecto assumenda'
                           description: 'Nisi ea aut vel sint vero voluptas tempore.'
                           url: null
-                          due_at: '20280710'
+                          due_at: 20280710
                           created_at: '2021-05-30T00:25:43.000000Z'
                           updated_at: '2021-05-30T00:25:43.000000Z'
-                          user_id: '5'
+                          user_id: 5
                 properties:
                   data:
                     type: array
@@ -764,46 +847,46 @@ paths:
                             name: 'iusto ut dolor'
                             description: 'Voluptatem aspernatur dolorem quae quaerat harum.'
                             url: null
-                            due_at: '20301215'
+                            due_at: 20301215
                             created_at: '2021-05-30T00:21:59.000000Z'
                             updated_at: '2021-05-30T00:21:59.000000Z'
-                            user_id: '1'
+                            user_id: 1
                           -
                             id: 4
                             name: 'corporis consequuntur amet'
                             description: 'Dolores eveniet deleniti voluptatem saepe expedita.'
                             url: null
-                            due_at: '20230712'
+                            due_at: 20230712
                             created_at: '2021-05-30T00:23:25.000000Z'
                             updated_at: '2021-05-30T00:23:25.000000Z'
-                            user_id: '1'
+                            user_id: 1
                           -
                             id: 6
                             name: 'nihil voluptate quaerat'
                             description: 'Animi reprehenderit soluta id quo.'
                             url: null
-                            due_at: '20290603'
+                            due_at: 20290603
                             created_at: '2021-05-30T00:24:27.000000Z'
                             updated_at: '2021-05-30T00:24:27.000000Z'
-                            user_id: '1'
+                            user_id: 1
                           -
                             id: 8
                             name: 'vel perspiciatis quo'
                             description: 'Et qui praesentium consequatur distinctio natus.'
                             url: null
-                            due_at: '20210605'
+                            due_at: 20210605
                             created_at: '2021-05-30T00:25:43.000000Z'
                             updated_at: '2021-05-30T00:25:43.000000Z'
-                            user_id: '1'
+                            user_id: 1
                           -
                             id: 9
                             name: 'qui et totam'
                             description: 'Veritatis quo dolorum soluta ut.'
                             url: null
-                            due_at: '20270203'
+                            due_at: 20270203
                             created_at: '2021-05-30T00:25:43.000000Z'
                             updated_at: '2021-05-30T00:25:43.000000Z'
-                            user_id: '1'
+                            user_id: 1
                       -
                         id: 2
                         name: 'Alexane Weber'
@@ -814,10 +897,10 @@ paths:
                             name: 'voluptas assumenda maiores'
                             description: 'Consequuntur aut ea est non.'
                             url: null
-                            due_at: '20310222'
+                            due_at: 20310222
                             created_at: '2021-05-30T00:21:59.000000Z'
                             updated_at: '2021-05-30T00:21:59.000000Z'
-                            user_id: '2'
+                            user_id: 2
                       -
                         id: 3
                         name: 'John Kshlerin II'
@@ -828,10 +911,10 @@ paths:
                             name: 'provident et consequatur'
                             description: 'Quos et ipsum cum pariatur ex perspiciatis eius.'
                             url: null
-                            due_at: '20231022'
+                            due_at: 20231022
                             created_at: '2021-05-30T00:23:25.000000Z'
                             updated_at: '2021-05-30T00:23:25.000000Z'
-                            user_id: '3'
+                            user_id: 3
                       -
                         id: 4
                         name: 'Rebeca Morissette'
@@ -842,10 +925,10 @@ paths:
                             name: 'optio excepturi ea'
                             description: 'Error deleniti sint a nostrum consequuntur et.'
                             url: null
-                            due_at: '20260324'
+                            due_at: 20260324
                             created_at: '2021-05-30T00:24:27.000000Z'
                             updated_at: '2021-05-30T00:24:27.000000Z'
-                            user_id: '4'
+                            user_id: 4
                       -
                         id: 5
                         name: 'Prof. Adah Witting IV'
@@ -856,10 +939,10 @@ paths:
                             name: 'aspernatur architecto assumenda'
                             description: 'Nisi ea aut vel sint vero voluptas tempore.'
                             url: null
-                            due_at: '20280710'
+                            due_at: 20280710
                             created_at: '2021-05-30T00:25:43.000000Z'
                             updated_at: '2021-05-30T00:25:43.000000Z'
-                            user_id: '5'
+                            user_id: 5
                     items:
                       type: object
       tags:
@@ -902,7 +985,7 @@ paths:
                     type: string
                     example: user
         200:
-          description: ''
+          description: '0'
           content:
             application/json:
               schema:
@@ -918,10 +1001,10 @@ paths:
                         name: 'est numquam consequuntur'
                         description: 'Atque nobis ut natus aut dolores eveniet.'
                         url: null
-                        due_at: '20241221'
-                        created_at: '2021-09-09T12:16:30.000000Z'
-                        updated_at: '2021-09-09T12:16:30.000000Z'
-                        user_id: '6'
+                        due_at: 20251220
+                        created_at: '2022-09-07T22:37:54.000000Z'
+                        updated_at: '2022-09-07T22:37:54.000000Z'
+                        user_id: 6
                 properties:
                   data:
                     type: object
@@ -935,10 +1018,10 @@ paths:
                           name: 'est numquam consequuntur'
                           description: 'Atque nobis ut natus aut dolores eveniet.'
                           url: null
-                          due_at: '20241221'
-                          created_at: '2021-09-09T12:16:30.000000Z'
-                          updated_at: '2021-09-09T12:16:30.000000Z'
-                          user_id: '6'
+                          due_at: 20251220
+                          created_at: '2022-09-07T22:37:54.000000Z'
+                          updated_at: '2022-09-07T22:37:54.000000Z'
+                          user_id: 6
       tags:
         - Users
       security: []
@@ -947,7 +1030,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: 13
+        example: 1
         required: true
         schema:
           type: integer
@@ -992,7 +1075,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: 13
+        example: 1
         required: true
         schema:
           type: integer
@@ -1005,7 +1088,7 @@ tags:
     description: ''
   -
     name: 'Side Projects'
-    description: "\nAPIs for managing side projects."
+    description: "\nAPIs for managing side projects.\n\nNote how the URL params for the endpoints here are automatically generated by Scribe."
   -
     name: Users
     description: ''

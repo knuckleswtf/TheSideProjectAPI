@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "testapi.com"
+            "value": "http:\/\/testapi.com"
         }
     ],
     "info": {
         "name": "The SideProject API",
-        "_postman_id": "9aab06af-ece7-4693-a720-52ea5aebf6ee",
+        "_postman_id": "daf19259-c834-45b3-af85-82d197fd8ec6",
         "description": "Start (and never finish) side projects with this API.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -23,11 +23,17 @@
                     "name": "Nested fields",
                     "request": {
                         "url": {
-                            "protocol": "http",
                             "host": "{{baseUrl}}",
                             "path": "api\/nested",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/nested"
+                            "query": [
+                                {
+                                    "key": "random",
+                                    "value": "et",
+                                    "description": "A random query parameter.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/nested?random=et"
                         },
                         "method": "POST",
                         "header": [
@@ -42,7 +48,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"data\":{\"name\":\"et\",\"size\":5,\"things\":[\"et\",\"et\"],\"objects\":[{\"a\":\"et\",\"b\":\"et\"}]}}"
+                            "raw": "{\"data\":{\"name\":\"et\",\"size\":5,\"things\":[\"et\"],\"objects\":[{\"a\":\"et\",\"b\":\"et\"}]}}"
                         },
                         "description": "",
                         "auth": {
@@ -55,11 +61,10 @@
                     "name": "Body content array",
                     "request": {
                         "url": {
-                            "protocol": "http",
                             "host": "{{baseUrl}}",
                             "path": "api\/array-body",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/array-body"
+                            "raw": "{{baseUrl}}\/api\/array-body"
                         },
                         "method": "POST",
                         "header": [
@@ -74,7 +79,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "[{\"row_id\":\"700\",\"name\":\"My item name\"},{\"row_id\":\"700\",\"name\":\"My item name\"}]"
+                            "raw": "[{\"row_id\":\"700\",\"name\":\"My item name\"}]"
                         },
                         "description": "",
                         "auth": {
@@ -87,11 +92,10 @@
                     "name": "File input",
                     "request": {
                         "url": {
-                            "protocol": "http",
                             "host": "{{baseUrl}}",
                             "path": "api\/file-input",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/file-input"
+                            "raw": "{{baseUrl}}\/api\/file-input"
                         },
                         "method": "POST",
                         "header": [
@@ -110,7 +114,8 @@
                                 {
                                     "key": "nested[_string]",
                                     "value": "et",
-                                    "type": "text"
+                                    "type": "text",
+                                    "description": ""
                                 },
                                 {
                                     "key": "the_file",
@@ -130,6 +135,66 @@
                         }
                     },
                     "response": []
+                },
+                {
+                    "name": "api\/v1\/languages",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/languages",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/languages"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Test",
+                                "value": "Value"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "52"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[]",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },
@@ -141,11 +206,10 @@
                     "name": "Healthcheck",
                     "request": {
                         "url": {
-                            "protocol": "http",
                             "host": "{{baseUrl}}",
                             "path": "api\/healthcheck\/:unnecessaryParam",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/healthcheck\/:unnecessaryParam",
+                            "raw": "{{baseUrl}}\/api\/healthcheck\/:unnecessaryParam",
                             "variable": [
                                 {
                                     "id": "unnecessaryParam",
@@ -195,7 +259,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "56"
+                                    "value": "55"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -207,22 +271,69 @@
                             "name": ""
                         }
                     ]
+                },
+                {
+                    "name": "api\/me",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/me",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/me"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },
         {
             "name": "Side Projects",
-            "description": "\nAPIs for managing side projects.",
+            "description": "\nAPIs for managing side projects.\n\nNote how the URL params for the endpoints here are automatically generated by Scribe.",
             "item": [
                 {
                     "name": "View all side projects",
                     "request": {
                         "url": {
-                            "protocol": "http",
                             "host": "{{baseUrl}}",
                             "path": "api\/side_projects",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/side_projects"
+                            "raw": "{{baseUrl}}\/api\/side_projects"
                         },
                         "method": "GET",
                         "header": [
@@ -258,7 +369,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "54"
+                                    "value": "53"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -266,7 +377,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "[{\"id\":1,\"name\":\"voluptas assumenda maiores\",\"description\":\"Consequuntur aut ea est non.\",\"url\":null,\"due_at\":\"20310222\",\"created_at\":\"2021-05-30T00:21:59.000000Z\",\"updated_at\":\"2021-05-30T00:21:59.000000Z\",\"user_id\":\"2\"},{\"id\":2,\"name\":\"iusto ut dolor\",\"description\":\"Voluptatem aspernatur dolorem quae quaerat harum.\",\"url\":null,\"due_at\":\"20301215\",\"created_at\":\"2021-05-30T00:21:59.000000Z\",\"updated_at\":\"2021-05-30T00:21:59.000000Z\",\"user_id\":\"1\"},{\"id\":3,\"name\":\"provident et consequatur\",\"description\":\"Quos et ipsum cum pariatur ex perspiciatis eius.\",\"url\":null,\"due_at\":\"20231022\",\"created_at\":\"2021-05-30T00:23:25.000000Z\",\"updated_at\":\"2021-05-30T00:23:25.000000Z\",\"user_id\":\"3\"},{\"id\":4,\"name\":\"corporis consequuntur amet\",\"description\":\"Dolores eveniet deleniti voluptatem saepe expedita.\",\"url\":null,\"due_at\":\"20230712\",\"created_at\":\"2021-05-30T00:23:25.000000Z\",\"updated_at\":\"2021-05-30T00:23:25.000000Z\",\"user_id\":\"1\"},{\"id\":5,\"name\":\"optio excepturi ea\",\"description\":\"Error deleniti sint a nostrum consequuntur et.\",\"url\":null,\"due_at\":\"20260324\",\"created_at\":\"2021-05-30T00:24:27.000000Z\",\"updated_at\":\"2021-05-30T00:24:27.000000Z\",\"user_id\":\"4\"},{\"id\":6,\"name\":\"nihil voluptate quaerat\",\"description\":\"Animi reprehenderit soluta id quo.\",\"url\":null,\"due_at\":\"20290603\",\"created_at\":\"2021-05-30T00:24:27.000000Z\",\"updated_at\":\"2021-05-30T00:24:27.000000Z\",\"user_id\":\"1\"},{\"id\":7,\"name\":\"aspernatur architecto assumenda\",\"description\":\"Nisi ea aut vel sint vero voluptas tempore.\",\"url\":null,\"due_at\":\"20280710\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"5\"},{\"id\":8,\"name\":\"vel perspiciatis quo\",\"description\":\"Et qui praesentium consequatur distinctio natus.\",\"url\":null,\"due_at\":\"20210605\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"1\"},{\"id\":9,\"name\":\"qui et totam\",\"description\":\"Veritatis quo dolorum soluta ut.\",\"url\":null,\"due_at\":\"20270203\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"1\"}]",
+                            "body": "[{\"id\":1,\"name\":\"voluptas assumenda maiores\",\"description\":\"Consequuntur aut ea est non.\",\"url\":null,\"due_at\":20310222,\"created_at\":\"2021-05-30T00:21:59.000000Z\",\"updated_at\":\"2021-05-30T00:21:59.000000Z\",\"user_id\":2},{\"id\":2,\"name\":\"iusto ut dolor\",\"description\":\"Voluptatem aspernatur dolorem quae quaerat harum.\",\"url\":null,\"due_at\":20301215,\"created_at\":\"2021-05-30T00:21:59.000000Z\",\"updated_at\":\"2021-05-30T00:21:59.000000Z\",\"user_id\":1},{\"id\":3,\"name\":\"provident et consequatur\",\"description\":\"Quos et ipsum cum pariatur ex perspiciatis eius.\",\"url\":null,\"due_at\":20231022,\"created_at\":\"2021-05-30T00:23:25.000000Z\",\"updated_at\":\"2021-05-30T00:23:25.000000Z\",\"user_id\":3},{\"id\":4,\"name\":\"corporis consequuntur amet\",\"description\":\"Dolores eveniet deleniti voluptatem saepe expedita.\",\"url\":null,\"due_at\":20230712,\"created_at\":\"2021-05-30T00:23:25.000000Z\",\"updated_at\":\"2021-05-30T00:23:25.000000Z\",\"user_id\":1},{\"id\":5,\"name\":\"optio excepturi ea\",\"description\":\"Error deleniti sint a nostrum consequuntur et.\",\"url\":null,\"due_at\":20260324,\"created_at\":\"2021-05-30T00:24:27.000000Z\",\"updated_at\":\"2021-05-30T00:24:27.000000Z\",\"user_id\":4},{\"id\":6,\"name\":\"nihil voluptate quaerat\",\"description\":\"Animi reprehenderit soluta id quo.\",\"url\":null,\"due_at\":20290603,\"created_at\":\"2021-05-30T00:24:27.000000Z\",\"updated_at\":\"2021-05-30T00:24:27.000000Z\",\"user_id\":1},{\"id\":7,\"name\":\"aspernatur architecto assumenda\",\"description\":\"Nisi ea aut vel sint vero voluptas tempore.\",\"url\":null,\"due_at\":20280710,\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":5},{\"id\":8,\"name\":\"vel perspiciatis quo\",\"description\":\"Et qui praesentium consequatur distinctio natus.\",\"url\":null,\"due_at\":20210605,\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":1},{\"id\":9,\"name\":\"qui et totam\",\"description\":\"Veritatis quo dolorum soluta ut.\",\"url\":null,\"due_at\":20270203,\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":1}]",
                             "name": ""
                         }
                     ]
@@ -275,11 +386,10 @@
                     "name": "Start a new side project",
                     "request": {
                         "url": {
-                            "protocol": "http",
                             "host": "{{baseUrl}}",
                             "path": "api\/side_projects",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/side_projects"
+                            "raw": "{{baseUrl}}\/api\/side_projects"
                         },
                         "method": "POST",
                         "header": [
@@ -294,7 +404,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"The SideProject API\",\"description\":\"pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv\",\"url\":\"http:\\\/\\\/hartmann.com\\\/magnam-tenetur-quia-nemo-sit-est-numquam\",\"due_at\":\"2083-02-27\"}"
+                            "raw": "{\"name\":\"The SideProject API\",\"description\":\"pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv\",\"url\":\"http:\\\/\\\/hartmann.com\\\/magnam-tenetur-quia-nemo-sit-est-numquam\",\"due_at\":\"2084-02-25\"}"
                         },
                         "description": "_Even though we both know you'll never finish it._\n\nThis endpoint's body parameters were automatically generated by Scribe\nfrom the controller's code. Check out the source! <\/aside>"
                     },
@@ -304,16 +414,15 @@
                     "name": "View a side project",
                     "request": {
                         "url": {
-                            "protocol": "http",
                             "host": "{{baseUrl}}",
                             "path": "api\/side_projects\/:id",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/side_projects\/:id",
+                            "raw": "{{baseUrl}}\/api\/side_projects\/:id",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "13",
+                                    "value": "1",
                                     "description": "The ID of the side project."
                                 }
                             ]
@@ -339,7 +448,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"name\":\"suscipit qui cumque\",\"description\":\"Tenetur quia nemo sit est.\",\"due_date\":\"20231106\",\"owner\":{\"id\":1,\"name\":\"Pete\",\"email\":\"pete@home.com\",\"email_verified_at\":null,\"created_at\":\"2021-05-29T22:53:05.000000Z\",\"updated_at\":\"2021-05-29T22:53:05.000000Z\"}}}",
+                            "body": "{\"data\":{\"name\":\"suscipit qui cumque\",\"description\":\"Tenetur quia nemo sit est.\",\"due_date\":\"20241103\",\"owner\":{\"id\":6,\"name\":\"Kurt Kub\",\"email\":\"juvenal97@example.org\",\"email_verified_at\":\"2022-09-07T22:37:54.000000Z\",\"created_at\":\"2022-09-07T22:37:54.000000Z\",\"updated_at\":\"2022-09-07T22:37:54.000000Z\"}}}",
                             "name": ""
                         },
                         {
@@ -354,16 +463,15 @@
                     "name": "Update a side project",
                     "request": {
                         "url": {
-                            "protocol": "http",
                             "host": "{{baseUrl}}",
                             "path": "api\/side_projects\/:id",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/side_projects\/:id",
+                            "raw": "{{baseUrl}}\/api\/side_projects\/:id",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "13",
+                                    "value": "1",
                                     "description": "The ID of the side project."
                                 }
                             ]
@@ -391,16 +499,15 @@
                     "name": "Delete a side project",
                     "request": {
                         "url": {
-                            "protocol": "http",
                             "host": "{{baseUrl}}",
                             "path": "api\/side_projects\/:id",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/side_projects\/:id",
+                            "raw": "{{baseUrl}}\/api\/side_projects\/:id",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "13",
+                                    "value": "1",
                                     "description": "The ID of the side project."
                                 }
                             ]
@@ -441,11 +548,10 @@
                     "name": "Create a user",
                     "request": {
                         "url": {
-                            "protocol": "http",
                             "host": "{{baseUrl}}",
                             "path": "api\/users",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/users"
+                            "raw": "{{baseUrl}}\/api\/users"
                         },
                         "method": "POST",
                         "header": [
@@ -473,16 +579,15 @@
                     "name": "Fetch a user",
                     "request": {
                         "url": {
-                            "protocol": "http",
                             "host": "{{baseUrl}}",
                             "path": "api\/users\/:id",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/users\/:id",
+                            "raw": "{{baseUrl}}\/api\/users\/:id",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "13",
+                                    "value": "1",
                                     "description": "The ID of the user."
                                 }
                             ]
@@ -514,8 +619,8 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":6,\"name\":\"Mr. Merlin Friesen\",\"email\":\"hdoyle@example.com\",\"side_projects\":[{\"id\":10,\"name\":\"est numquam consequuntur\",\"description\":\"Atque nobis ut natus aut dolores eveniet.\",\"url\":null,\"due_at\":\"20241221\",\"created_at\":\"2021-09-09T12:16:30.000000Z\",\"updated_at\":\"2021-09-09T12:16:30.000000Z\",\"user_id\":\"6\"}]}}",
-                            "name": ""
+                            "body": "{\"data\":{\"id\":6,\"name\":\"Mr. Merlin Friesen\",\"email\":\"hdoyle@example.com\",\"side_projects\":[{\"id\":10,\"name\":\"est numquam consequuntur\",\"description\":\"Atque nobis ut natus aut dolores eveniet.\",\"url\":null,\"due_at\":20251220,\"created_at\":\"2022-09-07T22:37:54.000000Z\",\"updated_at\":\"2022-09-07T22:37:54.000000Z\",\"user_id\":6}]}}",
+                            "name": "0"
                         }
                     ]
                 },
@@ -523,7 +628,6 @@
                     "name": "View all users",
                     "request": {
                         "url": {
-                            "protocol": "http",
                             "host": "{{baseUrl}}",
                             "path": "api\/users",
                             "query": [
@@ -540,7 +644,7 @@
                                     "disabled": true
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/users?page=1&pageSize="
+                            "raw": "{{baseUrl}}\/api\/users?page=1&pageSize="
                         },
                         "method": "GET",
                         "header": [
@@ -576,7 +680,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "55"
+                                    "value": "54"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -584,7 +688,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":1,\"name\":\"Pete\",\"email\":\"pete@home.com\",\"side_projects\":[{\"id\":2,\"name\":\"iusto ut dolor\",\"description\":\"Voluptatem aspernatur dolorem quae quaerat harum.\",\"url\":null,\"due_at\":\"20301215\",\"created_at\":\"2021-05-30T00:21:59.000000Z\",\"updated_at\":\"2021-05-30T00:21:59.000000Z\",\"user_id\":\"1\"},{\"id\":4,\"name\":\"corporis consequuntur amet\",\"description\":\"Dolores eveniet deleniti voluptatem saepe expedita.\",\"url\":null,\"due_at\":\"20230712\",\"created_at\":\"2021-05-30T00:23:25.000000Z\",\"updated_at\":\"2021-05-30T00:23:25.000000Z\",\"user_id\":\"1\"},{\"id\":6,\"name\":\"nihil voluptate quaerat\",\"description\":\"Animi reprehenderit soluta id quo.\",\"url\":null,\"due_at\":\"20290603\",\"created_at\":\"2021-05-30T00:24:27.000000Z\",\"updated_at\":\"2021-05-30T00:24:27.000000Z\",\"user_id\":\"1\"},{\"id\":8,\"name\":\"vel perspiciatis quo\",\"description\":\"Et qui praesentium consequatur distinctio natus.\",\"url\":null,\"due_at\":\"20210605\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"1\"},{\"id\":9,\"name\":\"qui et totam\",\"description\":\"Veritatis quo dolorum soluta ut.\",\"url\":null,\"due_at\":\"20270203\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"1\"}]},{\"id\":2,\"name\":\"Alexane Weber\",\"email\":\"lacy.wintheiser@example.net\",\"side_projects\":[{\"id\":1,\"name\":\"voluptas assumenda maiores\",\"description\":\"Consequuntur aut ea est non.\",\"url\":null,\"due_at\":\"20310222\",\"created_at\":\"2021-05-30T00:21:59.000000Z\",\"updated_at\":\"2021-05-30T00:21:59.000000Z\",\"user_id\":\"2\"}]},{\"id\":3,\"name\":\"John Kshlerin II\",\"email\":\"titus77@example.com\",\"side_projects\":[{\"id\":3,\"name\":\"provident et consequatur\",\"description\":\"Quos et ipsum cum pariatur ex perspiciatis eius.\",\"url\":null,\"due_at\":\"20231022\",\"created_at\":\"2021-05-30T00:23:25.000000Z\",\"updated_at\":\"2021-05-30T00:23:25.000000Z\",\"user_id\":\"3\"}]},{\"id\":4,\"name\":\"Rebeca Morissette\",\"email\":\"cole.geoffrey@example.com\",\"side_projects\":[{\"id\":5,\"name\":\"optio excepturi ea\",\"description\":\"Error deleniti sint a nostrum consequuntur et.\",\"url\":null,\"due_at\":\"20260324\",\"created_at\":\"2021-05-30T00:24:27.000000Z\",\"updated_at\":\"2021-05-30T00:24:27.000000Z\",\"user_id\":\"4\"}]},{\"id\":5,\"name\":\"Prof. Adah Witting IV\",\"email\":\"nswift@example.net\",\"side_projects\":[{\"id\":7,\"name\":\"aspernatur architecto assumenda\",\"description\":\"Nisi ea aut vel sint vero voluptas tempore.\",\"url\":null,\"due_at\":\"20280710\",\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":\"5\"}]}]}",
+                            "body": "{\"data\":[{\"id\":1,\"name\":\"Pete\",\"email\":\"pete@home.com\",\"side_projects\":[{\"id\":2,\"name\":\"iusto ut dolor\",\"description\":\"Voluptatem aspernatur dolorem quae quaerat harum.\",\"url\":null,\"due_at\":20301215,\"created_at\":\"2021-05-30T00:21:59.000000Z\",\"updated_at\":\"2021-05-30T00:21:59.000000Z\",\"user_id\":1},{\"id\":4,\"name\":\"corporis consequuntur amet\",\"description\":\"Dolores eveniet deleniti voluptatem saepe expedita.\",\"url\":null,\"due_at\":20230712,\"created_at\":\"2021-05-30T00:23:25.000000Z\",\"updated_at\":\"2021-05-30T00:23:25.000000Z\",\"user_id\":1},{\"id\":6,\"name\":\"nihil voluptate quaerat\",\"description\":\"Animi reprehenderit soluta id quo.\",\"url\":null,\"due_at\":20290603,\"created_at\":\"2021-05-30T00:24:27.000000Z\",\"updated_at\":\"2021-05-30T00:24:27.000000Z\",\"user_id\":1},{\"id\":8,\"name\":\"vel perspiciatis quo\",\"description\":\"Et qui praesentium consequatur distinctio natus.\",\"url\":null,\"due_at\":20210605,\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":1},{\"id\":9,\"name\":\"qui et totam\",\"description\":\"Veritatis quo dolorum soluta ut.\",\"url\":null,\"due_at\":20270203,\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":1}]},{\"id\":2,\"name\":\"Alexane Weber\",\"email\":\"lacy.wintheiser@example.net\",\"side_projects\":[{\"id\":1,\"name\":\"voluptas assumenda maiores\",\"description\":\"Consequuntur aut ea est non.\",\"url\":null,\"due_at\":20310222,\"created_at\":\"2021-05-30T00:21:59.000000Z\",\"updated_at\":\"2021-05-30T00:21:59.000000Z\",\"user_id\":2}]},{\"id\":3,\"name\":\"John Kshlerin II\",\"email\":\"titus77@example.com\",\"side_projects\":[{\"id\":3,\"name\":\"provident et consequatur\",\"description\":\"Quos et ipsum cum pariatur ex perspiciatis eius.\",\"url\":null,\"due_at\":20231022,\"created_at\":\"2021-05-30T00:23:25.000000Z\",\"updated_at\":\"2021-05-30T00:23:25.000000Z\",\"user_id\":3}]},{\"id\":4,\"name\":\"Rebeca Morissette\",\"email\":\"cole.geoffrey@example.com\",\"side_projects\":[{\"id\":5,\"name\":\"optio excepturi ea\",\"description\":\"Error deleniti sint a nostrum consequuntur et.\",\"url\":null,\"due_at\":20260324,\"created_at\":\"2021-05-30T00:24:27.000000Z\",\"updated_at\":\"2021-05-30T00:24:27.000000Z\",\"user_id\":4}]},{\"id\":5,\"name\":\"Prof. Adah Witting IV\",\"email\":\"nswift@example.net\",\"side_projects\":[{\"id\":7,\"name\":\"aspernatur architecto assumenda\",\"description\":\"Nisi ea aut vel sint vero voluptas tempore.\",\"url\":null,\"due_at\":20280710,\"created_at\":\"2021-05-30T00:25:43.000000Z\",\"updated_at\":\"2021-05-30T00:25:43.000000Z\",\"user_id\":5}]}]}",
                             "name": ""
                         }
                     ]
@@ -593,16 +697,15 @@
                     "name": "Authenticate",
                     "request": {
                         "url": {
-                            "protocol": "http",
                             "host": "{{baseUrl}}",
                             "path": "api\/users\/:id\/auth",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/users\/:id\/auth",
+                            "raw": "{{baseUrl}}\/api\/users\/:id\/auth",
                             "variable": [
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "13",
+                                    "value": "1",
                                     "description": "The ID of the user."
                                 }
                             ]

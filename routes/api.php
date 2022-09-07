@@ -37,10 +37,10 @@ Route::get('/healthcheck/{unnecessaryParam?}', function () {
     ];
 });
 
-/*
+
 Route::middleware('auth:api')->get('/me', function (Request $request) {
     return $request->user();
-});*/
+});
 Route::post('users/', [UserController::class, 'store']);
 Route::get('users/{id}', [UserController::class, 'show']);
 Route::get('users/', [UserController::class, 'index']);
@@ -52,10 +52,13 @@ Route::apiResource('side_projects', SideProjectController::class);
  * Nested fields
  *
  * @group Dummy endpoints
+ * @subgroup A subgroup
+ * @queryParam random A random query parameter.
  * @bodyParam data object required The data
  * @bodyParam data.name string required A string field.
  * @bodyParam data.size int A number. Example: 5
- * @bodyParam data.things string[] An array of strings
+ * @bodyParam data.other string Optional thing. No-example
+ * @bodyParam data.things string[] An array of strings. Example: ['paul', 'peter']
  * @bodyParam data.objects object[] An array of objects
  * @bodyParam data.objects[].a string A field in the array of objects
  * @bodyParam data.objects[].b string A field in the array of objects
@@ -68,6 +71,7 @@ Route::post('/nested', function () {
  * Body content array
  *
  * @group Dummy endpoints
+ * @subgroup A subgroup
  * @bodyParam [] object[] List of items
  * @bodyParam [].row_id string A unique ID. Example: 700
  * @bodyParam [].name string required An element name. Example: My item name
@@ -80,11 +84,23 @@ Route::post('/array-body', function () {
  * File input
  *
  * @group Dummy endpoints
+ * @subgroup Another subgroup
  * @bodyParam the_file file required Just a file.
  * @bodyParam nested object required
  * @bodyParam nested._string string required A nested string.
  * @bodyParam nested._file file required A nested file.
  */
 Route::post('/file-input', function () {
+    return request()->all();
+});
+
+
+/**
+ * @group Dummy endpoints
+ * @subgroup Another subgroup
+ * @subgroupDescription This time, with a description!
+ * @header Test Value
+ */
+Route::get('/v1/languages', function () {
     return request()->all();
 });

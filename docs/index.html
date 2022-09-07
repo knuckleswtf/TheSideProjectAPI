@@ -10,57 +10,175 @@
 
     <link rel="stylesheet" href="./css/theme-default.style.css" media="screen">
     <link rel="stylesheet" href="./css/theme-default.print.css" media="print">
-    <script src="./js/theme-default-3.10.0.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
 
     <link rel="stylesheet"
-          href="//unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
-    <script src="//unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+          href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
 
-    <script src="//cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+                    body .content .php-example code { display: none; }
+                    body .content .python-example code { display: none; }
+                    body .content .ruby-example code { display: none; }
+            </style>
+
     <script>
         var baseUrl = "http://localhost:8000";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
     </script>
-    <script src="./js/tryitout-3.10.0.js"></script>
+    <script src="./js/tryitout-3.37.1.js"></script>
+
+    <script src="./js/theme-default-3.37.1.js"></script>
 
 </head>
 
 <body data-languages="[&quot;bash&quot;,&quot;javascript&quot;,&quot;php&quot;,&quot;python&quot;,&quot;ruby&quot;]">
+
 <a href="#" id="nav-button">
-      <span>
+    <span>
         MENU
         <img src="./images/navbar.png" alt="navbar-image" />
-      </span>
+    </span>
 </a>
 <div class="tocify-wrapper">
-                <div class="lang-selector">
-                            <a href="#" data-language-name="bash">bash</a>
-                            <a href="#" data-language-name="javascript">javascript</a>
-                            <a href="#" data-language-name="php">php</a>
-                            <a href="#" data-language-name="python">python</a>
-                            <a href="#" data-language-name="ruby">ruby</a>
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                                            <button type="button" class="lang-button" data-language-name="php">php</button>
+                                            <button type="button" class="lang-button" data-language-name="python">python</button>
+                                            <button type="button" class="lang-button" data-language-name="ruby">ruby</button>
                     </div>
-        <div class="search">
+    
+    <div class="search">
         <input type="text" class="search" id="input-search" placeholder="Search">
     </div>
-    <ul class="search-results"></ul>
 
-    <ul id="toc">
-    </ul>
+    <div id="toc">
+                                                                            <ul id="tocify-header-0" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="introduction">
+                        <a href="#introduction">Introduction</a>
+                    </li>
+                                            
+                                                                    <ul id="tocify-subheader-introduction" class="tocify-subheader">
+                                                        <li class="tocify-item level-2"
+                        data-unique="introduction-just-a-heading">
+                        <a href="#just-a-heading">Just a heading</a>
+                    </li>
+            
+                                                                    </ul>
+                                                                        </ul>
+                                <ul id="tocify-header-1" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="and-then-another">
+                        <a href="#and-then-another">And then another!</a>
+                    </li>
+                                            
+                                                                    </ul>
+                                                <ul id="tocify-header-2" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="authenticating-requests">
+                        <a href="#authenticating-requests">Authenticating requests</a>
+                    </li>
+                                            
+                                                </ul>
+                    
+                    <ul id="tocify-header-3" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="dummy-endpoints">
+                    <a href="#dummy-endpoints">Dummy endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-dummy-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="dummy-endpoints-POSTapi-nested">
+                        <a href="#dummy-endpoints-POSTapi-nested">Nested fields</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="dummy-endpoints-POSTapi-array-body">
+                        <a href="#dummy-endpoints-POSTapi-array-body">Body content array</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="dummy-endpoints-POSTapi-file-input">
+                        <a href="#dummy-endpoints-POSTapi-file-input">File input</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="dummy-endpoints-GETapi-v1-languages">
+                        <a href="#dummy-endpoints-GETapi-v1-languages">GET api/v1/languages</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-4" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="general">
+                    <a href="#general">General</a>
+                </li>
+                                    <ul id="tocify-subheader-general" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="general-GETapi-healthcheck--unnecessaryParam--">
+                        <a href="#general-GETapi-healthcheck--unnecessaryParam--">Healthcheck</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="general-GETapi-me">
+                        <a href="#general-GETapi-me">GET api/me</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-5" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="side-projects">
+                    <a href="#side-projects">Side Projects</a>
+                </li>
+                                    <ul id="tocify-subheader-side-projects" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="side-projects-GETapi-side_projects">
+                        <a href="#side-projects-GETapi-side_projects">View all side projects</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="side-projects-POSTapi-side_projects">
+                        <a href="#side-projects-POSTapi-side_projects">Start a new side project</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="side-projects-GETapi-side_projects--id-">
+                        <a href="#side-projects-GETapi-side_projects--id-">View a side project</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="side-projects-PUTapi-side_projects--id-">
+                        <a href="#side-projects-PUTapi-side_projects--id-">Update a side project</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="side-projects-DELETEapi-side_projects--id-">
+                        <a href="#side-projects-DELETEapi-side_projects--id-">Delete a side project</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-6" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="users">
+                    <a href="#users">Users</a>
+                </li>
+                                    <ul id="tocify-subheader-users" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="users-POSTapi-users">
+                        <a href="#users-POSTapi-users">Create a user</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="users-GETapi-users--id-">
+                        <a href="#users-GETapi-users--id-">Fetch a user</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="users-GETapi-users">
+                        <a href="#users-GETapi-users">View all users</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="users-POSTapi-users--id--auth">
+                        <a href="#users-POSTapi-users--id--auth">Authenticate</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+        
+                        
+            </div>
 
             <ul class="toc-footer" id="toc-footer">
                             <li><a href="./collection.json">View Postman collection</a></li>
                             <li><a href="./openapi.yaml">View OpenAPI spec</a></li>
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
-            <ul class="toc-footer" id="last-updated">
-            <li>Last updated: September 9 2021</li>
-        </ul>
+        <ul class="toc-footer" id="last-updated">
+        <li>Last updated: September 7 2022</li>
+    </ul>
 </div>
+
 <div class="page-wrapper">
     <div class="dark-box"></div>
     <div class="content">
-        <h1>Introduction</h1>
+        <h1 id="introduction">Introduction</h1>
 <p>Start (and never finish) side projects with this API.</p>
 <p>The SideProject API is a sample API, built to demonstrate <a href="http://scribe.knuckles.wtf">Scribe's</a> capabilities.</p>
 <p>Lke many side projects, it is itself an unfinished API, but hopefully it should be enough to convince you to try Scribe out.😉 You can check out the source code <a href="https://github.com/knuckleswtf/TheSideProjectAPI/">on GitHub</a>.</p>
@@ -72,9 +190,13 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Base URL</p>
 </blockquote>
 <pre><code class="language-yaml">http://testapi.com</code></pre>
+<h2 id="just-a-heading">Just a heading</h2>
+<p>With stuff under</p>
+<h1 id="and-then-another">And then another!</h1>
+<p>These headings were added by editing <code>.scribe/intro.md</code></p>
 
-        <h1>Authenticating requests</h1>
-<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {BEARER_TOKEN}"</code></strong>.</p>
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {BEARER_TOKEN}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by using the <code>users/auth</code> endpoint.</p>
 
@@ -93,8 +215,9 @@ You can switch the language used with the tabs at the top right (or from the nav
 <blockquote>Example request:</blockquote>
 
 
-<pre><code class="language-bash">curl --request POST \
-    "http://testapi.com/api/nested" \
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://testapi.com/api/nested?random=et" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -102,7 +225,6 @@ You can switch the language used with the tabs at the top right (or from the nav
         \"name\": \"et\",
         \"size\": 5,
         \"things\": [
-            \"et\",
             \"et\"
         ],
         \"objects\": [
@@ -113,11 +235,19 @@ You can switch the language used with the tabs at the top right (or from the nav
         ]
     }
 }"
-</code></pre>
+</code></pre></div>
 
-<pre><code class="language-javascript">const url = new URL(
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
     "http://testapi.com/api/nested"
 );
+
+const params = {
+    "random": "et",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
     "Content-Type": "application/json",
@@ -129,7 +259,6 @@ let body = {
         "name": "et",
         "size": 5,
         "things": [
-            "et",
             "et"
         ],
         "objects": [
@@ -139,27 +268,32 @@ let body = {
             }
         ]
     }
-}
+};
 
 fetch(url, {
     method: "POST",
     headers,
     body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre>
+}).then(response =&gt; response.json());</code></pre></div>
 
-<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
     'http://testapi.com/api/nested',
     [
         'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'random'=&gt; 'et',
         ],
         'json' =&gt; [
             'data' =&gt; [
                 'name' =&gt; 'et',
                 'size' =&gt; 5,
                 'things' =&gt; [
-                    'et',
                     'et',
                 ],
                 'objects' =&gt; [
@@ -173,9 +307,11 @@ $response = $client-&gt;post(
     ]
 );
 $body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
+print_r(json_decode((string) $body));</code></pre></div>
 
-<pre><code class="language-python">import requests
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
 import json
 
 url = 'http://testapi.com/api/nested'
@@ -184,7 +320,6 @@ payload = {
         "name": "et",
         "size": 5,
         "things": [
-            "et",
             "et"
         ],
         "objects": [
@@ -195,15 +330,20 @@ payload = {
         ]
     }
 }
+params = {
+  'random': 'et',
+}
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
-response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre>
+response = requests.request('POST', url, headers=headers, json=payload, params=params)
+response.json()</code></pre></div>
 
-<pre><code class="language-ruby">
+
+<div class="ruby-example">
+    <pre><code class="language-ruby">
 require 'rest-client'
 
 body = {
@@ -211,7 +351,6 @@ body = {
         "name": "et",
         "size": 5,
         "things": [
-            "et",
             "et"
         ],
         "objects": [
@@ -234,7 +373,8 @@ response = RestClient.post(
 )
 
 p response.body
-</code></pre>
+</code></pre></div>
+
 </span>
 
 <span id="example-responses-POSTapi-nested">
@@ -267,7 +407,7 @@ p response.body
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
                     id="btn-canceltryout-POSTapi-nested"
-                    onclick="cancelTryOut('POSTapi-nested');" hidden>Cancel
+                    onclick="cancelTryOut('POSTapi-nested');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
@@ -278,70 +418,100 @@ p response.body
             <small class="badge badge-black">POST</small>
             <b><code>api/nested</code></b>
         </p>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>random</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="random"
+               data-endpoint="POSTapi-nested"
+               value="et"
+               data-component="query" hidden>
+    <br>
+<p>A random query parameter.</p>
+            </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <p>
         <details>
             <summary style="padding-bottom: 10px;">
                 <b><code>data</code></b>&nbsp;&nbsp;<small>object</small>  &nbsp;
 <br>
-<p>The data</p>            </summary>
+<p>The data</p>
+            </summary>
                                                 <p>
                         <b><code>data.name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
                 <input type="text"
                name="data.name"
                data-endpoint="POSTapi-nested"
-               data-component="body" required  hidden>
+               value="et"
+               data-component="body" hidden>
     <br>
-<p>A string field.</p>                    </p>
+<p>A string field.</p>
+                    </p>
                                                                 <p>
                         <b><code>data.size</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
                 <input type="number"
                name="data.size"
                data-endpoint="POSTapi-nested"
-               data-component="body"  hidden>
+               value="5"
+               data-component="body" hidden>
     <br>
-<p>A number.</p>                    </p>
+<p>A number.</p>
+                    </p>
+                                                                <p>
+                        <b><code>data.other</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="data.other"
+               data-endpoint="POSTapi-nested"
+               value=""
+               data-component="body" hidden>
+    <br>
+<p>Optional thing.</p>
+                    </p>
                                                                 <p>
                         <b><code>data.things</code></b>&nbsp;&nbsp;<small>string[]</small>     <i>optional</i> &nbsp;
                 <input type="text"
-               name="data.things.0"
+               name="data.things[0]"
                data-endpoint="POSTapi-nested"
-               data-component="body"  hidden>
+               data-component="body" hidden>
         <input type="text"
-               name="data.things.1"
+               name="data.things[1]"
                data-endpoint="POSTapi-nested"
                data-component="body" hidden>
     <br>
-<p>An array of strings</p>                    </p>
+<p>An array of strings.</p>
+                    </p>
                                                                 <p>
         <details>
             <summary style="padding-bottom: 10px;">
                 <b><code>data.objects</code></b>&nbsp;&nbsp;<small>object[]</small>     <i>optional</i> &nbsp;
 <br>
-<p>An array of objects</p>            </summary>
+<p>An array of objects</p>
+            </summary>
                                                 <p>
                         <b><code>data.objects[].a</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
                 <input type="text"
                name="data.objects.0.a"
                data-endpoint="POSTapi-nested"
-               data-component="body"  hidden>
+               value="et"
+               data-component="body" hidden>
     <br>
-<p>A field in the array of objects</p>                    </p>
+<p>A field in the array of objects</p>
+                    </p>
                                                                 <p>
                         <b><code>data.objects[].b</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
                 <input type="text"
                name="data.objects.0.b"
                data-endpoint="POSTapi-nested"
-               data-component="body"  hidden>
+               value="et"
+               data-component="body" hidden>
     <br>
-<p>A field in the array of objects</p>                    </p>
+<p>A field in the array of objects</p>
+                    </p>
                                     </details>
         </p>
-    
-                                    </details>
+                                        </details>
         </p>
-    
-    </form>
+        </form>
 
             <h2 id="dummy-endpoints-POSTapi-array-body">Body content array</h2>
 
@@ -354,7 +524,8 @@ p response.body
 <blockquote>Example request:</blockquote>
 
 
-<pre><code class="language-bash">curl --request POST \
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
     "http://testapi.com/api/array-body" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -362,15 +533,13 @@ p response.body
     {
         \"row_id\": \"700\",
         \"name\": \"My item name\"
-    },
-    {
-        \"row_id\": \"700\",
-        \"name\": \"My item name\"
     }
 ]"
-</code></pre>
+</code></pre></div>
 
-<pre><code class="language-javascript">const url = new URL(
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
     "http://testapi.com/api/array-body"
 );
 
@@ -383,31 +552,26 @@ let body = [
     {
         "row_id": "700",
         "name": "My item name"
-    },
-    {
-        "row_id": "700",
-        "name": "My item name"
     }
-]
+];
 
 fetch(url, {
     method: "POST",
     headers,
     body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre>
+}).then(response =&gt; response.json());</code></pre></div>
 
-<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
     'http://testapi.com/api/array-body',
     [
         'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            [
-                'row_id' =&gt; '700',
-                'name' =&gt; 'My item name',
-            ],
             [
                 'row_id' =&gt; '700',
                 'name' =&gt; 'My item name',
@@ -416,17 +580,15 @@ $response = $client-&gt;post(
     ]
 );
 $body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
+print_r(json_decode((string) $body));</code></pre></div>
 
-<pre><code class="language-python">import requests
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
 import json
 
 url = 'http://testapi.com/api/array-body'
 payload = [
-    {
-        "row_id": "700",
-        "name": "My item name"
-    },
     {
         "row_id": "700",
         "name": "My item name"
@@ -438,16 +600,14 @@ headers = {
 }
 
 response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre>
+response.json()</code></pre></div>
 
-<pre><code class="language-ruby">
+
+<div class="ruby-example">
+    <pre><code class="language-ruby">
 require 'rest-client'
 
 body = [
-    {
-        "row_id": "700",
-        "name": "My item name"
-    },
     {
         "row_id": "700",
         "name": "My item name"
@@ -465,7 +625,8 @@ response = RestClient.post(
 )
 
 p response.body
-</code></pre>
+</code></pre></div>
+
 </span>
 
 <span id="example-responses-POSTapi-array-body">
@@ -498,7 +659,7 @@ p response.body
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
                     id="btn-canceltryout-POSTapi-array-body"
-                    onclick="cancelTryOut('POSTapi-array-body');" hidden>Cancel
+                    onclick="cancelTryOut('POSTapi-array-body');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
@@ -518,19 +679,22 @@ p response.body
                 <input type="text"
                name="0.row_id"
                data-endpoint="POSTapi-array-body"
-               data-component="body"  hidden>
+               value="700"
+               data-component="body" hidden>
     <br>
-<p>A unique ID.</p>                    </p>
+<p>A unique ID.</p>
+                    </p>
                                                                 <p>
                         <b><code>[].name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
                 <input type="text"
                name="0.name"
                data-endpoint="POSTapi-array-body"
-               data-component="body" required  hidden>
+               value="My item name"
+               data-component="body" hidden>
     <br>
-<p>An element name.</p>                    </p>
-                                
-    </form>
+<p>An element name.</p>
+                    </p>
+                                    </form>
 
             <h2 id="dummy-endpoints-POSTapi-file-input">File input</h2>
 
@@ -543,15 +707,18 @@ p response.body
 <blockquote>Example request:</blockquote>
 
 
-<pre><code class="language-bash">curl --request POST \
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
     "http://testapi.com/api/file-input" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "nested[_string]=et" \
-    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\php8687.tmp" \
-    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\php8688.tmp" </code></pre>
+    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\php6E94.tmp" \
+    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\php6E95.tmp" </code></pre></div>
 
-<pre><code class="language-javascript">const url = new URL(
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
     "http://testapi.com/api/file-input"
 );
 
@@ -569,13 +736,16 @@ fetch(url, {
     method: "POST",
     headers,
     body,
-}).then(response =&gt; response.json());</code></pre>
+}).then(response =&gt; response.json());</code></pre></div>
 
-<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
     'http://testapi.com/api/file-input',
     [
         'headers' =&gt; [
+            'Content-Type' =&gt; 'multipart/form-data',
             'Accept' =&gt; 'application/json',
         ],
         'multipart' =&gt; [
@@ -585,25 +755,27 @@ $response = $client-&gt;post(
             ],
             [
                 'name' =&gt; 'the_file',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php8687.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php6E94.tmp', 'r')
             ],
             [
                 'name' =&gt; 'nested[_file]',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php8688.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php6E95.tmp', 'r')
             ],
         ],
     ]
 );
 $body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
+print_r(json_decode((string) $body));</code></pre></div>
 
-<pre><code class="language-python">import requests
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
 import json
 
 url = 'http://testapi.com/api/file-input'
 files = {
-  'the_file': open('C:\Users\shalvah\AppData\Local\Temp\php8687.tmp', 'rb'),
-  'nested[_file]': open('C:\Users\shalvah\AppData\Local\Temp\php8688.tmp', 'rb')
+  'the_file': open('C:\Users\shalvah\AppData\Local\Temp\php6E94.tmp', 'rb'),
+  'nested[_file]': open('C:\Users\shalvah\AppData\Local\Temp\php6E95.tmp', 'rb')
 }
 payload = {
     "nested": {
@@ -616,9 +788,11 @@ headers = {
 }
 
 response = requests.request('POST', url, headers=headers, files=files, data=payload)
-response.json()</code></pre>
+response.json()</code></pre></div>
 
-<pre><code class="language-ruby">
+
+<div class="ruby-example">
+    <pre><code class="language-ruby">
 require 'rest-client'
 
 body = {
@@ -638,7 +812,8 @@ response = RestClient.post(
 )
 
 p response.body
-</code></pre>
+</code></pre></div>
+
 </span>
 
 <span id="example-responses-POSTapi-file-input">
@@ -671,7 +846,7 @@ p response.body
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
                     id="btn-canceltryout-POSTapi-file-input"
-                    onclick="cancelTryOut('POSTapi-file-input');" hidden>Cancel
+                    onclick="cancelTryOut('POSTapi-file-input');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
@@ -688,35 +863,188 @@ p response.body
                 <input type="file"
                name="the_file"
                data-endpoint="POSTapi-file-input"
-               data-component="body" required  hidden>
+               value=""
+               data-component="body" hidden>
     <br>
-<p>Just a file.</p>        </p>
+<p>Just a file.</p>
+        </p>
                 <p>
         <details>
             <summary style="padding-bottom: 10px;">
                 <b><code>nested</code></b>&nbsp;&nbsp;<small>object</small>  &nbsp;
 <br>
+
             </summary>
                                                 <p>
                         <b><code>nested._string</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
                 <input type="text"
                name="nested._string"
                data-endpoint="POSTapi-file-input"
-               data-component="body" required  hidden>
+               value="et"
+               data-component="body" hidden>
     <br>
-<p>A nested string.</p>                    </p>
+<p>A nested string.</p>
+                    </p>
                                                                 <p>
                         <b><code>nested._file</code></b>&nbsp;&nbsp;<small>file</small>  &nbsp;
                 <input type="file"
                name="nested._file"
                data-endpoint="POSTapi-file-input"
-               data-component="body" required  hidden>
+               value=""
+               data-component="body" hidden>
     <br>
-<p>A nested file.</p>                    </p>
+<p>A nested file.</p>
+                    </p>
                                     </details>
         </p>
-    
-    </form>
+        </form>
+
+            <h2 id="dummy-endpoints-GETapi-v1-languages">GET api/v1/languages</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-languages">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://testapi.com/api/v1/languages" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Test: Value"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/v1/languages"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Test": "Value",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://testapi.com/api/v1/languages',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Test' =&gt; 'Value',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://testapi.com/api/v1/languages'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Test': 'Value'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+
+<div class="ruby-example">
+    <pre><code class="language-ruby">
+require 'rest-client'
+
+headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Test": "Value",
+}
+
+response = RestClient.get(
+    'http://testapi.com/api/v1/languages',
+    headers
+)
+
+p response.body
+</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-languages">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 52
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">[]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-languages" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-languages"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-languages"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-languages" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-languages"></code></pre>
+</span>
+<form id="form-GETapi-v1-languages" data-method="GET"
+      data-path="api/v1/languages"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Test":"Value"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-languages', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-languages"
+                    onclick="tryItOut('GETapi-v1-languages');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-languages"
+                    onclick="cancelTryOut('GETapi-v1-languages');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-languages" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/languages</code></b>
+        </p>
+                    </form>
 
         <h1 id="general">General</h1>
 
@@ -734,12 +1062,15 @@ p response.body
 <blockquote>Example request:</blockquote>
 
 
-<pre><code class="language-bash">curl --request GET \
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
     --get "http://testapi.com/api/healthcheck/et" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
+    --header "Accept: application/json"</code></pre></div>
 
-<pre><code class="language-javascript">const url = new URL(
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
     "http://testapi.com/api/healthcheck/et"
 );
 
@@ -751,21 +1082,26 @@ const headers = {
 fetch(url, {
     method: "GET",
     headers,
-}).then(response =&gt; response.json());</code></pre>
+}).then(response =&gt; response.json());</code></pre></div>
 
-<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
     'http://testapi.com/api/healthcheck/et',
     [
         'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
     ]
 );
 $body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
+print_r(json_decode((string) $body));</code></pre></div>
 
-<pre><code class="language-python">import requests
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
 import json
 
 url = 'http://testapi.com/api/healthcheck/et'
@@ -775,9 +1111,11 @@ headers = {
 }
 
 response = requests.request('GET', url, headers=headers)
-response.json()</code></pre>
+response.json()</code></pre></div>
 
-<pre><code class="language-ruby">
+
+<div class="ruby-example">
+    <pre><code class="language-ruby">
 require 'rest-client'
 
 headers = {
@@ -791,7 +1129,8 @@ response = RestClient.get(
 )
 
 p response.body
-</code></pre>
+</code></pre></div>
+
 </span>
 
 <span id="example-responses-GETapi-healthcheck--unnecessaryParam--">
@@ -818,7 +1157,7 @@ p response.body
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 56
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -860,7 +1199,7 @@ access-control-allow-origin: *
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
                     id="btn-canceltryout-GETapi-healthcheck--unnecessaryParam--"
-                    onclick="cancelTryOut('GETapi-healthcheck--unnecessaryParam--');" hidden>Cancel
+                    onclick="cancelTryOut('GETapi-healthcheck--unnecessaryParam--');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
@@ -877,8 +1216,10 @@ access-control-allow-origin: *
                 <input type="text"
                name="unnecessaryParam"
                data-endpoint="GETapi-healthcheck--unnecessaryParam--"
-               data-component="url"  hidden>
+               value="et"
+               data-component="url" hidden>
     <br>
+
             </p>
                     </form>
 
@@ -887,14 +1228,159 @@ access-control-allow-origin: *
             <p>
             <b><code>status</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
 <br>
-<p>The status of this API (<code>up</code> or <code>down</code>).</p>        </p>
+<p>The status of this API (<code>up</code> or <code>down</code>).</p>
+        </p>
             <p>
             <b><code>services</code></b>&nbsp;&nbsp;<small>object</small>  &nbsp;
 <br>
-<p>Map of each downstream service and their status (<code>up</code> or <code>down</code>).</p>        </p>
-            <h1 id="side-projects">Side Projects</h1>
+<p>Map of each downstream service and their status (<code>up</code> or <code>down</code>).</p>
+        </p>
+                <h2 id="general-GETapi-me">GET api/me</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-me">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://testapi.com/api/me" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/me"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://testapi.com/api/me',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://testapi.com/api/me'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+
+<div class="ruby-example">
+    <pre><code class="language-ruby">
+require 'rest-client'
+
+headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+response = RestClient.get(
+    'http://testapi.com/api/me',
+    headers
+)
+
+p response.body
+</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-me">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-me" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-me"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-me"></code></pre>
+</span>
+<span id="execution-error-GETapi-me" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-me"></code></pre>
+</span>
+<form id="form-GETapi-me" data-method="GET"
+      data-path="api/me"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-me', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-me"
+                    onclick="tryItOut('GETapi-me');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-me"
+                    onclick="cancelTryOut('GETapi-me');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-me" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/me</code></b>
+        </p>
+                    </form>
+
+        <h1 id="side-projects">Side Projects</h1>
 
     <p>APIs for managing side projects.</p>
+<p>Note how the URL params for the endpoints here are automatically generated by Scribe.</p>
 
             <h2 id="side-projects-GETapi-side_projects">View all side projects</h2>
 
@@ -908,12 +1394,15 @@ Scribe called our API in a test environment to get a sample response.</p>
 <blockquote>Example request:</blockquote>
 
 
-<pre><code class="language-bash">curl --request GET \
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
     --get "http://testapi.com/api/side_projects" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
+    --header "Accept: application/json"</code></pre></div>
 
-<pre><code class="language-javascript">const url = new URL(
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
     "http://testapi.com/api/side_projects"
 );
 
@@ -925,21 +1414,26 @@ const headers = {
 fetch(url, {
     method: "GET",
     headers,
-}).then(response =&gt; response.json());</code></pre>
+}).then(response =&gt; response.json());</code></pre></div>
 
-<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
     'http://testapi.com/api/side_projects',
     [
         'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
     ]
 );
 $body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
+print_r(json_decode((string) $body));</code></pre></div>
 
-<pre><code class="language-python">import requests
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
 import json
 
 url = 'http://testapi.com/api/side_projects'
@@ -949,9 +1443,11 @@ headers = {
 }
 
 response = requests.request('GET', url, headers=headers)
-response.json()</code></pre>
+response.json()</code></pre></div>
 
-<pre><code class="language-ruby">
+
+<div class="ruby-example">
+    <pre><code class="language-ruby">
 require 'rest-client'
 
 headers = {
@@ -965,7 +1461,8 @@ response = RestClient.get(
 )
 
 p response.body
-</code></pre>
+</code></pre></div>
+
 </span>
 
 <span id="example-responses-GETapi-side_projects">
@@ -979,7 +1476,7 @@ p response.body
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 54
+x-ratelimit-remaining: 53
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -990,90 +1487,90 @@ access-control-allow-origin: *
         &quot;name&quot;: &quot;voluptas assumenda maiores&quot;,
         &quot;description&quot;: &quot;Consequuntur aut ea est non.&quot;,
         &quot;url&quot;: null,
-        &quot;due_at&quot;: &quot;20310222&quot;,
+        &quot;due_at&quot;: 20310222,
         &quot;created_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
         &quot;updated_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
-        &quot;user_id&quot;: &quot;2&quot;
+        &quot;user_id&quot;: 2
     },
     {
         &quot;id&quot;: 2,
         &quot;name&quot;: &quot;iusto ut dolor&quot;,
         &quot;description&quot;: &quot;Voluptatem aspernatur dolorem quae quaerat harum.&quot;,
         &quot;url&quot;: null,
-        &quot;due_at&quot;: &quot;20301215&quot;,
+        &quot;due_at&quot;: 20301215,
         &quot;created_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
         &quot;updated_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
-        &quot;user_id&quot;: &quot;1&quot;
+        &quot;user_id&quot;: 1
     },
     {
         &quot;id&quot;: 3,
         &quot;name&quot;: &quot;provident et consequatur&quot;,
         &quot;description&quot;: &quot;Quos et ipsum cum pariatur ex perspiciatis eius.&quot;,
         &quot;url&quot;: null,
-        &quot;due_at&quot;: &quot;20231022&quot;,
+        &quot;due_at&quot;: 20231022,
         &quot;created_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
         &quot;updated_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
-        &quot;user_id&quot;: &quot;3&quot;
+        &quot;user_id&quot;: 3
     },
     {
         &quot;id&quot;: 4,
         &quot;name&quot;: &quot;corporis consequuntur amet&quot;,
         &quot;description&quot;: &quot;Dolores eveniet deleniti voluptatem saepe expedita.&quot;,
         &quot;url&quot;: null,
-        &quot;due_at&quot;: &quot;20230712&quot;,
+        &quot;due_at&quot;: 20230712,
         &quot;created_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
         &quot;updated_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
-        &quot;user_id&quot;: &quot;1&quot;
+        &quot;user_id&quot;: 1
     },
     {
         &quot;id&quot;: 5,
         &quot;name&quot;: &quot;optio excepturi ea&quot;,
         &quot;description&quot;: &quot;Error deleniti sint a nostrum consequuntur et.&quot;,
         &quot;url&quot;: null,
-        &quot;due_at&quot;: &quot;20260324&quot;,
+        &quot;due_at&quot;: 20260324,
         &quot;created_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
         &quot;updated_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
-        &quot;user_id&quot;: &quot;4&quot;
+        &quot;user_id&quot;: 4
     },
     {
         &quot;id&quot;: 6,
         &quot;name&quot;: &quot;nihil voluptate quaerat&quot;,
         &quot;description&quot;: &quot;Animi reprehenderit soluta id quo.&quot;,
         &quot;url&quot;: null,
-        &quot;due_at&quot;: &quot;20290603&quot;,
+        &quot;due_at&quot;: 20290603,
         &quot;created_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
         &quot;updated_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
-        &quot;user_id&quot;: &quot;1&quot;
+        &quot;user_id&quot;: 1
     },
     {
         &quot;id&quot;: 7,
         &quot;name&quot;: &quot;aspernatur architecto assumenda&quot;,
         &quot;description&quot;: &quot;Nisi ea aut vel sint vero voluptas tempore.&quot;,
         &quot;url&quot;: null,
-        &quot;due_at&quot;: &quot;20280710&quot;,
+        &quot;due_at&quot;: 20280710,
         &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
         &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-        &quot;user_id&quot;: &quot;5&quot;
+        &quot;user_id&quot;: 5
     },
     {
         &quot;id&quot;: 8,
         &quot;name&quot;: &quot;vel perspiciatis quo&quot;,
         &quot;description&quot;: &quot;Et qui praesentium consequatur distinctio natus.&quot;,
         &quot;url&quot;: null,
-        &quot;due_at&quot;: &quot;20210605&quot;,
+        &quot;due_at&quot;: 20210605,
         &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
         &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-        &quot;user_id&quot;: &quot;1&quot;
+        &quot;user_id&quot;: 1
     },
     {
         &quot;id&quot;: 9,
         &quot;name&quot;: &quot;qui et totam&quot;,
         &quot;description&quot;: &quot;Veritatis quo dolorum soluta ut.&quot;,
         &quot;url&quot;: null,
-        &quot;due_at&quot;: &quot;20270203&quot;,
+        &quot;due_at&quot;: 20270203,
         &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
         &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-        &quot;user_id&quot;: &quot;1&quot;
+        &quot;user_id&quot;: 1
     }
 ]</code>
  </pre>
@@ -1106,7 +1603,7 @@ access-control-allow-origin: *
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
                     id="btn-canceltryout-GETapi-side_projects"
-                    onclick="cancelTryOut('GETapi-side_projects');" hidden>Cancel
+                    onclick="cancelTryOut('GETapi-side_projects');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
@@ -1133,7 +1630,8 @@ from the controller's code. Check out the source! </aside></p>
 <blockquote>Example request:</blockquote>
 
 
-<pre><code class="language-bash">curl --request POST \
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
     "http://testapi.com/api/side_projects" \
     --header "Authorization: Bearer {BEARER_TOKEN}" \
     --header "Content-Type: application/json" \
@@ -1142,11 +1640,13 @@ from the controller's code. Check out the source! </aside></p>
     \"name\": \"The SideProject API\",
     \"description\": \"pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv\",
     \"url\": \"http:\\/\\/hartmann.com\\/magnam-tenetur-quia-nemo-sit-est-numquam\",
-    \"due_at\": \"2083-02-27\"
+    \"due_at\": \"2084-02-25\"
 }"
-</code></pre>
+</code></pre></div>
 
-<pre><code class="language-javascript">const url = new URL(
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
     "http://testapi.com/api/side_projects"
 );
 
@@ -1160,35 +1660,40 @@ let body = {
     "name": "The SideProject API",
     "description": "pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv",
     "url": "http:\/\/hartmann.com\/magnam-tenetur-quia-nemo-sit-est-numquam",
-    "due_at": "2083-02-27"
-}
+    "due_at": "2084-02-25"
+};
 
 fetch(url, {
     method: "POST",
     headers,
     body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre>
+}).then(response =&gt; response.json());</code></pre></div>
 
-<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
     'http://testapi.com/api/side_projects',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {BEARER_TOKEN}',
+            'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
             'name' =&gt; 'The SideProject API',
             'description' =&gt; 'pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv',
             'url' =&gt; 'http://hartmann.com/magnam-tenetur-quia-nemo-sit-est-numquam',
-            'due_at' =&gt; '2083-02-27',
+            'due_at' =&gt; '2084-02-25',
         ],
     ]
 );
 $body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
+print_r(json_decode((string) $body));</code></pre></div>
 
-<pre><code class="language-python">import requests
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
 import json
 
 url = 'http://testapi.com/api/side_projects'
@@ -1196,7 +1701,7 @@ payload = {
     "name": "The SideProject API",
     "description": "pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv",
     "url": "http:\/\/hartmann.com\/magnam-tenetur-quia-nemo-sit-est-numquam",
-    "due_at": "2083-02-27"
+    "due_at": "2084-02-25"
 }
 headers = {
   'Authorization': 'Bearer {BEARER_TOKEN}',
@@ -1205,16 +1710,18 @@ headers = {
 }
 
 response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre>
+response.json()</code></pre></div>
 
-<pre><code class="language-ruby">
+
+<div class="ruby-example">
+    <pre><code class="language-ruby">
 require 'rest-client'
 
 body = {
     "name": "The SideProject API",
     "description": "pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv",
     "url": "http:\/\/hartmann.com\/magnam-tenetur-quia-nemo-sit-est-numquam",
-    "due_at": "2083-02-27"
+    "due_at": "2084-02-25"
 }
 headers = {
     "Authorization": "Bearer {BEARER_TOKEN}",
@@ -1229,7 +1736,8 @@ response = RestClient.post(
 )
 
 p response.body
-</code></pre>
+</code></pre></div>
+
 </span>
 
 <span id="example-responses-POSTapi-side_projects">
@@ -1262,7 +1770,7 @@ p response.body
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
                     id="btn-canceltryout-POSTapi-side_projects"
-                    onclick="cancelTryOut('POSTapi-side_projects');" hidden>Cancel
+                    onclick="cancelTryOut('POSTapi-side_projects');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
@@ -1287,35 +1795,42 @@ p response.body
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-side_projects"
-               data-component="body" required  hidden>
+               value="The SideProject API"
+               data-component="body" hidden>
     <br>
-<p>The name of your side project. Must not be greater than 80 characters.</p>        </p>
+<p>The name of your side project. Must not be greater than 80 characters.</p>
+        </p>
                 <p>
             <b><code>description</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
                 <input type="text"
                name="description"
                data-endpoint="POSTapi-side_projects"
-               data-component="body"  hidden>
+               value="pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv"
+               data-component="body" hidden>
     <br>
-<p>A longer description of your side project. Must not be greater than 255 characters.</p>        </p>
+<p>A longer description of your side project. Must not be greater than 255 characters.</p>
+        </p>
                 <p>
             <b><code>url</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
                 <input type="text"
                name="url"
                data-endpoint="POSTapi-side_projects"
-               data-component="body"  hidden>
+               value="http://hartmann.com/magnam-tenetur-quia-nemo-sit-est-numquam"
+               data-component="body" hidden>
     <br>
-<p>A url to your side project. Must be a valid URL.</p>        </p>
+<p>A url to your side project. Must be a valid URL.</p>
+        </p>
                 <p>
             <b><code>due_at</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
                 <input type="text"
                name="due_at"
                data-endpoint="POSTapi-side_projects"
-               data-component="body"  hidden>
+               value="2084-02-25"
+               data-component="body" hidden>
     <br>
-<p>Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.</p>        </p>
-    
-    </form>
+<p>Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.</p>
+        </p>
+        </form>
 
             <h2 id="side-projects-GETapi-side_projects--id-">View a side project</h2>
 
@@ -1330,13 +1845,16 @@ and it figures out how to generate a sample. The 404 sample is gotten from a &qu
 <blockquote>Example request:</blockquote>
 
 
-<pre><code class="language-bash">curl --request GET \
-    --get "http://testapi.com/api/side_projects/13" \
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://testapi.com/api/side_projects/1" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
+    --header "Accept: application/json"</code></pre></div>
 
-<pre><code class="language-javascript">const url = new URL(
-    "http://testapi.com/api/side_projects/13"
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/side_projects/1"
 );
 
 const headers = {
@@ -1347,33 +1865,40 @@ const headers = {
 fetch(url, {
     method: "GET",
     headers,
-}).then(response =&gt; response.json());</code></pre>
+}).then(response =&gt; response.json());</code></pre></div>
 
-<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://testapi.com/api/side_projects/13',
+    'http://testapi.com/api/side_projects/1',
     [
         'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
     ]
 );
 $body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
+print_r(json_decode((string) $body));</code></pre></div>
 
-<pre><code class="language-python">import requests
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
 import json
 
-url = 'http://testapi.com/api/side_projects/13'
+url = 'http://testapi.com/api/side_projects/1'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers)
-response.json()</code></pre>
+response.json()</code></pre></div>
 
-<pre><code class="language-ruby">
+
+<div class="ruby-example">
+    <pre><code class="language-ruby">
 require 'rest-client'
 
 headers = {
@@ -1382,12 +1907,13 @@ headers = {
 }
 
 response = RestClient.get(
-    'http://testapi.com/api/side_projects/13',
+    'http://testapi.com/api/side_projects/1',
     headers
 )
 
 p response.body
-</code></pre>
+</code></pre></div>
+
 </span>
 
 <span id="example-responses-GETapi-side_projects--id-">
@@ -1400,14 +1926,14 @@ p response.body
     &quot;data&quot;: {
         &quot;name&quot;: &quot;suscipit qui cumque&quot;,
         &quot;description&quot;: &quot;Tenetur quia nemo sit est.&quot;,
-        &quot;due_date&quot;: &quot;20231106&quot;,
+        &quot;due_date&quot;: &quot;20241103&quot;,
         &quot;owner&quot;: {
-            &quot;id&quot;: 1,
-            &quot;name&quot;: &quot;Pete&quot;,
-            &quot;email&quot;: &quot;pete@home.com&quot;,
-            &quot;email_verified_at&quot;: null,
-            &quot;created_at&quot;: &quot;2021-05-29T22:53:05.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-05-29T22:53:05.000000Z&quot;
+            &quot;id&quot;: 6,
+            &quot;name&quot;: &quot;Kurt Kub&quot;,
+            &quot;email&quot;: &quot;juvenal97@example.org&quot;,
+            &quot;email_verified_at&quot;: &quot;2022-09-07T22:37:54.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2022-09-07T22:37:54.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-09-07T22:37:54.000000Z&quot;
         }
     }
 }</code>
@@ -1451,7 +1977,7 @@ p response.body
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
                     id="btn-canceltryout-GETapi-side_projects--id-"
-                    onclick="cancelTryOut('GETapi-side_projects--id-');" hidden>Cancel
+                    onclick="cancelTryOut('GETapi-side_projects--id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
@@ -1468,9 +1994,11 @@ p response.body
                 <input type="number"
                name="id"
                data-endpoint="GETapi-side_projects--id-"
-               data-component="url" required  hidden>
+               value="1"
+               data-component="url" hidden>
     <br>
-<p>The ID of the side project.</p>            </p>
+<p>The ID of the side project.</p>
+            </p>
                     </form>
 
             <h2 id="side-projects-PUTapi-side_projects--id-">Update a side project</h2>
@@ -1484,13 +2012,16 @@ p response.body
 <blockquote>Example request:</blockquote>
 
 
-<pre><code class="language-bash">curl --request PUT \
-    "http://testapi.com/api/side_projects/13" \
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://testapi.com/api/side_projects/1" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
+    --header "Accept: application/json"</code></pre></div>
 
-<pre><code class="language-javascript">const url = new URL(
-    "http://testapi.com/api/side_projects/13"
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/side_projects/1"
 );
 
 const headers = {
@@ -1501,33 +2032,40 @@ const headers = {
 fetch(url, {
     method: "PUT",
     headers,
-}).then(response =&gt; response.json());</code></pre>
+}).then(response =&gt; response.json());</code></pre></div>
 
-<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://testapi.com/api/side_projects/13',
+    'http://testapi.com/api/side_projects/1',
     [
         'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
     ]
 );
 $body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
+print_r(json_decode((string) $body));</code></pre></div>
 
-<pre><code class="language-python">import requests
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
 import json
 
-url = 'http://testapi.com/api/side_projects/13'
+url = 'http://testapi.com/api/side_projects/1'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
 response = requests.request('PUT', url, headers=headers)
-response.json()</code></pre>
+response.json()</code></pre></div>
 
-<pre><code class="language-ruby">
+
+<div class="ruby-example">
+    <pre><code class="language-ruby">
 require 'rest-client'
 
 headers = {
@@ -1536,12 +2074,13 @@ headers = {
 }
 
 response = RestClient.put(
-    'http://testapi.com/api/side_projects/13',
+    'http://testapi.com/api/side_projects/1',
     headers
 )
 
 p response.body
-</code></pre>
+</code></pre></div>
+
 </span>
 
 <span id="example-responses-PUTapi-side_projects--id-">
@@ -1574,7 +2113,7 @@ p response.body
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
                     id="btn-canceltryout-PUTapi-side_projects--id-"
-                    onclick="cancelTryOut('PUTapi-side_projects--id-');" hidden>Cancel
+                    onclick="cancelTryOut('PUTapi-side_projects--id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
@@ -1595,9 +2134,11 @@ p response.body
                 <input type="number"
                name="id"
                data-endpoint="PUTapi-side_projects--id-"
-               data-component="url" required  hidden>
+               value="1"
+               data-component="url" hidden>
     <br>
-<p>The ID of the side project.</p>            </p>
+<p>The ID of the side project.</p>
+            </p>
                     </form>
 
             <h2 id="side-projects-DELETEapi-side_projects--id-">Delete a side project</h2>
@@ -1611,13 +2152,16 @@ p response.body
 <blockquote>Example request:</blockquote>
 
 
-<pre><code class="language-bash">curl --request DELETE \
-    "http://testapi.com/api/side_projects/13" \
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://testapi.com/api/side_projects/1" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
+    --header "Accept: application/json"</code></pre></div>
 
-<pre><code class="language-javascript">const url = new URL(
-    "http://testapi.com/api/side_projects/13"
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/side_projects/1"
 );
 
 const headers = {
@@ -1628,33 +2172,40 @@ const headers = {
 fetch(url, {
     method: "DELETE",
     headers,
-}).then(response =&gt; response.json());</code></pre>
+}).then(response =&gt; response.json());</code></pre></div>
 
-<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://testapi.com/api/side_projects/13',
+    'http://testapi.com/api/side_projects/1',
     [
         'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
     ]
 );
 $body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
+print_r(json_decode((string) $body));</code></pre></div>
 
-<pre><code class="language-python">import requests
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
 import json
 
-url = 'http://testapi.com/api/side_projects/13'
+url = 'http://testapi.com/api/side_projects/1'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
 response = requests.request('DELETE', url, headers=headers)
-response.json()</code></pre>
+response.json()</code></pre></div>
 
-<pre><code class="language-ruby">
+
+<div class="ruby-example">
+    <pre><code class="language-ruby">
 require 'rest-client'
 
 headers = {
@@ -1663,12 +2214,13 @@ headers = {
 }
 
 response = RestClient.delete(
-    'http://testapi.com/api/side_projects/13',
+    'http://testapi.com/api/side_projects/1',
     headers
 )
 
 p response.body
-</code></pre>
+</code></pre></div>
+
 </span>
 
 <span id="example-responses-DELETEapi-side_projects--id-">
@@ -1707,7 +2259,7 @@ p response.body
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
                     id="btn-canceltryout-DELETEapi-side_projects--id-"
-                    onclick="cancelTryOut('DELETEapi-side_projects--id-');" hidden>Cancel
+                    onclick="cancelTryOut('DELETEapi-side_projects--id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
@@ -1724,9 +2276,11 @@ p response.body
                 <input type="number"
                name="id"
                data-endpoint="DELETEapi-side_projects--id-"
-               data-component="url" required  hidden>
+               value="1"
+               data-component="url" hidden>
     <br>
-<p>The ID of the side project.</p>            </p>
+<p>The ID of the side project.</p>
+            </p>
                     </form>
 
         <h1 id="users">Users</h1>
@@ -1744,7 +2298,8 @@ p response.body
 <blockquote>Example request:</blockquote>
 
 
-<pre><code class="language-bash">curl --request POST \
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
     "http://testapi.com/api/users" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -1753,9 +2308,11 @@ p response.body
     \"email\": \"casimir70@example.com\",
     \"password\": \"et\"
 }"
-</code></pre>
+</code></pre></div>
 
-<pre><code class="language-javascript">const url = new URL(
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
     "http://testapi.com/api/users"
 );
 
@@ -1768,19 +2325,22 @@ let body = {
     "name": "pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv",
     "email": "casimir70@example.com",
     "password": "et"
-}
+};
 
 fetch(url, {
     method: "POST",
     headers,
     body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre>
+}).then(response =&gt; response.json());</code></pre></div>
 
-<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
     'http://testapi.com/api/users',
     [
         'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
@@ -1791,9 +2351,11 @@ $response = $client-&gt;post(
     ]
 );
 $body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
+print_r(json_decode((string) $body));</code></pre></div>
 
-<pre><code class="language-python">import requests
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
 import json
 
 url = 'http://testapi.com/api/users'
@@ -1808,9 +2370,11 @@ headers = {
 }
 
 response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre>
+response.json()</code></pre></div>
 
-<pre><code class="language-ruby">
+
+<div class="ruby-example">
+    <pre><code class="language-ruby">
 require 'rest-client'
 
 body = {
@@ -1830,7 +2394,8 @@ response = RestClient.post(
 )
 
 p response.body
-</code></pre>
+</code></pre></div>
+
 </span>
 
 <span id="example-responses-POSTapi-users">
@@ -1863,7 +2428,7 @@ p response.body
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
                     id="btn-canceltryout-POSTapi-users"
-                    onclick="cancelTryOut('POSTapi-users');" hidden>Cancel
+                    onclick="cancelTryOut('POSTapi-users');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
@@ -1880,27 +2445,32 @@ p response.body
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-users"
-               data-component="body" required  hidden>
+               value="pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv"
+               data-component="body" hidden>
     <br>
-<p>Must be at least 1 characters. Must not be greater than 255 characters.</p>        </p>
+<p>Must be at least 1 characters. Must not be greater than 255 characters.</p>
+        </p>
                 <p>
             <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-users"
-               data-component="body" required  hidden>
+               value="casimir70@example.com"
+               data-component="body" hidden>
     <br>
-<p>Must be a valid email address.</p>        </p>
+<p>Must be a valid email address.</p>
+        </p>
                 <p>
             <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-users"
-               data-component="body" required  hidden>
+               value="et"
+               data-component="body" hidden>
     <br>
+
         </p>
-    
-    </form>
+        </form>
 
             <h2 id="users-GETapi-users--id-">Fetch a user</h2>
 
@@ -1914,13 +2484,16 @@ and it figures out how to generate a sample. The 404 sample is gotten from a &qu
 <blockquote>Example request:</blockquote>
 
 
-<pre><code class="language-bash">curl --request GET \
-    --get "http://testapi.com/api/users/13" \
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://testapi.com/api/users/1" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
+    --header "Accept: application/json"</code></pre></div>
 
-<pre><code class="language-javascript">const url = new URL(
-    "http://testapi.com/api/users/13"
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/users/1"
 );
 
 const headers = {
@@ -1931,33 +2504,40 @@ const headers = {
 fetch(url, {
     method: "GET",
     headers,
-}).then(response =&gt; response.json());</code></pre>
+}).then(response =&gt; response.json());</code></pre></div>
 
-<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://testapi.com/api/users/13',
+    'http://testapi.com/api/users/1',
     [
         'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
     ]
 );
 $body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
+print_r(json_decode((string) $body));</code></pre></div>
 
-<pre><code class="language-python">import requests
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
 import json
 
-url = 'http://testapi.com/api/users/13'
+url = 'http://testapi.com/api/users/1'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
 response = requests.request('GET', url, headers=headers)
-response.json()</code></pre>
+response.json()</code></pre></div>
 
-<pre><code class="language-ruby">
+
+<div class="ruby-example">
+    <pre><code class="language-ruby">
 require 'rest-client'
 
 headers = {
@@ -1966,12 +2546,13 @@ headers = {
 }
 
 response = RestClient.get(
-    'http://testapi.com/api/users/13',
+    'http://testapi.com/api/users/1',
     headers
 )
 
 p response.body
-</code></pre>
+</code></pre></div>
+
 </span>
 
 <span id="example-responses-GETapi-users--id-">
@@ -2001,10 +2582,10 @@ p response.body
                 &quot;name&quot;: &quot;est numquam consequuntur&quot;,
                 &quot;description&quot;: &quot;Atque nobis ut natus aut dolores eveniet.&quot;,
                 &quot;url&quot;: null,
-                &quot;due_at&quot;: &quot;20241221&quot;,
-                &quot;created_at&quot;: &quot;2021-09-09T12:16:30.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2021-09-09T12:16:30.000000Z&quot;,
-                &quot;user_id&quot;: &quot;6&quot;
+                &quot;due_at&quot;: 20251220,
+                &quot;created_at&quot;: &quot;2022-09-07T22:37:54.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-09-07T22:37:54.000000Z&quot;,
+                &quot;user_id&quot;: 6
             }
         ]
     }
@@ -2039,7 +2620,7 @@ p response.body
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
                     id="btn-canceltryout-GETapi-users--id-"
-                    onclick="cancelTryOut('GETapi-users--id-');" hidden>Cancel
+                    onclick="cancelTryOut('GETapi-users--id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
@@ -2056,9 +2637,11 @@ p response.body
                 <input type="number"
                name="id"
                data-endpoint="GETapi-users--id-"
-               data-component="url" required  hidden>
+               value="1"
+               data-component="url" hidden>
     <br>
-<p>The ID of the user.</p>            </p>
+<p>The ID of the user.</p>
+            </p>
                     </form>
 
             <h2 id="users-GETapi-users">View all users</h2>
@@ -2074,12 +2657,15 @@ p response.body
 <blockquote>Example request:</blockquote>
 
 
-<pre><code class="language-bash">curl --request GET \
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
     --get "http://testapi.com/api/users?page=1" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
+    --header "Accept: application/json"</code></pre></div>
 
-<pre><code class="language-javascript">const url = new URL(
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
     "http://testapi.com/api/users"
 );
 
@@ -2097,13 +2683,16 @@ const headers = {
 fetch(url, {
     method: "GET",
     headers,
-}).then(response =&gt; response.json());</code></pre>
+}).then(response =&gt; response.json());</code></pre></div>
 
-<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
     'http://testapi.com/api/users',
     [
         'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
@@ -2112,9 +2701,11 @@ $response = $client-&gt;get(
     ]
 );
 $body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
+print_r(json_decode((string) $body));</code></pre></div>
 
-<pre><code class="language-python">import requests
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
 import json
 
 url = 'http://testapi.com/api/users'
@@ -2127,9 +2718,11 @@ headers = {
 }
 
 response = requests.request('GET', url, headers=headers, params=params)
-response.json()</code></pre>
+response.json()</code></pre></div>
 
-<pre><code class="language-ruby">
+
+<div class="ruby-example">
+    <pre><code class="language-ruby">
 require 'rest-client'
 
 headers = {
@@ -2143,7 +2736,8 @@ response = RestClient.get(
 )
 
 p response.body
-</code></pre>
+</code></pre></div>
+
 </span>
 
 <span id="example-responses-GETapi-users">
@@ -2157,7 +2751,7 @@ p response.body
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 55
+x-ratelimit-remaining: 54
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -2174,50 +2768,50 @@ access-control-allow-origin: *
                     &quot;name&quot;: &quot;iusto ut dolor&quot;,
                     &quot;description&quot;: &quot;Voluptatem aspernatur dolorem quae quaerat harum.&quot;,
                     &quot;url&quot;: null,
-                    &quot;due_at&quot;: &quot;20301215&quot;,
+                    &quot;due_at&quot;: 20301215,
                     &quot;created_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
                     &quot;updated_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
-                    &quot;user_id&quot;: &quot;1&quot;
+                    &quot;user_id&quot;: 1
                 },
                 {
                     &quot;id&quot;: 4,
                     &quot;name&quot;: &quot;corporis consequuntur amet&quot;,
                     &quot;description&quot;: &quot;Dolores eveniet deleniti voluptatem saepe expedita.&quot;,
                     &quot;url&quot;: null,
-                    &quot;due_at&quot;: &quot;20230712&quot;,
+                    &quot;due_at&quot;: 20230712,
                     &quot;created_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
                     &quot;updated_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
-                    &quot;user_id&quot;: &quot;1&quot;
+                    &quot;user_id&quot;: 1
                 },
                 {
                     &quot;id&quot;: 6,
                     &quot;name&quot;: &quot;nihil voluptate quaerat&quot;,
                     &quot;description&quot;: &quot;Animi reprehenderit soluta id quo.&quot;,
                     &quot;url&quot;: null,
-                    &quot;due_at&quot;: &quot;20290603&quot;,
+                    &quot;due_at&quot;: 20290603,
                     &quot;created_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
                     &quot;updated_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
-                    &quot;user_id&quot;: &quot;1&quot;
+                    &quot;user_id&quot;: 1
                 },
                 {
                     &quot;id&quot;: 8,
                     &quot;name&quot;: &quot;vel perspiciatis quo&quot;,
                     &quot;description&quot;: &quot;Et qui praesentium consequatur distinctio natus.&quot;,
                     &quot;url&quot;: null,
-                    &quot;due_at&quot;: &quot;20210605&quot;,
+                    &quot;due_at&quot;: 20210605,
                     &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
                     &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-                    &quot;user_id&quot;: &quot;1&quot;
+                    &quot;user_id&quot;: 1
                 },
                 {
                     &quot;id&quot;: 9,
                     &quot;name&quot;: &quot;qui et totam&quot;,
                     &quot;description&quot;: &quot;Veritatis quo dolorum soluta ut.&quot;,
                     &quot;url&quot;: null,
-                    &quot;due_at&quot;: &quot;20270203&quot;,
+                    &quot;due_at&quot;: 20270203,
                     &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
                     &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-                    &quot;user_id&quot;: &quot;1&quot;
+                    &quot;user_id&quot;: 1
                 }
             ]
         },
@@ -2231,10 +2825,10 @@ access-control-allow-origin: *
                     &quot;name&quot;: &quot;voluptas assumenda maiores&quot;,
                     &quot;description&quot;: &quot;Consequuntur aut ea est non.&quot;,
                     &quot;url&quot;: null,
-                    &quot;due_at&quot;: &quot;20310222&quot;,
+                    &quot;due_at&quot;: 20310222,
                     &quot;created_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
                     &quot;updated_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
-                    &quot;user_id&quot;: &quot;2&quot;
+                    &quot;user_id&quot;: 2
                 }
             ]
         },
@@ -2248,10 +2842,10 @@ access-control-allow-origin: *
                     &quot;name&quot;: &quot;provident et consequatur&quot;,
                     &quot;description&quot;: &quot;Quos et ipsum cum pariatur ex perspiciatis eius.&quot;,
                     &quot;url&quot;: null,
-                    &quot;due_at&quot;: &quot;20231022&quot;,
+                    &quot;due_at&quot;: 20231022,
                     &quot;created_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
                     &quot;updated_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
-                    &quot;user_id&quot;: &quot;3&quot;
+                    &quot;user_id&quot;: 3
                 }
             ]
         },
@@ -2265,10 +2859,10 @@ access-control-allow-origin: *
                     &quot;name&quot;: &quot;optio excepturi ea&quot;,
                     &quot;description&quot;: &quot;Error deleniti sint a nostrum consequuntur et.&quot;,
                     &quot;url&quot;: null,
-                    &quot;due_at&quot;: &quot;20260324&quot;,
+                    &quot;due_at&quot;: 20260324,
                     &quot;created_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
                     &quot;updated_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
-                    &quot;user_id&quot;: &quot;4&quot;
+                    &quot;user_id&quot;: 4
                 }
             ]
         },
@@ -2282,10 +2876,10 @@ access-control-allow-origin: *
                     &quot;name&quot;: &quot;aspernatur architecto assumenda&quot;,
                     &quot;description&quot;: &quot;Nisi ea aut vel sint vero voluptas tempore.&quot;,
                     &quot;url&quot;: null,
-                    &quot;due_at&quot;: &quot;20280710&quot;,
+                    &quot;due_at&quot;: 20280710,
                     &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
                     &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-                    &quot;user_id&quot;: &quot;5&quot;
+                    &quot;user_id&quot;: 5
                 }
             ]
         }
@@ -2321,7 +2915,7 @@ access-control-allow-origin: *
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
                     id="btn-canceltryout-GETapi-users"
-                    onclick="cancelTryOut('GETapi-users');" hidden>Cancel
+                    onclick="cancelTryOut('GETapi-users');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
@@ -2338,17 +2932,21 @@ access-control-allow-origin: *
                 <input type="text"
                name="page"
                data-endpoint="GETapi-users"
-               data-component="query"  hidden>
+               value="1"
+               data-component="query" hidden>
     <br>
-<p>Page number to return.</p>            </p>
+<p>Page number to return.</p>
+            </p>
                     <p>
                 <b><code>pageSize</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
                 <input type="text"
                name="pageSize"
                data-endpoint="GETapi-users"
-               data-component="query"  hidden>
+               value=""
+               data-component="query" hidden>
     <br>
-<p>Number of items to return in a page. Defaults to 10.</p>            </p>
+<p>Number of items to return in a page. Defaults to 10.</p>
+            </p>
                 </form>
 
             <h2 id="users-POSTapi-users--id--auth">Authenticate</h2>
@@ -2363,13 +2961,16 @@ access-control-allow-origin: *
 <blockquote>Example request:</blockquote>
 
 
-<pre><code class="language-bash">curl --request POST \
-    "http://testapi.com/api/users/13/auth" \
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://testapi.com/api/users/1/auth" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre>
+    --header "Accept: application/json"</code></pre></div>
 
-<pre><code class="language-javascript">const url = new URL(
-    "http://testapi.com/api/users/13/auth"
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/users/1/auth"
 );
 
 const headers = {
@@ -2380,33 +2981,40 @@ const headers = {
 fetch(url, {
     method: "POST",
     headers,
-}).then(response =&gt; response.json());</code></pre>
+}).then(response =&gt; response.json());</code></pre></div>
 
-<pre><code class="language-php">$client = new \GuzzleHttp\Client();
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://testapi.com/api/users/13/auth',
+    'http://testapi.com/api/users/1/auth',
     [
         'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
     ]
 );
 $body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
+print_r(json_decode((string) $body));</code></pre></div>
 
-<pre><code class="language-python">import requests
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
 import json
 
-url = 'http://testapi.com/api/users/13/auth'
+url = 'http://testapi.com/api/users/1/auth'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
 response = requests.request('POST', url, headers=headers)
-response.json()</code></pre>
+response.json()</code></pre></div>
 
-<pre><code class="language-ruby">
+
+<div class="ruby-example">
+    <pre><code class="language-ruby">
 require 'rest-client'
 
 headers = {
@@ -2415,12 +3023,13 @@ headers = {
 }
 
 response = RestClient.post(
-    'http://testapi.com/api/users/13/auth',
+    'http://testapi.com/api/users/1/auth',
     headers
 )
 
 p response.body
-</code></pre>
+</code></pre></div>
+
 </span>
 
 <span id="example-responses-POSTapi-users--id--auth">
@@ -2462,7 +3071,7 @@ p response.body
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
                     id="btn-canceltryout-POSTapi-users--id--auth"
-                    onclick="cancelTryOut('POSTapi-users--id--auth');" hidden>Cancel
+                    onclick="cancelTryOut('POSTapi-users--id--auth');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
@@ -2479,9 +3088,11 @@ p response.body
                 <input type="number"
                name="id"
                data-endpoint="POSTapi-users--id--auth"
-               data-component="url" required  hidden>
+               value="1"
+               data-component="url" hidden>
     <br>
-<p>The ID of the user.</p>            </p>
+<p>The ID of the user.</p>
+            </p>
                     </form>
 
     <h3>Response</h3>
@@ -2489,26 +3100,21 @@ p response.body
             <p>
             <b><code>token</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
 <br>
-<p>The new API token. Valid forever.</p>        </p>
+<p>The new API token. Valid forever.</p>
+        </p>
         
 
         
     </div>
     <div class="dark-box">
                     <div class="lang-selector">
-                                    <a href="#" data-language-name="bash">bash</a>
-                                    <a href="#" data-language-name="javascript">javascript</a>
-                                    <a href="#" data-language-name="php">php</a>
-                                    <a href="#" data-language-name="python">python</a>
-                                    <a href="#" data-language-name="ruby">ruby</a>
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                                                        <button type="button" class="lang-button" data-language-name="php">php</button>
+                                                        <button type="button" class="lang-button" data-language-name="python">python</button>
+                                                        <button type="button" class="lang-button" data-language-name="ruby">ruby</button>
                             </div>
             </div>
 </div>
-<script>
-    $(function () {
-        var exampleLanguages = ["bash","javascript","php","python","ruby"];
-        setupLanguages(exampleLanguages);
-    });
-</script>
 </body>
 </html>
