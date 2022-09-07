@@ -12,6 +12,8 @@ endpoints:
       - GET
     uri: api/side_projects
     metadata:
+      subgroup: null
+      subgroupDescription: null
       title: 'View all side projects'
       description: |-
         This endpoint's response was gotten via a "response call"—
@@ -35,12 +37,16 @@ endpoints:
           x-ratelimit-remaining: '57'
           access-control-allow-origin: '*'
         description: null
+        custom: []
     responseFields: []
+    custom: []
   -
     httpMethods:
       - POST
     uri: api/side_projects
     metadata:
+      subgroup: null
+      subgroupDescription: null
       title: 'Start a new side project'
       description: |-
         _Even though we both know you'll never finish it._
@@ -86,11 +92,14 @@ endpoints:
         custom: []
     responses: []
     responseFields: []
+    custom: []
   -
     httpMethods:
       - GET
     uri: 'api/side_projects/{id}'
     metadata:
+      subgroup: null
+      subgroupDescription: null
       title: 'View a side project'
       description: |-
         This endpoint's response uses a Fractal transformer, so we tell Scribe that using an annotation,
@@ -115,21 +124,26 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"name":"suscipit qui cumque","description":"Tenetur quia nemo sit est.","due_date":"20241103","owner":{"id":6,"name":"Kurt Kub","email":"juvenal97@example.org","email_verified_at":"2022-09-07T23:08:46.000000Z","created_at":"2022-09-07T23:08:46.000000Z","updated_at":"2022-09-07T23:08:46.000000Z"}}}'
+        content: '{"data":{"name":"suscipit qui cumque","description":"Tenetur quia nemo sit est.","due_date":"20241103","owner":{"id":6,"name":"Kurt Kub","email":"juvenal97@example.org","email_verified_at":"2022-09-07T23:30:37.000000Z","created_at":"2022-09-07T23:30:37.000000Z","updated_at":"2022-09-07T23:30:37.000000Z"}}}'
         headers: []
         description: null
+        custom: []
       -
         status: 404
         content: '{"message":"Not found","resource":"Side project"}'
         headers: []
         description: '404, Side project not found'
+        custom: []
     responseFields: []
+    custom: []
   -
     httpMethods:
       - PUT
       - PATCH
     uri: 'api/side_projects/{id}'
     metadata:
+      subgroup: null
+      subgroupDescription: null
       title: 'Update a side project'
       description: ''
       authenticated: false
@@ -149,11 +163,14 @@ endpoints:
     bodyParameters: []
     responses: []
     responseFields: []
+    custom: []
   -
     httpMethods:
       - DELETE
     uri: 'api/side_projects/{id}'
     metadata:
+      subgroup: null
+      subgroupDescription: null
       title: 'Delete a side project'
       description: ''
       authenticated: false
@@ -177,4 +194,6 @@ endpoints:
         content: ''
         headers: []
         description: '204, Nothing to see here'
+        custom: []
     responseFields: []
+    custom: []

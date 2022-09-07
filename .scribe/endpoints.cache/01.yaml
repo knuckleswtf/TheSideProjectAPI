@@ -8,6 +8,8 @@ endpoints:
       - GET
     uri: 'api/healthcheck/{unnecessaryParam?}'
     metadata:
+      subgroup: null
+      subgroupDescription: null
       title: Healthcheck
       description: |-
         Check that the service is up. If everything is okay, you'll get a 200 OK response.
@@ -34,6 +36,7 @@ endpoints:
         content: '{"status": "down", "services": {"database": "up", "redis": "down"}}'
         headers: []
         description: '400, Service is unhealthy'
+        custom: []
       -
         status: 200
         content: '{"status":"up","services":{"database":"up","redis":"up"}}'
@@ -44,20 +47,30 @@ endpoints:
           x-ratelimit-remaining: '59'
           access-control-allow-origin: '*'
         description: null
+        custom: []
     responseFields:
       status:
         name: status
         description: 'The status of this API (`up` or `down`).'
+        required: false
+        example: null
         type: string
+        custom: []
       services:
         name: services
         description: 'Map of each downstream service and their status (`up` or `down`).'
+        required: false
+        example: null
         type: object
+        custom: []
+    custom: []
   -
     httpMethods:
       - GET
     uri: api/me
     metadata:
+      subgroup: null
+      subgroupDescription: null
       title: ''
       description: ''
       authenticated: false
@@ -77,4 +90,6 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
+        custom: []
     responseFields: []
+    custom: []

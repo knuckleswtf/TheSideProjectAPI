@@ -16,6 +16,8 @@ class AddPaginationParameters extends Strategy
      */
     use ParamHelpers;
 
+    public ?ExtractedEndpointData $endpointData;
+
     /**
      * @link https://scribe.knuckles.wtf/laravel/advanced/plugins
      *
@@ -27,7 +29,7 @@ class AddPaginationParameters extends Strategy
      *
      * @return array|null
      */
-    public function __invoke(ExtractedEndpointData $endpointData, array $routeRules): ?array
+    public function __invoke(ExtractedEndpointData $endpointData, array $routeRules = []): ?array
     {
         $methodDocBlock = RouteDocBlocker::getDocBlocksFromRoute($endpointData->route)['method'];
         $tags = $methodDocBlock->getTagsByName('usesPagination');

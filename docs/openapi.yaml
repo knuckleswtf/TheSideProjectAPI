@@ -543,9 +543,9 @@ paths:
                       id: 6
                       name: 'Kurt Kub'
                       email: juvenal97@example.org
-                      email_verified_at: '2022-09-07T23:08:46.000000Z'
-                      created_at: '2022-09-07T23:08:46.000000Z'
-                      updated_at: '2022-09-07T23:08:46.000000Z'
+                      email_verified_at: '2022-09-07T23:30:37.000000Z'
+                      created_at: '2022-09-07T23:30:37.000000Z'
+                      updated_at: '2022-09-07T23:30:37.000000Z'
                 properties:
                   data:
                     type: object
@@ -557,9 +557,9 @@ paths:
                         id: 6
                         name: 'Kurt Kub'
                         email: juvenal97@example.org
-                        email_verified_at: '2022-09-07T23:08:46.000000Z'
-                        created_at: '2022-09-07T23:08:46.000000Z'
-                        updated_at: '2022-09-07T23:08:46.000000Z'
+                        email_verified_at: '2022-09-07T23:30:37.000000Z'
+                        created_at: '2022-09-07T23:30:37.000000Z'
+                        updated_at: '2022-09-07T23:30:37.000000Z'
         404:
           description: 'Side project not found'
           content:
@@ -1002,8 +1002,8 @@ paths:
                         description: 'Atque nobis ut natus aut dolores eveniet.'
                         url: null
                         due_at: 20251220
-                        created_at: '2022-09-07T23:08:46.000000Z'
-                        updated_at: '2022-09-07T23:08:46.000000Z'
+                        created_at: '2022-09-07T23:30:37.000000Z'
+                        updated_at: '2022-09-07T23:30:37.000000Z'
                         user_id: 6
                 properties:
                   data:
@@ -1019,8 +1019,8 @@ paths:
                           description: 'Atque nobis ut natus aut dolores eveniet.'
                           url: null
                           due_at: 20251220
-                          created_at: '2022-09-07T23:08:46.000000Z'
-                          updated_at: '2022-09-07T23:08:46.000000Z'
+                          created_at: '2022-09-07T23:30:37.000000Z'
+                          updated_at: '2022-09-07T23:30:37.000000Z'
                           user_id: 6
       tags:
         - Users

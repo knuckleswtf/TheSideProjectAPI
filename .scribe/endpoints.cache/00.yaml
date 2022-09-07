@@ -8,6 +8,8 @@ endpoints:
       - POST
     uri: api/nested
     metadata:
+      subgroup: 'A subgroup'
+      subgroupDescription: null
       title: 'Nested fields'
       description: ''
       authenticated: false
@@ -85,11 +87,14 @@ endpoints:
         custom: []
     responses: []
     responseFields: []
+    custom: []
   -
     httpMethods:
       - POST
     uri: api/array-body
     metadata:
+      subgroup: 'A subgroup'
+      subgroupDescription: null
       title: 'Body content array'
       description: ''
       authenticated: false
@@ -124,11 +129,14 @@ endpoints:
         custom: []
     responses: []
     responseFields: []
+    custom: []
   -
     httpMethods:
       - POST
     uri: api/file-input
     metadata:
+      subgroup: 'Another subgroup'
+      subgroupDescription: null
       title: 'File input'
       description: ''
       authenticated: false
@@ -169,11 +177,14 @@ endpoints:
         custom: []
     responses: []
     responseFields: []
+    custom: []
   -
     httpMethods:
       - GET
     uri: api/v1/languages
     metadata:
+      subgroup: 'Another subgroup'
+      subgroupDescription: 'This time, with a description!'
       title: ''
       description: ''
       authenticated: false
@@ -196,4 +207,6 @@ endpoints:
           x-ratelimit-remaining: '56'
           access-control-allow-origin: '*'
         description: null
+        custom: []
     responseFields: []
+    custom: []

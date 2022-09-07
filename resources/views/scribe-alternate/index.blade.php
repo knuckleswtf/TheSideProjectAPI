@@ -8,8 +8,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset("/vendor/scribe/css/theme-default.style.css") }}" media="screen">
-    <link rel="stylesheet" href="{{ asset("/vendor/scribe/css/theme-default.print.css") }}" media="print">
+    <link rel="stylesheet" href="{{ asset("/vendor/scribe-alternate/css/theme-default.style.css") }}" media="screen">
+    <link rel="stylesheet" href="{{ asset("/vendor/scribe-alternate/css/theme-default.print.css") }}" media="print">
 
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
 
@@ -31,9 +31,9 @@
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
-    <script src="{{ asset("/vendor/scribe/js/tryitout-3.37.1.js") }}"></script>
+    <script src="{{ asset("/vendor/scribe-alternate/js/tryitout-4.x-dev.js") }}"></script>
 
-    <script src="{{ asset("/vendor/scribe/js/theme-default-3.37.1.js") }}"></script>
+    <script src="{{ asset("/vendor/scribe-alternate/js/theme-default-4.x-dev.js") }}"></script>
 
 </head>
 
@@ -42,7 +42,7 @@
 <a href="#" id="nav-button">
     <span>
         MENU
-        <img src="{{ asset("/vendor/scribe/images/navbar.png") }}" alt="navbar-image" />
+        <img src="{{ asset("/vendor/scribe-alternate/images/navbar.png") }}" alt="navbar-image" />
     </span>
 </a>
 <div class="tocify-wrapper">
@@ -58,94 +58,99 @@
     </div>
 
     <div id="toc">
-                                                                            <ul id="tocify-header-0" class="tocify-header">
-                    <li class="tocify-item level-1" data-unique="introduction">
-                        <a href="#introduction">Introduction</a>
-                    </li>
-                                            
-                                                                    </ul>
-                                                <ul id="tocify-header-1" class="tocify-header">
-                    <li class="tocify-item level-1" data-unique="authenticating-requests">
-                        <a href="#authenticating-requests">Authenticating requests</a>
-                    </li>
-                                            
-                                                </ul>
-                    
-                    <ul id="tocify-header-2" class="tocify-header">
+                    <ul id="tocify-header-introduction" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="introduction">
+                    <a href="#introduction">Introduction</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-authenticating-requests" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authenticating-requests">
+                    <a href="#authenticating-requests">Authenticating requests</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-dummy-endpoints" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="dummy-endpoints">
                     <a href="#dummy-endpoints">Dummy endpoints</a>
                 </li>
                                     <ul id="tocify-subheader-dummy-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="dummy-endpoints-POSTapi-nested">
-                        <a href="#dummy-endpoints-POSTapi-nested">Nested fields</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="dummy-endpoints-POSTapi-array-body">
-                        <a href="#dummy-endpoints-POSTapi-array-body">Body content array</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="dummy-endpoints-POSTapi-file-input">
-                        <a href="#dummy-endpoints-POSTapi-file-input">File input</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="dummy-endpoints-GETapi-v1-languages">
-                        <a href="#dummy-endpoints-GETapi-v1-languages">GET api/v1/languages</a>
-                    </li>
-                                                    </ul>
+                                                    <li class="tocify-item level-2" data-unique="dummy-endpoints-a-subgroup">
+                                <a href="#dummy-endpoints-a-subgroup">A subgroup</a>
+                            </li>
+                                                            <ul id="tocify-subheader-dummy-endpoints-a-subgroup" class="tocify-subheader">
+                                                                            <li class="tocify-item level-3" data-unique="-POSTapi-nested">
+                                            <a href="#-POSTapi-nested">Nested fields</a>
+                                        </li>
+                                                                            <li class="tocify-item level-3" data-unique="-POSTapi-array-body">
+                                            <a href="#-POSTapi-array-body">Body content array</a>
+                                        </li>
+                                                                    </ul>
+                                                                                <li class="tocify-item level-2" data-unique="dummy-endpoints-another-subgroup">
+                                <a href="#dummy-endpoints-another-subgroup">Another subgroup</a>
+                            </li>
+                                                            <ul id="tocify-subheader-dummy-endpoints-another-subgroup" class="tocify-subheader">
+                                                                            <li class="tocify-item level-3" data-unique="-POSTapi-file-input">
+                                            <a href="#-POSTapi-file-input">File input</a>
+                                        </li>
+                                                                            <li class="tocify-item level-3" data-unique="-GETapi-v1-languages">
+                                            <a href="#-GETapi-v1-languages">GET api/v1/languages</a>
+                                        </li>
+                                                                    </ul>
+                                                                        </ul>
                             </ul>
-                    <ul id="tocify-header-3" class="tocify-header">
+                    <ul id="tocify-header-general" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="general">
                     <a href="#general">General</a>
                 </li>
                                     <ul id="tocify-subheader-general" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="general-GETapi-healthcheck--unnecessaryParam--">
-                        <a href="#general-GETapi-healthcheck--unnecessaryParam--">Healthcheck</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="general-GETapi-me">
-                        <a href="#general-GETapi-me">GET api/me</a>
-                    </li>
-                                                    </ul>
+                                                    <li class="tocify-item level-2" data-unique="-GETapi-healthcheck--unnecessaryParam--">
+                                <a href="#-GETapi-healthcheck--unnecessaryParam--">Healthcheck</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="-GETapi-me">
+                                <a href="#-GETapi-me">GET api/me</a>
+                            </li>
+                                                                        </ul>
                             </ul>
-                    <ul id="tocify-header-4" class="tocify-header">
+                    <ul id="tocify-header-side-projects" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="side-projects">
                     <a href="#side-projects">Side Projects</a>
                 </li>
                                     <ul id="tocify-subheader-side-projects" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="side-projects-GETapi-side_projects">
-                        <a href="#side-projects-GETapi-side_projects">View all side projects</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="side-projects-POSTapi-side_projects">
-                        <a href="#side-projects-POSTapi-side_projects">Start a new side project</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="side-projects-GETapi-side_projects--id-">
-                        <a href="#side-projects-GETapi-side_projects--id-">View a side project</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="side-projects-PUTapi-side_projects--id-">
-                        <a href="#side-projects-PUTapi-side_projects--id-">Update a side project</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="side-projects-DELETEapi-side_projects--id-">
-                        <a href="#side-projects-DELETEapi-side_projects--id-">Delete a side project</a>
-                    </li>
-                                                    </ul>
+                                                    <li class="tocify-item level-2" data-unique="-GETapi-side_projects">
+                                <a href="#-GETapi-side_projects">View all side projects</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="-POSTapi-side_projects">
+                                <a href="#-POSTapi-side_projects">Start a new side project</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="-GETapi-side_projects--id-">
+                                <a href="#-GETapi-side_projects--id-">View a side project</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="-PUTapi-side_projects--id-">
+                                <a href="#-PUTapi-side_projects--id-">Update a side project</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="-DELETEapi-side_projects--id-">
+                                <a href="#-DELETEapi-side_projects--id-">Delete a side project</a>
+                            </li>
+                                                                        </ul>
                             </ul>
-                    <ul id="tocify-header-5" class="tocify-header">
+                    <ul id="tocify-header-users" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="users">
                     <a href="#users">Users</a>
                 </li>
                                     <ul id="tocify-subheader-users" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="users-POSTapi-users">
-                        <a href="#users-POSTapi-users">Create a user</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="users-GETapi-users--id-">
-                        <a href="#users-GETapi-users--id-">Fetch a user</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="users-GETapi-users">
-                        <a href="#users-GETapi-users">View all users</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="users-POSTapi-users--id--auth">
-                        <a href="#users-POSTapi-users--id--auth">Authenticate</a>
-                    </li>
-                                                    </ul>
+                                                    <li class="tocify-item level-2" data-unique="-POSTapi-users">
+                                <a href="#-POSTapi-users">Create a user</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="-GETapi-users--id-">
+                                <a href="#-GETapi-users--id-">Fetch a user</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="-GETapi-users">
+                                <a href="#-GETapi-users">View all users</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="-POSTapi-users--id--auth">
+                                <a href="#-POSTapi-users--id--auth">Authenticate</a>
+                            </li>
+                                                                        </ul>
                             </ul>
-        
-                        
             </div>
 
             <ul class="toc-footer" id="toc-footer">
@@ -163,7 +168,7 @@
     <div class="content">
         <h1 id="introduction">Introduction</h1>
 <p>Start (and never finish) side projects with this API.</p>
-<p>This is an alternate API docs, testing out Scribe's multi-docs' support.</p>
+<p>This is an alternate API doc, testing out Scribe's multi-docs' support.</p>
 <blockquote>
 <p>Base URL</p>
 </blockquote>
@@ -178,7 +183,8 @@
 
     
 
-            <h2 id="dummy-endpoints-POSTapi-nested">Nested fields</h2>
+                        <h2 id="dummy-endpoints-a-subgroup">A subgroup</h2>
+                                                    <h2 id="-POSTapi-nested">Nested fields</h2>
 
 <p>
 </p>
@@ -328,7 +334,9 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
                         <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
                     <p>
-                <b><code>random</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <b><code>random</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
                 <input type="text"
                name="random"
                data-endpoint="POSTapi-nested"
@@ -341,12 +349,16 @@ print_r(json_decode((string) $body));</code></pre></div>
         <p>
         <details>
             <summary style="padding-bottom: 10px;">
-                <b><code>data</code></b>&nbsp;&nbsp;<small>object</small>  &nbsp;
+                <b><code>data</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+ &nbsp;
 <br>
 <p>The data</p>
             </summary>
                                                 <p>
-                        <b><code>data.name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                        <b><code>data.name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
                 <input type="text"
                name="data.name"
                data-endpoint="POSTapi-nested"
@@ -356,7 +368,9 @@ print_r(json_decode((string) $body));</code></pre></div>
 <p>A string field.</p>
                     </p>
                                                                 <p>
-                        <b><code>data.size</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                        <b><code>data.size</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
                 <input type="number"
                name="data.size"
                data-endpoint="POSTapi-nested"
@@ -366,7 +380,9 @@ print_r(json_decode((string) $body));</code></pre></div>
 <p>A number.</p>
                     </p>
                                                                 <p>
-                        <b><code>data.other</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                        <b><code>data.other</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
                 <input type="text"
                name="data.other"
                data-endpoint="POSTapi-nested"
@@ -376,7 +392,9 @@ print_r(json_decode((string) $body));</code></pre></div>
 <p>Optional thing.</p>
                     </p>
                                                                 <p>
-                        <b><code>data.things</code></b>&nbsp;&nbsp;<small>string[]</small>     <i>optional</i> &nbsp;
+                        <b><code>data.things</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+<i>optional</i> &nbsp;
                 <input type="text"
                name="data.things[0]"
                data-endpoint="POSTapi-nested"
@@ -391,12 +409,16 @@ print_r(json_decode((string) $body));</code></pre></div>
                                                                 <p>
         <details>
             <summary style="padding-bottom: 10px;">
-                <b><code>data.objects</code></b>&nbsp;&nbsp;<small>object[]</small>     <i>optional</i> &nbsp;
+                <b><code>data.objects</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
 <br>
 <p>An array of objects</p>
             </summary>
                                                 <p>
-                        <b><code>data.objects[].a</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                        <b><code>data.objects[].a</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
                 <input type="text"
                name="data.objects.0.a"
                data-endpoint="POSTapi-nested"
@@ -406,7 +428,9 @@ print_r(json_decode((string) $body));</code></pre></div>
 <p>A field in the array of objects</p>
                     </p>
                                                                 <p>
-                        <b><code>data.objects[].b</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                        <b><code>data.objects[].b</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
                 <input type="text"
                name="data.objects.0.b"
                data-endpoint="POSTapi-nested"
@@ -421,7 +445,7 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
         </form>
 
-            <h2 id="dummy-endpoints-POSTapi-array-body">Body content array</h2>
+                    <h2 id="-POSTapi-array-body">Body content array</h2>
 
 <p>
 </p>
@@ -538,7 +562,9 @@ print_r(json_decode((string) $body));</code></pre></div>
             <p>The request body is an array (<code>object[]</code>`), representing list of items.</p>
         </p>
                                             <p>
-                        <b><code>[].row_id</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                        <b><code>[].row_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
                 <input type="text"
                name="0.row_id"
                data-endpoint="POSTapi-array-body"
@@ -548,7 +574,9 @@ print_r(json_decode((string) $body));</code></pre></div>
 <p>A unique ID.</p>
                     </p>
                                                                 <p>
-                        <b><code>[].name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                        <b><code>[].name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
                 <input type="text"
                name="0.name"
                data-endpoint="POSTapi-array-body"
@@ -559,7 +587,11 @@ print_r(json_decode((string) $body));</code></pre></div>
                     </p>
                                     </form>
 
-            <h2 id="dummy-endpoints-POSTapi-file-input">File input</h2>
+                                <h2 id="dummy-endpoints-another-subgroup">Another subgroup</h2>
+                                        <p>
+                    <p>This time, with a description!</p>
+                </p>
+                                        <h2 id="-POSTapi-file-input">File input</h2>
 
 <p>
 </p>
@@ -576,8 +608,8 @@ print_r(json_decode((string) $body));</code></pre></div>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "nested[_string]=et" \
-    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\phpBA3B.tmp" \
-    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\phpBA3C.tmp" </code></pre></div>
+    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\phpB70D.tmp" \
+    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\phpB70E.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -618,11 +650,11 @@ $response = $client-&gt;post(
             ],
             [
                 'name' =&gt; 'the_file',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpBA3B.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpB70D.tmp', 'r')
             ],
             [
                 'name' =&gt; 'nested[_file]',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpBA3C.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpB70E.tmp', 'r')
             ],
         ],
     ]
@@ -675,7 +707,9 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <p>
-            <b><code>the_file</code></b>&nbsp;&nbsp;<small>file</small>  &nbsp;
+            <b><code>the_file</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
                 <input type="file"
                name="the_file"
                data-endpoint="POSTapi-file-input"
@@ -687,12 +721,16 @@ print_r(json_decode((string) $body));</code></pre></div>
                 <p>
         <details>
             <summary style="padding-bottom: 10px;">
-                <b><code>nested</code></b>&nbsp;&nbsp;<small>object</small>  &nbsp;
+                <b><code>nested</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+ &nbsp;
 <br>
 
             </summary>
                                                 <p>
-                        <b><code>nested._string</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                        <b><code>nested._string</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
                 <input type="text"
                name="nested._string"
                data-endpoint="POSTapi-file-input"
@@ -702,7 +740,9 @@ print_r(json_decode((string) $body));</code></pre></div>
 <p>A nested string.</p>
                     </p>
                                                                 <p>
-                        <b><code>nested._file</code></b>&nbsp;&nbsp;<small>file</small>  &nbsp;
+                        <b><code>nested._file</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
                 <input type="file"
                name="nested._file"
                data-endpoint="POSTapi-file-input"
@@ -715,7 +755,7 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
         </form>
 
-            <h2 id="dummy-endpoints-GETapi-v1-languages">GET api/v1/languages</h2>
+                    <h2 id="-GETapi-v1-languages">GET api/v1/languages</h2>
 
 <p>
 </p>
@@ -828,11 +868,11 @@ access-control-allow-origin: *
         </p>
                     </form>
 
-        <h1 id="general">General</h1>
+                <h1 id="general">General</h1>
 
     
 
-            <h2 id="general-GETapi-healthcheck--unnecessaryParam--">Healthcheck</h2>
+                                <h2 id="-GETapi-healthcheck--unnecessaryParam--">Healthcheck</h2>
 
 <p>
 </p>
@@ -962,7 +1002,9 @@ access-control-allow-origin: *
         </p>
                     <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
-                <b><code>unnecessaryParam</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <b><code>unnecessaryParam</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
                 <input type="text"
                name="unnecessaryParam"
                data-endpoint="GETapi-healthcheck--unnecessaryParam--"
@@ -975,17 +1017,21 @@ access-control-allow-origin: *
 
     <h3>Response</h3>
     <h4 class="fancy-heading-panel"><b>Response Fields</b></h4>
-            <p>
-            <b><code>status</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+    <p>
+            <b><code>status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
 <br>
 <p>The status of this API (<code>up</code> or <code>down</code>).</p>
         </p>
-            <p>
-            <b><code>services</code></b>&nbsp;&nbsp;<small>object</small>  &nbsp;
+                <p>
+            <b><code>services</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+ &nbsp;
 <br>
 <p>Map of each downstream service and their status (<code>up</code> or <code>down</code>).</p>
         </p>
-                <h2 id="general-GETapi-me">GET api/me</h2>
+                        <h2 id="-GETapi-me">GET api/me</h2>
 
 <p>
 </p>
@@ -1095,12 +1141,12 @@ access-control-allow-origin: *
         </p>
                     </form>
 
-        <h1 id="side-projects">Side Projects</h1>
+                <h1 id="side-projects">Side Projects</h1>
 
     <p>APIs for managing side projects.</p>
 <p>Note how the URL params for the endpoints here are automatically generated by Scribe.</p>
 
-            <h2 id="side-projects-GETapi-side_projects">View all side projects</h2>
+                                <h2 id="-GETapi-side_projects">View all side projects</h2>
 
 <p>
 </p>
@@ -1302,7 +1348,7 @@ access-control-allow-origin: *
         </p>
                     </form>
 
-            <h2 id="side-projects-POSTapi-side_projects">Start a new side project</h2>
+                    <h2 id="-POSTapi-side_projects">Start a new side project</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1422,15 +1468,18 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
                 <p>
             <label id="auth-POSTapi-side_projects" hidden>Authorization header:
-                <b><code>Bearer </code></b><input type="text"
-                                                                name="Authorization"
-                                                                data-prefix="Bearer "
-                                                                data-endpoint="POSTapi-side_projects"
-                                                                data-component="header"></label>
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="POSTapi-side_projects"
+                       data-component="header"></label>
         </p>
                         <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <p>
-            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+            <b><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-side_projects"
@@ -1440,7 +1489,9 @@ print_r(json_decode((string) $body));</code></pre></div>
 <p>The name of your side project. Must not be greater than 80 characters.</p>
         </p>
                 <p>
-            <b><code>description</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+            <b><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
                 <input type="text"
                name="description"
                data-endpoint="POSTapi-side_projects"
@@ -1450,7 +1501,9 @@ print_r(json_decode((string) $body));</code></pre></div>
 <p>A longer description of your side project. Must not be greater than 255 characters.</p>
         </p>
                 <p>
-            <b><code>url</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+            <b><code>url</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
                 <input type="text"
                name="url"
                data-endpoint="POSTapi-side_projects"
@@ -1460,7 +1513,9 @@ print_r(json_decode((string) $body));</code></pre></div>
 <p>A url to your side project. Must be a valid URL.</p>
         </p>
                 <p>
-            <b><code>due_at</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+            <b><code>due_at</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
                 <input type="text"
                name="due_at"
                data-endpoint="POSTapi-side_projects"
@@ -1471,7 +1526,7 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
         </form>
 
-            <h2 id="side-projects-GETapi-side_projects--id-">View a side project</h2>
+                    <h2 id="-GETapi-side_projects--id-">View a side project</h2>
 
 <p>
 </p>
@@ -1538,9 +1593,9 @@ print_r(json_decode((string) $body));</code></pre></div>
             &quot;id&quot;: 6,
             &quot;name&quot;: &quot;Kurt Kub&quot;,
             &quot;email&quot;: &quot;juvenal97@example.org&quot;,
-            &quot;email_verified_at&quot;: &quot;2022-09-07T23:08:48.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2022-09-07T23:08:48.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2022-09-07T23:08:48.000000Z&quot;
+            &quot;email_verified_at&quot;: &quot;2022-09-07T23:30:38.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2022-09-07T23:30:38.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-09-07T23:30:38.000000Z&quot;
         }
     }
 }</code>
@@ -1597,7 +1652,9 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
                     <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
                 <input type="number"
                name="id"
                data-endpoint="GETapi-side_projects--id-"
@@ -1608,7 +1665,7 @@ print_r(json_decode((string) $body));</code></pre></div>
             </p>
                     </form>
 
-            <h2 id="side-projects-PUTapi-side_projects--id-">Update a side project</h2>
+                    <h2 id="-PUTapi-side_projects--id-">Update a side project</h2>
 
 <p>
 </p>
@@ -1705,7 +1762,9 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
                     <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
                 <input type="number"
                name="id"
                data-endpoint="PUTapi-side_projects--id-"
@@ -1716,7 +1775,7 @@ print_r(json_decode((string) $body));</code></pre></div>
             </p>
                     </form>
 
-            <h2 id="side-projects-DELETEapi-side_projects--id-">Delete a side project</h2>
+                    <h2 id="-DELETEapi-side_projects--id-">Delete a side project</h2>
 
 <p>
 </p>
@@ -1815,7 +1874,9 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
                     <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
                 <input type="number"
                name="id"
                data-endpoint="DELETEapi-side_projects--id-"
@@ -1826,11 +1887,11 @@ print_r(json_decode((string) $body));</code></pre></div>
             </p>
                     </form>
 
-        <h1 id="users">Users</h1>
+                <h1 id="users">Users</h1>
 
     
 
-            <h2 id="users-POSTapi-users">Create a user</h2>
+                                <h2 id="-POSTapi-users">Create a user</h2>
 
 <p>
 </p>
@@ -1941,7 +2002,9 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <p>
-            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+            <b><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-users"
@@ -1951,7 +2014,9 @@ print_r(json_decode((string) $body));</code></pre></div>
 <p>Must be at least 1 characters. Must not be greater than 255 characters.</p>
         </p>
                 <p>
-            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+            <b><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-users"
@@ -1961,7 +2026,9 @@ print_r(json_decode((string) $body));</code></pre></div>
 <p>Must be a valid email address.</p>
         </p>
                 <p>
-            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+            <b><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-users"
@@ -1972,7 +2039,7 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
         </form>
 
-            <h2 id="users-GETapi-users--id-">Fetch a user</h2>
+                    <h2 id="-GETapi-users--id-">Fetch a user</h2>
 
 <p>
 </p>
@@ -2051,8 +2118,8 @@ print_r(json_decode((string) $body));</code></pre></div>
                 &quot;description&quot;: &quot;Atque nobis ut natus aut dolores eveniet.&quot;,
                 &quot;url&quot;: null,
                 &quot;due_at&quot;: 20251220,
-                &quot;created_at&quot;: &quot;2022-09-07T23:08:48.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2022-09-07T23:08:48.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2022-09-07T23:30:38.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-09-07T23:30:38.000000Z&quot;,
                 &quot;user_id&quot;: 6
             }
         ]
@@ -2101,7 +2168,9 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
                     <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
                 <input type="number"
                name="id"
                data-endpoint="GETapi-users--id-"
@@ -2112,7 +2181,7 @@ print_r(json_decode((string) $body));</code></pre></div>
             </p>
                     </form>
 
-            <h2 id="users-GETapi-users">View all users</h2>
+                    <h2 id="-GETapi-users">View all users</h2>
 
 <p>
 </p>
@@ -2361,7 +2430,9 @@ access-control-allow-origin: *
         </p>
                         <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
                     <p>
-                <b><code>page</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <b><code>page</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
                 <input type="text"
                name="page"
                data-endpoint="GETapi-users"
@@ -2371,7 +2442,9 @@ access-control-allow-origin: *
 <p>Page number to return. This parameter was added by a custom strategy.</p>
             </p>
                     <p>
-                <b><code>pageSize</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <b><code>pageSize</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
                 <input type="text"
                name="pageSize"
                data-endpoint="GETapi-users"
@@ -2382,7 +2455,7 @@ access-control-allow-origin: *
             </p>
                 </form>
 
-            <h2 id="users-POSTapi-users--id--auth">Authenticate</h2>
+                    <h2 id="-POSTapi-users--id--auth">Authenticate</h2>
 
 <p>
 </p>
@@ -2485,7 +2558,9 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
                     <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
                 <input type="number"
                name="id"
                data-endpoint="POSTapi-users--id--auth"
@@ -2498,12 +2573,14 @@ print_r(json_decode((string) $body));</code></pre></div>
 
     <h3>Response</h3>
     <h4 class="fancy-heading-panel"><b>Response Fields</b></h4>
-            <p>
-            <b><code>token</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+    <p>
+            <b><code>token</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
 <br>
 <p>The new API token. Valid forever.</p>
         </p>
-        
+                
 
         
     </div>

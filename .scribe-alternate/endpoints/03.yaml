@@ -6,6 +6,8 @@ endpoints:
       - POST
     uri: api/users
     metadata:
+      subgroup: null
+      subgroupDescription: null
       title: 'Create a user'
       description: "This endpoint's body parameters are automatically generated from a FormRequest."
       authenticated: false
@@ -39,11 +41,14 @@ endpoints:
         custom: []
     responses: []
     responseFields: []
+    custom: []
   -
     httpMethods:
       - GET
     uri: 'api/users/{id}'
     metadata:
+      subgroup: null
+      subgroupDescription: null
       title: 'Fetch a user'
       description: |-
         This endpoint's response uses an Eloquent API resource, so we tell Scribe that using an annotation,
@@ -69,17 +74,22 @@ endpoints:
         content: '{"message":"Not found","resource":"user"}'
         headers: []
         description: '404, User not found'
+        custom: []
       -
         status: 200
-        content: '{"data":{"id":6,"name":"Mr. Merlin Friesen","email":"hdoyle@example.com","side_projects":[{"id":10,"name":"est numquam consequuntur","description":"Atque nobis ut natus aut dolores eveniet.","url":null,"due_at":20251220,"created_at":"2022-09-07T23:08:48.000000Z","updated_at":"2022-09-07T23:08:48.000000Z","user_id":6}]}}'
+        content: '{"data":{"id":6,"name":"Mr. Merlin Friesen","email":"hdoyle@example.com","side_projects":[{"id":10,"name":"est numquam consequuntur","description":"Atque nobis ut natus aut dolores eveniet.","url":null,"due_at":20251220,"created_at":"2022-09-07T23:30:38.000000Z","updated_at":"2022-09-07T23:30:38.000000Z","user_id":6}]}}'
         headers: []
         description: '0'
+        custom: []
     responseFields: []
+    custom: []
   -
     httpMethods:
       - GET
     uri: api/users
     metadata:
+      subgroup: null
+      subgroupDescription: null
       title: 'View all users'
       description: |-
         This endpoint uses a custom Scribe strategy that parses a
@@ -119,12 +129,16 @@ endpoints:
           x-ratelimit-remaining: '54'
           access-control-allow-origin: '*'
         description: null
+        custom: []
     responseFields: []
+    custom: []
   -
     httpMethods:
       - POST
     uri: 'api/users/{id}/auth'
     metadata:
+      subgroup: null
+      subgroupDescription: null
       title: Authenticate
       description: |-
         Get a new API token.
@@ -151,8 +165,13 @@ endpoints:
         content: '{"token": "2|KLDoUXc68Ko0JaFDZoX9qYkUqWglwdGxQsvTGBCg"}'
         headers: []
         description: '200'
+        custom: []
     responseFields:
       token:
         name: token
         description: 'The new API token. Valid forever.'
+        required: false
+        example: null
         type: string
+        custom: []
+    custom: []
