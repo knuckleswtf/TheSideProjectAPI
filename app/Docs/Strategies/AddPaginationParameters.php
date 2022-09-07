@@ -39,12 +39,12 @@ class AddPaginationParameters extends Strategy
 
         return [
             'page' => [
-                'description' => 'Page number to return.',
+                'description' => 'Page number to return. This parameter was added by a custom strategy.',
                 'required' => false,
                 'example' => 1,
             ],
             'pageSize' => [
-                'description' => 'Number of items to return in a page. Defaults to 10.',
+                'description' => 'Number of items to return in a page. Defaults to 10. This parameter was added by a custom strategy.',
                 'required' => false,
                 'example' => null, // So it doesn't get included in the examples
             ],

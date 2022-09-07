@@ -8,8 +8,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/theme-default.style.css" media="screen">
-    <link rel="stylesheet" href="./css/theme-default.print.css" media="print">
+    <link rel="stylesheet" href="{{ asset("/vendor/scribe/css/theme-default.style.css") }}" media="screen">
+    <link rel="stylesheet" href="{{ asset("/vendor/scribe/css/theme-default.print.css") }}" media="print">
 
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
 
@@ -24,8 +24,6 @@
                     body .content .bash-example code { display: none; }
                     body .content .javascript-example code { display: none; }
                     body .content .php-example code { display: none; }
-                    body .content .python-example code { display: none; }
-                    body .content .ruby-example code { display: none; }
             </style>
 
     <script>
@@ -33,29 +31,26 @@
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
-    <script src="./js/tryitout-3.37.1.js"></script>
+    <script src="{{ asset("/vendor/scribe/js/tryitout-3.37.1.js") }}"></script>
 
-    <script src="./js/theme-default-3.37.1.js"></script>
+    <script src="{{ asset("/vendor/scribe/js/theme-default-3.37.1.js") }}"></script>
 
 </head>
 
-<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;,&quot;php&quot;,&quot;python&quot;,&quot;ruby&quot;]">
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;,&quot;php&quot;]">
 
 <a href="#" id="nav-button">
     <span>
         MENU
-        <img src="./images/navbar.png" alt="navbar-image" />
+        <img src="{{ asset("/vendor/scribe/images/navbar.png") }}" alt="navbar-image" />
     </span>
 </a>
 <div class="tocify-wrapper">
-            <img src="https://github.com/knuckleswtf/scribe/raw/master/logo-scribe.png" alt="logo" class="logo" style="padding-top: 10px;" width="100%"/>
     
             <div class="lang-selector">
                                             <button type="button" class="lang-button" data-language-name="bash">bash</button>
                                             <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
                                             <button type="button" class="lang-button" data-language-name="php">php</button>
-                                            <button type="button" class="lang-button" data-language-name="python">python</button>
-                                            <button type="button" class="lang-button" data-language-name="ruby">ruby</button>
                     </div>
     
     <div class="search">
@@ -68,28 +63,15 @@
                         <a href="#introduction">Introduction</a>
                     </li>
                                             
-                                                                    <ul id="tocify-subheader-introduction" class="tocify-subheader">
-                                                        <li class="tocify-item level-2"
-                        data-unique="introduction-just-a-heading">
-                        <a href="#just-a-heading">Just a heading</a>
-                    </li>
-            
                                                                     </ul>
-                                                                        </ul>
-                                <ul id="tocify-header-1" class="tocify-header">
-                    <li class="tocify-item level-1" data-unique="and-then-another">
-                        <a href="#and-then-another">And then another!</a>
-                    </li>
-                                            
-                                                                    </ul>
-                                                <ul id="tocify-header-2" class="tocify-header">
+                                                <ul id="tocify-header-1" class="tocify-header">
                     <li class="tocify-item level-1" data-unique="authenticating-requests">
                         <a href="#authenticating-requests">Authenticating requests</a>
                     </li>
                                             
                                                 </ul>
                     
-                    <ul id="tocify-header-3" class="tocify-header">
+                    <ul id="tocify-header-2" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="dummy-endpoints">
                     <a href="#dummy-endpoints">Dummy endpoints</a>
                 </li>
@@ -108,7 +90,7 @@
                     </li>
                                                     </ul>
                             </ul>
-                    <ul id="tocify-header-4" class="tocify-header">
+                    <ul id="tocify-header-3" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="general">
                     <a href="#general">General</a>
                 </li>
@@ -121,7 +103,7 @@
                     </li>
                                                     </ul>
                             </ul>
-                    <ul id="tocify-header-5" class="tocify-header">
+                    <ul id="tocify-header-4" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="side-projects">
                     <a href="#side-projects">Side Projects</a>
                 </li>
@@ -143,7 +125,7 @@
                     </li>
                                                     </ul>
                             </ul>
-                    <ul id="tocify-header-6" class="tocify-header">
+                    <ul id="tocify-header-5" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="users">
                     <a href="#users">Users</a>
                 </li>
@@ -162,23 +144,13 @@
                     </li>
                                                     </ul>
                             </ul>
-                    <ul id="tocify-header-7" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="extras">
-                    <a href="#extras">Extras</a>
-                </li>
-                                    <ul id="tocify-subheader-extras" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="extras-POSTapi-aCustomEndpoint">
-                        <a href="#extras-POSTapi-aCustomEndpoint">A custom endpoint</a>
-                    </li>
-                                                    </ul>
-                            </ul>
         
                         
             </div>
 
             <ul class="toc-footer" id="toc-footer">
-                            <li><a href="./collection.json">View Postman collection</a></li>
-                            <li><a href="./openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="{{ route("scribe-alternate.postman") }}">View Postman collection</a></li>
+                            <li><a href="{{ route("scribe-alternate.openapi") }}">View OpenAPI spec</a></li>
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
@@ -191,20 +163,11 @@
     <div class="content">
         <h1 id="introduction">Introduction</h1>
 <p>Start (and never finish) side projects with this API.</p>
-<p>The SideProject API is a sample API, built to demonstrate <a href="http://scribe.knuckles.wtf">Scribe's</a> capabilities.</p>
-<p>Lke many side projects, it is itself an unfinished API, but hopefully it should be enough to convince you to try Scribe out.😉 You can check out the source code <a href="https://github.com/knuckleswtf/TheSideProjectAPI/">on GitHub</a>.</p>
-<aside class="success">Example of aside with class=success.</aside>
-<aside class="warning">Example of aside with class=warning.</aside>
-<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
-You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<p>This is an alternate API docs, testing out Scribe's multi-docs' support.</p>
 <blockquote>
 <p>Base URL</p>
 </blockquote>
 <pre><code class="language-yaml">http://testapi.com</code></pre>
-<h2 id="just-a-heading">Just a heading</h2>
-<p>With stuff under</p>
-<h1 id="and-then-another">And then another!</h1>
-<p>These headings were added by editing <code>.scribe/intro.md</code></p>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {BEARER_TOKEN}"</code></strong>.</p>
@@ -319,72 +282,6 @@ $response = $client-&gt;post(
 );
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://testapi.com/api/nested'
-payload = {
-    "data": {
-        "name": "et",
-        "size": 5,
-        "things": [
-            "et"
-        ],
-        "objects": [
-            {
-                "a": "et",
-                "b": "et"
-            }
-        ]
-    }
-}
-params = {
-  'random': 'et',
-}
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers, json=payload, params=params)
-response.json()</code></pre></div>
-
-
-<div class="ruby-example">
-    <pre><code class="language-ruby">
-require 'rest-client'
-
-body = {
-    "data": {
-        "name": "et",
-        "size": 5,
-        "things": [
-            "et"
-        ],
-        "objects": [
-            {
-                "a": "et",
-                "b": "et"
-            }
-        ]
-    }
-}
-headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-response = RestClient.post(
-    'http://testapi.com/api/nested',
-    body ,
-    headers
-)
-
-p response.body
-</code></pre></div>
 
 </span>
 
@@ -593,51 +490,6 @@ $response = $client-&gt;post(
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre></div>
 
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://testapi.com/api/array-body'
-payload = [
-    {
-        "row_id": "700",
-        "name": "My item name"
-    }
-]
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre></div>
-
-
-<div class="ruby-example">
-    <pre><code class="language-ruby">
-require 'rest-client'
-
-body = [
-    {
-        "row_id": "700",
-        "name": "My item name"
-    }
-]
-headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-response = RestClient.post(
-    'http://testapi.com/api/array-body',
-    body ,
-    headers
-)
-
-p response.body
-</code></pre></div>
-
 </span>
 
 <span id="example-responses-POSTapi-array-body">
@@ -724,8 +576,8 @@ p response.body
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "nested[_string]=et" \
-    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\phpB336.tmp" \
-    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\phpB347.tmp" </code></pre></div>
+    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\phpBA3B.tmp" \
+    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\phpBA3C.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -766,64 +618,17 @@ $response = $client-&gt;post(
             ],
             [
                 'name' =&gt; 'the_file',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpB336.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpBA3B.tmp', 'r')
             ],
             [
                 'name' =&gt; 'nested[_file]',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpB347.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpBA3C.tmp', 'r')
             ],
         ],
     ]
 );
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://testapi.com/api/file-input'
-files = {
-  'the_file': open('C:\Users\shalvah\AppData\Local\Temp\phpB336.tmp', 'rb'),
-  'nested[_file]': open('C:\Users\shalvah\AppData\Local\Temp\phpB347.tmp', 'rb')
-}
-payload = {
-    "nested": {
-        "_string": "et"
-    }
-}
-headers = {
-  'Content-Type': 'multipart/form-data',
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers, files=files, data=payload)
-response.json()</code></pre></div>
-
-
-<div class="ruby-example">
-    <pre><code class="language-ruby">
-require 'rest-client'
-
-body = {
-    "nested": {
-        "_string": "et"
-    }
-}
-headers = {
-    "Content-Type": "multipart/form-data",
-    "Accept": "application/json",
-}
-
-response = RestClient.post(
-    'http://testapi.com/api/file-input',
-    body ,
-    headers
-)
-
-p response.body
-</code></pre></div>
 
 </span>
 
@@ -961,40 +766,6 @@ $response = $client-&gt;get(
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre></div>
 
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://testapi.com/api/v1/languages'
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Test': 'Value'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
-
-<div class="ruby-example">
-    <pre><code class="language-ruby">
-require 'rest-client'
-
-headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-    "Test": "Value",
-}
-
-response = RestClient.get(
-    'http://testapi.com/api/v1/languages',
-    headers
-)
-
-p response.body
-</code></pre></div>
-
 </span>
 
 <span id="example-responses-GETapi-v1-languages">
@@ -1008,7 +779,7 @@ p response.body
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 56
+x-ratelimit-remaining: 52
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -1110,38 +881,6 @@ $response = $client-&gt;get(
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre></div>
 
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://testapi.com/api/healthcheck/et'
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
-
-<div class="ruby-example">
-    <pre><code class="language-ruby">
-require 'rest-client'
-
-headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-response = RestClient.get(
-    'http://testapi.com/api/healthcheck/et',
-    headers
-)
-
-p response.body
-</code></pre></div>
-
 </span>
 
 <span id="example-responses-GETapi-healthcheck--unnecessaryParam--">
@@ -1168,7 +907,7 @@ p response.body
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 59
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -1294,38 +1033,6 @@ $response = $client-&gt;get(
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre></div>
 
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://testapi.com/api/me'
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
-
-<div class="ruby-example">
-    <pre><code class="language-ruby">
-require 'rest-client'
-
-headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-response = RestClient.get(
-    'http://testapi.com/api/me',
-    headers
-)
-
-p response.body
-</code></pre></div>
-
 </span>
 
 <span id="example-responses-GETapi-me">
@@ -1442,38 +1149,6 @@ $response = $client-&gt;get(
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre></div>
 
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://testapi.com/api/side_projects'
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
-
-<div class="ruby-example">
-    <pre><code class="language-ruby">
-require 'rest-client'
-
-headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-response = RestClient.get(
-    'http://testapi.com/api/side_projects',
-    headers
-)
-
-p response.body
-</code></pre></div>
-
 </span>
 
 <span id="example-responses-GETapi-side_projects">
@@ -1487,7 +1162,7 @@ p response.body
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 57
+x-ratelimit-remaining: 53
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -1702,53 +1377,6 @@ $response = $client-&gt;post(
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre></div>
 
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://testapi.com/api/side_projects'
-payload = {
-    "name": "The SideProject API",
-    "description": "pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv",
-    "url": "http:\/\/hartmann.com\/magnam-tenetur-quia-nemo-sit-est-numquam",
-    "due_at": "2084-02-25"
-}
-headers = {
-  'Authorization': 'Bearer {BEARER_TOKEN}',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre></div>
-
-
-<div class="ruby-example">
-    <pre><code class="language-ruby">
-require 'rest-client'
-
-body = {
-    "name": "The SideProject API",
-    "description": "pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv",
-    "url": "http:\/\/hartmann.com\/magnam-tenetur-quia-nemo-sit-est-numquam",
-    "due_at": "2084-02-25"
-}
-headers = {
-    "Authorization": "Bearer {BEARER_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-response = RestClient.post(
-    'http://testapi.com/api/side_projects',
-    body ,
-    headers
-)
-
-p response.body
-</code></pre></div>
-
 </span>
 
 <span id="example-responses-POSTapi-side_projects">
@@ -1893,38 +1521,6 @@ $response = $client-&gt;get(
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre></div>
 
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://testapi.com/api/side_projects/1'
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
-
-<div class="ruby-example">
-    <pre><code class="language-ruby">
-require 'rest-client'
-
-headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-response = RestClient.get(
-    'http://testapi.com/api/side_projects/1',
-    headers
-)
-
-p response.body
-</code></pre></div>
-
 </span>
 
 <span id="example-responses-GETapi-side_projects--id-">
@@ -1942,9 +1538,9 @@ p response.body
             &quot;id&quot;: 6,
             &quot;name&quot;: &quot;Kurt Kub&quot;,
             &quot;email&quot;: &quot;juvenal97@example.org&quot;,
-            &quot;email_verified_at&quot;: &quot;2022-09-07T23:08:46.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2022-09-07T23:08:46.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2022-09-07T23:08:46.000000Z&quot;
+            &quot;email_verified_at&quot;: &quot;2022-09-07T23:08:48.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2022-09-07T23:08:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-09-07T23:08:48.000000Z&quot;
         }
     }
 }</code>
@@ -2060,38 +1656,6 @@ $response = $client-&gt;put(
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre></div>
 
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://testapi.com/api/side_projects/1'
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('PUT', url, headers=headers)
-response.json()</code></pre></div>
-
-
-<div class="ruby-example">
-    <pre><code class="language-ruby">
-require 'rest-client'
-
-headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-response = RestClient.put(
-    'http://testapi.com/api/side_projects/1',
-    headers
-)
-
-p response.body
-</code></pre></div>
-
 </span>
 
 <span id="example-responses-PUTapi-side_projects--id-">
@@ -2199,38 +1763,6 @@ $response = $client-&gt;delete(
 );
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://testapi.com/api/side_projects/1'
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('DELETE', url, headers=headers)
-response.json()</code></pre></div>
-
-
-<div class="ruby-example">
-    <pre><code class="language-ruby">
-require 'rest-client'
-
-headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-response = RestClient.delete(
-    'http://testapi.com/api/side_projects/1',
-    headers
-)
-
-p response.body
-</code></pre></div>
 
 </span>
 
@@ -2364,49 +1896,6 @@ $response = $client-&gt;post(
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre></div>
 
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://testapi.com/api/users'
-payload = {
-    "name": "pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv",
-    "email": "casimir70@example.com",
-    "password": "et"
-}
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers, json=payload)
-response.json()</code></pre></div>
-
-
-<div class="ruby-example">
-    <pre><code class="language-ruby">
-require 'rest-client'
-
-body = {
-    "name": "pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv",
-    "email": "casimir70@example.com",
-    "password": "et"
-}
-headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-response = RestClient.post(
-    'http://testapi.com/api/users',
-    body ,
-    headers
-)
-
-p response.body
-</code></pre></div>
-
 </span>
 
 <span id="example-responses-POSTapi-users">
@@ -2532,38 +2021,6 @@ $response = $client-&gt;get(
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre></div>
 
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://testapi.com/api/users/1'
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre></div>
-
-
-<div class="ruby-example">
-    <pre><code class="language-ruby">
-require 'rest-client'
-
-headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-response = RestClient.get(
-    'http://testapi.com/api/users/1',
-    headers
-)
-
-p response.body
-</code></pre></div>
-
 </span>
 
 <span id="example-responses-GETapi-users--id-">
@@ -2594,8 +2051,8 @@ p response.body
                 &quot;description&quot;: &quot;Atque nobis ut natus aut dolores eveniet.&quot;,
                 &quot;url&quot;: null,
                 &quot;due_at&quot;: 20251220,
-                &quot;created_at&quot;: &quot;2022-09-07T23:08:46.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2022-09-07T23:08:46.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2022-09-07T23:08:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-09-07T23:08:48.000000Z&quot;,
                 &quot;user_id&quot;: 6
             }
         ]
@@ -2714,41 +2171,6 @@ $response = $client-&gt;get(
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre></div>
 
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://testapi.com/api/users'
-params = {
-  'page': '1',
-}
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers, params=params)
-response.json()</code></pre></div>
-
-
-<div class="ruby-example">
-    <pre><code class="language-ruby">
-require 'rest-client'
-
-headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-response = RestClient.get(
-    'http://testapi.com/api/users',
-    headers
-)
-
-p response.body
-</code></pre></div>
-
 </span>
 
 <span id="example-responses-GETapi-users">
@@ -2762,7 +2184,7 @@ p response.body
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 58
+x-ratelimit-remaining: 54
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -3009,38 +2431,6 @@ $response = $client-&gt;post(
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre></div>
 
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://testapi.com/api/users/1/auth'
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers)
-response.json()</code></pre></div>
-
-
-<div class="ruby-example">
-    <pre><code class="language-ruby">
-require 'rest-client'
-
-headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-response = RestClient.post(
-    'http://testapi.com/api/users/1/auth',
-    headers
-)
-
-p response.body
-</code></pre></div>
-
 </span>
 
 <span id="example-responses-POSTapi-users--id--auth">
@@ -3113,166 +2503,6 @@ p response.body
 <br>
 <p>The new API token. Valid forever.</p>
         </p>
-            <h1 id="extras">Extras</h1>
-
-    
-
-            <h2 id="extras-POSTapi-aCustomEndpoint">A custom endpoint</h2>
-
-<p>
-</p>
-
-<p>I added this endpoint by creating a <code>custom.0.yaml</code> file in <code>.scribe</code>. See <a href="https://scribe.knuckles.wtf/laravel/documenting/custom-endpoints">the docs</a>.</p>
-
-<span id="example-requests-POSTapi-aCustomEndpoint">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://testapi.com/api/aCustomEndpoint" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://testapi.com/api/aCustomEndpoint"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post(
-    'http://testapi.com/api/aCustomEndpoint',
-    [
-        'headers' =&gt; [
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="python-example">
-    <pre><code class="language-python">import requests
-import json
-
-url = 'http://testapi.com/api/aCustomEndpoint'
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('POST', url, headers=headers)
-response.json()</code></pre></div>
-
-
-<div class="ruby-example">
-    <pre><code class="language-ruby">
-require 'rest-client'
-
-headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-response = RestClient.post(
-    'http://testapi.com/api/aCustomEndpoint',
-    headers
-)
-
-p response.body
-</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-aCustomEndpoint">
-            <blockquote>
-            <p>Example response (When the thing was done smoothly.):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;hey&quot;: &quot;ho ho ho&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (Just for fun.):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;hey&quot;: &quot;ho&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (Even more fun!):</p>
-        </blockquote>
-                <pre>
-<code>[Empty response]</code>
- </pre>
-    </span>
-<span id="execution-results-POSTapi-aCustomEndpoint" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-aCustomEndpoint"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-aCustomEndpoint"></code></pre>
-</span>
-<span id="execution-error-POSTapi-aCustomEndpoint" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-aCustomEndpoint"></code></pre>
-</span>
-<form id="form-POSTapi-aCustomEndpoint" data-method="POST"
-      data-path="api/aCustomEndpoint"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-aCustomEndpoint', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-aCustomEndpoint"
-                    onclick="tryItOut('POSTapi-aCustomEndpoint');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-aCustomEndpoint"
-                    onclick="cancelTryOut('POSTapi-aCustomEndpoint');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-aCustomEndpoint" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/aCustomEndpoint</code></b>
-        </p>
-                    </form>
-
-    <h3>Response</h3>
-    <h4 class="fancy-heading-panel"><b>Response Fields</b></h4>
-            <p>
-            <b><code>hey</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<br>
-<p>Who knows?</p>
-        </p>
         
 
         
@@ -3282,8 +2512,6 @@ p response.body
                                                         <button type="button" class="lang-button" data-language-name="bash">bash</button>
                                                         <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
                                                         <button type="button" class="lang-button" data-language-name="php">php</button>
-                                                        <button type="button" class="lang-button" data-language-name="python">python</button>
-                                                        <button type="button" class="lang-button" data-language-name="ruby">ruby</button>
                             </div>
             </div>
 </div>

@@ -543,9 +543,9 @@ paths:
                       id: 6
                       name: 'Kurt Kub'
                       email: juvenal97@example.org
-                      email_verified_at: '2022-09-07T22:47:20.000000Z'
-                      created_at: '2022-09-07T22:47:20.000000Z'
-                      updated_at: '2022-09-07T22:47:20.000000Z'
+                      email_verified_at: '2022-09-07T23:08:46.000000Z'
+                      created_at: '2022-09-07T23:08:46.000000Z'
+                      updated_at: '2022-09-07T23:08:46.000000Z'
                 properties:
                   data:
                     type: object
@@ -557,9 +557,9 @@ paths:
                         id: 6
                         name: 'Kurt Kub'
                         email: juvenal97@example.org
-                        email_verified_at: '2022-09-07T22:47:20.000000Z'
-                        created_at: '2022-09-07T22:47:20.000000Z'
-                        updated_at: '2022-09-07T22:47:20.000000Z'
+                        email_verified_at: '2022-09-07T23:08:46.000000Z'
+                        created_at: '2022-09-07T23:08:46.000000Z'
+                        updated_at: '2022-09-07T23:08:46.000000Z'
         404:
           description: 'Side project not found'
           content:
@@ -687,22 +687,22 @@ paths:
         -
           in: query
           name: page
-          description: 'Page number to return.'
+          description: 'Page number to return. This parameter was added by a custom strategy.'
           example: 1
           required: false
           schema:
             type: string
-            description: 'Page number to return.'
+            description: 'Page number to return. This parameter was added by a custom strategy.'
             example: 1
         -
           in: query
           name: pageSize
-          description: 'Number of items to return in a page. Defaults to 10.'
+          description: 'Number of items to return in a page. Defaults to 10. This parameter was added by a custom strategy.'
           example: null
           required: false
           schema:
             type: string
-            description: 'Number of items to return in a page. Defaults to 10.'
+            description: 'Number of items to return in a page. Defaults to 10. This parameter was added by a custom strategy.'
             example: null
         -
           in: header
@@ -1002,8 +1002,8 @@ paths:
                         description: 'Atque nobis ut natus aut dolores eveniet.'
                         url: null
                         due_at: 20251220
-                        created_at: '2022-09-07T22:47:20.000000Z'
-                        updated_at: '2022-09-07T22:47:20.000000Z'
+                        created_at: '2022-09-07T23:08:46.000000Z'
+                        updated_at: '2022-09-07T23:08:46.000000Z'
                         user_id: 6
                 properties:
                   data:
@@ -1019,8 +1019,8 @@ paths:
                           description: 'Atque nobis ut natus aut dolores eveniet.'
                           url: null
                           due_at: 20251220
-                          created_at: '2022-09-07T22:47:20.000000Z'
-                          updated_at: '2022-09-07T22:47:20.000000Z'
+                          created_at: '2022-09-07T23:08:46.000000Z'
+                          updated_at: '2022-09-07T23:08:46.000000Z'
                           user_id: 6
       tags:
         - Users
@@ -1113,7 +1113,7 @@ paths:
                     example: ho
                     description: 'Who knows?'
         204:
-          description: 'Just for fun.'
+          description: 'Even more fun!'
       tags:
         - Extras
       security: []

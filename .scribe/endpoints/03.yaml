@@ -71,7 +71,7 @@ endpoints:
         description: '404, User not found'
       -
         status: 200
-        content: '{"data":{"id":6,"name":"Mr. Merlin Friesen","email":"hdoyle@example.com","side_projects":[{"id":10,"name":"est numquam consequuntur","description":"Atque nobis ut natus aut dolores eveniet.","url":null,"due_at":20251220,"created_at":"2022-09-07T22:47:20.000000Z","updated_at":"2022-09-07T22:47:20.000000Z","user_id":6}]}}'
+        content: '{"data":{"id":6,"name":"Mr. Merlin Friesen","email":"hdoyle@example.com","side_projects":[{"id":10,"name":"est numquam consequuntur","description":"Atque nobis ut natus aut dolores eveniet.","url":null,"due_at":20251220,"created_at":"2022-09-07T23:08:46.000000Z","updated_at":"2022-09-07T23:08:46.000000Z","user_id":6}]}}'
         headers: []
         description: '0'
     responseFields: []
@@ -95,14 +95,14 @@ endpoints:
     queryParameters:
       page:
         name: page
-        description: 'Page number to return.'
+        description: 'Page number to return. This parameter was added by a custom strategy.'
         required: false
         example: 1
         type: string
         custom: []
       pageSize:
         name: pageSize
-        description: 'Number of items to return in a page. Defaults to 10.'
+        description: 'Number of items to return in a page. Defaults to 10. This parameter was added by a custom strategy.'
         required: false
         example: null
         type: string
@@ -116,7 +116,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '54'
+          x-ratelimit-remaining: '58'
           access-control-allow-origin: '*'
         description: null
     responseFields: []

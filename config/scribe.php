@@ -297,7 +297,7 @@ INTRO
      * - 'logo' => 'img/logo.png' // for `laravel` type
      *
      */
-    'logo' => false,
+    'logo' => 'https://github.com/knuckleswtf/scribe/raw/master/logo-scribe.png',
 
     /*
      * If you would like the package to generate the same example values for parameters on each run,

@@ -1,0 +1,30 @@
+- httpMethods:
+    - POST
+  uri: api/aCustomEndpoint
+  metadata:
+    groupName: Extras
+    groupDescription:
+    title: A custom endpoint
+    description: I added this endpoint by creating a `custom.0.yaml` file in `.scribe`. See [the docs](https://scribe.knuckles.wtf/laravel/documenting/custom-endpoints).
+    authenticated: false
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    - status: 200
+      description: 'When the thing was done smoothly.'
+      content:
+         {
+           "hey": "ho ho ho"
+         }
+    - status: 200
+      description: 'Just for fun.'
+      content: '{"hey": "ho"}'
+    - status: 204
+      description: 'Even more fun!'
+      content:
+  responseFields:
+    hey:
+      name: hey
+      description: Who knows?
+      type: string
