@@ -543,9 +543,9 @@ paths:
                       id: 6
                       name: 'Kurt Kub'
                       email: juvenal97@example.org
-                      email_verified_at: '2022-09-07T22:37:54.000000Z'
-                      created_at: '2022-09-07T22:37:54.000000Z'
-                      updated_at: '2022-09-07T22:37:54.000000Z'
+                      email_verified_at: '2022-09-07T22:47:20.000000Z'
+                      created_at: '2022-09-07T22:47:20.000000Z'
+                      updated_at: '2022-09-07T22:47:20.000000Z'
                 properties:
                   data:
                     type: object
@@ -557,9 +557,9 @@ paths:
                         id: 6
                         name: 'Kurt Kub'
                         email: juvenal97@example.org
-                        email_verified_at: '2022-09-07T22:37:54.000000Z'
-                        created_at: '2022-09-07T22:37:54.000000Z'
-                        updated_at: '2022-09-07T22:37:54.000000Z'
+                        email_verified_at: '2022-09-07T22:47:20.000000Z'
+                        created_at: '2022-09-07T22:47:20.000000Z'
+                        updated_at: '2022-09-07T22:47:20.000000Z'
         404:
           description: 'Side project not found'
           content:
@@ -1002,8 +1002,8 @@ paths:
                         description: 'Atque nobis ut natus aut dolores eveniet.'
                         url: null
                         due_at: 20251220
-                        created_at: '2022-09-07T22:37:54.000000Z'
-                        updated_at: '2022-09-07T22:37:54.000000Z'
+                        created_at: '2022-09-07T22:47:20.000000Z'
+                        updated_at: '2022-09-07T22:47:20.000000Z'
                         user_id: 6
                 properties:
                   data:
@@ -1019,8 +1019,8 @@ paths:
                           description: 'Atque nobis ut natus aut dolores eveniet.'
                           url: null
                           due_at: 20251220
-                          created_at: '2022-09-07T22:37:54.000000Z'
-                          updated_at: '2022-09-07T22:37:54.000000Z'
+                          created_at: '2022-09-07T22:47:20.000000Z'
+                          updated_at: '2022-09-07T22:47:20.000000Z'
                           user_id: 6
       tags:
         - Users
@@ -1079,6 +1079,44 @@ paths:
         required: true
         schema:
           type: integer
+  /api/aCustomEndpoint:
+    post:
+      summary: 'A custom endpoint'
+      description: 'I added this endpoint by creating a `custom.0.yaml` file in `.scribe`. See [the docs](https://scribe.knuckles.wtf/laravel/documenting/custom-endpoints).'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'Just for fun.'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  hey: ho
+                properties:
+                  hey:
+                    type: string
+                    example: ho
+                    description: 'Who knows?'
+        204:
+          description: 'Just for fun.'
+      tags:
+        - Extras
+      security: []
 tags:
   -
     name: 'Dummy endpoints'
@@ -1092,6 +1130,9 @@ tags:
   -
     name: Users
     description: ''
+  -
+    name: Extras
+    description: null
 components:
   securitySchemes:
     default:

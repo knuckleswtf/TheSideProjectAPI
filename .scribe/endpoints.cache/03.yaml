@@ -9,8 +9,9 @@ endpoints:
     uri: api/users
     metadata:
       title: 'Create a user'
-      description: 'This endpoint''s body parameters are automatically generated from a FormRequest.'
+      description: "This endpoint's body parameters are automatically generated from a FormRequest."
       authenticated: false
+      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -23,18 +24,21 @@ endpoints:
         required: true
         example: pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv
         type: string
+        custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
         example: casimir70@example.com
         type: string
+        custom: []
       password:
         name: password
         description: ''
         required: true
         example: et
         type: string
+        custom: []
     responses: []
     responseFields: []
   -
@@ -47,6 +51,7 @@ endpoints:
         This endpoint's response uses an Eloquent API resource, so we tell Scribe that using an annotation,
         and it figures out how to generate a sample. The 404 sample is gotten from a "response file".
       authenticated: false
+      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -55,8 +60,9 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: 13
+        example: 1
         type: integer
+        custom: []
     queryParameters: []
     bodyParameters: []
     responses:
@@ -67,9 +73,9 @@ endpoints:
         description: '404, User not found'
       -
         status: 200
-        content: '{"data":{"id":6,"name":"Mr. Merlin Friesen","email":"hdoyle@example.com","side_projects":[{"id":10,"name":"est numquam consequuntur","description":"Atque nobis ut natus aut dolores eveniet.","url":null,"due_at":"20241221","created_at":"2021-09-09T12:16:30.000000Z","updated_at":"2021-09-09T12:16:30.000000Z","user_id":"6"}]}}'
+        content: '{"data":{"id":6,"name":"Mr. Merlin Friesen","email":"hdoyle@example.com","side_projects":[{"id":10,"name":"est numquam consequuntur","description":"Atque nobis ut natus aut dolores eveniet.","url":null,"due_at":20251220,"created_at":"2022-09-07T22:47:20.000000Z","updated_at":"2022-09-07T22:47:20.000000Z","user_id":6}]}}'
         headers: []
-        description: null
+        description: '0'
     responseFields: []
   -
     httpMethods:
@@ -83,6 +89,7 @@ endpoints:
 
         The sample response is gotten by Scribe making a test API call (aka "response call").
       authenticated: false
+      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -94,22 +101,24 @@ endpoints:
         required: false
         example: 1
         type: string
+        custom: []
       pageSize:
         name: pageSize
         description: 'Number of items to return in a page. Defaults to 10.'
         required: false
         example: null
         type: string
+        custom: []
     bodyParameters: []
     responses:
       -
         status: 200
-        content: '{"data":[{"id":1,"name":"Pete","email":"pete@home.com","side_projects":[{"id":2,"name":"iusto ut dolor","description":"Voluptatem aspernatur dolorem quae quaerat harum.","url":null,"due_at":"20301215","created_at":"2021-05-30T00:21:59.000000Z","updated_at":"2021-05-30T00:21:59.000000Z","user_id":"1"},{"id":4,"name":"corporis consequuntur amet","description":"Dolores eveniet deleniti voluptatem saepe expedita.","url":null,"due_at":"20230712","created_at":"2021-05-30T00:23:25.000000Z","updated_at":"2021-05-30T00:23:25.000000Z","user_id":"1"},{"id":6,"name":"nihil voluptate quaerat","description":"Animi reprehenderit soluta id quo.","url":null,"due_at":"20290603","created_at":"2021-05-30T00:24:27.000000Z","updated_at":"2021-05-30T00:24:27.000000Z","user_id":"1"},{"id":8,"name":"vel perspiciatis quo","description":"Et qui praesentium consequatur distinctio natus.","url":null,"due_at":"20210605","created_at":"2021-05-30T00:25:43.000000Z","updated_at":"2021-05-30T00:25:43.000000Z","user_id":"1"},{"id":9,"name":"qui et totam","description":"Veritatis quo dolorum soluta ut.","url":null,"due_at":"20270203","created_at":"2021-05-30T00:25:43.000000Z","updated_at":"2021-05-30T00:25:43.000000Z","user_id":"1"}]},{"id":2,"name":"Alexane Weber","email":"lacy.wintheiser@example.net","side_projects":[{"id":1,"name":"voluptas assumenda maiores","description":"Consequuntur aut ea est non.","url":null,"due_at":"20310222","created_at":"2021-05-30T00:21:59.000000Z","updated_at":"2021-05-30T00:21:59.000000Z","user_id":"2"}]},{"id":3,"name":"John Kshlerin II","email":"titus77@example.com","side_projects":[{"id":3,"name":"provident et consequatur","description":"Quos et ipsum cum pariatur ex perspiciatis eius.","url":null,"due_at":"20231022","created_at":"2021-05-30T00:23:25.000000Z","updated_at":"2021-05-30T00:23:25.000000Z","user_id":"3"}]},{"id":4,"name":"Rebeca Morissette","email":"cole.geoffrey@example.com","side_projects":[{"id":5,"name":"optio excepturi ea","description":"Error deleniti sint a nostrum consequuntur et.","url":null,"due_at":"20260324","created_at":"2021-05-30T00:24:27.000000Z","updated_at":"2021-05-30T00:24:27.000000Z","user_id":"4"}]},{"id":5,"name":"Prof. Adah Witting IV","email":"nswift@example.net","side_projects":[{"id":7,"name":"aspernatur architecto assumenda","description":"Nisi ea aut vel sint vero voluptas tempore.","url":null,"due_at":"20280710","created_at":"2021-05-30T00:25:43.000000Z","updated_at":"2021-05-30T00:25:43.000000Z","user_id":"5"}]}]}'
+        content: '{"data":[{"id":1,"name":"Pete","email":"pete@home.com","side_projects":[{"id":2,"name":"iusto ut dolor","description":"Voluptatem aspernatur dolorem quae quaerat harum.","url":null,"due_at":20301215,"created_at":"2021-05-30T00:21:59.000000Z","updated_at":"2021-05-30T00:21:59.000000Z","user_id":1},{"id":4,"name":"corporis consequuntur amet","description":"Dolores eveniet deleniti voluptatem saepe expedita.","url":null,"due_at":20230712,"created_at":"2021-05-30T00:23:25.000000Z","updated_at":"2021-05-30T00:23:25.000000Z","user_id":1},{"id":6,"name":"nihil voluptate quaerat","description":"Animi reprehenderit soluta id quo.","url":null,"due_at":20290603,"created_at":"2021-05-30T00:24:27.000000Z","updated_at":"2021-05-30T00:24:27.000000Z","user_id":1},{"id":8,"name":"vel perspiciatis quo","description":"Et qui praesentium consequatur distinctio natus.","url":null,"due_at":20210605,"created_at":"2021-05-30T00:25:43.000000Z","updated_at":"2021-05-30T00:25:43.000000Z","user_id":1},{"id":9,"name":"qui et totam","description":"Veritatis quo dolorum soluta ut.","url":null,"due_at":20270203,"created_at":"2021-05-30T00:25:43.000000Z","updated_at":"2021-05-30T00:25:43.000000Z","user_id":1}]},{"id":2,"name":"Alexane Weber","email":"lacy.wintheiser@example.net","side_projects":[{"id":1,"name":"voluptas assumenda maiores","description":"Consequuntur aut ea est non.","url":null,"due_at":20310222,"created_at":"2021-05-30T00:21:59.000000Z","updated_at":"2021-05-30T00:21:59.000000Z","user_id":2}]},{"id":3,"name":"John Kshlerin II","email":"titus77@example.com","side_projects":[{"id":3,"name":"provident et consequatur","description":"Quos et ipsum cum pariatur ex perspiciatis eius.","url":null,"due_at":20231022,"created_at":"2021-05-30T00:23:25.000000Z","updated_at":"2021-05-30T00:23:25.000000Z","user_id":3}]},{"id":4,"name":"Rebeca Morissette","email":"cole.geoffrey@example.com","side_projects":[{"id":5,"name":"optio excepturi ea","description":"Error deleniti sint a nostrum consequuntur et.","url":null,"due_at":20260324,"created_at":"2021-05-30T00:24:27.000000Z","updated_at":"2021-05-30T00:24:27.000000Z","user_id":4}]},{"id":5,"name":"Prof. Adah Witting IV","email":"nswift@example.net","side_projects":[{"id":7,"name":"aspernatur architecto assumenda","description":"Nisi ea aut vel sint vero voluptas tempore.","url":null,"due_at":20280710,"created_at":"2021-05-30T00:25:43.000000Z","updated_at":"2021-05-30T00:25:43.000000Z","user_id":5}]}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '55'
+          x-ratelimit-remaining: '54'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -124,6 +133,7 @@ endpoints:
 
         <aside>Yes, we know you can impersonate any user.🙄</aside>
       authenticated: false
+      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -132,8 +142,9 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: 13
+        example: 1
         type: integer
+        custom: []
     queryParameters: []
     bodyParameters: []
     responses:

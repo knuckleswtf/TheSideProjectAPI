@@ -17,3 +17,11 @@ You can switch the language used with the tabs at the top right (or from the nav
 ```yaml
 http://testapi.com
 ```
+
+## Just a heading
+
+With stuff under
+
+# And then another!
+
+These headings were added by editing `.scribe/intro.md`

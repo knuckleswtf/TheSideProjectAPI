@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "The SideProject API",
-        "_postman_id": "daf19259-c834-45b3-af85-82d197fd8ec6",
+        "_postman_id": "e1a97726-701f-4e05-89a0-8dfce6a6e58f",
         "description": "Start (and never finish) side projects with this API.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -448,7 +448,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"name\":\"suscipit qui cumque\",\"description\":\"Tenetur quia nemo sit est.\",\"due_date\":\"20241103\",\"owner\":{\"id\":6,\"name\":\"Kurt Kub\",\"email\":\"juvenal97@example.org\",\"email_verified_at\":\"2022-09-07T22:37:54.000000Z\",\"created_at\":\"2022-09-07T22:37:54.000000Z\",\"updated_at\":\"2022-09-07T22:37:54.000000Z\"}}}",
+                            "body": "{\"data\":{\"name\":\"suscipit qui cumque\",\"description\":\"Tenetur quia nemo sit est.\",\"due_date\":\"20241103\",\"owner\":{\"id\":6,\"name\":\"Kurt Kub\",\"email\":\"juvenal97@example.org\",\"email_verified_at\":\"2022-09-07T22:47:20.000000Z\",\"created_at\":\"2022-09-07T22:47:20.000000Z\",\"updated_at\":\"2022-09-07T22:47:20.000000Z\"}}}",
                             "name": ""
                         },
                         {
@@ -619,7 +619,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":6,\"name\":\"Mr. Merlin Friesen\",\"email\":\"hdoyle@example.com\",\"side_projects\":[{\"id\":10,\"name\":\"est numquam consequuntur\",\"description\":\"Atque nobis ut natus aut dolores eveniet.\",\"url\":null,\"due_at\":20251220,\"created_at\":\"2022-09-07T22:37:54.000000Z\",\"updated_at\":\"2022-09-07T22:37:54.000000Z\",\"user_id\":6}]}}",
+                            "body": "{\"data\":{\"id\":6,\"name\":\"Mr. Merlin Friesen\",\"email\":\"hdoyle@example.com\",\"side_projects\":[{\"id\":10,\"name\":\"est numquam consequuntur\",\"description\":\"Atque nobis ut natus aut dolores eveniet.\",\"url\":null,\"due_at\":20251220,\"created_at\":\"2022-09-07T22:47:20.000000Z\",\"updated_at\":\"2022-09-07T22:47:20.000000Z\",\"user_id\":6}]}}",
                             "name": "0"
                         }
                     ]
@@ -733,6 +733,59 @@
                             "code": 200,
                             "body": "{\"token\": \"2|KLDoUXc68Ko0JaFDZoX9qYkUqWglwdGxQsvTGBCg\"}",
                             "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Extras",
+            "description": null,
+            "item": [
+                {
+                    "name": "A custom endpoint",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/aCustomEndpoint",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/aCustomEndpoint"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "I added this endpoint by creating a `custom.0.yaml` file in `.scribe`. See [the docs](https:\/\/scribe.knuckles.wtf\/laravel\/documenting\/custom-endpoints).",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"hey\":\"ho ho ho\"}",
+                            "name": "When the thing was done smoothly."
+                        },
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"hey\": \"ho\"}",
+                            "name": "Just for fun."
+                        },
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": null,
+                            "name": "Just for fun."
                         }
                     ]
                 }

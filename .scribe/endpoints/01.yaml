@@ -12,6 +12,7 @@ endpoints:
 
         Otherwise, the request will fail with a 400 error, and a response listing the failed services.
       authenticated: false
+      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -22,6 +23,7 @@ endpoints:
         required: false
         example: et
         type: string
+        custom: []
     queryParameters: []
     bodyParameters: []
     responses:
@@ -37,7 +39,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '56'
+          x-ratelimit-remaining: '55'
           access-control-allow-origin: '*'
         description: null
     responseFields:
@@ -49,3 +51,28 @@ endpoints:
         name: services
         description: 'Map of each downstream service and their status (`up` or `down`).'
         type: object
+  -
+    httpMethods:
+      - GET
+    uri: api/me
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []

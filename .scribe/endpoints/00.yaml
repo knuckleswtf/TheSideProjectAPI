@@ -9,11 +9,19 @@ endpoints:
       title: 'Nested fields'
       description: ''
       authenticated: false
+      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
-    queryParameters: []
+    queryParameters:
+      random:
+        name: random
+        description: 'A random query parameter.'
+        required: false
+        example: et
+        type: string
+        custom: []
     bodyParameters:
       data:
         name: data
@@ -21,46 +29,58 @@ endpoints:
         required: true
         example: []
         type: object
+        custom: []
       data.name:
         name: data.name
         description: 'A string field.'
         required: true
         example: et
         type: string
+        custom: []
       data.size:
         name: data.size
         description: 'A number.'
         required: false
         example: 5
         type: integer
+        custom: []
+      data.other:
+        name: data.other
+        description: 'Optional thing.'
+        required: false
+        example: null
+        type: string
+        custom: []
       data.things:
         name: data.things
-        description: 'An array of strings'
+        description: 'An array of strings.'
         required: false
         example:
           - et
-          - et
         type: 'string[]'
+        custom: []
       data.objects:
         name: data.objects
         description: 'An array of objects'
         required: false
         example:
           - []
-          - []
         type: 'object[]'
+        custom: []
       'data.objects[].a':
         name: 'data.objects[].a'
         description: 'A field in the array of objects'
         required: false
         example: et
         type: string
+        custom: []
       'data.objects[].b':
         name: 'data.objects[].b'
         description: 'A field in the array of objects'
         required: false
         example: et
         type: string
+        custom: []
     responses: []
     responseFields: []
   -
@@ -71,6 +91,7 @@ endpoints:
       title: 'Body content array'
       description: ''
       authenticated: false
+      custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -83,20 +104,22 @@ endpoints:
         required: false
         example:
           - []
-          - []
         type: 'object[]'
+        custom: []
       '[].row_id':
         name: '[].row_id'
         description: 'A unique ID.'
         required: false
         example: '700'
         type: string
+        custom: []
       '[].name':
         name: '[].name'
         description: 'An element name.'
         required: true
         example: 'My item name'
         type: string
+        custom: []
     responses: []
     responseFields: []
   -
@@ -107,6 +130,7 @@ endpoints:
       title: 'File input'
       description: ''
       authenticated: false
+      custom: []
     headers:
       Content-Type: multipart/form-data
       Accept: application/json
@@ -119,23 +143,55 @@ endpoints:
         required: true
         example: null
         type: file
+        custom: []
       nested:
         name: nested
         description: ''
         required: true
         example: []
         type: object
+        custom: []
       nested._string:
         name: nested._string
         description: 'A nested string.'
         required: true
         example: et
         type: string
+        custom: []
       nested._file:
         name: nested._file
         description: 'A nested file.'
         required: true
         example: null
         type: file
+        custom: []
     responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/languages
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Test: Value
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '[]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '52'
+          access-control-allow-origin: '*'
+        description: null
     responseFields: []

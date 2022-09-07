@@ -161,6 +161,16 @@
                     </li>
                                                     </ul>
                             </ul>
+                    <ul id="tocify-header-7" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="extras">
+                    <a href="#extras">Extras</a>
+                </li>
+                                    <ul id="tocify-subheader-extras" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="extras-POSTapi-aCustomEndpoint">
+                        <a href="#extras-POSTapi-aCustomEndpoint">A custom endpoint</a>
+                    </li>
+                                                    </ul>
+                            </ul>
         
                         
             </div>
@@ -713,8 +723,8 @@ p response.body
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "nested[_string]=et" \
-    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\php6E94.tmp" \
-    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\php6E95.tmp" </code></pre></div>
+    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\php1230.tmp" \
+    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\php1231.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -755,11 +765,11 @@ $response = $client-&gt;post(
             ],
             [
                 'name' =&gt; 'the_file',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php6E94.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php1230.tmp', 'r')
             ],
             [
                 'name' =&gt; 'nested[_file]',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php6E95.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php1231.tmp', 'r')
             ],
         ],
     ]
@@ -774,8 +784,8 @@ import json
 
 url = 'http://testapi.com/api/file-input'
 files = {
-  'the_file': open('C:\Users\shalvah\AppData\Local\Temp\php6E94.tmp', 'rb'),
-  'nested[_file]': open('C:\Users\shalvah\AppData\Local\Temp\php6E95.tmp', 'rb')
+  'the_file': open('C:\Users\shalvah\AppData\Local\Temp\php1230.tmp', 'rb'),
+  'nested[_file]': open('C:\Users\shalvah\AppData\Local\Temp\php1231.tmp', 'rb')
 }
 payload = {
     "nested": {
@@ -1931,9 +1941,9 @@ p response.body
             &quot;id&quot;: 6,
             &quot;name&quot;: &quot;Kurt Kub&quot;,
             &quot;email&quot;: &quot;juvenal97@example.org&quot;,
-            &quot;email_verified_at&quot;: &quot;2022-09-07T22:37:54.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2022-09-07T22:37:54.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2022-09-07T22:37:54.000000Z&quot;
+            &quot;email_verified_at&quot;: &quot;2022-09-07T22:47:20.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2022-09-07T22:47:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-09-07T22:47:20.000000Z&quot;
         }
     }
 }</code>
@@ -2583,8 +2593,8 @@ p response.body
                 &quot;description&quot;: &quot;Atque nobis ut natus aut dolores eveniet.&quot;,
                 &quot;url&quot;: null,
                 &quot;due_at&quot;: 20251220,
-                &quot;created_at&quot;: &quot;2022-09-07T22:37:54.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2022-09-07T22:37:54.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2022-09-07T22:47:20.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-09-07T22:47:20.000000Z&quot;,
                 &quot;user_id&quot;: 6
             }
         ]
@@ -3101,6 +3111,166 @@ p response.body
             <b><code>token</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
 <br>
 <p>The new API token. Valid forever.</p>
+        </p>
+            <h1 id="extras">Extras</h1>
+
+    
+
+            <h2 id="extras-POSTapi-aCustomEndpoint">A custom endpoint</h2>
+
+<p>
+</p>
+
+<p>I added this endpoint by creating a <code>custom.0.yaml</code> file in <code>.scribe</code>. See <a href="https://scribe.knuckles.wtf/laravel/documenting/custom-endpoints">the docs</a>.</p>
+
+<span id="example-requests-POSTapi-aCustomEndpoint">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://testapi.com/api/aCustomEndpoint" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/aCustomEndpoint"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://testapi.com/api/aCustomEndpoint',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'http://testapi.com/api/aCustomEndpoint'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre></div>
+
+
+<div class="ruby-example">
+    <pre><code class="language-ruby">
+require 'rest-client'
+
+headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+response = RestClient.post(
+    'http://testapi.com/api/aCustomEndpoint',
+    headers
+)
+
+p response.body
+</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-aCustomEndpoint">
+            <blockquote>
+            <p>Example response (When the thing was done smoothly.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;hey&quot;: &quot;ho ho ho&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (Just for fun.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;hey&quot;: &quot;ho&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (Just for fun.):</p>
+        </blockquote>
+                <pre>
+<code>[Empty response]</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-aCustomEndpoint" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-aCustomEndpoint"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-aCustomEndpoint"></code></pre>
+</span>
+<span id="execution-error-POSTapi-aCustomEndpoint" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-aCustomEndpoint"></code></pre>
+</span>
+<form id="form-POSTapi-aCustomEndpoint" data-method="POST"
+      data-path="api/aCustomEndpoint"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-aCustomEndpoint', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-aCustomEndpoint"
+                    onclick="tryItOut('POSTapi-aCustomEndpoint');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-aCustomEndpoint"
+                    onclick="cancelTryOut('POSTapi-aCustomEndpoint');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-aCustomEndpoint" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/aCustomEndpoint</code></b>
+        </p>
+                    </form>
+
+    <h3>Response</h3>
+    <h4 class="fancy-heading-panel"><b>Response Fields</b></h4>
+            <p>
+            <b><code>hey</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<br>
+<p>Who knows?</p>
         </p>
         
 
