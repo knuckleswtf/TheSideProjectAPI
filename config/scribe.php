@@ -374,7 +374,19 @@ INTRO
          * If an endpoint/subgroup is listed under a group it doesn't belong in, it will be ignored.
          * Note: you must include the initial '/' when writing an endpoint.
          */
-        'order' => [],
+        'order' => [
+            'Dummy endpoints' => [
+                'Another subgroup' => [
+                    'GET /api/v1/languages',
+                    'POST /api/file-input',
+                ]
+            ],
+            'General',
+            'Users',
+            'Side Projects' => [
+                'POST /api/side_projects',
+            ],
+        ],
     ],
     'examples' => [
         /*
