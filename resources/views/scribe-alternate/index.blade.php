@@ -152,6 +152,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="-POSTapi-users--id--auth">
                                 <a href="#-POSTapi-users--id--auth">Authenticate</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="-DELETEapi-users--id-">
+                                <a href="#-DELETEapi-users--id-">Delete a user</a>
+                            </li>
                                                                         </ul>
                             </ul>
             </div>
@@ -611,8 +614,8 @@ print_r(json_decode((string) $body));</code></pre></div>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "nested[_string]=et" \
-    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\php6FD7.tmp" \
-    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\php6FD8.tmp" </code></pre></div>
+    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\phpD0BD.tmp" \
+    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\phpD0CE.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -653,11 +656,11 @@ $response = $client-&gt;post(
             ],
             [
                 'name' =&gt; 'the_file',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php6FD7.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpD0BD.tmp', 'r')
             ],
             [
                 'name' =&gt; 'nested[_file]',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php6FD8.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpD0CE.tmp', 'r')
             ],
         ],
     ]
@@ -822,7 +825,7 @@ print_r(json_decode((string) $body));</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 40
+x-ratelimit-remaining: 52
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -950,7 +953,7 @@ print_r(json_decode((string) $body));</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 43
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -1211,7 +1214,7 @@ print_r(json_decode((string) $body));</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 41
+x-ratelimit-remaining: 53
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -1696,6 +1699,13 @@ print_r(json_decode((string) $body));</code></pre></div>
                 <pre>
 <code>[Empty response]</code>
  </pre>
+            <blockquote>
+            <p>Example response (An extra, for fun.):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json"></code>
+ </pre>
     </span>
 <span id="execution-results-DELETEapi-side_projects--id-" hidden>
     <blockquote>Received response<span
@@ -1749,7 +1759,20 @@ print_r(json_decode((string) $body));</code></pre></div>
     <br>
 <p>The ID of the side project.</p>
             </p>
-                    </form>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>queryThing</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="queryThing"
+               data-endpoint="DELETEapi-side_projects--id-"
+               value=""
+               data-component="query" hidden>
+    <br>
+
+            </p>
+                </form>
 
                     <h2 id="-POSTapi-side_projects-finish">Finish a side project</h2>
 
@@ -1922,9 +1945,9 @@ print_r(json_decode((string) $body));</code></pre></div>
             &quot;id&quot;: 6,
             &quot;name&quot;: &quot;Kurt Kub&quot;,
             &quot;email&quot;: &quot;juvenal97@example.org&quot;,
-            &quot;email_verified_at&quot;: &quot;2022-09-08T19:43:50.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2022-09-08T19:43:50.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2022-09-08T19:43:50.000000Z&quot;
+            &quot;email_verified_at&quot;: &quot;2022-09-08T22:34:39.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2022-09-08T22:34:39.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-09-08T22:34:39.000000Z&quot;
         }
     }
 }</code>
@@ -2225,8 +2248,8 @@ print_r(json_decode((string) $body));</code></pre></div>
                 &quot;description&quot;: &quot;Atque nobis ut natus aut dolores eveniet.&quot;,
                 &quot;url&quot;: null,
                 &quot;due_at&quot;: 20251221,
-                &quot;created_at&quot;: &quot;2022-09-08T19:43:50.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2022-09-08T19:43:50.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2022-09-08T22:34:39.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-09-08T22:34:39.000000Z&quot;,
                 &quot;user_id&quot;: 6
             }
         ]
@@ -2360,7 +2383,7 @@ print_r(json_decode((string) $body));</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 42
+x-ratelimit-remaining: 54
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -2687,7 +2710,142 @@ print_r(json_decode((string) $body));</code></pre></div>
 <br>
 <p>The new API token. Valid forever.</p>
         </p>
-                
+                        <h2 id="-DELETEapi-users--id-">Delete a user</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-users--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://testapi.com/api/users/1?confirm=true" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/users/1"
+);
+
+const params = {
+    "confirm": "true",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://testapi.com/api/users/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'confirm'=&gt; 'true',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-users--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">You&#039;ve fucked up now!</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-users--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-users--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-users--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-users--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-users--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-users--id-" data-method="DELETE"
+      data-path="api/users/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-users--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-users--id-"
+                    onclick="tryItOut('DELETEapi-users--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-users--id-"
+                    onclick="cancelTryOut('DELETEapi-users--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-users--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/users/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="DELETEapi-users--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the user.</p>
+            </p>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>confirm</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="confirm"
+               data-endpoint="DELETEapi-users--id-"
+               value="true"
+               data-component="query" hidden>
+    <br>
+<p>A really silly parameter</p>
+            </p>
+                </form>
+
+            
 
         
     </div>

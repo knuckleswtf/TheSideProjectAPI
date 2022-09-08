@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Knuckles\Camel\Extraction\ExtractedEndpointData;
 use Knuckles\Scribe\Attributes\Response;
 use Knuckles\Scribe\Attributes\ResponseField;
 use Knuckles\Scribe\Attributes\ResponseFromApiResource;
@@ -14,7 +15,7 @@ use Illuminate\Http\Request;
 /**
  * @group Users
  */
-class UserController extends Controller
+class UserController extends CRUDController
 {
     /**
      * View all users
@@ -71,5 +72,35 @@ class UserController extends Controller
     public function show($id)
     {
         return new UserResource(User::findOrFail($id));
+    }
+
+    public static function inheritedDocsOverrides()
+    {
+        return [
+            "destroy" => [
+                "metadata" => [
+                    "title" => "Delete a user",
+                ],
+                "queryParameters" => function (ExtractedEndpointData $endpointData) {
+                   // Overrides
+                    return [
+                        'confirm' => [
+                            'type' => 'string',
+                            'example' => 'true',
+                            'description' => 'A really silly parameter',
+                        ],
+                    ];
+                },
+                "responses" => function (ExtractedEndpointData $endpointData) {
+                    // Completely overrides responses
+                    return [
+                        [
+                            "status" => "200",
+                            "content" => "You've fucked up now!",
+                        ],
+                    ];
+                },
+            ],
+        ];
     }
 }

@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "The SideProject API",
-        "_postman_id": "eef27ae8-dfeb-4f2e-8a5c-89ce875e653e",
+        "_postman_id": "983eb153-e4fd-4c28-99f9-9689f6fe205a",
         "description": "Start (and never finish) side projects with this API.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -66,7 +66,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "44"
+                                    "value": "56"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -259,7 +259,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "47"
+                                    "value": "59"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -401,7 +401,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":6,\"name\":\"Mr. Merlin Friesen\",\"email\":\"hdoyle@example.com\",\"side_projects\":[{\"id\":10,\"name\":\"est numquam consequuntur\",\"description\":\"Atque nobis ut natus aut dolores eveniet.\",\"url\":null,\"due_at\":20251221,\"created_at\":\"2022-09-08T19:43:49.000000Z\",\"updated_at\":\"2022-09-08T19:43:49.000000Z\",\"user_id\":6}]}}",
+                            "body": "{\"data\":{\"id\":6,\"name\":\"Mr. Merlin Friesen\",\"email\":\"hdoyle@example.com\",\"side_projects\":[{\"id\":10,\"name\":\"est numquam consequuntur\",\"description\":\"Atque nobis ut natus aut dolores eveniet.\",\"url\":null,\"due_at\":20251221,\"created_at\":\"2022-09-08T22:34:37.000000Z\",\"updated_at\":\"2022-09-08T22:34:37.000000Z\",\"user_id\":6}]}}",
                             "name": ""
                         }
                     ]
@@ -462,7 +462,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "46"
+                                    "value": "58"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -514,6 +514,56 @@
                             "header": [],
                             "code": 200,
                             "body": "{\"token\": \"2|KLDoUXc68Ko0JaFDZoX9qYkUqWglwdGxQsvTGBCg\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete a user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:id",
+                            "query": [
+                                {
+                                    "key": "confirm",
+                                    "value": "true",
+                                    "description": "A really silly parameter",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/users\/:id?confirm=true",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "You've fucked up now!",
                             "name": ""
                         }
                     ]
@@ -595,7 +645,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "45"
+                                    "value": "57"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -643,49 +693,6 @@
                         }
                     },
                     "response": []
-                },
-                {
-                    "name": "Delete a side project",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/side_projects\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/side_projects\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the side project."
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 204,
-                            "body": "null",
-                            "name": "Nothing to see here"
-                        }
-                    ]
                 },
                 {
                     "name": "Finish a side project",
@@ -760,7 +767,7 @@
                         {
                             "header": [],
                             "code": 203,
-                            "body": "{\"data\":{\"name\":\"suscipit qui cumque\",\"description\":\"Tenetur quia nemo sit est.\",\"due_date\":\"20241104\",\"owner\":{\"id\":6,\"name\":\"Kurt Kub\",\"email\":\"juvenal97@example.org\",\"email_verified_at\":\"2022-09-08T19:43:49.000000Z\",\"created_at\":\"2022-09-08T19:43:49.000000Z\",\"updated_at\":\"2022-09-08T19:43:49.000000Z\"}}}",
+                            "body": "{\"data\":{\"name\":\"suscipit qui cumque\",\"description\":\"Tenetur quia nemo sit est.\",\"due_date\":\"20241104\",\"owner\":{\"id\":6,\"name\":\"Kurt Kub\",\"email\":\"juvenal97@example.org\",\"email_verified_at\":\"2022-09-08T22:34:37.000000Z\",\"created_at\":\"2022-09-08T22:34:37.000000Z\",\"updated_at\":\"2022-09-08T22:34:37.000000Z\"}}}",
                             "name": ""
                         },
                         {
@@ -768,6 +775,62 @@
                             "code": 404,
                             "body": "{\"message\":\"Not found\",\"resource\":\"Side project\"}",
                             "name": "Side project not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete a side project",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/side_projects\/:id",
+                            "query": [
+                                {
+                                    "key": "queryThing",
+                                    "value": "",
+                                    "description": "",
+                                    "disabled": true
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/side_projects\/:id?queryThing=",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the side project."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "null",
+                            "name": "Nothing to see here"
+                        },
+                        {
+                            "header": [],
+                            "code": 202,
+                            "body": null,
+                            "name": "An extra, for fun."
                         }
                     ]
                 }

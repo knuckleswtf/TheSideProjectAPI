@@ -710,8 +710,8 @@ paths:
                         description: 'Atque nobis ut natus aut dolores eveniet.'
                         url: null
                         due_at: 20251221
-                        created_at: '2022-09-08T19:43:49.000000Z'
-                        updated_at: '2022-09-08T19:43:49.000000Z'
+                        created_at: '2022-09-08T22:34:37.000000Z'
+                        updated_at: '2022-09-08T22:34:37.000000Z'
                         user_id: 6
                 properties:
                   data:
@@ -727,9 +727,48 @@ paths:
                           description: 'Atque nobis ut natus aut dolores eveniet.'
                           url: null
                           due_at: 20251221
-                          created_at: '2022-09-08T19:43:49.000000Z'
-                          updated_at: '2022-09-08T19:43:49.000000Z'
+                          created_at: '2022-09-08T22:34:37.000000Z'
+                          updated_at: '2022-09-08T22:34:37.000000Z'
                           user_id: 6
+      tags:
+        - Users
+      security: []
+    delete:
+      summary: 'Delete a user'
+      description: ''
+      parameters:
+        -
+          in: query
+          name: confirm
+          description: 'A really silly parameter'
+          example: 'true'
+          required: false
+          schema:
+            type: string
+            description: 'A really silly parameter'
+            example: 'true'
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "You've fucked up now!"
       tags:
         - Users
       security: []
@@ -976,30 +1015,6 @@ paths:
       tags:
         - 'Side Projects'
       security: []
-    delete:
-      summary: 'Delete a side project'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        204:
-          description: 'Nothing to see here'
-      tags:
-        - 'Side Projects'
-      security: []
     get:
       summary: 'View a side project'
       description: "This endpoint's response uses a Fractal transformer, so we tell Scribe that using an annotation,\nand it figures out how to generate a sample. The 404 sample is gotten from a \"response file\".\n\n<aside class=\"success\">Also, pretty cool: this endpoint's (and many others') URL parameters were figured out entirely by Scribe!</aside>\n\nAlso, this endpoint uses a mix of docblock tags and PHP 8 attributes."
@@ -1034,9 +1049,9 @@ paths:
                       id: 6
                       name: 'Kurt Kub'
                       email: juvenal97@example.org
-                      email_verified_at: '2022-09-08T19:43:49.000000Z'
-                      created_at: '2022-09-08T19:43:49.000000Z'
-                      updated_at: '2022-09-08T19:43:49.000000Z'
+                      email_verified_at: '2022-09-08T22:34:37.000000Z'
+                      created_at: '2022-09-08T22:34:37.000000Z'
+                      updated_at: '2022-09-08T22:34:37.000000Z'
                 properties:
                   data:
                     type: object
@@ -1048,9 +1063,9 @@ paths:
                         id: 6
                         name: 'Kurt Kub'
                         email: juvenal97@example.org
-                        email_verified_at: '2022-09-08T19:43:49.000000Z'
-                        created_at: '2022-09-08T19:43:49.000000Z'
-                        updated_at: '2022-09-08T19:43:49.000000Z'
+                        email_verified_at: '2022-09-08T22:34:37.000000Z'
+                        created_at: '2022-09-08T22:34:37.000000Z'
+                        updated_at: '2022-09-08T22:34:37.000000Z'
         404:
           description: 'Side project not found'
           content:
@@ -1067,6 +1082,47 @@ paths:
                   resource:
                     type: string
                     example: 'Side project'
+      tags:
+        - 'Side Projects'
+      security: []
+    delete:
+      summary: 'Delete a side project'
+      description: ''
+      parameters:
+        -
+          in: query
+          name: queryThing
+          description: null
+          example: null
+          required: false
+          schema:
+            type: string
+            description: ''
+            example: null
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        204:
+          description: 'Nothing to see here'
+        202:
+          description: 'An extra, for fun.'
+          content:
+            application/json:
+              schema:
+                type: object
+                nullable: true
       tags:
         - 'Side Projects'
       security: []

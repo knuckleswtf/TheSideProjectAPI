@@ -44,6 +44,7 @@ Route::middleware('auth:api')->get('/me', function (Request $request) {
 Route::post('users/', [UserController::class, 'store']);
 Route::get('users/{id}', [UserController::class, 'show']);
 Route::get('users/', [UserController::class, 'index']);
+Route::delete('users/{id}', [UserController::class, 'destroy']);
 Route::post('users/{id}/auth', [UserController::class, 'authenticate']);
 
 Route::apiResource('side_projects', SideProjectController::class);
