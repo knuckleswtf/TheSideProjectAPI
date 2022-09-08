@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\ResponseFromTransformer;
+use Knuckles\Scribe\Attributes\Response;
 use App\Http\Transformers\SideProjectTransformer;
 use App\Models\SideProject;
 use Illuminate\Http\Request;
@@ -44,6 +47,7 @@ class SideProjectController extends Controller
      *
      * @authenticated
      */
+    #[Authenticated]
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -56,9 +60,7 @@ class SideProjectController extends Controller
             // Due date for the side project.
             'due_at' => ['date', 'date_format:Ymd', 'after:today'],
         ]);
-
         $validated['user_id'] = auth()->id();
-
         return SideProject::create($validated);
     }
 
@@ -70,10 +72,11 @@ class SideProjectController extends Controller
      *
      * <aside class="success">Also, pretty cool: this endpoint's (and many others') URL parameters were figured out entirely by Scribe!</aside>
      *
-     * @transformer App\Http\Transformers\SideProjectTransformer
-     * @transformerModel App\Models\SideProject with=owner
+     * Also, this endpoint uses a mix of docblock tags and PHP 8 attributes.
+     *
      * @responseFile 404 scenario="Side project not found" responses/not_found.json {"resource": "Side project"}
      */
+    #[ResponseFromTransformer(SideProjectTransformer::class, status: 203, with: ['owner'])]
     public function show(SideProject $id)
     {
         $fractal = new Manager();
@@ -93,9 +96,8 @@ class SideProjectController extends Controller
     /**
      * Delete a side project
      *
-     * @response 204 scenario="Nothing to see here"
-     *
      */
+    #[Response(status: 204, description: '204, Nothing to see here')]
     public function destroy(SideProject $sideProject)
     {
         //
@@ -106,7 +108,7 @@ class SideProjectController extends Controller
      *
      * Will you ever?🤔
      */
-    #[ResponseFromFile("responses/not_found.json", status: 404, merge: ["resource" => "Side project"],
+    #[ResponseFromFile("responses/not_found.json", 404, merge: ["resource" => "Side project"],
         description: "Side project not found")]
     public function finish(SideProject $sideProject)
     {

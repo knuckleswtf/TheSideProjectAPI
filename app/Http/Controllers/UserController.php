@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Knuckles\Scribe\Attributes\Response;
+use Knuckles\Scribe\Attributes\ResponseField;
+use Knuckles\Scribe\Attributes\ResponseFromApiResource;
+use Knuckles\Scribe\Attributes\ResponseFromFile;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
@@ -46,10 +50,9 @@ class UserController extends Controller
      * Get a new API token.
      *
      * <aside>Yes, we know you can impersonate any user.🙄</aside>
-     *
-     * @response {"token": "2|KLDoUXc68Ko0JaFDZoX9qYkUqWglwdGxQsvTGBCg"}
-     * @responseField token The new API token. Valid forever.
      */
+    #[Response('{"token": "2|KLDoUXc68Ko0JaFDZoX9qYkUqWglwdGxQsvTGBCg"}')]
+    #[ResponseField('token', description: 'The new API token. Valid forever.')]
     public function authenticate($id)
     {
         $token = User::findOrFail($id)->createToken('default');
@@ -61,11 +64,10 @@ class UserController extends Controller
      *
      * This endpoint's response uses an Eloquent API resource, so we tell Scribe that using an annotation,
      * and it figures out how to generate a sample. The 404 sample is gotten from a "response file".
-     *
-     * @apiResource App\Http\Resources\UserResource
-     * @apiResourceModel App\Models\User with=sideProjects
-     * @responseFile 404 scenario="User not found" responses/not_found.json {"resource": "user"}
      */
+    #[ResponseFromApiResource(UserResource::class, User::class, with: ['sideProjects'])]
+    #[ResponseFromFile('responses/not_found.json', 404, merge: '{"resource": "user"}',
+        description: '404, User not found')]
     public function show($id)
     {
         return new UserResource(User::findOrFail($id));

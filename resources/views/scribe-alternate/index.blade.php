@@ -121,9 +121,6 @@
                                                                                 <li class="tocify-item level-2" data-unique="-POSTapi-side_projects">
                                 <a href="#-POSTapi-side_projects">Start a new side project</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="-GETapi-side_projects--id-">
-                                <a href="#-GETapi-side_projects--id-">View a side project</a>
-                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="-PUTapi-side_projects--id-">
                                 <a href="#-PUTapi-side_projects--id-">Update a side project</a>
                             </li>
@@ -132,6 +129,9 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="-POSTapi-side_projects-finish">
                                 <a href="#-POSTapi-side_projects-finish">Finish a side project</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="-GETapi-side_projects--id-">
+                                <a href="#-GETapi-side_projects--id-">View a side project</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -611,8 +611,8 @@ print_r(json_decode((string) $body));</code></pre></div>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "nested[_string]=et" \
-    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\php53BC.tmp" \
-    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\php53CC.tmp" </code></pre></div>
+    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\php6FD7.tmp" \
+    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\php6FD8.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -653,11 +653,11 @@ $response = $client-&gt;post(
             ],
             [
                 'name' =&gt; 'the_file',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php53BC.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php6FD7.tmp', 'r')
             ],
             [
                 'name' =&gt; 'nested[_file]',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php53CC.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php6FD8.tmp', 'r')
             ],
         ],
     ]
@@ -1375,7 +1375,7 @@ from the controller's code. Check out the source! </aside></p>
     \"name\": \"The SideProject API\",
     \"description\": \"pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv\",
     \"url\": \"http:\\/\\/hartmann.com\\/magnam-tenetur-quia-nemo-sit-est-numquam\",
-    \"due_at\": \"2084-02-25\"
+    \"due_at\": \"2084-02-26\"
 }"
 </code></pre></div>
 
@@ -1395,7 +1395,7 @@ let body = {
     "name": "The SideProject API",
     "description": "pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv",
     "url": "http:\/\/hartmann.com\/magnam-tenetur-quia-nemo-sit-est-numquam",
-    "due_at": "2084-02-25"
+    "due_at": "2084-02-26"
 };
 
 fetch(url, {
@@ -1419,7 +1419,7 @@ $response = $client-&gt;post(
             'name' =&gt; 'The SideProject API',
             'description' =&gt; 'pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv',
             'url' =&gt; 'http://hartmann.com/magnam-tenetur-quia-nemo-sit-est-numquam',
-            'due_at' =&gt; '2084-02-25',
+            'due_at' =&gt; '2084-02-26',
         ],
     ]
 );
@@ -1522,151 +1522,12 @@ print_r(json_decode((string) $body));</code></pre></div>
                 <input type="text"
                name="due_at"
                data-endpoint="POSTapi-side_projects"
-               value="2084-02-25"
+               value="2084-02-26"
                data-component="body" hidden>
     <br>
 <p>Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.</p>
         </p>
         </form>
-
-                    <h2 id="-GETapi-side_projects--id-">View a side project</h2>
-
-<p>
-</p>
-
-<p>This endpoint's response uses a Fractal transformer, so we tell Scribe that using an annotation,
-and it figures out how to generate a sample. The 404 sample is gotten from a &quot;response file&quot;.</p>
-<aside class="success">Also, pretty cool: this endpoint's (and many others') URL parameters were figured out entirely by Scribe!</aside>
-
-<span id="example-requests-GETapi-side_projects--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://testapi.com/api/side_projects/1" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://testapi.com/api/side_projects/1"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;get(
-    'http://testapi.com/api/side_projects/1',
-    [
-        'headers' =&gt; [
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-side_projects--id-">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;data&quot;: {
-        &quot;name&quot;: &quot;suscipit qui cumque&quot;,
-        &quot;description&quot;: &quot;Tenetur quia nemo sit est.&quot;,
-        &quot;due_date&quot;: &quot;20241104&quot;,
-        &quot;owner&quot;: {
-            &quot;id&quot;: 6,
-            &quot;name&quot;: &quot;Kurt Kub&quot;,
-            &quot;email&quot;: &quot;juvenal97@example.org&quot;,
-            &quot;email_verified_at&quot;: &quot;2022-09-08T00:35:45.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2022-09-08T00:35:45.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2022-09-08T00:35:45.000000Z&quot;
-        }
-    }
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (404, Side project not found):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;message&quot;: &quot;Not found&quot;,
-    &quot;resource&quot;: &quot;Side project&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-side_projects--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-side_projects--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-side_projects--id-"></code></pre>
-</span>
-<span id="execution-error-GETapi-side_projects--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-side_projects--id-"></code></pre>
-</span>
-<form id="form-GETapi-side_projects--id-" data-method="GET"
-      data-path="api/side_projects/{id}"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-side_projects--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-side_projects--id-"
-                    onclick="tryItOut('GETapi-side_projects--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-side_projects--id-"
-                    onclick="cancelTryOut('GETapi-side_projects--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-side_projects--id-" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/side_projects/{id}</code></b>
-        </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number"
-               name="id"
-               data-endpoint="GETapi-side_projects--id-"
-               value="1"
-               data-component="url" hidden>
-    <br>
-<p>The ID of the side project.</p>
-            </p>
-                    </form>
 
                     <h2 id="-PUTapi-side_projects--id-">Update a side project</h2>
 
@@ -1993,6 +1854,146 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
                     </form>
 
+                    <h2 id="-GETapi-side_projects--id-">View a side project</h2>
+
+<p>
+</p>
+
+<p>This endpoint's response uses a Fractal transformer, so we tell Scribe that using an annotation,
+and it figures out how to generate a sample. The 404 sample is gotten from a &quot;response file&quot;.</p>
+<aside class="success">Also, pretty cool: this endpoint's (and many others') URL parameters were figured out entirely by Scribe!</aside>
+<p>Also, this endpoint uses a mix of docblock tags and PHP 8 attributes.</p>
+
+<span id="example-requests-GETapi-side_projects--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://testapi.com/api/side_projects/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/side_projects/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://testapi.com/api/side_projects/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-side_projects--id-">
+            <blockquote>
+            <p>Example response (203):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;name&quot;: &quot;suscipit qui cumque&quot;,
+        &quot;description&quot;: &quot;Tenetur quia nemo sit est.&quot;,
+        &quot;due_date&quot;: &quot;20241104&quot;,
+        &quot;owner&quot;: {
+            &quot;id&quot;: 6,
+            &quot;name&quot;: &quot;Kurt Kub&quot;,
+            &quot;email&quot;: &quot;juvenal97@example.org&quot;,
+            &quot;email_verified_at&quot;: &quot;2022-09-08T19:43:50.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2022-09-08T19:43:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-09-08T19:43:50.000000Z&quot;
+        }
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, Side project not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Not found&quot;,
+    &quot;resource&quot;: &quot;Side project&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-side_projects--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-side_projects--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-side_projects--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-side_projects--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-side_projects--id-"></code></pre>
+</span>
+<form id="form-GETapi-side_projects--id-" data-method="GET"
+      data-path="api/side_projects/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-side_projects--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-side_projects--id-"
+                    onclick="tryItOut('GETapi-side_projects--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-side_projects--id-"
+                    onclick="cancelTryOut('GETapi-side_projects--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-side_projects--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/side_projects/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-side_projects--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the side project.</p>
+            </p>
+                    </form>
+
                 <h1 id="users">Users</h1>
 
     
@@ -2223,9 +2224,9 @@ print_r(json_decode((string) $body));</code></pre></div>
                 &quot;name&quot;: &quot;est numquam consequuntur&quot;,
                 &quot;description&quot;: &quot;Atque nobis ut natus aut dolores eveniet.&quot;,
                 &quot;url&quot;: null,
-                &quot;due_at&quot;: 20251220,
-                &quot;created_at&quot;: &quot;2022-09-08T00:35:44.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2022-09-08T00:35:44.000000Z&quot;,
+                &quot;due_at&quot;: 20251221,
+                &quot;created_at&quot;: &quot;2022-09-08T19:43:50.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-09-08T19:43:50.000000Z&quot;,
                 &quot;user_id&quot;: 6
             }
         ]

@@ -5,7 +5,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^8.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -18,11 +18,11 @@
     "require-dev": {
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
+        "knuckleswtf/scribe": "@dev",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3",
-        "knuckleswtf/scribe": "@dev"
+        "phpunit/phpunit": "^9.3.3"
     },
     "repositories": [
         {
@@ -30,8 +30,8 @@
             "url": "../scribe"
         },
         {
-            "type": "github",
-            "url": "https://github.com/shalvah/upgrader"
+            "type": "path",
+            "url": "../scribe-docblock2attributes"
         }
     ],
     "autoload": {
@@ -58,8 +58,9 @@
             "@php artisan key:generate --ansi"
         ],
         "docs": [
-            "@php artisan scribe:generate",
-          "@php prep-docs-for-gh-pages.php"
+            "@php artisan scribe:generate --ansi",
+            "@php artisan scribe:generate --config scribe-alternate --ansi",
+            "@php add-cname-for-gh-pages.php"
         ]
     },
     "extra": {

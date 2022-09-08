@@ -693,7 +693,7 @@ paths:
                     type: string
                     example: user
         200:
-          description: '0'
+          description: ''
           content:
             application/json:
               schema:
@@ -709,9 +709,9 @@ paths:
                         name: 'est numquam consequuntur'
                         description: 'Atque nobis ut natus aut dolores eveniet.'
                         url: null
-                        due_at: 20251220
-                        created_at: '2022-09-08T00:37:02.000000Z'
-                        updated_at: '2022-09-08T00:37:02.000000Z'
+                        due_at: 20251221
+                        created_at: '2022-09-08T19:43:49.000000Z'
+                        updated_at: '2022-09-08T19:43:49.000000Z'
                         user_id: 6
                 properties:
                   data:
@@ -726,9 +726,9 @@ paths:
                           name: 'est numquam consequuntur'
                           description: 'Atque nobis ut natus aut dolores eveniet.'
                           url: null
-                          due_at: 20251220
-                          created_at: '2022-09-08T00:37:02.000000Z'
-                          updated_at: '2022-09-08T00:37:02.000000Z'
+                          due_at: 20251221
+                          created_at: '2022-09-08T19:43:49.000000Z'
+                          updated_at: '2022-09-08T19:43:49.000000Z'
                           user_id: 6
       tags:
         - Users
@@ -838,7 +838,7 @@ paths:
                 due_at:
                   type: string
                   description: 'Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.'
-                  example: '2084-02-25'
+                  example: '2084-02-26'
               required:
                 - name
     get:
@@ -954,76 +954,6 @@ paths:
         - 'Side Projects'
       security: []
   '/api/side_projects/{id}':
-    get:
-      summary: 'View a side project'
-      description: "This endpoint's response uses a Fractal transformer, so we tell Scribe that using an annotation,\nand it figures out how to generate a sample. The 404 sample is gotten from a \"response file\".\n\n<aside class=\"success\">Also, pretty cool: this endpoint's (and many others') URL parameters were figured out entirely by Scribe!</aside>"
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  data:
-                    name: 'suscipit qui cumque'
-                    description: 'Tenetur quia nemo sit est.'
-                    due_date: '20241104'
-                    owner:
-                      id: 6
-                      name: 'Kurt Kub'
-                      email: juvenal97@example.org
-                      email_verified_at: '2022-09-08T00:37:02.000000Z'
-                      created_at: '2022-09-08T00:37:02.000000Z'
-                      updated_at: '2022-09-08T00:37:02.000000Z'
-                properties:
-                  data:
-                    type: object
-                    example:
-                      name: 'suscipit qui cumque'
-                      description: 'Tenetur quia nemo sit est.'
-                      due_date: '20241104'
-                      owner:
-                        id: 6
-                        name: 'Kurt Kub'
-                        email: juvenal97@example.org
-                        email_verified_at: '2022-09-08T00:37:02.000000Z'
-                        created_at: '2022-09-08T00:37:02.000000Z'
-                        updated_at: '2022-09-08T00:37:02.000000Z'
-        404:
-          description: 'Side project not found'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'Not found'
-                  resource: 'Side project'
-                properties:
-                  message:
-                    type: string
-                    example: 'Not found'
-                  resource:
-                    type: string
-                    example: 'Side project'
-      tags:
-        - 'Side Projects'
-      security: []
     put:
       summary: 'Update a side project'
       description: ''
@@ -1067,6 +997,76 @@ paths:
       responses:
         204:
           description: 'Nothing to see here'
+      tags:
+        - 'Side Projects'
+      security: []
+    get:
+      summary: 'View a side project'
+      description: "This endpoint's response uses a Fractal transformer, so we tell Scribe that using an annotation,\nand it figures out how to generate a sample. The 404 sample is gotten from a \"response file\".\n\n<aside class=\"success\">Also, pretty cool: this endpoint's (and many others') URL parameters were figured out entirely by Scribe!</aside>\n\nAlso, this endpoint uses a mix of docblock tags and PHP 8 attributes."
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        203:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    name: 'suscipit qui cumque'
+                    description: 'Tenetur quia nemo sit est.'
+                    due_date: '20241104'
+                    owner:
+                      id: 6
+                      name: 'Kurt Kub'
+                      email: juvenal97@example.org
+                      email_verified_at: '2022-09-08T19:43:49.000000Z'
+                      created_at: '2022-09-08T19:43:49.000000Z'
+                      updated_at: '2022-09-08T19:43:49.000000Z'
+                properties:
+                  data:
+                    type: object
+                    example:
+                      name: 'suscipit qui cumque'
+                      description: 'Tenetur quia nemo sit est.'
+                      due_date: '20241104'
+                      owner:
+                        id: 6
+                        name: 'Kurt Kub'
+                        email: juvenal97@example.org
+                        email_verified_at: '2022-09-08T19:43:49.000000Z'
+                        created_at: '2022-09-08T19:43:49.000000Z'
+                        updated_at: '2022-09-08T19:43:49.000000Z'
+        404:
+          description: 'Side project not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Not found'
+                  resource: 'Side project'
+                properties:
+                  message:
+                    type: string
+                    example: 'Not found'
+                  resource:
+                    type: string
+                    example: 'Side project'
       tags:
         - 'Side Projects'
       security: []
