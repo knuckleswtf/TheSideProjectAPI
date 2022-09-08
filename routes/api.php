@@ -47,6 +47,7 @@ Route::get('users/', [UserController::class, 'index']);
 Route::post('users/{id}/auth', [UserController::class, 'authenticate']);
 
 Route::apiResource('side_projects', SideProjectController::class);
+Route::post('side_projects/finish', [SideProjectController::class, 'finish']);
 
 /**
  * Nested fields

@@ -291,28 +291,34 @@ INTRO
     'strategies' => [
         'metadata' => [
             Strategies\Metadata\GetFromDocBlocks::class,
+            Strategies\Metadata\GetFromMetadataAttributes::class,
         ],
         'urlParameters' => [
             Strategies\UrlParameters\GetFromLaravelAPI::class,
             Strategies\UrlParameters\GetFromLumenAPI::class,
+            Strategies\UrlParameters\GetFromUrlParamAttribute::class,
             Strategies\UrlParameters\GetFromUrlParamTag::class,
         ],
         'queryParameters' => [
             Strategies\QueryParameters\GetFromFormRequest::class,
             Strategies\QueryParameters\GetFromInlineValidator::class,
+            Strategies\QueryParameters\GetFromQueryParamAttribute::class,
             Strategies\QueryParameters\GetFromQueryParamTag::class,
             AddPaginationParameters::class,
         ],
         'headers' => [
             Strategies\Headers\GetFromRouteRules::class,
+            Strategies\Headers\GetFromHeaderAttribute::class,
             Strategies\Headers\GetFromHeaderTag::class,
         ],
         'bodyParameters' => [
             Strategies\BodyParameters\GetFromFormRequest::class,
             Strategies\BodyParameters\GetFromInlineValidator::class,
+            Strategies\BodyParameters\GetFromBodyParamAttribute::class,
             Strategies\BodyParameters\GetFromBodyParamTag::class,
         ],
         'responses' => [
+            Strategies\Responses\UseResponseAttributes::class,
             Strategies\Responses\UseTransformerTags::class,
             Strategies\Responses\UseResponseTag::class,
             Strategies\Responses\UseResponseFileTag::class,
@@ -320,6 +326,7 @@ INTRO
             Strategies\Responses\ResponseCalls::class,
         ],
         'responseFields' => [
+            Strategies\ResponseFields\GetFromResponseFieldAttribute::class,
             Strategies\ResponseFields\GetFromResponseFieldTag::class,
         ],
     ],
