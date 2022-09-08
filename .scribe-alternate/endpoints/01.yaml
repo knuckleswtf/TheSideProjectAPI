@@ -6,8 +6,8 @@ endpoints:
       - GET
     uri: 'api/healthcheck/{unnecessaryParam?}'
     metadata:
-      subgroup: null
-      subgroupDescription: null
+      subgroup: ''
+      subgroupDescription: ''
       title: Healthcheck
       description: |-
         Check that the service is up. If everything is okay, you'll get a 200 OK response.
@@ -42,7 +42,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '55'
+          x-ratelimit-remaining: '43'
           access-control-allow-origin: '*'
         description: null
         custom: []
@@ -67,8 +67,8 @@ endpoints:
       - GET
     uri: api/me
     metadata:
-      subgroup: null
-      subgroupDescription: null
+      subgroup: ''
+      subgroupDescription: ''
       title: ''
       description: ''
       authenticated: false

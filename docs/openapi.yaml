@@ -7,6 +7,95 @@ servers:
   -
     url: 'http://testapi.com'
 paths:
+  /api/v1/languages:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Test
+          description: ''
+          example: Value
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example: []
+      tags:
+        - 'Dummy endpoints'
+      security: []
+  /api/file-input:
+    post:
+      summary: 'File input'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: multipart/form-data
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Dummy endpoints'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                the_file:
+                  type: string
+                  format: binary
+                  description: 'Just a file.'
+                nested:
+                  type: object
+                  description: ''
+                  example: []
+                  properties:
+                    _string:
+                      type: string
+                      description: 'A nested string.'
+                      example: et
+                    _file:
+                      type: string
+                      format: binary
+                      description: 'A nested file.'
+              required:
+                - the_file
+                - nested
+      security: []
   /api/nested:
     post:
       summary: 'Nested fields'
@@ -136,95 +225,6 @@ paths:
                 required:
                   - name
       security: []
-  /api/file-input:
-    post:
-      summary: 'File input'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: multipart/form-data
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - 'Dummy endpoints'
-      requestBody:
-        required: true
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                the_file:
-                  type: string
-                  format: binary
-                  description: 'Just a file.'
-                nested:
-                  type: object
-                  description: ''
-                  example: []
-                  properties:
-                    _string:
-                      type: string
-                      description: 'A nested string.'
-                      example: et
-                    _file:
-                      type: string
-                      format: binary
-                      description: 'A nested file.'
-              required:
-                - the_file
-                - nested
-      security: []
-  /api/v1/languages:
-    get:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Test
-          description: ''
-          example: Value
-          schema:
-            type: string
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                example: []
-      tags:
-        - 'Dummy endpoints'
-      security: []
   '/api/healthcheck/{unnecessaryParam}':
     get:
       summary: Healthcheck
@@ -342,298 +342,6 @@ paths:
       tags:
         - General
       security: []
-  /api/side_projects:
-    get:
-      summary: 'View all side projects'
-      description: "This endpoint's response was gotten via a \"response call\"—\nScribe called our API in a test environment to get a sample response."
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                example:
-                  -
-                    id: 1
-                    name: 'voluptas assumenda maiores'
-                    description: 'Consequuntur aut ea est non.'
-                    url: null
-                    due_at: 20310222
-                    created_at: '2021-05-30T00:21:59.000000Z'
-                    updated_at: '2021-05-30T00:21:59.000000Z'
-                    user_id: 2
-                  -
-                    id: 2
-                    name: 'iusto ut dolor'
-                    description: 'Voluptatem aspernatur dolorem quae quaerat harum.'
-                    url: null
-                    due_at: 20301215
-                    created_at: '2021-05-30T00:21:59.000000Z'
-                    updated_at: '2021-05-30T00:21:59.000000Z'
-                    user_id: 1
-                  -
-                    id: 3
-                    name: 'provident et consequatur'
-                    description: 'Quos et ipsum cum pariatur ex perspiciatis eius.'
-                    url: null
-                    due_at: 20231022
-                    created_at: '2021-05-30T00:23:25.000000Z'
-                    updated_at: '2021-05-30T00:23:25.000000Z'
-                    user_id: 3
-                  -
-                    id: 4
-                    name: 'corporis consequuntur amet'
-                    description: 'Dolores eveniet deleniti voluptatem saepe expedita.'
-                    url: null
-                    due_at: 20230712
-                    created_at: '2021-05-30T00:23:25.000000Z'
-                    updated_at: '2021-05-30T00:23:25.000000Z'
-                    user_id: 1
-                  -
-                    id: 5
-                    name: 'optio excepturi ea'
-                    description: 'Error deleniti sint a nostrum consequuntur et.'
-                    url: null
-                    due_at: 20260324
-                    created_at: '2021-05-30T00:24:27.000000Z'
-                    updated_at: '2021-05-30T00:24:27.000000Z'
-                    user_id: 4
-                  -
-                    id: 6
-                    name: 'nihil voluptate quaerat'
-                    description: 'Animi reprehenderit soluta id quo.'
-                    url: null
-                    due_at: 20290603
-                    created_at: '2021-05-30T00:24:27.000000Z'
-                    updated_at: '2021-05-30T00:24:27.000000Z'
-                    user_id: 1
-                  -
-                    id: 7
-                    name: 'aspernatur architecto assumenda'
-                    description: 'Nisi ea aut vel sint vero voluptas tempore.'
-                    url: null
-                    due_at: 20280710
-                    created_at: '2021-05-30T00:25:43.000000Z'
-                    updated_at: '2021-05-30T00:25:43.000000Z'
-                    user_id: 5
-                  -
-                    id: 8
-                    name: 'vel perspiciatis quo'
-                    description: 'Et qui praesentium consequatur distinctio natus.'
-                    url: null
-                    due_at: 20210605
-                    created_at: '2021-05-30T00:25:43.000000Z'
-                    updated_at: '2021-05-30T00:25:43.000000Z'
-                    user_id: 1
-                  -
-                    id: 9
-                    name: 'qui et totam'
-                    description: 'Veritatis quo dolorum soluta ut.'
-                    url: null
-                    due_at: 20270203
-                    created_at: '2021-05-30T00:25:43.000000Z'
-                    updated_at: '2021-05-30T00:25:43.000000Z'
-                    user_id: 1
-      tags:
-        - 'Side Projects'
-      security: []
-    post:
-      summary: 'Start a new side project'
-      description: "_Even though we both know you'll never finish it._\n\nThis endpoint's body parameters were automatically generated by Scribe\nfrom the controller's code. Check out the source! </aside>"
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {BEARER_TOKEN}'
-          schema:
-            type: string
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - 'Side Projects'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'The name of your side project. Must not be greater than 80 characters.'
-                  example: 'The SideProject API'
-                description:
-                  type: string
-                  description: 'A longer description of your side project. Must not be greater than 255 characters.'
-                  example: pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv
-                url:
-                  type: string
-                  description: 'A url to your side project. Must be a valid URL.'
-                  example: 'http://hartmann.com/magnam-tenetur-quia-nemo-sit-est-numquam'
-                due_at:
-                  type: string
-                  description: 'Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.'
-                  example: '2084-02-25'
-              required:
-                - name
-  '/api/side_projects/{id}':
-    get:
-      summary: 'View a side project'
-      description: "This endpoint's response uses a Fractal transformer, so we tell Scribe that using an annotation,\nand it figures out how to generate a sample. The 404 sample is gotten from a \"response file\".\n\n<aside class=\"success\">Also, pretty cool: this endpoint's (and many others') URL parameters were figured out entirely by Scribe!</aside>"
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  data:
-                    name: 'suscipit qui cumque'
-                    description: 'Tenetur quia nemo sit est.'
-                    due_date: '20241103'
-                    owner:
-                      id: 6
-                      name: 'Kurt Kub'
-                      email: juvenal97@example.org
-                      email_verified_at: '2022-09-07T23:30:37.000000Z'
-                      created_at: '2022-09-07T23:30:37.000000Z'
-                      updated_at: '2022-09-07T23:30:37.000000Z'
-                properties:
-                  data:
-                    type: object
-                    example:
-                      name: 'suscipit qui cumque'
-                      description: 'Tenetur quia nemo sit est.'
-                      due_date: '20241103'
-                      owner:
-                        id: 6
-                        name: 'Kurt Kub'
-                        email: juvenal97@example.org
-                        email_verified_at: '2022-09-07T23:30:37.000000Z'
-                        created_at: '2022-09-07T23:30:37.000000Z'
-                        updated_at: '2022-09-07T23:30:37.000000Z'
-        404:
-          description: 'Side project not found'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'Not found'
-                  resource: 'Side project'
-                properties:
-                  message:
-                    type: string
-                    example: 'Not found'
-                  resource:
-                    type: string
-                    example: 'Side project'
-      tags:
-        - 'Side Projects'
-      security: []
-    put:
-      summary: 'Update a side project'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - 'Side Projects'
-      security: []
-    delete:
-      summary: 'Delete a side project'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        204:
-          description: 'Nothing to see here'
-      tags:
-        - 'Side Projects'
-      security: []
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the side project.'
-        example: 1
-        required: true
-        schema:
-          type: integer
   /api/users:
     post:
       summary: 'Create a user'
@@ -1002,8 +710,8 @@ paths:
                         description: 'Atque nobis ut natus aut dolores eveniet.'
                         url: null
                         due_at: 20251220
-                        created_at: '2022-09-07T23:30:37.000000Z'
-                        updated_at: '2022-09-07T23:30:37.000000Z'
+                        created_at: '2022-09-08T00:37:02.000000Z'
+                        updated_at: '2022-09-08T00:37:02.000000Z'
                         user_id: 6
                 properties:
                   data:
@@ -1019,8 +727,8 @@ paths:
                           description: 'Atque nobis ut natus aut dolores eveniet.'
                           url: null
                           due_at: 20251220
-                          created_at: '2022-09-07T23:30:37.000000Z'
-                          updated_at: '2022-09-07T23:30:37.000000Z'
+                          created_at: '2022-09-08T00:37:02.000000Z'
+                          updated_at: '2022-09-08T00:37:02.000000Z'
                           user_id: 6
       tags:
         - Users
@@ -1079,6 +787,337 @@ paths:
         required: true
         schema:
           type: integer
+  /api/side_projects:
+    post:
+      summary: 'Start a new side project'
+      description: "_Even though we both know you'll never finish it._\n\nThis endpoint's body parameters were automatically generated by Scribe\nfrom the controller's code. Check out the source! </aside>"
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {BEARER_TOKEN}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Side Projects'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of your side project. Must not be greater than 80 characters.'
+                  example: 'The SideProject API'
+                description:
+                  type: string
+                  description: 'A longer description of your side project. Must not be greater than 255 characters.'
+                  example: pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv
+                url:
+                  type: string
+                  description: 'A url to your side project. Must be a valid URL.'
+                  example: 'http://hartmann.com/magnam-tenetur-quia-nemo-sit-est-numquam'
+                due_at:
+                  type: string
+                  description: 'Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.'
+                  example: '2084-02-25'
+              required:
+                - name
+    get:
+      summary: 'View all side projects'
+      description: "This endpoint's response was gotten via a \"response call\"—\nScribe called our API in a test environment to get a sample response."
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    name: 'voluptas assumenda maiores'
+                    description: 'Consequuntur aut ea est non.'
+                    url: null
+                    due_at: 20310222
+                    created_at: '2021-05-30T00:21:59.000000Z'
+                    updated_at: '2021-05-30T00:21:59.000000Z'
+                    user_id: 2
+                  -
+                    id: 2
+                    name: 'iusto ut dolor'
+                    description: 'Voluptatem aspernatur dolorem quae quaerat harum.'
+                    url: null
+                    due_at: 20301215
+                    created_at: '2021-05-30T00:21:59.000000Z'
+                    updated_at: '2021-05-30T00:21:59.000000Z'
+                    user_id: 1
+                  -
+                    id: 3
+                    name: 'provident et consequatur'
+                    description: 'Quos et ipsum cum pariatur ex perspiciatis eius.'
+                    url: null
+                    due_at: 20231022
+                    created_at: '2021-05-30T00:23:25.000000Z'
+                    updated_at: '2021-05-30T00:23:25.000000Z'
+                    user_id: 3
+                  -
+                    id: 4
+                    name: 'corporis consequuntur amet'
+                    description: 'Dolores eveniet deleniti voluptatem saepe expedita.'
+                    url: null
+                    due_at: 20230712
+                    created_at: '2021-05-30T00:23:25.000000Z'
+                    updated_at: '2021-05-30T00:23:25.000000Z'
+                    user_id: 1
+                  -
+                    id: 5
+                    name: 'optio excepturi ea'
+                    description: 'Error deleniti sint a nostrum consequuntur et.'
+                    url: null
+                    due_at: 20260324
+                    created_at: '2021-05-30T00:24:27.000000Z'
+                    updated_at: '2021-05-30T00:24:27.000000Z'
+                    user_id: 4
+                  -
+                    id: 6
+                    name: 'nihil voluptate quaerat'
+                    description: 'Animi reprehenderit soluta id quo.'
+                    url: null
+                    due_at: 20290603
+                    created_at: '2021-05-30T00:24:27.000000Z'
+                    updated_at: '2021-05-30T00:24:27.000000Z'
+                    user_id: 1
+                  -
+                    id: 7
+                    name: 'aspernatur architecto assumenda'
+                    description: 'Nisi ea aut vel sint vero voluptas tempore.'
+                    url: null
+                    due_at: 20280710
+                    created_at: '2021-05-30T00:25:43.000000Z'
+                    updated_at: '2021-05-30T00:25:43.000000Z'
+                    user_id: 5
+                  -
+                    id: 8
+                    name: 'vel perspiciatis quo'
+                    description: 'Et qui praesentium consequatur distinctio natus.'
+                    url: null
+                    due_at: 20210605
+                    created_at: '2021-05-30T00:25:43.000000Z'
+                    updated_at: '2021-05-30T00:25:43.000000Z'
+                    user_id: 1
+                  -
+                    id: 9
+                    name: 'qui et totam'
+                    description: 'Veritatis quo dolorum soluta ut.'
+                    url: null
+                    due_at: 20270203
+                    created_at: '2021-05-30T00:25:43.000000Z'
+                    updated_at: '2021-05-30T00:25:43.000000Z'
+                    user_id: 1
+      tags:
+        - 'Side Projects'
+      security: []
+  '/api/side_projects/{id}':
+    get:
+      summary: 'View a side project'
+      description: "This endpoint's response uses a Fractal transformer, so we tell Scribe that using an annotation,\nand it figures out how to generate a sample. The 404 sample is gotten from a \"response file\".\n\n<aside class=\"success\">Also, pretty cool: this endpoint's (and many others') URL parameters were figured out entirely by Scribe!</aside>"
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    name: 'suscipit qui cumque'
+                    description: 'Tenetur quia nemo sit est.'
+                    due_date: '20241104'
+                    owner:
+                      id: 6
+                      name: 'Kurt Kub'
+                      email: juvenal97@example.org
+                      email_verified_at: '2022-09-08T00:37:02.000000Z'
+                      created_at: '2022-09-08T00:37:02.000000Z'
+                      updated_at: '2022-09-08T00:37:02.000000Z'
+                properties:
+                  data:
+                    type: object
+                    example:
+                      name: 'suscipit qui cumque'
+                      description: 'Tenetur quia nemo sit est.'
+                      due_date: '20241104'
+                      owner:
+                        id: 6
+                        name: 'Kurt Kub'
+                        email: juvenal97@example.org
+                        email_verified_at: '2022-09-08T00:37:02.000000Z'
+                        created_at: '2022-09-08T00:37:02.000000Z'
+                        updated_at: '2022-09-08T00:37:02.000000Z'
+        404:
+          description: 'Side project not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Not found'
+                  resource: 'Side project'
+                properties:
+                  message:
+                    type: string
+                    example: 'Not found'
+                  resource:
+                    type: string
+                    example: 'Side project'
+      tags:
+        - 'Side Projects'
+      security: []
+    put:
+      summary: 'Update a side project'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Side Projects'
+      security: []
+    delete:
+      summary: 'Delete a side project'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        204:
+          description: 'Nothing to see here'
+      tags:
+        - 'Side Projects'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the side project.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/side_projects/finish:
+    post:
+      summary: 'Finish a side project'
+      description: 'Will you ever?🤔'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        404:
+          description: 'Side project not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Not found'
+                  resource: 'Side project'
+                properties:
+                  message:
+                    type: string
+                    example: 'Not found'
+                  resource:
+                    type: string
+                    example: 'Side project'
+      tags:
+        - 'Side Projects'
+      security: []
   /api/aCustomEndpoint:
     post:
       summary: 'A custom endpoint'
@@ -1125,11 +1164,11 @@ tags:
     name: General
     description: ''
   -
-    name: 'Side Projects'
-    description: "\nAPIs for managing side projects.\n\nNote how the URL params for the endpoints here are automatically generated by Scribe."
-  -
     name: Users
     description: ''
+  -
+    name: 'Side Projects'
+    description: "\nAPIs for managing side projects.\n\nNote how the URL params for the endpoints here are automatically generated by Scribe."
   -
     name: Extras
     description: null

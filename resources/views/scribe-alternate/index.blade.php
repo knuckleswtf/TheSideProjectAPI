@@ -130,6 +130,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="-DELETEapi-side_projects--id-">
                                 <a href="#-DELETEapi-side_projects--id-">Delete a side project</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="-POSTapi-side_projects-finish">
+                                <a href="#-POSTapi-side_projects-finish">Finish a side project</a>
+                            </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-users" class="tocify-header">
@@ -159,7 +162,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: September 7 2022</li>
+        <li>Last updated: September 8 2022</li>
     </ul>
 </div>
 
@@ -608,8 +611,8 @@ print_r(json_decode((string) $body));</code></pre></div>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "nested[_string]=et" \
-    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\phpB70D.tmp" \
-    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\phpB70E.tmp" </code></pre></div>
+    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\php53BC.tmp" \
+    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\php53CC.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -650,11 +653,11 @@ $response = $client-&gt;post(
             ],
             [
                 'name' =&gt; 'the_file',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpB70D.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php53BC.tmp', 'r')
             ],
             [
                 'name' =&gt; 'nested[_file]',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpB70E.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php53CC.tmp', 'r')
             ],
         ],
     ]
@@ -819,7 +822,7 @@ print_r(json_decode((string) $body));</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 52
+x-ratelimit-remaining: 40
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -947,7 +950,7 @@ print_r(json_decode((string) $body));</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 55
+x-ratelimit-remaining: 43
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -1208,7 +1211,7 @@ print_r(json_decode((string) $body));</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 53
+x-ratelimit-remaining: 41
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -1588,14 +1591,14 @@ print_r(json_decode((string) $body));</code></pre></div>
     &quot;data&quot;: {
         &quot;name&quot;: &quot;suscipit qui cumque&quot;,
         &quot;description&quot;: &quot;Tenetur quia nemo sit est.&quot;,
-        &quot;due_date&quot;: &quot;20241103&quot;,
+        &quot;due_date&quot;: &quot;20241104&quot;,
         &quot;owner&quot;: {
             &quot;id&quot;: 6,
             &quot;name&quot;: &quot;Kurt Kub&quot;,
             &quot;email&quot;: &quot;juvenal97@example.org&quot;,
-            &quot;email_verified_at&quot;: &quot;2022-09-07T23:30:38.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2022-09-07T23:30:38.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2022-09-07T23:30:38.000000Z&quot;
+            &quot;email_verified_at&quot;: &quot;2022-09-08T00:35:45.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2022-09-08T00:35:45.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-09-08T00:35:45.000000Z&quot;
         }
     }
 }</code>
@@ -1887,6 +1890,109 @@ print_r(json_decode((string) $body));</code></pre></div>
             </p>
                     </form>
 
+                    <h2 id="-POSTapi-side_projects-finish">Finish a side project</h2>
+
+<p>
+</p>
+
+<p>Will you ever?🤔</p>
+
+<span id="example-requests-POSTapi-side_projects-finish">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://testapi.com/api/side_projects/finish" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/side_projects/finish"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://testapi.com/api/side_projects/finish',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-side_projects-finish">
+            <blockquote>
+            <p>Example response (Side project not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Not found&quot;,
+    &quot;resource&quot;: &quot;Side project&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-side_projects-finish" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-side_projects-finish"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-side_projects-finish"></code></pre>
+</span>
+<span id="execution-error-POSTapi-side_projects-finish" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-side_projects-finish"></code></pre>
+</span>
+<form id="form-POSTapi-side_projects-finish" data-method="POST"
+      data-path="api/side_projects/finish"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-side_projects-finish', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-side_projects-finish"
+                    onclick="tryItOut('POSTapi-side_projects-finish');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-side_projects-finish"
+                    onclick="cancelTryOut('POSTapi-side_projects-finish');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-side_projects-finish" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/side_projects/finish</code></b>
+        </p>
+                    </form>
+
                 <h1 id="users">Users</h1>
 
     
@@ -2118,8 +2224,8 @@ print_r(json_decode((string) $body));</code></pre></div>
                 &quot;description&quot;: &quot;Atque nobis ut natus aut dolores eveniet.&quot;,
                 &quot;url&quot;: null,
                 &quot;due_at&quot;: 20251220,
-                &quot;created_at&quot;: &quot;2022-09-07T23:30:38.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2022-09-07T23:30:38.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2022-09-08T00:35:44.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-09-08T00:35:44.000000Z&quot;,
                 &quot;user_id&quot;: 6
             }
         ]
@@ -2253,7 +2359,7 @@ print_r(json_decode((string) $body));</code></pre></div>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 54
+x-ratelimit-remaining: 42
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>

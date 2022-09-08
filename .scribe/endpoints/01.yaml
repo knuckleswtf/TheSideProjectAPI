@@ -6,8 +6,8 @@ endpoints:
       - GET
     uri: 'api/healthcheck/{unnecessaryParam?}'
     metadata:
-      subgroup: null
-      subgroupDescription: null
+      subgroup: ''
+      subgroupDescription: ''
       title: Healthcheck
       description: |-
         Check that the service is up. If everything is okay, you'll get a 200 OK response.
@@ -67,8 +67,8 @@ endpoints:
       - GET
     uri: api/me
     metadata:
-      subgroup: null
-      subgroupDescription: null
+      subgroup: ''
+      subgroupDescription: ''
       title: ''
       description: ''
       authenticated: false

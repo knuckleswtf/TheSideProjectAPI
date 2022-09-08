@@ -7,6 +7,7 @@ use App\Models\SideProject;
 use Illuminate\Http\Request;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Item;
+use Knuckles\Scribe\Attributes\ResponseFromFile;
 
 /**
  * @group Side Projects
@@ -105,6 +106,8 @@ class SideProjectController extends Controller
      *
      * Will you ever?🤔
      */
+    #[ResponseFromFile("responses/not_found.json", status: 404, merge: ["resource" => "Side project"],
+        description: "Side project not found")]
     public function finish(SideProject $sideProject)
     {
         //
