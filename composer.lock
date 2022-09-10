@@ -6293,7 +6293,7 @@
             "dist": {
                 "type": "path",
                 "url": "../scribe",
-                "reference": "78bcbe78e7f3c6f3906793b0726a2516738260da"
+                "reference": "ad11a072388ab6d2d4d9bc59db94e0288511ad1c"
             },
             "require": {
                 "erusev/parsedown": "1.7.4",
@@ -6311,7 +6311,7 @@
                 "php": ">=8.0",
                 "ramsey/uuid": "^4.2.2",
                 "shalvah/clara": "^3.1.0",
-                "shalvah/upgrader": "0.*",
+                "shalvah/upgrader": "^0.3.0",
                 "spatie/data-transfer-object": "^2.6|^3.0",
                 "symfony/var-exporter": "^5.4|^6.0",
                 "symfony/yaml": "^5.4|^6.0"
@@ -8266,22 +8266,22 @@
         },
         {
             "name": "shalvah/upgrader",
-            "version": "0.2.0",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shalvah/upgrader.git",
-                "reference": "3f07bf967b450c05f0783790c6dd353a6775a424"
+                "reference": "2a2b1452bd4a1484784deb2af49fb5e1abbcf420"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shalvah/upgrader/zipball/3f07bf967b450c05f0783790c6dd353a6775a424",
-                "reference": "3f07bf967b450c05f0783790c6dd353a6775a424",
+                "url": "https://api.github.com/repos/shalvah/upgrader/zipball/2a2b1452bd4a1484784deb2af49fb5e1abbcf420",
+                "reference": "2a2b1452bd4a1484784deb2af49fb5e1abbcf420",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
+                "illuminate/support": "^8.0|^9.0",
                 "nikic/php-parser": "^4.13",
-                "php": ">=7.4"
+                "php": ">=8.0"
             },
             "require-dev": {
                 "dms/phpunit-arraysubset-asserts": "^0.2.0",
@@ -8312,7 +8312,7 @@
             ],
             "support": {
                 "issues": "https://github.com/shalvah/upgrader/issues",
-                "source": "https://github.com/shalvah/upgrader/tree/0.2.0"
+                "source": "https://github.com/shalvah/upgrader/tree/0.3.0"
             },
             "funding": [
                 {
@@ -8320,7 +8320,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-01-14T11:07:47+00:00"
+            "time": "2022-09-10T02:18:15+00:00"
         },
         {
             "name": "spatie/data-transfer-object",

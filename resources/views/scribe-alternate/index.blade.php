@@ -77,22 +77,22 @@
                                 <a href="#dummy-endpoints-a-subgroup">A subgroup</a>
                             </li>
                                                             <ul id="tocify-subheader-dummy-endpoints-a-subgroup" class="tocify-subheader">
-                                                                            <li class="tocify-item level-3" data-unique="-POSTapi-nested">
-                                            <a href="#-POSTapi-nested">Nested fields</a>
+                                                                            <li class="tocify-item level-3" data-unique="dummy-endpoints-POSTapi-nested">
+                                            <a href="#dummy-endpoints-POSTapi-nested">Nested fields</a>
                                         </li>
-                                                                            <li class="tocify-item level-3" data-unique="-POSTapi-array-body">
-                                            <a href="#-POSTapi-array-body">Body content array</a>
+                                                                            <li class="tocify-item level-3" data-unique="dummy-endpoints-POSTapi-array-body">
+                                            <a href="#dummy-endpoints-POSTapi-array-body">Body content array</a>
                                         </li>
                                                                     </ul>
                                                                                 <li class="tocify-item level-2" data-unique="dummy-endpoints-another-subgroup">
                                 <a href="#dummy-endpoints-another-subgroup">Another subgroup</a>
                             </li>
                                                             <ul id="tocify-subheader-dummy-endpoints-another-subgroup" class="tocify-subheader">
-                                                                            <li class="tocify-item level-3" data-unique="-POSTapi-file-input">
-                                            <a href="#-POSTapi-file-input">File input</a>
+                                                                            <li class="tocify-item level-3" data-unique="dummy-endpoints-POSTapi-file-input">
+                                            <a href="#dummy-endpoints-POSTapi-file-input">File input</a>
                                         </li>
-                                                                            <li class="tocify-item level-3" data-unique="-GETapi-v1-languages">
-                                            <a href="#-GETapi-v1-languages">GET api/v1/languages</a>
+                                                                            <li class="tocify-item level-3" data-unique="dummy-endpoints-GETapi-v1-languages">
+                                            <a href="#dummy-endpoints-GETapi-v1-languages">GET api/v1/languages</a>
                                         </li>
                                                                     </ul>
                                                                         </ul>
@@ -102,11 +102,11 @@
                     <a href="#general">General</a>
                 </li>
                                     <ul id="tocify-subheader-general" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="-GETapi-healthcheck--unnecessaryParam--">
-                                <a href="#-GETapi-healthcheck--unnecessaryParam--">Healthcheck</a>
+                                                    <li class="tocify-item level-2" data-unique="general-GETapi-healthcheck--unnecessaryParam--">
+                                <a href="#general-GETapi-healthcheck--unnecessaryParam--">Healthcheck</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="-GETapi-me">
-                                <a href="#-GETapi-me">GET api/me</a>
+                                                                                <li class="tocify-item level-2" data-unique="general-GETapi-me">
+                                <a href="#general-GETapi-me">GET api/me</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -115,23 +115,23 @@
                     <a href="#side-projects">Side Projects</a>
                 </li>
                                     <ul id="tocify-subheader-side-projects" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="-GETapi-side_projects">
-                                <a href="#-GETapi-side_projects">View all side projects</a>
+                                                    <li class="tocify-item level-2" data-unique="side-projects-GETapi-side_projects">
+                                <a href="#side-projects-GETapi-side_projects">View all side projects</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="-POSTapi-side_projects">
-                                <a href="#-POSTapi-side_projects">Start a new side project</a>
+                                                                                <li class="tocify-item level-2" data-unique="side-projects-POSTapi-side_projects">
+                                <a href="#side-projects-POSTapi-side_projects">Start a new side project</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="-PUTapi-side_projects--id-">
-                                <a href="#-PUTapi-side_projects--id-">Update a side project</a>
+                                                                                <li class="tocify-item level-2" data-unique="side-projects-GETapi-side_projects--id-">
+                                <a href="#side-projects-GETapi-side_projects--id-">View a side project</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="-DELETEapi-side_projects--id-">
-                                <a href="#-DELETEapi-side_projects--id-">Delete a side project</a>
+                                                                                <li class="tocify-item level-2" data-unique="side-projects-PUTapi-side_projects--id-">
+                                <a href="#side-projects-PUTapi-side_projects--id-">Update a side project</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="-POSTapi-side_projects-finish">
-                                <a href="#-POSTapi-side_projects-finish">Finish a side project</a>
+                                                                                <li class="tocify-item level-2" data-unique="side-projects-DELETEapi-side_projects--id-">
+                                <a href="#side-projects-DELETEapi-side_projects--id-">Delete a side project</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="-GETapi-side_projects--id-">
-                                <a href="#-GETapi-side_projects--id-">View a side project</a>
+                                                                                <li class="tocify-item level-2" data-unique="side-projects-POSTapi-side_projects-finish">
+                                <a href="#side-projects-POSTapi-side_projects-finish">Finish a side project</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -140,20 +140,20 @@
                     <a href="#users">Users</a>
                 </li>
                                     <ul id="tocify-subheader-users" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="-POSTapi-users">
-                                <a href="#-POSTapi-users">Create a user</a>
+                                                    <li class="tocify-item level-2" data-unique="users-POSTapi-users">
+                                <a href="#users-POSTapi-users">Create a user</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="-GETapi-users--id-">
-                                <a href="#-GETapi-users--id-">Fetch a user</a>
+                                                                                <li class="tocify-item level-2" data-unique="users-GETapi-users--id-">
+                                <a href="#users-GETapi-users--id-">Fetch a user</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="-GETapi-users">
-                                <a href="#-GETapi-users">View all users</a>
+                                                                                <li class="tocify-item level-2" data-unique="users-GETapi-users">
+                                <a href="#users-GETapi-users">View all users</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="-POSTapi-users--id--auth">
-                                <a href="#-POSTapi-users--id--auth">Authenticate</a>
+                                                                                <li class="tocify-item level-2" data-unique="users-DELETEapi-users--id-">
+                                <a href="#users-DELETEapi-users--id-">Delete a user</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="-DELETEapi-users--id-">
-                                <a href="#-DELETEapi-users--id-">Delete a user</a>
+                                                                                <li class="tocify-item level-2" data-unique="users-POSTapi-users--id--auth">
+                                <a href="#users-POSTapi-users--id--auth">Authenticate</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -165,7 +165,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: September 8 2022</li>
+        <li>Last updated: September 10 2022</li>
     </ul>
 </div>
 
@@ -190,7 +190,7 @@
     
 
                         <h2 id="dummy-endpoints-a-subgroup">A subgroup</h2>
-                                                    <h2 id="-POSTapi-nested">Nested fields</h2>
+                                                    <h2 id="dummy-endpoints-POSTapi-nested">Nested fields</h2>
 
 <p>
 </p>
@@ -451,7 +451,7 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
         </form>
 
-                    <h2 id="-POSTapi-array-body">Body content array</h2>
+                    <h2 id="dummy-endpoints-POSTapi-array-body">Body content array</h2>
 
 <p>
 </p>
@@ -597,7 +597,7 @@ print_r(json_decode((string) $body));</code></pre></div>
                                         <p>
                     <p>This time, with a description!</p>
                 </p>
-                                        <h2 id="-POSTapi-file-input">File input</h2>
+                                        <h2 id="dummy-endpoints-POSTapi-file-input">File input</h2>
 
 <p>
 </p>
@@ -614,8 +614,8 @@ print_r(json_decode((string) $body));</code></pre></div>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "nested[_string]=et" \
-    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\phpD0BD.tmp" \
-    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\phpD0CE.tmp" </code></pre></div>
+    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\phpF259.tmp" \
+    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\phpF26A.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -656,11 +656,11 @@ $response = $client-&gt;post(
             ],
             [
                 'name' =&gt; 'the_file',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpD0BD.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpF259.tmp', 'r')
             ],
             [
                 'name' =&gt; 'nested[_file]',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpD0CE.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpF26A.tmp', 'r')
             ],
         ],
     ]
@@ -761,7 +761,7 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
         </form>
 
-                    <h2 id="-GETapi-v1-languages">GET api/v1/languages</h2>
+                    <h2 id="dummy-endpoints-GETapi-v1-languages">GET api/v1/languages</h2>
 
 <p>
 </p>
@@ -878,7 +878,7 @@ access-control-allow-origin: *
 
     
 
-                                <h2 id="-GETapi-healthcheck--unnecessaryParam--">Healthcheck</h2>
+                                <h2 id="general-GETapi-healthcheck--unnecessaryParam--">Healthcheck</h2>
 
 <p>
 </p>
@@ -1037,7 +1037,7 @@ access-control-allow-origin: *
 <br>
 <p>Map of each downstream service and their status (<code>up</code> or <code>down</code>).</p>
         </p>
-                        <h2 id="-GETapi-me">GET api/me</h2>
+                        <h2 id="general-GETapi-me">GET api/me</h2>
 
 <p>
 </p>
@@ -1152,7 +1152,7 @@ access-control-allow-origin: *
     <p>APIs for managing side projects.</p>
 <p>Note how the URL params for the endpoints here are automatically generated by Scribe.</p>
 
-                                <h2 id="-GETapi-side_projects">View all side projects</h2>
+                                <h2 id="side-projects-GETapi-side_projects">View all side projects</h2>
 
 <p>
 </p>
@@ -1354,7 +1354,7 @@ access-control-allow-origin: *
         </p>
                     </form>
 
-                    <h2 id="-POSTapi-side_projects">Start a new side project</h2>
+                    <h2 id="side-projects-POSTapi-side_projects">Start a new side project</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1378,7 +1378,7 @@ from the controller's code. Check out the source! </aside></p>
     \"name\": \"The SideProject API\",
     \"description\": \"pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv\",
     \"url\": \"http:\\/\\/hartmann.com\\/magnam-tenetur-quia-nemo-sit-est-numquam\",
-    \"due_at\": \"2084-02-26\"
+    \"due_at\": \"2084-02-27\"
 }"
 </code></pre></div>
 
@@ -1398,7 +1398,7 @@ let body = {
     "name": "The SideProject API",
     "description": "pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv",
     "url": "http:\/\/hartmann.com\/magnam-tenetur-quia-nemo-sit-est-numquam",
-    "due_at": "2084-02-26"
+    "due_at": "2084-02-27"
 };
 
 fetch(url, {
@@ -1422,7 +1422,7 @@ $response = $client-&gt;post(
             'name' =&gt; 'The SideProject API',
             'description' =&gt; 'pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv',
             'url' =&gt; 'http://hartmann.com/magnam-tenetur-quia-nemo-sit-est-numquam',
-            'due_at' =&gt; '2084-02-26',
+            'due_at' =&gt; '2084-02-27',
         ],
     ]
 );
@@ -1525,14 +1525,154 @@ print_r(json_decode((string) $body));</code></pre></div>
                 <input type="text"
                name="due_at"
                data-endpoint="POSTapi-side_projects"
-               value="2084-02-26"
+               value="2084-02-27"
                data-component="body" hidden>
     <br>
 <p>Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.</p>
         </p>
         </form>
 
-                    <h2 id="-PUTapi-side_projects--id-">Update a side project</h2>
+                    <h2 id="side-projects-GETapi-side_projects--id-">View a side project</h2>
+
+<p>
+</p>
+
+<p>This endpoint's response uses a Fractal transformer, so we tell Scribe that using an annotation,
+and it figures out how to generate a sample. The 404 sample is gotten from a &quot;response file&quot;.</p>
+<aside class="success">Also, pretty cool: this endpoint's (and many others') URL parameters were figured out entirely by Scribe!</aside>
+<p>Also, this endpoint uses a mix of docblock tags and PHP 8 attributes.</p>
+
+<span id="example-requests-GETapi-side_projects--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://testapi.com/api/side_projects/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/side_projects/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://testapi.com/api/side_projects/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-side_projects--id-">
+            <blockquote>
+            <p>Example response (203):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;name&quot;: &quot;suscipit qui cumque&quot;,
+        &quot;description&quot;: &quot;Tenetur quia nemo sit est.&quot;,
+        &quot;due_date&quot;: &quot;20241106&quot;,
+        &quot;owner&quot;: {
+            &quot;id&quot;: 6,
+            &quot;name&quot;: &quot;Kurt Kub&quot;,
+            &quot;email&quot;: &quot;juvenal97@example.org&quot;,
+            &quot;email_verified_at&quot;: &quot;2022-09-10T02:22:37.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2022-09-10T02:22:37.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-09-10T02:22:37.000000Z&quot;
+        }
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, Side project not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Not found&quot;,
+    &quot;resource&quot;: &quot;Side project&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-side_projects--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-side_projects--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-side_projects--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-side_projects--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-side_projects--id-"></code></pre>
+</span>
+<form id="form-GETapi-side_projects--id-" data-method="GET"
+      data-path="api/side_projects/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-side_projects--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-side_projects--id-"
+                    onclick="tryItOut('GETapi-side_projects--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-side_projects--id-"
+                    onclick="cancelTryOut('GETapi-side_projects--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-side_projects--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/side_projects/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-side_projects--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the side project.</p>
+            </p>
+                    </form>
+
+                    <h2 id="side-projects-PUTapi-side_projects--id-">Update a side project</h2>
 
 <p>
 </p>
@@ -1642,7 +1782,7 @@ print_r(json_decode((string) $body));</code></pre></div>
             </p>
                     </form>
 
-                    <h2 id="-DELETEapi-side_projects--id-">Delete a side project</h2>
+                    <h2 id="side-projects-DELETEapi-side_projects--id-">Delete a side project</h2>
 
 <p>
 </p>
@@ -1774,7 +1914,7 @@ print_r(json_decode((string) $body));</code></pre></div>
             </p>
                 </form>
 
-                    <h2 id="-POSTapi-side_projects-finish">Finish a side project</h2>
+                    <h2 id="side-projects-POSTapi-side_projects-finish">Finish a side project</h2>
 
 <p>
 </p>
@@ -1877,151 +2017,11 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
                     </form>
 
-                    <h2 id="-GETapi-side_projects--id-">View a side project</h2>
-
-<p>
-</p>
-
-<p>This endpoint's response uses a Fractal transformer, so we tell Scribe that using an annotation,
-and it figures out how to generate a sample. The 404 sample is gotten from a &quot;response file&quot;.</p>
-<aside class="success">Also, pretty cool: this endpoint's (and many others') URL parameters were figured out entirely by Scribe!</aside>
-<p>Also, this endpoint uses a mix of docblock tags and PHP 8 attributes.</p>
-
-<span id="example-requests-GETapi-side_projects--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://testapi.com/api/side_projects/1" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://testapi.com/api/side_projects/1"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;get(
-    'http://testapi.com/api/side_projects/1',
-    [
-        'headers' =&gt; [
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-side_projects--id-">
-            <blockquote>
-            <p>Example response (203):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;data&quot;: {
-        &quot;name&quot;: &quot;suscipit qui cumque&quot;,
-        &quot;description&quot;: &quot;Tenetur quia nemo sit est.&quot;,
-        &quot;due_date&quot;: &quot;20241104&quot;,
-        &quot;owner&quot;: {
-            &quot;id&quot;: 6,
-            &quot;name&quot;: &quot;Kurt Kub&quot;,
-            &quot;email&quot;: &quot;juvenal97@example.org&quot;,
-            &quot;email_verified_at&quot;: &quot;2022-09-08T22:34:39.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2022-09-08T22:34:39.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2022-09-08T22:34:39.000000Z&quot;
-        }
-    }
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (404, Side project not found):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;message&quot;: &quot;Not found&quot;,
-    &quot;resource&quot;: &quot;Side project&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-side_projects--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-side_projects--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-side_projects--id-"></code></pre>
-</span>
-<span id="execution-error-GETapi-side_projects--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-side_projects--id-"></code></pre>
-</span>
-<form id="form-GETapi-side_projects--id-" data-method="GET"
-      data-path="api/side_projects/{id}"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-side_projects--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-side_projects--id-"
-                    onclick="tryItOut('GETapi-side_projects--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-side_projects--id-"
-                    onclick="cancelTryOut('GETapi-side_projects--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-side_projects--id-" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/side_projects/{id}</code></b>
-        </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number"
-               name="id"
-               data-endpoint="GETapi-side_projects--id-"
-               value="1"
-               data-component="url" hidden>
-    <br>
-<p>The ID of the side project.</p>
-            </p>
-                    </form>
-
                 <h1 id="users">Users</h1>
 
     
 
-                                <h2 id="-POSTapi-users">Create a user</h2>
+                                <h2 id="users-POSTapi-users">Create a user</h2>
 
 <p>
 </p>
@@ -2169,7 +2169,7 @@ print_r(json_decode((string) $body));</code></pre></div>
         </p>
         </form>
 
-                    <h2 id="-GETapi-users--id-">Fetch a user</h2>
+                    <h2 id="users-GETapi-users--id-">Fetch a user</h2>
 
 <p>
 </p>
@@ -2247,9 +2247,9 @@ print_r(json_decode((string) $body));</code></pre></div>
                 &quot;name&quot;: &quot;est numquam consequuntur&quot;,
                 &quot;description&quot;: &quot;Atque nobis ut natus aut dolores eveniet.&quot;,
                 &quot;url&quot;: null,
-                &quot;due_at&quot;: 20251221,
-                &quot;created_at&quot;: &quot;2022-09-08T22:34:39.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2022-09-08T22:34:39.000000Z&quot;,
+                &quot;due_at&quot;: 20251222,
+                &quot;created_at&quot;: &quot;2022-09-10T02:22:37.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-09-10T02:22:37.000000Z&quot;,
                 &quot;user_id&quot;: 6
             }
         ]
@@ -2311,7 +2311,7 @@ print_r(json_decode((string) $body));</code></pre></div>
             </p>
                     </form>
 
-                    <h2 id="-GETapi-users">View all users</h2>
+                    <h2 id="users-GETapi-users">View all users</h2>
 
 <p>
 </p>
@@ -2585,132 +2585,7 @@ access-control-allow-origin: *
             </p>
                 </form>
 
-                    <h2 id="-POSTapi-users--id--auth">Authenticate</h2>
-
-<p>
-</p>
-
-<p>Get a new API token.</p>
-<aside>Yes, we know you can impersonate any user.🙄</aside>
-
-<span id="example-requests-POSTapi-users--id--auth">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://testapi.com/api/users/1/auth" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://testapi.com/api/users/1/auth"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post(
-    'http://testapi.com/api/users/1/auth',
-    [
-        'headers' =&gt; [
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-users--id--auth">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;token&quot;: &quot;2|KLDoUXc68Ko0JaFDZoX9qYkUqWglwdGxQsvTGBCg&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-POSTapi-users--id--auth" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-users--id--auth"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-users--id--auth"></code></pre>
-</span>
-<span id="execution-error-POSTapi-users--id--auth" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-users--id--auth"></code></pre>
-</span>
-<form id="form-POSTapi-users--id--auth" data-method="POST"
-      data-path="api/users/{id}/auth"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users--id--auth', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-users--id--auth"
-                    onclick="tryItOut('POSTapi-users--id--auth');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-users--id--auth"
-                    onclick="cancelTryOut('POSTapi-users--id--auth');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-users--id--auth" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/users/{id}/auth</code></b>
-        </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number"
-               name="id"
-               data-endpoint="POSTapi-users--id--auth"
-               value="1"
-               data-component="url" hidden>
-    <br>
-<p>The ID of the user.</p>
-            </p>
-                    </form>
-
-    <h3>Response</h3>
-    <h4 class="fancy-heading-panel"><b>Response Fields</b></h4>
-    <p>
-            <b><code>token</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-<br>
-<p>The new API token. Valid forever.</p>
-        </p>
-                        <h2 id="-DELETEapi-users--id-">Delete a user</h2>
+                    <h2 id="users-DELETEapi-users--id-">Delete a user</h2>
 
 <p>
 </p>
@@ -2845,7 +2720,132 @@ print_r(json_decode((string) $body));</code></pre></div>
             </p>
                 </form>
 
-            
+                    <h2 id="users-POSTapi-users--id--auth">Authenticate</h2>
+
+<p>
+</p>
+
+<p>Get a new API token.</p>
+<aside>Yes, we know you can impersonate any user.🙄</aside>
+
+<span id="example-requests-POSTapi-users--id--auth">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://testapi.com/api/users/1/auth" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://testapi.com/api/users/1/auth"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://testapi.com/api/users/1/auth',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-users--id--auth">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;token&quot;: &quot;2|KLDoUXc68Ko0JaFDZoX9qYkUqWglwdGxQsvTGBCg&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-users--id--auth" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-users--id--auth"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-users--id--auth"></code></pre>
+</span>
+<span id="execution-error-POSTapi-users--id--auth" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-users--id--auth"></code></pre>
+</span>
+<form id="form-POSTapi-users--id--auth" data-method="POST"
+      data-path="api/users/{id}/auth"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users--id--auth', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-users--id--auth"
+                    onclick="tryItOut('POSTapi-users--id--auth');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-users--id--auth"
+                    onclick="cancelTryOut('POSTapi-users--id--auth');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-users--id--auth" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/users/{id}/auth</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="POSTapi-users--id--auth"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the user.</p>
+            </p>
+                    </form>
+
+    <h3>Response</h3>
+    <h4 class="fancy-heading-panel"><b>Response Fields</b></h4>
+    <p>
+            <b><code>token</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+<br>
+<p>The new API token. Valid forever.</p>
+        </p>
+                
 
         
     </div>

@@ -1,13 +1,87 @@
-name: 'Dummy endpoints'
+name: General
 description: ''
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/languages
+    uri: 'api/healthcheck/{unnecessaryParam?}'
     metadata:
-      subgroup: 'Another subgroup'
-      subgroupDescription: 'This time, with a description!'
+      groupName: General
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: Healthcheck
+      description: |-
+        Check that the service is up. If everything is okay, you'll get a 200 OK response.
+
+        Otherwise, the request will fail with a 400 error, and a response listing the failed services.
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      unnecessaryParam:
+        name: unnecessaryParam
+        description: ''
+        required: false
+        example: et
+        type: string
+        custom: []
+    cleanUrlParameters:
+      unnecessaryParam: et
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 400
+        content: '{"status": "down", "services": {"database": "up", "redis": "down"}}'
+        headers: []
+        description: '400, Service is unhealthy'
+        custom: []
+      -
+        status: 200
+        content: '{"status":"up","services":{"database":"up","redis":"up"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields:
+      status:
+        name: status
+        description: 'The status of this API (`up` or `down`).'
+        required: false
+        example: null
+        type: string
+        custom: []
+      services:
+        name: services
+        description: 'Map of each downstream service and their status (`up` or `down`).'
+        required: false
+        example: null
+        type: object
+        custom: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/me
+    metadata:
+      groupName: General
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
       title: ''
       description: ''
       authenticated: false
@@ -15,196 +89,26 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
-      Test: Value
     urlParameters: []
+    cleanUrlParameters: []
     queryParameters: []
+    cleanQueryParameters: []
     bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
     responses:
       -
-        status: 200
-        content: '[]'
+        status: 401
+        content: '{"message":"Unauthenticated."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '56'
           access-control-allow-origin: '*'
         description: null
         custom: []
     responseFields: []
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/file-input
-    metadata:
-      subgroup: 'Another subgroup'
-      subgroupDescription: ''
-      title: 'File input'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: multipart/form-data
-      Accept: application/json
-    urlParameters: []
-    queryParameters: []
-    bodyParameters:
-      the_file:
-        name: the_file
-        description: 'Just a file.'
-        required: true
-        example: null
-        type: file
-        custom: []
-      nested:
-        name: nested
-        description: ''
-        required: true
-        example: []
-        type: object
-        custom: []
-      nested._string:
-        name: nested._string
-        description: 'A nested string.'
-        required: true
-        example: et
-        type: string
-        custom: []
-      nested._file:
-        name: nested._file
-        description: 'A nested file.'
-        required: true
-        example: null
-        type: file
-        custom: []
-    responses: []
-    responseFields: []
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/nested
-    metadata:
-      subgroup: 'A subgroup'
-      subgroupDescription: ''
-      title: 'Nested fields'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    queryParameters:
-      random:
-        name: random
-        description: 'A random query parameter.'
-        required: false
-        example: et
-        type: string
-        custom: []
-    bodyParameters:
-      data:
-        name: data
-        description: 'The data'
-        required: true
-        example: []
-        type: object
-        custom: []
-      data.name:
-        name: data.name
-        description: 'A string field.'
-        required: true
-        example: et
-        type: string
-        custom: []
-      data.size:
-        name: data.size
-        description: 'A number.'
-        required: false
-        example: 5
-        type: integer
-        custom: []
-      data.other:
-        name: data.other
-        description: 'Optional thing.'
-        required: false
-        example: null
-        type: string
-        custom: []
-      data.things:
-        name: data.things
-        description: 'An array of strings.'
-        required: false
-        example:
-          - et
-        type: 'string[]'
-        custom: []
-      data.objects:
-        name: data.objects
-        description: 'An array of objects'
-        required: false
-        example:
-          - []
-        type: 'object[]'
-        custom: []
-      'data.objects[].a':
-        name: 'data.objects[].a'
-        description: 'A field in the array of objects'
-        required: false
-        example: et
-        type: string
-        custom: []
-      'data.objects[].b':
-        name: 'data.objects[].b'
-        description: 'A field in the array of objects'
-        required: false
-        example: et
-        type: string
-        custom: []
-    responses: []
-    responseFields: []
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/array-body
-    metadata:
-      subgroup: 'A subgroup'
-      subgroupDescription: ''
-      title: 'Body content array'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    queryParameters: []
-    bodyParameters:
-      '[]':
-        name: '[]'
-        description: 'List of items'
-        required: false
-        example:
-          - []
-        type: 'object[]'
-        custom: []
-      '[].row_id':
-        name: '[].row_id'
-        description: 'A unique ID.'
-        required: false
-        example: '700'
-        type: string
-        custom: []
-      '[].name':
-        name: '[].name'
-        description: 'An element name.'
-        required: true
-        example: 'My item name'
-        type: string
-        custom: []
-    responses: []
-    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
     custom: []
