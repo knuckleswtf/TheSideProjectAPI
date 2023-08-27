@@ -26,11 +26,12 @@ endpoints:
         name: random
         description: 'A random query parameter.'
         required: false
-        example: et
+        example: optio
         type: string
+        enumValues: []
         custom: []
     cleanQueryParameters:
-      random: et
+      random: optio
     bodyParameters:
       data:
         name: data
@@ -38,13 +39,15 @@ endpoints:
         required: true
         example: []
         type: object
+        enumValues: []
         custom: []
       data.name:
         name: data.name
         description: 'A string field.'
         required: true
-        example: et
+        example: eaque
         type: string
+        enumValues: []
         custom: []
       data.size:
         name: data.size
@@ -52,6 +55,7 @@ endpoints:
         required: false
         example: 5
         type: integer
+        enumValues: []
         custom: []
       data.other:
         name: data.other
@@ -59,14 +63,16 @@ endpoints:
         required: false
         example: null
         type: string
+        enumValues: []
         custom: []
       data.things:
         name: data.things
         description: 'An array of strings.'
         required: false
         example:
-          - et
+          - tempore
         type: 'string[]'
+        enumValues: []
         custom: []
       data.objects:
         name: data.objects
@@ -75,31 +81,34 @@ endpoints:
         example:
           - []
         type: 'object[]'
+        enumValues: []
         custom: []
       'data.objects[].a':
         name: 'data.objects[].a'
         description: 'A field in the array of objects'
         required: false
-        example: et
+        example: consequatur
         type: string
+        enumValues: []
         custom: []
       'data.objects[].b':
         name: 'data.objects[].b'
         description: 'A field in the array of objects'
         required: false
-        example: et
+        example: delectus
         type: string
+        enumValues: []
         custom: []
     cleanBodyParameters:
       data:
-        name: et
+        name: eaque
         size: 5
         things:
-          - et
+          - tempore
         objects:
           -
-            a: et
-            b: et
+            a: consequatur
+            b: delectus
     fileParameters: []
     responses: []
     responseFields: []
@@ -136,6 +145,7 @@ endpoints:
         example:
           - []
         type: 'object[]'
+        enumValues: []
         custom: []
       '[].row_id':
         name: '[].row_id'
@@ -143,6 +153,7 @@ endpoints:
         required: false
         example: '700'
         type: string
+        enumValues: []
         custom: []
       '[].name':
         name: '[].name'
@@ -150,6 +161,7 @@ endpoints:
         required: true
         example: 'My item name'
         type: string
+        enumValues: []
         custom: []
     cleanBodyParameters:
       -
@@ -190,6 +202,7 @@ endpoints:
         required: true
         example: null
         type: file
+        enumValues: []
         custom: []
       nested:
         name: nested
@@ -197,13 +210,15 @@ endpoints:
         required: true
         example: []
         type: object
+        enumValues: []
         custom: []
       nested._string:
         name: nested._string
         description: 'A nested string.'
         required: true
-        example: et
+        example: vitae
         type: string
+        enumValues: []
         custom: []
       nested._file:
         name: nested._file
@@ -211,10 +226,11 @@ endpoints:
         required: true
         example: null
         type: file
+        enumValues: []
         custom: []
     cleanBodyParameters:
       nested:
-        _string: et
+        _string: vitae
     fileParameters:
       the_file: null
       nested:

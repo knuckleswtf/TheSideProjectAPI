@@ -24,31 +24,45 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
-        description: 'Must be at least 1 characters. Must not be greater than 255 characters.'
-        required: true
-        example: pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv
-        type: string
-        custom: []
-      email:
-        name: email
-        description: 'Must be a valid email address.'
-        required: true
-        example: casimir70@example.com
-        type: string
-        custom: []
-      password:
-        name: password
+      data:
+        name: data
         description: ''
         required: true
-        example: et
+        example: []
+        type: object
+        enumValues: []
+        custom: []
+      data.title:
+        name: data.title
+        description: ''
+        required: true
+        example: ducimus
         type: string
+        enumValues: []
+        custom: []
+      data.meta:
+        name: data.meta
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        custom: []
+      data.meta.tags:
+        name: data.meta.tags
+        description: ''
+        required: false
+        example:
+          - repudiandae
+        type: 'string[]'
+        enumValues: []
         custom: []
     cleanBodyParameters:
-      name: pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv
-      email: casimir70@example.com
-      password: et
+      data:
+        title: ducimus
+        meta:
+          tags:
+            - repudiandae
     fileParameters: []
     responses: []
     responseFields: []
@@ -80,11 +94,12 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: 1
-        type: integer
+        example: nulla
+        type: string
+        enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: nulla
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -92,16 +107,16 @@ endpoints:
     fileParameters: []
     responses:
       -
+        status: 200
+        content: '{"data":{"id":6,"name":"Mrs. Corine Walter Jr.","email":"marcelo.kuhic@example.net","side_projects":[{"id":10,"name":"temporibus perspiciatis quis","description":"Et culpa vel officia odio.","url":null,"due_at":20251020,"created_at":"2023-08-20T16:17:36.000000Z","updated_at":"2023-08-20T16:17:36.000000Z","user_id":6}]}}'
+        headers: []
+        description: ''
+        custom: []
+      -
         status: 404
         content: '{"message":"Not found","resource":"user"}'
         headers: []
         description: '404, User not found'
-        custom: []
-      -
-        status: 200
-        content: '{"data":{"id":6,"name":"Mr. Merlin Friesen","email":"hdoyle@example.com","side_projects":[{"id":10,"name":"est numquam consequuntur","description":"Atque nobis ut natus aut dolores eveniet.","url":null,"due_at":20251222,"created_at":"2022-09-10T02:22:36.000000Z","updated_at":"2022-09-10T02:22:36.000000Z","user_id":6}]}}'
-        headers: []
-        description: ''
         custom: []
     responseFields: []
     auth: []
@@ -138,6 +153,7 @@ endpoints:
         required: false
         example: 1
         type: string
+        enumValues: []
         custom: []
       pageSize:
         name: pageSize
@@ -145,6 +161,7 @@ endpoints:
         required: false
         example: null
         type: string
+        enumValues: []
         custom: []
     cleanQueryParameters:
       page: 1
@@ -192,6 +209,7 @@ endpoints:
         required: true
         example: 1
         type: integer
+        enumValues: []
         custom: []
     cleanUrlParameters:
       id: 1
@@ -202,6 +220,7 @@ endpoints:
         required: false
         example: 'true'
         type: string
+        enumValues: []
         custom: []
     cleanQueryParameters:
       confirm: 'true'
@@ -247,6 +266,7 @@ endpoints:
         required: true
         example: 1
         type: integer
+        enumValues: []
         custom: []
     cleanUrlParameters:
       id: 1
@@ -269,6 +289,7 @@ endpoints:
         required: false
         example: null
         type: string
+        enumValues: []
         custom: []
     auth: []
     controller: null

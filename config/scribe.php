@@ -4,7 +4,6 @@ use Knuckles\Scribe\Extracting\Strategies;
 use App\Docs\Strategies\AddPaginationParameters;
 
 return [
-
     'theme' => 'default',
 
     /*
@@ -108,6 +107,7 @@ return [
     /*
      * The type of documentation output to generate.
      * - "static" will generate a static HTMl page in the /public/docs folder,
+     *
      * - "laravel" will generate the documentation as a Blade view, so you can add routing and authentication.
      */
     'type' => 'static',
@@ -162,7 +162,7 @@ return [
          * The base URL for the API tester to use (for example, you can set this to your staging URL).
          * Leave as null to use the current app URL (config(app.url)).
          */
-        'base_url' => null,
+        'base_url' => "http://127.0.0.1:8000",
         /**
          * Fetch a CSRF token before each request, and add it as an X-XSRF-TOKEN header. Needed if you're using Laravel Sanctum.
          */
@@ -225,7 +225,7 @@ return [
     'intro_text' => <<<INTRO
 The SideProject API is a sample API, built to demonstrate [Scribe's](http://scribe.knuckles.wtf) capabilities.
 
-Lke many side projects, it is itself an unfinished API, but hopefully it should be enough to convince you to try Scribe out.😉 You can check out the source code [on GitHub](https://github.com/knuckleswtf/TheSideProjectAPI/).
+Like many side projects, it is itself an unfinished API, but hopefully it should be enough to convince you to try Scribe out.😉 You can check out the source code [on GitHub](https://github.com/knuckleswtf/TheSideProjectAPI/).
 
 <aside class="success">Example of aside with class=success.</aside>
 <aside class="warning">Example of aside with class=warning.</aside>
@@ -393,12 +393,23 @@ INTRO
          * If you would like the package to generate the same example values for parameters on each run,
          * set this to any number (eg. 1234)
          */
-        'faker_seed' => 93743,
+        'faker_seed' => null,
         /*
          * With API resources and transformers, Scribe tries to generate example models to use in your API responses.
          * By default, Scribe will try the model's factory, and if that fails, try fetching the first from the database.
          * You can reorder or remove strategies here.
          */
         'models_source' => ['factoryCreate', 'factoryMake', 'databaseFirst'],
-    ]
+    ],
+    /**
+     * Customize the "Last updated" value displayed in the docs by specifying tokens and formats.
+     * Examples:
+     * - {date:F j Y} => March 28, 2022
+     * - {git:short} => Short hash of the last Git commit
+     *
+     * Available tokens are `{date:<format>}` and `{git:<format>}`.
+     * The format you pass to `date` will be passed to PhP's `date()` function.
+     * The format you pass to `git` can be either "short" or "long".
+     */
+    'last_updated' => 'Last updated: {date:F j, Y}'
 ];

@@ -88,40 +88,68 @@ endpoints:
         required: true
         example: 'The SideProject API'
         type: string
+        enumValues: []
         custom: []
       description:
         name: description
         description: 'A longer description of your side project. Must not be greater than 255 characters.'
         required: false
-        example: pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv
+        example: 'Assumenda ut hic est quia omnis vel.'
         type: string
+        enumValues: []
         custom: []
       url:
         name: url
         description: 'A url to your side project. Must be a valid URL.'
         required: false
-        example: 'http://hartmann.com/magnam-tenetur-quia-nemo-sit-est-numquam'
+        example: 'http://www.oconnell.com/facilis-dolore-id-illum-magnam-voluptatum-enim-quidem-et'
         type: string
+        enumValues: []
         custom: []
       due_at:
         name: due_at
         description: 'Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.'
         required: false
-        example: '2084-02-27'
+        example: '2056-11-16'
         type: string
+        enumValues: []
+        custom: []
+      state:
+        name: state
+        description: ''
+        required: true
+        example: ready
+        type: string
+        enumValues:
+          - ready
+          - pending
+        custom: []
+      status:
+        name: status
+        description: ''
+        required: false
+        example: approved
+        type: string
+        enumValues:
+          - approved
+          - pending
+          - closed
+          - new
         custom: []
     cleanBodyParameters:
       name: 'The SideProject API'
-      description: pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv
-      url: 'http://hartmann.com/magnam-tenetur-quia-nemo-sit-est-numquam'
-      due_at: '2084-02-27'
+      description: 'Assumenda ut hic est quia omnis vel.'
+      url: 'http://www.oconnell.com/facilis-dolore-id-illum-magnam-voluptatum-enim-quidem-et'
+      due_at: '2056-11-16'
+      state: ready
+      status: approved
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer vVZ1acg6D48khb3feE5d6Pa'
+      - 'Bearer kc6f635gaVhbeDaPZd184Ev'
     controller: null
     method: null
     route: null
@@ -147,9 +175,10 @@ endpoints:
         <aside class="success">Also, pretty cool: this endpoint's (and many others') URL parameters were figured out entirely by Scribe!</aside>
 
         Also, this endpoint uses a mix of docblock tags and PHP 8 attributes.
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {BEARER_TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -159,6 +188,7 @@ endpoints:
         required: true
         example: 1
         type: integer
+        enumValues: []
         custom: []
     cleanUrlParameters:
       id: 1
@@ -170,7 +200,7 @@ endpoints:
     responses:
       -
         status: 203
-        content: '{"data":{"name":"suscipit qui cumque","description":"Tenetur quia nemo sit est.","due_date":"20241106","owner":{"id":6,"name":"Kurt Kub","email":"juvenal97@example.org","email_verified_at":"2022-09-10T02:22:36.000000Z","created_at":"2022-09-10T02:22:36.000000Z","updated_at":"2022-09-10T02:22:36.000000Z"}}}'
+        content: '{"data":{"name":"ipsam deserunt quibusdam","description":"Magni accusantium similique quia est hic.","due_date":"20240324","owner":{"id":6,"name":"Katrine Keeling","email":"miller.ellie@example.org","email_verified_at":"2023-08-20T16:17:36.000000Z","created_at":"2023-08-20T16:17:36.000000Z","updated_at":"2023-08-20T16:17:36.000000Z"}}}'
         headers: []
         description: ''
         custom: []
@@ -178,10 +208,13 @@ endpoints:
         status: 404
         content: '{"message":"Not found","resource":"Side project"}'
         headers: []
-        description: '404, Side project not found'
+        description: 'Side project not found'
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ckfdD6b3ageaP6VhvEZ5481'
     controller: null
     method: null
     route: null
@@ -214,6 +247,7 @@ endpoints:
         required: true
         example: 1
         type: integer
+        enumValues: []
         custom: []
     cleanUrlParameters:
       id: 1
@@ -256,6 +290,7 @@ endpoints:
         required: true
         example: 1
         type: integer
+        enumValues: []
         custom: []
     cleanUrlParameters:
       id: 1
@@ -266,6 +301,7 @@ endpoints:
         required: false
         example: null
         type: string
+        enumValues: []
         custom: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -276,7 +312,7 @@ endpoints:
         status: 204
         content: 'null'
         headers: []
-        description: '204, Nothing to see here'
+        description: 'Nothing to see here'
         custom: []
       -
         status: 202

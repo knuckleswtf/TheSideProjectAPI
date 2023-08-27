@@ -7,31 +7,30 @@ use Illuminate\Validation\Rules\Password;
 
 class CreateUserRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
     public function authorize()
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
-        return [
-            'name' => 'string|required|min:1|max:255',
-            'email' => 'string|required|email',
-            'password' => [
-                'string',
-                'required',
-                Password::min(8),
-            ],
-        ];
+        ray($this->isMethod('post'));
+        switch ($this->method()) {
+            case 'GET':
+                return [];
+            case 'POST':
+                return [
+                    'data' => 'array|required',
+                    'data.title' => 'string|required',
+                    'data.meta' => 'array',
+                    'data.meta.tags' => 'array',
+                    'data.meta.tags.*' => 'string',
+                ];
+        }
+    }
+
+    public function bodyParameters()
+    {
+        return [];
     }
 }

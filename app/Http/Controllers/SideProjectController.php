@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Knuckles\Camel\Extraction\ExtractedEndpointData;
 use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\BodyParam;
 use Knuckles\Scribe\Attributes\ResponseFromTransformer;
 use Knuckles\Scribe\Attributes\Response;
 use App\Http\Transformers\SideProjectTransformer;
@@ -12,6 +13,12 @@ use Illuminate\Http\Request;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Item;
 use Knuckles\Scribe\Attributes\ResponseFromFile;
+
+enum State: string
+{
+    case READY = 'ready';
+    case PENDING = 'pending';
+}
 
 /**
  * @group Side Projects
@@ -38,6 +45,7 @@ class SideProjectController extends CRUDController
         return SideProject::all();
     }
 
+
     /**
      * Start a new side project
      *
@@ -47,8 +55,10 @@ class SideProjectController extends CRUDController
      * from the controller's code. Check out the source! </aside>
      *
      * @authenticated
+     * @bodyParam status string Enum: approved, pending, closed, new. Example: approved
      */
     #[Authenticated]
+    #[BodyParam(name: 'state', enum: State::class)]
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -77,6 +87,7 @@ class SideProjectController extends CRUDController
      *
      * @responseFile 404 scenario="Side project not found" responses/not_found.json {"resource": "Side project"}
      */
+    #[Authenticated]
     #[ResponseFromTransformer(SideProjectTransformer::class, status: 203, with: ['owner'])]
     public function show(SideProject $id)
     {

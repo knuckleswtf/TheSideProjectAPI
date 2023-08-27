@@ -2,12 +2,12 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
 /**
  * @mixin \App\Models\User
  */
-class UserResource extends JsonResource
+class UserResourceCollection extends ResourceCollection
 {
     /**
      * Transform the resource into an array.
@@ -18,10 +18,10 @@ class UserResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'email' => $this->email,
-            'side_projects' => $this->sideProjects,
+            'data' => $this->collection,
+            'links' => [
+                'self' => 'link-value',
+            ],
         ];
     }
 }

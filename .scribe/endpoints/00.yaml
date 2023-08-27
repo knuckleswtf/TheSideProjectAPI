@@ -25,23 +25,18 @@ endpoints:
         name: unnecessaryParam
         description: ''
         required: false
-        example: et
+        example: ut
         type: string
+        enumValues: []
         custom: []
     cleanUrlParameters:
-      unnecessaryParam: et
+      unnecessaryParam: ut
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
-      -
-        status: 400
-        content: '{"status": "down", "services": {"database": "up", "redis": "down"}}'
-        headers: []
-        description: '400, Service is unhealthy'
-        custom: []
       -
         status: 200
         content: '{"status":"up","services":{"database":"up","redis":"up"}}'
@@ -53,6 +48,12 @@ endpoints:
           access-control-allow-origin: '*'
         description: null
         custom: []
+      -
+        status: 400
+        content: '{"status": "down", "services": {"database": "up", "redis": "down"}}'
+        headers: []
+        description: 'Service is unhealthy'
+        custom: []
     responseFields:
       status:
         name: status
@@ -60,6 +61,7 @@ endpoints:
         required: false
         example: null
         type: string
+        enumValues: []
         custom: []
       services:
         name: services
@@ -67,6 +69,7 @@ endpoints:
         required: false
         example: null
         type: object
+        enumValues: []
         custom: []
     auth: []
     controller: null

@@ -28,6 +28,7 @@ endpoints:
         required: false
         example: et
         type: string
+        enumValues: []
         custom: []
     cleanQueryParameters:
       random: et
@@ -38,6 +39,7 @@ endpoints:
         required: true
         example: []
         type: object
+        enumValues: []
         custom: []
       data.name:
         name: data.name
@@ -45,6 +47,7 @@ endpoints:
         required: true
         example: et
         type: string
+        enumValues: []
         custom: []
       data.size:
         name: data.size
@@ -52,6 +55,7 @@ endpoints:
         required: false
         example: 5
         type: integer
+        enumValues: []
         custom: []
       data.other:
         name: data.other
@@ -59,6 +63,7 @@ endpoints:
         required: false
         example: null
         type: string
+        enumValues: []
         custom: []
       data.things:
         name: data.things
@@ -67,6 +72,7 @@ endpoints:
         example:
           - et
         type: 'string[]'
+        enumValues: []
         custom: []
       data.objects:
         name: data.objects
@@ -75,6 +81,7 @@ endpoints:
         example:
           - []
         type: 'object[]'
+        enumValues: []
         custom: []
       'data.objects[].a':
         name: 'data.objects[].a'
@@ -82,6 +89,7 @@ endpoints:
         required: false
         example: et
         type: string
+        enumValues: []
         custom: []
       'data.objects[].b':
         name: 'data.objects[].b'
@@ -89,6 +97,7 @@ endpoints:
         required: false
         example: et
         type: string
+        enumValues: []
         custom: []
     cleanBodyParameters:
       data:
@@ -136,6 +145,7 @@ endpoints:
         example:
           - []
         type: 'object[]'
+        enumValues: []
         custom: []
       '[].row_id':
         name: '[].row_id'
@@ -143,6 +153,7 @@ endpoints:
         required: false
         example: '700'
         type: string
+        enumValues: []
         custom: []
       '[].name':
         name: '[].name'
@@ -150,6 +161,7 @@ endpoints:
         required: true
         example: 'My item name'
         type: string
+        enumValues: []
         custom: []
     cleanBodyParameters:
       -
@@ -190,6 +202,7 @@ endpoints:
         required: true
         example: null
         type: file
+        enumValues: []
         custom: []
       nested:
         name: nested
@@ -197,6 +210,7 @@ endpoints:
         required: true
         example: []
         type: object
+        enumValues: []
         custom: []
       nested._string:
         name: nested._string
@@ -204,6 +218,7 @@ endpoints:
         required: true
         example: et
         type: string
+        enumValues: []
         custom: []
       nested._file:
         name: nested._file
@@ -211,6 +226,7 @@ endpoints:
         required: true
         example: null
         type: file
+        enumValues: []
         custom: []
     cleanBodyParameters:
       nested:

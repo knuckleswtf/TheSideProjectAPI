@@ -45,12 +45,17 @@ class UserController extends CRUDController
         return ['user' => $user, 'token' => $token->plainTextToken];
     }
 
+    public function dummy(CreateUserRequest $request)
+    {
+    }
+
     /**
      * Authenticate
      *
      * Get a new API token.
      *
      * <aside>Yes, we know you can impersonate any user.🙄</aside>
+     *
      */
     #[Response('{"token": "2|KLDoUXc68Ko0JaFDZoX9qYkUqWglwdGxQsvTGBCg"}')]
     #[ResponseField('token', description: 'The new API token. Valid forever.')]
@@ -66,7 +71,7 @@ class UserController extends CRUDController
      * This endpoint's response uses an Eloquent API resource, so we tell Scribe that using an annotation,
      * and it figures out how to generate a sample. The 404 sample is gotten from a "response file".
      */
-    #[ResponseFromApiResource(UserResource::class, User::class, with: ['sideProjects'])]
+    #[ResponseFromApiResource(UserResource::class, with: ['sideProjects'])]
     #[ResponseFromFile('responses/not_found.json', 404, merge: '{"resource": "user"}',
         description: '404, User not found')]
     public function show($id)
