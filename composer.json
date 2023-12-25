@@ -9,29 +9,25 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/framework": "^8.40",
+        "laravel/framework": "^9.0",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "league/fractal": "^0.19.2",
         "spatie/ray": "^1.23"
     },
     "require-dev": {
-        "facade/ignition": "^2.5",
+        "spatie/laravel-ignition": "^1.0",
         "fakerphp/faker": "^1.9.1",
         "knuckleswtf/scribe": "@dev",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
-        "nunomaduro/collision": "^5.0",
+        "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.3.3"
     },
     "repositories": [
         {
             "type": "path",
             "url": "../scribe"
-        },
-        {
-            "type": "path",
-            "url": "../scribe-docblock2attributes"
         }
     ],
     "autoload": {

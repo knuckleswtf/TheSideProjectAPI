@@ -27,6 +27,8 @@ endpoints:
         required: false
         example: et
         type: string
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
       unnecessaryParam: et
@@ -37,21 +39,21 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 400
-        content: '{"status": "down", "services": {"database": "up", "redis": "down"}}'
-        headers: []
-        description: '400, Service is unhealthy'
-        custom: []
-      -
         status: 200
         content: '{"status":"up","services":{"database":"up","redis":"up"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '55'
+          x-ratelimit-remaining: '47'
           access-control-allow-origin: '*'
         description: null
+        custom: []
+      -
+        status: 400
+        content: '{"status": "down", "services": {"database": "up", "redis": "down"}}'
+        headers: []
+        description: 'Service is unhealthy'
         custom: []
     responseFields:
       status:
@@ -60,6 +62,8 @@ endpoints:
         required: false
         example: null
         type: string
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
       services:
         name: services
@@ -67,6 +71,8 @@ endpoints:
         required: false
         example: null
         type: object
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
     auth: []
     controller: null

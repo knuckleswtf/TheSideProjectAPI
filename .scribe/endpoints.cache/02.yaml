@@ -39,12 +39,12 @@ endpoints:
     responses:
       -
         status: 200
-        content: '[{"id":1,"name":"voluptas assumenda maiores","description":"Consequuntur aut ea est non.","url":null,"due_at":20310222,"created_at":"2021-05-30T00:21:59.000000Z","updated_at":"2021-05-30T00:21:59.000000Z","user_id":2},{"id":2,"name":"iusto ut dolor","description":"Voluptatem aspernatur dolorem quae quaerat harum.","url":null,"due_at":20301215,"created_at":"2021-05-30T00:21:59.000000Z","updated_at":"2021-05-30T00:21:59.000000Z","user_id":1},{"id":3,"name":"provident et consequatur","description":"Quos et ipsum cum pariatur ex perspiciatis eius.","url":null,"due_at":20231022,"created_at":"2021-05-30T00:23:25.000000Z","updated_at":"2021-05-30T00:23:25.000000Z","user_id":3},{"id":4,"name":"corporis consequuntur amet","description":"Dolores eveniet deleniti voluptatem saepe expedita.","url":null,"due_at":20230712,"created_at":"2021-05-30T00:23:25.000000Z","updated_at":"2021-05-30T00:23:25.000000Z","user_id":1},{"id":5,"name":"optio excepturi ea","description":"Error deleniti sint a nostrum consequuntur et.","url":null,"due_at":20260324,"created_at":"2021-05-30T00:24:27.000000Z","updated_at":"2021-05-30T00:24:27.000000Z","user_id":4},{"id":6,"name":"nihil voluptate quaerat","description":"Animi reprehenderit soluta id quo.","url":null,"due_at":20290603,"created_at":"2021-05-30T00:24:27.000000Z","updated_at":"2021-05-30T00:24:27.000000Z","user_id":1},{"id":7,"name":"aspernatur architecto assumenda","description":"Nisi ea aut vel sint vero voluptas tempore.","url":null,"due_at":20280710,"created_at":"2021-05-30T00:25:43.000000Z","updated_at":"2021-05-30T00:25:43.000000Z","user_id":5},{"id":8,"name":"vel perspiciatis quo","description":"Et qui praesentium consequatur distinctio natus.","url":null,"due_at":20210605,"created_at":"2021-05-30T00:25:43.000000Z","updated_at":"2021-05-30T00:25:43.000000Z","user_id":1},{"id":9,"name":"qui et totam","description":"Veritatis quo dolorum soluta ut.","url":null,"due_at":20270203,"created_at":"2021-05-30T00:25:43.000000Z","updated_at":"2021-05-30T00:25:43.000000Z","user_id":1}]'
+        content: '[]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '57'
+          x-ratelimit-remaining: '49'
           access-control-allow-origin: '*'
         description: null
         custom: []
@@ -90,33 +90,41 @@ endpoints:
         required: true
         example: 'The SideProject API'
         type: string
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
       description:
         name: description
         description: 'A longer description of your side project. Must not be greater than 255 characters.'
         required: false
-        example: pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv
+        example: 'Suscipit qui cumque magnam tenetur quia nemo.'
         type: string
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
       url:
         name: url
         description: 'A url to your side project. Must be a valid URL.'
         required: false
-        example: 'http://hartmann.com/magnam-tenetur-quia-nemo-sit-est-numquam'
+        example: 'http://www.reilly.com/'
         type: string
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
       due_at:
         name: due_at
         description: 'Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.'
         required: false
-        example: '2084-02-27'
+        example: '2085-06-01'
         type: string
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
       name: 'The SideProject API'
-      description: pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv
-      url: 'http://hartmann.com/magnam-tenetur-quia-nemo-sit-est-numquam'
-      due_at: '2084-02-27'
+      description: 'Suscipit qui cumque magnam tenetur quia nemo.'
+      url: 'http://www.reilly.com/'
+      due_at: '2085-06-01'
     fileParameters: []
     responses: []
     responseFields: []
@@ -159,11 +167,13 @@ endpoints:
         name: id
         description: 'The ID of the side project.'
         required: true
-        example: 1
+        example: 13
         type: integer
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 13
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -172,7 +182,7 @@ endpoints:
     responses:
       -
         status: 203
-        content: '{"data":{"name":"suscipit qui cumque","description":"Tenetur quia nemo sit est.","due_date":"20241106","owner":{"id":6,"name":"Kurt Kub","email":"juvenal97@example.org","email_verified_at":"2022-09-10T02:22:36.000000Z","created_at":"2022-09-10T02:22:36.000000Z","updated_at":"2022-09-10T02:22:36.000000Z"}}}'
+        content: '{"data":{"name":"suscipit qui cumque","description":"Tenetur quia nemo sit est.","due_date":20260208,"owner":{"id":1,"name":"Kurt Kub","email":"juvenal97@example.org","email_verified_at":"2023-12-13T23:29:24.000000Z","created_at":"2023-12-13T23:29:24.000000Z","updated_at":"2023-12-13T23:29:24.000000Z"}}}'
         headers: []
         description: ''
         custom: []
@@ -180,7 +190,7 @@ endpoints:
         status: 404
         content: '{"message":"Not found","resource":"Side project"}'
         headers: []
-        description: '404, Side project not found'
+        description: 'Side project not found'
         custom: []
     responseFields: []
     auth: []
@@ -214,11 +224,13 @@ endpoints:
         name: id
         description: 'The ID of the side project.'
         required: true
-        example: 1
+        example: 13
         type: integer
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 13
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -256,11 +268,13 @@ endpoints:
         name: id
         description: 'The ID of the side project.'
         required: true
-        example: 1
+        example: 13
         type: integer
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 13
     queryParameters:
       queryThing:
         name: queryThing
@@ -268,6 +282,8 @@ endpoints:
         required: false
         example: null
         type: string
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanQueryParameters: []
     bodyParameters: []

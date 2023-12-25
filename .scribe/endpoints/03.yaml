@@ -26,6 +26,8 @@ endpoints:
         required: false
         example: et
         type: string
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanQueryParameters:
       random: et
@@ -36,6 +38,8 @@ endpoints:
         required: true
         example: []
         type: object
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
       data.name:
         name: data.name
@@ -43,6 +47,8 @@ endpoints:
         required: true
         example: et
         type: string
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
       data.size:
         name: data.size
@@ -50,6 +56,8 @@ endpoints:
         required: false
         example: 5
         type: integer
+        enumValues: []
+        exampleWasSpecified: true
         custom: []
       data.other:
         name: data.other
@@ -57,14 +65,17 @@ endpoints:
         required: false
         example: null
         type: string
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
       data.things:
         name: data.things
         description: 'An array of strings.'
         required: false
-        example:
-          - et
+        example: null
         type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: true
         custom: []
       data.objects:
         name: data.objects
@@ -73,6 +84,8 @@ endpoints:
         example:
           - []
         type: 'object[]'
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
       'data.objects[].a':
         name: 'data.objects[].a'
@@ -80,6 +93,8 @@ endpoints:
         required: false
         example: et
         type: string
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
       'data.objects[].b':
         name: 'data.objects[].b'
@@ -87,13 +102,14 @@ endpoints:
         required: false
         example: et
         type: string
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
       data:
         name: et
         size: 5
-        things:
-          - et
+        things: null
         objects:
           -
             a: et
@@ -134,6 +150,8 @@ endpoints:
         example:
           - []
         type: 'object[]'
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
       '[].row_id':
         name: '[].row_id'
@@ -141,6 +159,8 @@ endpoints:
         required: false
         example: '700'
         type: string
+        enumValues: []
+        exampleWasSpecified: true
         custom: []
       '[].name':
         name: '[].name'
@@ -148,6 +168,8 @@ endpoints:
         required: true
         example: 'My item name'
         type: string
+        enumValues: []
+        exampleWasSpecified: true
         custom: []
     cleanBodyParameters:
       -
@@ -188,6 +210,8 @@ endpoints:
         required: true
         example: null
         type: file
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
       nested:
         name: nested
@@ -195,6 +219,8 @@ endpoints:
         required: true
         example: []
         type: object
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
       nested._string:
         name: nested._string
@@ -202,6 +228,8 @@ endpoints:
         required: true
         example: et
         type: string
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
       nested._file:
         name: nested._file
@@ -209,6 +237,8 @@ endpoints:
         required: true
         example: null
         type: file
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
       nested:
@@ -256,7 +286,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '56'
+          x-ratelimit-remaining: '48'
           access-control-allow-origin: '*'
         description: null
         custom: []

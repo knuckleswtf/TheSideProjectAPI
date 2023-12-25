@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>The SideProject API</title>
 
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset("/vendor/scribe-alternate/css/theme-default.style.css") }}" media="screen">
     <link rel="stylesheet" href="{{ asset("/vendor/scribe-alternate/css/theme-default.print.css") }}" media="print">
@@ -14,8 +14,8 @@
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
 
     <link rel="stylesheet"
-          href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
-    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+          href="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
 
@@ -27,13 +27,13 @@
             </style>
 
     <script>
-        var baseUrl = "http://localhost:8000";
+        var tryItOutBaseUrl = "http://localhost:8000";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
-    <script src="{{ asset("/vendor/scribe-alternate/js/tryitout-4.x-dev.js") }}"></script>
+    <script src="{{ asset("/vendor/scribe-alternate/js/tryitout-4.26.0.js") }}"></script>
 
-    <script src="{{ asset("/vendor/scribe-alternate/js/theme-default-4.x-dev.js") }}"></script>
+    <script src="{{ asset("/vendor/scribe-alternate/js/theme-default-4.26.0.js") }}"></script>
 
 </head>
 
@@ -42,7 +42,7 @@
 <a href="#" id="nav-button">
     <span>
         MENU
-        <img src="{{ asset("/vendor/scribe-alternate/images/navbar.png") }}" alt="navbar-image" />
+        <img src="{{ asset("/vendor/scribe-alternate/images/navbar.png") }}" alt="navbar-image"/>
     </span>
 </a>
 <div class="tocify-wrapper">
@@ -159,13 +159,14 @@
                             </ul>
             </div>
 
-            <ul class="toc-footer" id="toc-footer">
-                            <li><a href="{{ route("scribe-alternate.postman") }}">View Postman collection</a></li>
-                            <li><a href="{{ route("scribe-alternate.openapi") }}">View OpenAPI spec</a></li>
-                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
-                    </ul>
-        <ul class="toc-footer" id="last-updated">
-        <li>Last updated: September 10 2022</li>
+    <ul class="toc-footer" id="toc-footer">
+                    <li style="padding-bottom: 5px;"><a href="{{ route("scribe-alternate.postman") }}">View Postman collection</a></li>
+                            <li style="padding-bottom: 5px;"><a href="{{ route("scribe-alternate.openapi") }}">View OpenAPI spec</a></li>
+                <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+    </ul>
+
+    <ul class="toc-footer" id="last-updated">
+        <li>Last updated: December 13, 2023</li>
     </ul>
 </div>
 
@@ -210,9 +211,7 @@
     \"data\": {
         \"name\": \"et\",
         \"size\": 5,
-        \"things\": [
-            \"et\"
-        ],
+        \"things\": null,
         \"objects\": [
             {
                 \"a\": \"et\",
@@ -244,9 +243,7 @@ let body = {
     "data": {
         "name": "et",
         "size": 5,
-        "things": [
-            "et"
-        ],
+        "things": null,
         "objects": [
             {
                 "a": "et",
@@ -265,23 +262,22 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://testapi.com/api/nested';
 $response = $client-&gt;post(
-    'http://testapi.com/api/nested',
+    $url,
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
-            'random'=&gt; 'et',
+            'random' =&gt; 'et',
         ],
         'json' =&gt; [
             'data' =&gt; [
                 'name' =&gt; 'et',
                 'size' =&gt; 5,
-                'things' =&gt; [
-                    'et',
-                ],
+                'things' =&gt; null,
                 'objects' =&gt; [
                     [
                         'a' =&gt; 'et',
@@ -303,18 +299,22 @@ print_r(json_decode((string) $body));</code></pre></div>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-nested"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-nested"></code></pre>
+    <pre class="json"><code id="execution-response-content-POSTapi-nested"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
 <span id="execution-error-POSTapi-nested" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-nested"></code></pre>
+    <pre><code id="execution-error-message-POSTapi-nested">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-POSTapi-nested" data-method="POST"
       data-path="api/nested"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-nested', this);">
     <h3>
@@ -331,124 +331,142 @@ print_r(json_decode((string) $body));</code></pre></div>
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-nested" hidden>Send Request 💥
+                    id="btn-executetryout-POSTapi-nested"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
             <b><code>api/nested</code></b>
         </p>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                    <p>
-                <b><code>random</code></b>&nbsp;&nbsp;
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-nested"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-nested"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>random</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
-                <input type="text"
-               name="random"
-               data-endpoint="POSTapi-nested"
+                <input type="text" style="display: none"
+                              name="random"                data-endpoint="POSTapi-nested"
                value="et"
-               data-component="query" hidden>
+               data-component="query">
     <br>
-<p>A random query parameter.</p>
-            </p>
+<p>A random query parameter. Example: <code>et</code></p>
+            </div>
                         <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <p>
+        <div style=" padding-left: 28px;  clear: unset;">
         <details>
             <summary style="padding-bottom: 10px;">
-                <b><code>data</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>data</code></b>&nbsp;&nbsp;
 <small>object</small>&nbsp;
  &nbsp;
 <br>
 <p>The data</p>
             </summary>
-                                                <p>
-                        <b><code>data.name</code></b>&nbsp;&nbsp;
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
-                <input type="text"
-               name="data.name"
-               data-endpoint="POSTapi-nested"
+                <input type="text" style="display: none"
+                              name="data.name"                data-endpoint="POSTapi-nested"
                value="et"
-               data-component="body" hidden>
+               data-component="body">
     <br>
-<p>A string field.</p>
-                    </p>
-                                                                <p>
-                        <b><code>data.size</code></b>&nbsp;&nbsp;
+<p>A string field. Example: <code>et</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>size</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
-                <input type="number"
-               name="data.size"
-               data-endpoint="POSTapi-nested"
+                <input type="number" style="display: none"
+               step="any"               name="data.size"                data-endpoint="POSTapi-nested"
                value="5"
-               data-component="body" hidden>
+               data-component="body">
     <br>
-<p>A number.</p>
-                    </p>
-                                                                <p>
-                        <b><code>data.other</code></b>&nbsp;&nbsp;
+<p>A number. Example: <code>5</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>other</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
-                <input type="text"
-               name="data.other"
-               data-endpoint="POSTapi-nested"
+                <input type="text" style="display: none"
+                              name="data.other"                data-endpoint="POSTapi-nested"
                value=""
-               data-component="body" hidden>
+               data-component="body">
     <br>
 <p>Optional thing.</p>
-                    </p>
-                                                                <p>
-                        <b><code>data.things</code></b>&nbsp;&nbsp;
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>things</code></b>&nbsp;&nbsp;
 <small>string[]</small>&nbsp;
 <i>optional</i> &nbsp;
-                <input type="text"
-               name="data.things[0]"
-               data-endpoint="POSTapi-nested"
-               data-component="body" hidden>
-        <input type="text"
-               name="data.things[1]"
-               data-endpoint="POSTapi-nested"
-               data-component="body" hidden>
+                <input type="text" style="display: none"
+                              name="data.things[0]"                data-endpoint="POSTapi-nested"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="data.things[1]"                data-endpoint="POSTapi-nested"
+               data-component="body">
     <br>
 <p>An array of strings.</p>
-                    </p>
-                                                                <p>
+                    </div>
+                                                                <div style=" margin-left: 14px; clear: unset;">
         <details>
             <summary style="padding-bottom: 10px;">
-                <b><code>data.objects</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>objects</code></b>&nbsp;&nbsp;
 <small>object[]</small>&nbsp;
 <i>optional</i> &nbsp;
 <br>
 <p>An array of objects</p>
             </summary>
-                                                <p>
-                        <b><code>data.objects[].a</code></b>&nbsp;&nbsp;
+                                                <div style="margin-left: 28px; clear: unset;">
+                        <b style="line-height: 2;"><code>a</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
-                <input type="text"
-               name="data.objects.0.a"
-               data-endpoint="POSTapi-nested"
+                <input type="text" style="display: none"
+                              name="data.objects.0.a"                data-endpoint="POSTapi-nested"
                value="et"
-               data-component="body" hidden>
+               data-component="body">
     <br>
-<p>A field in the array of objects</p>
-                    </p>
-                                                                <p>
-                        <b><code>data.objects[].b</code></b>&nbsp;&nbsp;
+<p>A field in the array of objects Example: <code>et</code></p>
+                    </div>
+                                                                <div style="margin-left: 28px; clear: unset;">
+                        <b style="line-height: 2;"><code>b</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
-                <input type="text"
-               name="data.objects.0.b"
-               data-endpoint="POSTapi-nested"
+                <input type="text" style="display: none"
+                              name="data.objects.0.b"                data-endpoint="POSTapi-nested"
                value="et"
-               data-component="body" hidden>
+               data-component="body">
     <br>
-<p>A field in the array of objects</p>
-                    </p>
+<p>A field in the array of objects Example: <code>et</code></p>
+                    </div>
                                     </details>
-        </p>
+        </div>
                                         </details>
-        </p>
+        </div>
         </form>
 
                     <h2 id="dummy-endpoints-POSTapi-array-body">Body content array</h2>
@@ -502,8 +520,9 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://testapi.com/api/array-body';
 $response = $client-&gt;post(
-    'http://testapi.com/api/array-body',
+    $url,
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -528,18 +547,22 @@ print_r(json_decode((string) $body));</code></pre></div>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-array-body"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-array-body"></code></pre>
+    <pre class="json"><code id="execution-response-content-POSTapi-array-body"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
 <span id="execution-error-POSTapi-array-body" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-array-body"></code></pre>
+    <pre><code id="execution-error-message-POSTapi-array-body">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-POSTapi-array-body" data-method="POST"
       data-path="api/array-body"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="1"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-array-body', this);">
     <h3>
@@ -556,41 +579,64 @@ print_r(json_decode((string) $body));</code></pre></div>
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-array-body" hidden>Send Request 💥
+                    id="btn-executetryout-POSTapi-array-body"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
             <b><code>api/array-body</code></b>
         </p>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <p>
-            <p>The request body is an array (<code>object[]</code>`), representing list of items.</p>
-        </p>
-                                            <p>
-                        <b><code>[].row_id</code></b>&nbsp;&nbsp;
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-array-body"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-array-body"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>The request body is an array (<code>object[]</code>`), representing list of items. Each item has the following properties:</p>
+
+                                            <div style="margin-left: 28px; clear: unset;">
+                        <b style="line-height: 2;"><code>row_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
-                <input type="text"
-               name="0.row_id"
-               data-endpoint="POSTapi-array-body"
+                <input type="text" style="display: none"
+                              name="0.row_id"                data-endpoint="POSTapi-array-body"
                value="700"
-               data-component="body" hidden>
+               data-component="body">
     <br>
-<p>A unique ID.</p>
-                    </p>
-                                                                <p>
-                        <b><code>[].name</code></b>&nbsp;&nbsp;
+<p>A unique ID. Example: <code>700</code></p>
+                    </div>
+                                                                <div style="margin-left: 28px; clear: unset;">
+                        <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
-                <input type="text"
-               name="0.name"
-               data-endpoint="POSTapi-array-body"
+                <input type="text" style="display: none"
+                              name="0.name"                data-endpoint="POSTapi-array-body"
                value="My item name"
-               data-component="body" hidden>
+               data-component="body">
     <br>
-<p>An element name.</p>
-                    </p>
+<p>An element name. Example: <code>My item name</code></p>
+                    </div>
                                     </form>
 
                                 <h2 id="dummy-endpoints-another-subgroup">Another subgroup</h2>
@@ -613,9 +659,9 @@ print_r(json_decode((string) $body));</code></pre></div>
     "http://testapi.com/api/file-input" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "nested[_string]=et" \
-    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\phpF259.tmp" \
-    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\phpF26A.tmp" </code></pre></div>
+    --form "nested[_string]=et"\
+    --form "the_file=@C:\Users\shalvah\AppData\Local\Temp\php924B.tmp" \
+    --form "nested[_file]=@C:\Users\shalvah\AppData\Local\Temp\php924C.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -642,8 +688,9 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://testapi.com/api/file-input';
 $response = $client-&gt;post(
-    'http://testapi.com/api/file-input',
+    $url,
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'multipart/form-data',
@@ -656,11 +703,11 @@ $response = $client-&gt;post(
             ],
             [
                 'name' =&gt; 'the_file',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpF259.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php924B.tmp', 'r')
             ],
             [
                 'name' =&gt; 'nested[_file]',
-                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\phpF26A.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\shalvah\AppData\Local\Temp\php924C.tmp', 'r')
             ],
         ],
     ]
@@ -676,18 +723,22 @@ print_r(json_decode((string) $body));</code></pre></div>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-file-input"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-file-input"></code></pre>
+    <pre class="json"><code id="execution-response-content-POSTapi-file-input"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
 <span id="execution-error-POSTapi-file-input" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-file-input"></code></pre>
+    <pre><code id="execution-error-message-POSTapi-file-input">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-POSTapi-file-input" data-method="POST"
       data-path="api/file-input"
       data-authed="0"
       data-hasfiles="1"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"multipart\/form-data","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-file-input', this);">
     <h3>
@@ -704,61 +755,84 @@ print_r(json_decode((string) $body));</code></pre></div>
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-file-input" hidden>Send Request 💥
+                    id="btn-executetryout-POSTapi-file-input"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
             <b><code>api/file-input</code></b>
         </p>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <p>
-            <b><code>the_file</code></b>&nbsp;&nbsp;
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-file-input"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-file-input"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>the_file</code></b>&nbsp;&nbsp;
 <small>file</small>&nbsp;
  &nbsp;
-                <input type="file"
-               name="the_file"
-               data-endpoint="POSTapi-file-input"
+                <input type="file" style="display: none"
+                              name="the_file"                data-endpoint="POSTapi-file-input"
                value=""
-               data-component="body" hidden>
+               data-component="body">
     <br>
-<p>Just a file.</p>
-        </p>
-                <p>
+<p>Just a file. Example: <code>C:\Users\shalvah\AppData\Local\Temp\php924B.tmp</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
         <details>
             <summary style="padding-bottom: 10px;">
-                <b><code>nested</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>nested</code></b>&nbsp;&nbsp;
 <small>object</small>&nbsp;
  &nbsp;
 <br>
 
             </summary>
-                                                <p>
-                        <b><code>nested._string</code></b>&nbsp;&nbsp;
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>_string</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
-                <input type="text"
-               name="nested._string"
-               data-endpoint="POSTapi-file-input"
+                <input type="text" style="display: none"
+                              name="nested._string"                data-endpoint="POSTapi-file-input"
                value="et"
-               data-component="body" hidden>
+               data-component="body">
     <br>
-<p>A nested string.</p>
-                    </p>
-                                                                <p>
-                        <b><code>nested._file</code></b>&nbsp;&nbsp;
+<p>A nested string. Example: <code>et</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>_file</code></b>&nbsp;&nbsp;
 <small>file</small>&nbsp;
  &nbsp;
-                <input type="file"
-               name="nested._file"
-               data-endpoint="POSTapi-file-input"
+                <input type="file" style="display: none"
+                              name="nested._file"                data-endpoint="POSTapi-file-input"
                value=""
-               data-component="body" hidden>
+               data-component="body">
     <br>
-<p>A nested file.</p>
-                    </p>
+<p>A nested file. Example: <code>C:\Users\shalvah\AppData\Local\Temp\php924C.tmp</code></p>
+                    </div>
                                     </details>
-        </p>
+        </div>
         </form>
 
                     <h2 id="dummy-endpoints-GETapi-v1-languages">GET api/v1/languages</h2>
@@ -799,8 +873,9 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://testapi.com/api/v1/languages';
 $response = $client-&gt;get(
-    'http://testapi.com/api/v1/languages',
+    $url,
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -819,36 +894,39 @@ print_r(json_decode((string) $body));</code></pre></div>
             <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
-            <summary>
+            <summary style="cursor: pointer;">
                 <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 52
+x-ratelimit-remaining: 44
 access-control-allow-origin: *
- </code></pre>
-        </details>         <pre>
+ </code></pre></details>         <pre>
 
-<code class="language-json">[]</code>
+<code class="language-json" style="max-height: 300px;">[]</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-v1-languages" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-GETapi-v1-languages"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-languages"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-languages"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
 <span id="execution-error-GETapi-v1-languages" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-languages"></code></pre>
+    <pre><code id="execution-error-message-GETapi-v1-languages">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-GETapi-v1-languages" data-method="GET"
       data-path="api/v1/languages"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Test":"Value"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-languages', this);">
     <h3>
@@ -865,14 +943,51 @@ access-control-allow-origin: *
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-languages" hidden>Send Request 💥
+                    id="btn-executetryout-GETapi-v1-languages"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>api/v1/languages</code></b>
         </p>
-                    </form>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-languages"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-languages"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Test</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Test"                data-endpoint="GETapi-v1-languages"
+               value="Value"
+               data-component="header">
+    <br>
+<p>Example: <code>Value</code></p>
+            </div>
+                        </form>
 
                 <h1 id="general">General</h1>
 
@@ -915,8 +1030,9 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://testapi.com/api/healthcheck/et';
 $response = $client-&gt;get(
-    'http://testapi.com/api/healthcheck/et',
+    $url,
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -931,38 +1047,37 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <span id="example-responses-GETapi-healthcheck--unnecessaryParam--">
             <blockquote>
-            <p>Example response (400, Service is unhealthy):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;status&quot;: &quot;down&quot;,
-    &quot;services&quot;: {
-        &quot;database&quot;: &quot;up&quot;,
-        &quot;redis&quot;: &quot;down&quot;
-    }
-}</code>
- </pre>
-            <blockquote>
             <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
-            <summary>
+            <summary style="cursor: pointer;">
                 <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 55
+x-ratelimit-remaining: 47
 access-control-allow-origin: *
- </code></pre>
-        </details>         <pre>
+ </code></pre></details>         <pre>
 
-<code class="language-json">{
+<code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;up&quot;,
     &quot;services&quot;: {
         &quot;database&quot;: &quot;up&quot;,
         &quot;redis&quot;: &quot;up&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400, Service is unhealthy):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;down&quot;,
+    &quot;services&quot;: {
+        &quot;database&quot;: &quot;up&quot;,
+        &quot;redis&quot;: &quot;down&quot;
     }
 }</code>
  </pre>
@@ -971,18 +1086,22 @@ access-control-allow-origin: *
     <blockquote>Received response<span
                 id="execution-response-status-GETapi-healthcheck--unnecessaryParam--"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-healthcheck--unnecessaryParam--"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-healthcheck--unnecessaryParam--"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
 <span id="execution-error-GETapi-healthcheck--unnecessaryParam--" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-healthcheck--unnecessaryParam--"></code></pre>
+    <pre><code id="execution-error-message-GETapi-healthcheck--unnecessaryParam--">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-GETapi-healthcheck--unnecessaryParam--" data-method="GET"
       data-path="api/healthcheck/{unnecessaryParam?}"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETapi-healthcheck--unnecessaryParam--', this);">
     <h3>
@@ -999,44 +1118,69 @@ access-control-allow-origin: *
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-healthcheck--unnecessaryParam--" hidden>Send Request 💥
+                    id="btn-executetryout-GETapi-healthcheck--unnecessaryParam--"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>api/healthcheck/{unnecessaryParam?}</code></b>
         </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>unnecessaryParam</code></b>&nbsp;&nbsp;
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-healthcheck--unnecessaryParam--"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-healthcheck--unnecessaryParam--"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>unnecessaryParam</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
-                <input type="text"
-               name="unnecessaryParam"
-               data-endpoint="GETapi-healthcheck--unnecessaryParam--"
+                <input type="text" style="display: none"
+                              name="unnecessaryParam"                data-endpoint="GETapi-healthcheck--unnecessaryParam--"
                value="et"
-               data-component="url" hidden>
+               data-component="url">
     <br>
-
-            </p>
+<p>Example: <code>et</code></p>
+            </div>
                     </form>
 
     <h3>Response</h3>
     <h4 class="fancy-heading-panel"><b>Response Fields</b></h4>
-    <p>
-            <b><code>status</code></b>&nbsp;&nbsp;
+    <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
 <br>
 <p>The status of this API (<code>up</code> or <code>down</code>).</p>
-        </p>
-                <p>
-            <b><code>services</code></b>&nbsp;&nbsp;
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>services</code></b>&nbsp;&nbsp;
 <small>object</small>&nbsp;
  &nbsp;
 <br>
 <p>Map of each downstream service and their status (<code>up</code> or <code>down</code>).</p>
-        </p>
+        </div>
                         <h2 id="general-GETapi-me">GET api/me</h2>
 
 <p>
@@ -1073,8 +1217,9 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://testapi.com/api/me';
 $response = $client-&gt;get(
-    'http://testapi.com/api/me',
+    $url,
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -1092,16 +1237,15 @@ print_r(json_decode((string) $body));</code></pre></div>
             <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
-            <summary>
+            <summary style="cursor: pointer;">
                 <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
- </code></pre>
-        </details>         <pre>
+ </code></pre></details>         <pre>
 
-<code class="language-json">{
+<code class="language-json" style="max-height: 300px;">{
     &quot;message&quot;: &quot;Unauthenticated.&quot;
 }</code>
  </pre>
@@ -1110,18 +1254,22 @@ access-control-allow-origin: *
     <blockquote>Received response<span
                 id="execution-response-status-GETapi-me"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-me"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-me"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
 <span id="execution-error-GETapi-me" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-me"></code></pre>
+    <pre><code id="execution-error-message-GETapi-me">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-GETapi-me" data-method="GET"
       data-path="api/me"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETapi-me', this);">
     <h3>
@@ -1138,14 +1286,40 @@ access-control-allow-origin: *
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-me" hidden>Send Request 💥
+                    id="btn-executetryout-GETapi-me"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>api/me</code></b>
         </p>
-                    </form>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-me"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-me"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
                 <h1 id="side-projects">Side Projects</h1>
 
@@ -1189,8 +1363,9 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://testapi.com/api/side_projects';
 $response = $client-&gt;get(
-    'http://testapi.com/api/side_projects',
+    $url,
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -1208,127 +1383,39 @@ print_r(json_decode((string) $body));</code></pre></div>
             <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
-            <summary>
+            <summary style="cursor: pointer;">
                 <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 53
+x-ratelimit-remaining: 45
 access-control-allow-origin: *
- </code></pre>
-        </details>         <pre>
+ </code></pre></details>         <pre>
 
-<code class="language-json">[
-    {
-        &quot;id&quot;: 1,
-        &quot;name&quot;: &quot;voluptas assumenda maiores&quot;,
-        &quot;description&quot;: &quot;Consequuntur aut ea est non.&quot;,
-        &quot;url&quot;: null,
-        &quot;due_at&quot;: 20310222,
-        &quot;created_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
-        &quot;user_id&quot;: 2
-    },
-    {
-        &quot;id&quot;: 2,
-        &quot;name&quot;: &quot;iusto ut dolor&quot;,
-        &quot;description&quot;: &quot;Voluptatem aspernatur dolorem quae quaerat harum.&quot;,
-        &quot;url&quot;: null,
-        &quot;due_at&quot;: 20301215,
-        &quot;created_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
-        &quot;user_id&quot;: 1
-    },
-    {
-        &quot;id&quot;: 3,
-        &quot;name&quot;: &quot;provident et consequatur&quot;,
-        &quot;description&quot;: &quot;Quos et ipsum cum pariatur ex perspiciatis eius.&quot;,
-        &quot;url&quot;: null,
-        &quot;due_at&quot;: 20231022,
-        &quot;created_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
-        &quot;user_id&quot;: 3
-    },
-    {
-        &quot;id&quot;: 4,
-        &quot;name&quot;: &quot;corporis consequuntur amet&quot;,
-        &quot;description&quot;: &quot;Dolores eveniet deleniti voluptatem saepe expedita.&quot;,
-        &quot;url&quot;: null,
-        &quot;due_at&quot;: 20230712,
-        &quot;created_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
-        &quot;user_id&quot;: 1
-    },
-    {
-        &quot;id&quot;: 5,
-        &quot;name&quot;: &quot;optio excepturi ea&quot;,
-        &quot;description&quot;: &quot;Error deleniti sint a nostrum consequuntur et.&quot;,
-        &quot;url&quot;: null,
-        &quot;due_at&quot;: 20260324,
-        &quot;created_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
-        &quot;user_id&quot;: 4
-    },
-    {
-        &quot;id&quot;: 6,
-        &quot;name&quot;: &quot;nihil voluptate quaerat&quot;,
-        &quot;description&quot;: &quot;Animi reprehenderit soluta id quo.&quot;,
-        &quot;url&quot;: null,
-        &quot;due_at&quot;: 20290603,
-        &quot;created_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
-        &quot;user_id&quot;: 1
-    },
-    {
-        &quot;id&quot;: 7,
-        &quot;name&quot;: &quot;aspernatur architecto assumenda&quot;,
-        &quot;description&quot;: &quot;Nisi ea aut vel sint vero voluptas tempore.&quot;,
-        &quot;url&quot;: null,
-        &quot;due_at&quot;: 20280710,
-        &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-        &quot;user_id&quot;: 5
-    },
-    {
-        &quot;id&quot;: 8,
-        &quot;name&quot;: &quot;vel perspiciatis quo&quot;,
-        &quot;description&quot;: &quot;Et qui praesentium consequatur distinctio natus.&quot;,
-        &quot;url&quot;: null,
-        &quot;due_at&quot;: 20210605,
-        &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-        &quot;user_id&quot;: 1
-    },
-    {
-        &quot;id&quot;: 9,
-        &quot;name&quot;: &quot;qui et totam&quot;,
-        &quot;description&quot;: &quot;Veritatis quo dolorum soluta ut.&quot;,
-        &quot;url&quot;: null,
-        &quot;due_at&quot;: 20270203,
-        &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-        &quot;user_id&quot;: 1
-    }
-]</code>
+<code class="language-json" style="max-height: 300px;">[]</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-side_projects" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-GETapi-side_projects"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-side_projects"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-side_projects"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
 <span id="execution-error-GETapi-side_projects" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-side_projects"></code></pre>
+    <pre><code id="execution-error-message-GETapi-side_projects">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-GETapi-side_projects" data-method="GET"
       data-path="api/side_projects"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETapi-side_projects', this);">
     <h3>
@@ -1345,14 +1432,40 @@ access-control-allow-origin: *
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-side_projects" hidden>Send Request 💥
+                    id="btn-executetryout-GETapi-side_projects"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>api/side_projects</code></b>
         </p>
-                    </form>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-side_projects"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-side_projects"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
                     <h2 id="side-projects-POSTapi-side_projects">Start a new side project</h2>
 
@@ -1376,9 +1489,9 @@ from the controller's code. Check out the source! </aside></p>
     --header "Accept: application/json" \
     --data "{
     \"name\": \"The SideProject API\",
-    \"description\": \"pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv\",
-    \"url\": \"http:\\/\\/hartmann.com\\/magnam-tenetur-quia-nemo-sit-est-numquam\",
-    \"due_at\": \"2084-02-27\"
+    \"description\": \"Suscipit qui cumque magnam tenetur quia nemo.\",
+    \"url\": \"http:\\/\\/www.reilly.com\\/\",
+    \"due_at\": \"2085-06-01\"
 }"
 </code></pre></div>
 
@@ -1396,9 +1509,9 @@ const headers = {
 
 let body = {
     "name": "The SideProject API",
-    "description": "pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv",
-    "url": "http:\/\/hartmann.com\/magnam-tenetur-quia-nemo-sit-est-numquam",
-    "due_at": "2084-02-27"
+    "description": "Suscipit qui cumque magnam tenetur quia nemo.",
+    "url": "http:\/\/www.reilly.com\/",
+    "due_at": "2085-06-01"
 };
 
 fetch(url, {
@@ -1410,8 +1523,9 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://testapi.com/api/side_projects';
 $response = $client-&gt;post(
-    'http://testapi.com/api/side_projects',
+    $url,
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {BEARER_TOKEN}',
@@ -1420,9 +1534,9 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'name' =&gt; 'The SideProject API',
-            'description' =&gt; 'pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv',
-            'url' =&gt; 'http://hartmann.com/magnam-tenetur-quia-nemo-sit-est-numquam',
-            'due_at' =&gt; '2084-02-27',
+            'description' =&gt; 'Suscipit qui cumque magnam tenetur quia nemo.',
+            'url' =&gt; 'http://www.reilly.com/',
+            'due_at' =&gt; '2085-06-01',
         ],
     ]
 );
@@ -1437,18 +1551,22 @@ print_r(json_decode((string) $body));</code></pre></div>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-side_projects"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-side_projects"></code></pre>
+    <pre class="json"><code id="execution-response-content-POSTapi-side_projects"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
 <span id="execution-error-POSTapi-side_projects" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-side_projects"></code></pre>
+    <pre><code id="execution-error-message-POSTapi-side_projects">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-POSTapi-side_projects" data-method="POST"
       data-path="api/side_projects"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Authorization":"Bearer {BEARER_TOKEN}","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-side_projects', this);">
     <h3>
@@ -1465,71 +1583,95 @@ print_r(json_decode((string) $body));</code></pre></div>
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-side_projects" hidden>Send Request 💥
+                    id="btn-executetryout-POSTapi-side_projects"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
             <b><code>api/side_projects</code></b>
         </p>
-                <p>
-            <label id="auth-POSTapi-side_projects" hidden>Authorization header:
-                <b><code>Bearer </code></b>
-                <input type="text"
-                       name="Authorization"
-                       data-prefix="Bearer "
-                       data-endpoint="POSTapi-side_projects"
-                       data-component="header"></label>
-        </p>
-                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <p>
-            <b><code>name</code></b>&nbsp;&nbsp;
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-side_projects"
+               value="Bearer {BEARER_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {BEARER_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-side_projects"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-side_projects"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
-                <input type="text"
-               name="name"
-               data-endpoint="POSTapi-side_projects"
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi-side_projects"
                value="The SideProject API"
-               data-component="body" hidden>
+               data-component="body">
     <br>
-<p>The name of your side project. Must not be greater than 80 characters.</p>
-        </p>
-                <p>
-            <b><code>description</code></b>&nbsp;&nbsp;
+<p>The name of your side project. Must not be greater than 80 characters. Example: <code>The SideProject API</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
-                <input type="text"
-               name="description"
-               data-endpoint="POSTapi-side_projects"
-               value="pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv"
-               data-component="body" hidden>
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="POSTapi-side_projects"
+               value="Suscipit qui cumque magnam tenetur quia nemo."
+               data-component="body">
     <br>
-<p>A longer description of your side project. Must not be greater than 255 characters.</p>
-        </p>
-                <p>
-            <b><code>url</code></b>&nbsp;&nbsp;
+<p>A longer description of your side project. Must not be greater than 255 characters. Example: <code>Suscipit qui cumque magnam tenetur quia nemo.</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
-                <input type="text"
-               name="url"
-               data-endpoint="POSTapi-side_projects"
-               value="http://hartmann.com/magnam-tenetur-quia-nemo-sit-est-numquam"
-               data-component="body" hidden>
+                <input type="text" style="display: none"
+                              name="url"                data-endpoint="POSTapi-side_projects"
+               value="http://www.reilly.com/"
+               data-component="body">
     <br>
-<p>A url to your side project. Must be a valid URL.</p>
-        </p>
-                <p>
-            <b><code>due_at</code></b>&nbsp;&nbsp;
+<p>A url to your side project. Must be a valid URL. Example: <code>http://www.reilly.com/</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>due_at</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
-                <input type="text"
-               name="due_at"
-               data-endpoint="POSTapi-side_projects"
-               value="2084-02-27"
-               data-component="body" hidden>
+                <input type="text" style="display: none"
+                              name="due_at"                data-endpoint="POSTapi-side_projects"
+               value="2085-06-01"
+               data-component="body">
     <br>
-<p>Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.</p>
-        </p>
+<p>Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>. Example: <code>2085-06-01</code></p>
+        </div>
         </form>
 
                     <h2 id="side-projects-GETapi-side_projects--id-">View a side project</h2>
@@ -1548,14 +1690,14 @@ and it figures out how to generate a sample. The 404 sample is gotten from a &qu
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://testapi.com/api/side_projects/1" \
+    --get "http://testapi.com/api/side_projects/13" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://testapi.com/api/side_projects/1"
+    "http://testapi.com/api/side_projects/13"
 );
 
 const headers = {
@@ -1571,8 +1713,9 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://testapi.com/api/side_projects/13';
 $response = $client-&gt;get(
-    'http://testapi.com/api/side_projects/1',
+    $url,
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -1591,18 +1734,18 @@ print_r(json_decode((string) $body));</code></pre></div>
         </blockquote>
                 <pre>
 
-<code class="language-json">{
+<code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
         &quot;name&quot;: &quot;suscipit qui cumque&quot;,
         &quot;description&quot;: &quot;Tenetur quia nemo sit est.&quot;,
-        &quot;due_date&quot;: &quot;20241106&quot;,
+        &quot;due_date&quot;: 20260208,
         &quot;owner&quot;: {
-            &quot;id&quot;: 6,
+            &quot;id&quot;: 1,
             &quot;name&quot;: &quot;Kurt Kub&quot;,
             &quot;email&quot;: &quot;juvenal97@example.org&quot;,
-            &quot;email_verified_at&quot;: &quot;2022-09-10T02:22:37.000000Z&quot;,
-            &quot;created_at&quot;: &quot;2022-09-10T02:22:37.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2022-09-10T02:22:37.000000Z&quot;
+            &quot;email_verified_at&quot;: &quot;2023-12-13T23:29:24.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2023-12-13T23:29:24.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-12-13T23:29:24.000000Z&quot;
         }
     }
 }</code>
@@ -1612,7 +1755,7 @@ print_r(json_decode((string) $body));</code></pre></div>
         </blockquote>
                 <pre>
 
-<code class="language-json">{
+<code class="language-json" style="max-height: 300px;">{
     &quot;message&quot;: &quot;Not found&quot;,
     &quot;resource&quot;: &quot;Side project&quot;
 }</code>
@@ -1622,18 +1765,22 @@ print_r(json_decode((string) $body));</code></pre></div>
     <blockquote>Received response<span
                 id="execution-response-status-GETapi-side_projects--id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-side_projects--id-"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-side_projects--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
 <span id="execution-error-GETapi-side_projects--id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-side_projects--id-"></code></pre>
+    <pre><code id="execution-error-message-GETapi-side_projects--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-GETapi-side_projects--id-" data-method="GET"
       data-path="api/side_projects/{id}"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETapi-side_projects--id-', this);">
     <h3>
@@ -1650,26 +1797,51 @@ print_r(json_decode((string) $body));</code></pre></div>
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-side_projects--id-" hidden>Send Request 💥
+                    id="btn-executetryout-GETapi-side_projects--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>api/side_projects/{id}</code></b>
         </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-side_projects--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-side_projects--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
-                <input type="number"
-               name="id"
-               data-endpoint="GETapi-side_projects--id-"
-               value="1"
-               data-component="url" hidden>
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-side_projects--id-"
+               value="13"
+               data-component="url">
     <br>
-<p>The ID of the side project.</p>
-            </p>
+<p>The ID of the side project. Example: <code>13</code></p>
+            </div>
                     </form>
 
                     <h2 id="side-projects-PUTapi-side_projects--id-">Update a side project</h2>
@@ -1685,14 +1857,14 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://testapi.com/api/side_projects/1" \
+    "http://testapi.com/api/side_projects/13" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://testapi.com/api/side_projects/1"
+    "http://testapi.com/api/side_projects/13"
 );
 
 const headers = {
@@ -1708,8 +1880,9 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://testapi.com/api/side_projects/13';
 $response = $client-&gt;put(
-    'http://testapi.com/api/side_projects/1',
+    $url,
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -1728,18 +1901,22 @@ print_r(json_decode((string) $body));</code></pre></div>
     <blockquote>Received response<span
                 id="execution-response-status-PUTapi-side_projects--id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-PUTapi-side_projects--id-"></code></pre>
+    <pre class="json"><code id="execution-response-content-PUTapi-side_projects--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
 <span id="execution-error-PUTapi-side_projects--id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PUTapi-side_projects--id-"></code></pre>
+    <pre><code id="execution-error-message-PUTapi-side_projects--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-PUTapi-side_projects--id-" data-method="PUT"
       data-path="api/side_projects/{id}"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-side_projects--id-', this);">
     <h3>
@@ -1756,7 +1933,10 @@ print_r(json_decode((string) $body));</code></pre></div>
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-side_projects--id-" hidden>Send Request 💥
+                    id="btn-executetryout-PUTapi-side_projects--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
             </button>
             </h3>
             <p>
@@ -1767,19 +1947,41 @@ print_r(json_decode((string) $body));</code></pre></div>
             <small class="badge badge-purple">PATCH</small>
             <b><code>api/side_projects/{id}</code></b>
         </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-side_projects--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-side_projects--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
-                <input type="number"
-               name="id"
-               data-endpoint="PUTapi-side_projects--id-"
-               value="1"
-               data-component="url" hidden>
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="PUTapi-side_projects--id-"
+               value="13"
+               data-component="url">
     <br>
-<p>The ID of the side project.</p>
-            </p>
+<p>The ID of the side project. Example: <code>13</code></p>
+            </div>
                     </form>
 
                     <h2 id="side-projects-DELETEapi-side_projects--id-">Delete a side project</h2>
@@ -1795,14 +1997,14 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://testapi.com/api/side_projects/1" \
+    "http://testapi.com/api/side_projects/13" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://testapi.com/api/side_projects/1"
+    "http://testapi.com/api/side_projects/13"
 );
 
 const headers = {
@@ -1818,8 +2020,9 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://testapi.com/api/side_projects/13';
 $response = $client-&gt;delete(
-    'http://testapi.com/api/side_projects/1',
+    $url,
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -1834,35 +2037,39 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <span id="example-responses-DELETEapi-side_projects--id-">
             <blockquote>
-            <p>Example response (204, Nothing to see here):</p>
+            <p>Example response (204, 204, Nothing to see here):</p>
         </blockquote>
                 <pre>
-<code>[Empty response]</code>
+<code>Empty response</code>
  </pre>
             <blockquote>
-            <p>Example response (An extra, for fun.):</p>
+            <p>Example response (202, An extra, for fun.):</p>
         </blockquote>
                 <pre>
 
-<code class="language-json"></code>
+<code class="language-json" style="max-height: 300px;"></code>
  </pre>
     </span>
 <span id="execution-results-DELETEapi-side_projects--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-DELETEapi-side_projects--id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-side_projects--id-"></code></pre>
+    <pre class="json"><code id="execution-response-content-DELETEapi-side_projects--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
 <span id="execution-error-DELETEapi-side_projects--id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-side_projects--id-"></code></pre>
+    <pre><code id="execution-error-message-DELETEapi-side_projects--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-DELETEapi-side_projects--id-" data-method="DELETE"
       data-path="api/side_projects/{id}"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-side_projects--id-', this);">
     <h3>
@@ -1879,39 +2086,63 @@ print_r(json_decode((string) $body));</code></pre></div>
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-side_projects--id-" hidden>Send Request 💥
+                    id="btn-executetryout-DELETEapi-side_projects--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
             <b><code>api/side_projects/{id}</code></b>
         </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-side_projects--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-side_projects--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
-                <input type="number"
-               name="id"
-               data-endpoint="DELETEapi-side_projects--id-"
-               value="1"
-               data-component="url" hidden>
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="DELETEapi-side_projects--id-"
+               value="13"
+               data-component="url">
     <br>
-<p>The ID of the side project.</p>
-            </p>
+<p>The ID of the side project. Example: <code>13</code></p>
+            </div>
                         <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                    <p>
-                <b><code>queryThing</code></b>&nbsp;&nbsp;
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>queryThing</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
-                <input type="text"
-               name="queryThing"
-               data-endpoint="DELETEapi-side_projects--id-"
+                <input type="text" style="display: none"
+                              name="queryThing"                data-endpoint="DELETEapi-side_projects--id-"
                value=""
-               data-component="query" hidden>
+               data-component="query">
     <br>
 
-            </p>
+            </div>
                 </form>
 
                     <h2 id="side-projects-POSTapi-side_projects-finish">Finish a side project</h2>
@@ -1950,8 +2181,9 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://testapi.com/api/side_projects/finish';
 $response = $client-&gt;post(
-    'http://testapi.com/api/side_projects/finish',
+    $url,
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -1966,11 +2198,11 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <span id="example-responses-POSTapi-side_projects-finish">
             <blockquote>
-            <p>Example response (Side project not found):</p>
+            <p>Example response (404, Side project not found):</p>
         </blockquote>
                 <pre>
 
-<code class="language-json">{
+<code class="language-json" style="max-height: 300px;">{
     &quot;message&quot;: &quot;Not found&quot;,
     &quot;resource&quot;: &quot;Side project&quot;
 }</code>
@@ -1980,18 +2212,22 @@ print_r(json_decode((string) $body));</code></pre></div>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-side_projects-finish"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-side_projects-finish"></code></pre>
+    <pre class="json"><code id="execution-response-content-POSTapi-side_projects-finish"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
 <span id="execution-error-POSTapi-side_projects-finish" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-side_projects-finish"></code></pre>
+    <pre><code id="execution-error-message-POSTapi-side_projects-finish">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-POSTapi-side_projects-finish" data-method="POST"
       data-path="api/side_projects/finish"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-side_projects-finish', this);">
     <h3>
@@ -2008,14 +2244,40 @@ print_r(json_decode((string) $body));</code></pre></div>
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-side_projects-finish" hidden>Send Request 💥
+                    id="btn-executetryout-POSTapi-side_projects-finish"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
             <b><code>api/side_projects/finish</code></b>
         </p>
-                    </form>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-side_projects-finish"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-side_projects-finish"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
                 <h1 id="users">Users</h1>
 
@@ -2038,9 +2300,9 @@ print_r(json_decode((string) $body));</code></pre></div>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv\",
-    \"email\": \"casimir70@example.com\",
-    \"password\": \"et\"
+    \"name\": \"pidsgyfhasfdpmrg\",
+    \"email\": \"julianne89@example.com\",
+    \"password\": \"@.b8z4=\\\"e5,ZNa6\"
 }"
 </code></pre></div>
 
@@ -2056,9 +2318,9 @@ const headers = {
 };
 
 let body = {
-    "name": "pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv",
-    "email": "casimir70@example.com",
-    "password": "et"
+    "name": "pidsgyfhasfdpmrg",
+    "email": "julianne89@example.com",
+    "password": "@.b8z4=\"e5,ZNa6"
 };
 
 fetch(url, {
@@ -2070,17 +2332,18 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://testapi.com/api/users';
 $response = $client-&gt;post(
-    'http://testapi.com/api/users',
+    $url,
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv',
-            'email' =&gt; 'casimir70@example.com',
-            'password' =&gt; 'et',
+            'name' =&gt; 'pidsgyfhasfdpmrg',
+            'email' =&gt; 'julianne89@example.com',
+            'password' =&gt; '@.b8z4="e5,ZNa6',
         ],
     ]
 );
@@ -2095,18 +2358,22 @@ print_r(json_decode((string) $body));</code></pre></div>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-users"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-users"></code></pre>
+    <pre class="json"><code id="execution-response-content-POSTapi-users"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
 <span id="execution-error-POSTapi-users" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-users"></code></pre>
+    <pre><code id="execution-error-message-POSTapi-users">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-POSTapi-users" data-method="POST"
       data-path="api/users"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-users', this);">
     <h3>
@@ -2123,50 +2390,73 @@ print_r(json_decode((string) $body));</code></pre></div>
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-users" hidden>Send Request 💥
+                    id="btn-executetryout-POSTapi-users"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
             <b><code>api/users</code></b>
         </p>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <p>
-            <b><code>name</code></b>&nbsp;&nbsp;
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
-                <input type="text"
-               name="name"
-               data-endpoint="POSTapi-users"
-               value="pidsgyfhasfdpmrgozmxiqtrcoqjruexeugqpersioudgkpsbnkltlaqvmwjyiahevihxmbowbowymkwgcqxiqmrchyclplgrcipefeeopzzxuuljqvytlucrlnslwwcdxrknhwrlmabpwubvoetriefhfwzv"
-               data-component="body" hidden>
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi-users"
+               value="pidsgyfhasfdpmrg"
+               data-component="body">
     <br>
-<p>Must be at least 1 characters. Must not be greater than 255 characters.</p>
-        </p>
-                <p>
-            <b><code>email</code></b>&nbsp;&nbsp;
+<p>Must be at least 1 character. Must not be greater than 255 characters. Example: <code>pidsgyfhasfdpmrg</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
-                <input type="text"
-               name="email"
-               data-endpoint="POSTapi-users"
-               value="casimir70@example.com"
-               data-component="body" hidden>
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="POSTapi-users"
+               value="julianne89@example.com"
+               data-component="body">
     <br>
-<p>Must be a valid email address.</p>
-        </p>
-                <p>
-            <b><code>password</code></b>&nbsp;&nbsp;
+<p>Must be a valid email address. Example: <code>julianne89@example.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
-                <input type="text"
-               name="password"
-               data-endpoint="POSTapi-users"
-               value="et"
-               data-component="body" hidden>
+                <input type="text" style="display: none"
+                              name="password"                data-endpoint="POSTapi-users"
+               value="@.b8z4="e5,ZNa6"
+               data-component="body">
     <br>
-
-        </p>
+<p>Example: <code>@.b8z4="e5,ZNa6</code></p>
+        </div>
         </form>
 
                     <h2 id="users-GETapi-users--id-">Fetch a user</h2>
@@ -2183,14 +2473,14 @@ and it figures out how to generate a sample. The 404 sample is gotten from a &qu
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://testapi.com/api/users/1" \
+    --get "http://testapi.com/api/users/et" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://testapi.com/api/users/1"
+    "http://testapi.com/api/users/et"
 );
 
 const headers = {
@@ -2206,8 +2496,9 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://testapi.com/api/users/et';
 $response = $client-&gt;get(
-    'http://testapi.com/api/users/1',
+    $url,
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -2222,38 +2513,38 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <span id="example-responses-GETapi-users--id-">
             <blockquote>
-            <p>Example response (404, User not found):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;message&quot;: &quot;Not found&quot;,
-    &quot;resource&quot;: &quot;user&quot;
-}</code>
- </pre>
-            <blockquote>
             <p>Example response (200):</p>
         </blockquote>
                 <pre>
 
-<code class="language-json">{
+<code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: 6,
+        &quot;id&quot;: 1,
         &quot;name&quot;: &quot;Mr. Merlin Friesen&quot;,
         &quot;email&quot;: &quot;hdoyle@example.com&quot;,
         &quot;side_projects&quot;: [
             {
-                &quot;id&quot;: 10,
+                &quot;id&quot;: 1,
                 &quot;name&quot;: &quot;est numquam consequuntur&quot;,
                 &quot;description&quot;: &quot;Atque nobis ut natus aut dolores eveniet.&quot;,
                 &quot;url&quot;: null,
-                &quot;due_at&quot;: 20251222,
-                &quot;created_at&quot;: &quot;2022-09-10T02:22:37.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2022-09-10T02:22:37.000000Z&quot;,
-                &quot;user_id&quot;: 6
+                &quot;due_at&quot;: 20270327,
+                &quot;created_at&quot;: &quot;2023-12-13T23:29:24.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2023-12-13T23:29:24.000000Z&quot;,
+                &quot;user_id&quot;: 1
             }
         ]
     }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, 404, User not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Not found&quot;,
+    &quot;resource&quot;: &quot;user&quot;
 }</code>
  </pre>
     </span>
@@ -2261,18 +2552,22 @@ print_r(json_decode((string) $body));</code></pre></div>
     <blockquote>Received response<span
                 id="execution-response-status-GETapi-users--id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-users--id-"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-users--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
 <span id="execution-error-GETapi-users--id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-users--id-"></code></pre>
+    <pre><code id="execution-error-message-GETapi-users--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-GETapi-users--id-" data-method="GET"
       data-path="api/users/{id}"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETapi-users--id-', this);">
     <h3>
@@ -2289,26 +2584,51 @@ print_r(json_decode((string) $body));</code></pre></div>
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-users--id-" hidden>Send Request 💥
+                    id="btn-executetryout-GETapi-users--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>api/users/{id}</code></b>
         </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
  &nbsp;
-                <input type="number"
-               name="id"
-               data-endpoint="GETapi-users--id-"
-               value="1"
-               data-component="url" hidden>
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-users--id-"
+               value="application/json"
+               data-component="header">
     <br>
-<p>The ID of the user.</p>
-            </p>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-users--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="GETapi-users--id-"
+               value="et"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>et</code></p>
+            </div>
                     </form>
 
                     <h2 id="users-GETapi-users">View all users</h2>
@@ -2355,15 +2675,16 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://testapi.com/api/users';
 $response = $client-&gt;get(
-    'http://testapi.com/api/users',
+    $url,
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
-            'page'=&gt; '1',
+            'page' =&gt; '1',
         ],
     ]
 );
@@ -2377,145 +2698,18 @@ print_r(json_decode((string) $body));</code></pre></div>
             <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
-            <summary>
+            <summary style="cursor: pointer;">
                 <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 54
+x-ratelimit-remaining: 46
 access-control-allow-origin: *
- </code></pre>
-        </details>         <pre>
+ </code></pre></details>         <pre>
 
-<code class="language-json">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 1,
-            &quot;name&quot;: &quot;Pete&quot;,
-            &quot;email&quot;: &quot;pete@home.com&quot;,
-            &quot;side_projects&quot;: [
-                {
-                    &quot;id&quot;: 2,
-                    &quot;name&quot;: &quot;iusto ut dolor&quot;,
-                    &quot;description&quot;: &quot;Voluptatem aspernatur dolorem quae quaerat harum.&quot;,
-                    &quot;url&quot;: null,
-                    &quot;due_at&quot;: 20301215,
-                    &quot;created_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
-                    &quot;user_id&quot;: 1
-                },
-                {
-                    &quot;id&quot;: 4,
-                    &quot;name&quot;: &quot;corporis consequuntur amet&quot;,
-                    &quot;description&quot;: &quot;Dolores eveniet deleniti voluptatem saepe expedita.&quot;,
-                    &quot;url&quot;: null,
-                    &quot;due_at&quot;: 20230712,
-                    &quot;created_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
-                    &quot;user_id&quot;: 1
-                },
-                {
-                    &quot;id&quot;: 6,
-                    &quot;name&quot;: &quot;nihil voluptate quaerat&quot;,
-                    &quot;description&quot;: &quot;Animi reprehenderit soluta id quo.&quot;,
-                    &quot;url&quot;: null,
-                    &quot;due_at&quot;: 20290603,
-                    &quot;created_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
-                    &quot;user_id&quot;: 1
-                },
-                {
-                    &quot;id&quot;: 8,
-                    &quot;name&quot;: &quot;vel perspiciatis quo&quot;,
-                    &quot;description&quot;: &quot;Et qui praesentium consequatur distinctio natus.&quot;,
-                    &quot;url&quot;: null,
-                    &quot;due_at&quot;: 20210605,
-                    &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-                    &quot;user_id&quot;: 1
-                },
-                {
-                    &quot;id&quot;: 9,
-                    &quot;name&quot;: &quot;qui et totam&quot;,
-                    &quot;description&quot;: &quot;Veritatis quo dolorum soluta ut.&quot;,
-                    &quot;url&quot;: null,
-                    &quot;due_at&quot;: 20270203,
-                    &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-                    &quot;user_id&quot;: 1
-                }
-            ]
-        },
-        {
-            &quot;id&quot;: 2,
-            &quot;name&quot;: &quot;Alexane Weber&quot;,
-            &quot;email&quot;: &quot;lacy.wintheiser@example.net&quot;,
-            &quot;side_projects&quot;: [
-                {
-                    &quot;id&quot;: 1,
-                    &quot;name&quot;: &quot;voluptas assumenda maiores&quot;,
-                    &quot;description&quot;: &quot;Consequuntur aut ea est non.&quot;,
-                    &quot;url&quot;: null,
-                    &quot;due_at&quot;: 20310222,
-                    &quot;created_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-05-30T00:21:59.000000Z&quot;,
-                    &quot;user_id&quot;: 2
-                }
-            ]
-        },
-        {
-            &quot;id&quot;: 3,
-            &quot;name&quot;: &quot;John Kshlerin II&quot;,
-            &quot;email&quot;: &quot;titus77@example.com&quot;,
-            &quot;side_projects&quot;: [
-                {
-                    &quot;id&quot;: 3,
-                    &quot;name&quot;: &quot;provident et consequatur&quot;,
-                    &quot;description&quot;: &quot;Quos et ipsum cum pariatur ex perspiciatis eius.&quot;,
-                    &quot;url&quot;: null,
-                    &quot;due_at&quot;: 20231022,
-                    &quot;created_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-05-30T00:23:25.000000Z&quot;,
-                    &quot;user_id&quot;: 3
-                }
-            ]
-        },
-        {
-            &quot;id&quot;: 4,
-            &quot;name&quot;: &quot;Rebeca Morissette&quot;,
-            &quot;email&quot;: &quot;cole.geoffrey@example.com&quot;,
-            &quot;side_projects&quot;: [
-                {
-                    &quot;id&quot;: 5,
-                    &quot;name&quot;: &quot;optio excepturi ea&quot;,
-                    &quot;description&quot;: &quot;Error deleniti sint a nostrum consequuntur et.&quot;,
-                    &quot;url&quot;: null,
-                    &quot;due_at&quot;: 20260324,
-                    &quot;created_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-05-30T00:24:27.000000Z&quot;,
-                    &quot;user_id&quot;: 4
-                }
-            ]
-        },
-        {
-            &quot;id&quot;: 5,
-            &quot;name&quot;: &quot;Prof. Adah Witting IV&quot;,
-            &quot;email&quot;: &quot;nswift@example.net&quot;,
-            &quot;side_projects&quot;: [
-                {
-                    &quot;id&quot;: 7,
-                    &quot;name&quot;: &quot;aspernatur architecto assumenda&quot;,
-                    &quot;description&quot;: &quot;Nisi ea aut vel sint vero voluptas tempore.&quot;,
-                    &quot;url&quot;: null,
-                    &quot;due_at&quot;: 20280710,
-                    &quot;created_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2021-05-30T00:25:43.000000Z&quot;,
-                    &quot;user_id&quot;: 5
-                }
-            ]
-        }
-    ]
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: []
 }</code>
  </pre>
     </span>
@@ -2523,18 +2717,22 @@ access-control-allow-origin: *
     <blockquote>Received response<span
                 id="execution-response-status-GETapi-users"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-users"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-users"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
 <span id="execution-error-GETapi-users" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-users"></code></pre>
+    <pre><code id="execution-error-message-GETapi-users">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-GETapi-users" data-method="GET"
       data-path="api/users"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETapi-users', this);">
     <h3>
@@ -2551,38 +2749,62 @@ access-control-allow-origin: *
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-users" hidden>Send Request 💥
+                    id="btn-executetryout-GETapi-users"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
             <b><code>api/users</code></b>
         </p>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                    <p>
-                <b><code>page</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="page"
-               data-endpoint="GETapi-users"
-               value="1"
-               data-component="query" hidden>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-users"
+               value="application/json"
+               data-component="header">
     <br>
-<p>Page number to return. This parameter was added by a custom strategy.</p>
-            </p>
-                    <p>
-                <b><code>pageSize</code></b>&nbsp;&nbsp;
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
-                <input type="text"
-               name="pageSize"
-               data-endpoint="GETapi-users"
+                <input type="text" style="display: none"
+                              name="page"                data-endpoint="GETapi-users"
+               value="1"
+               data-component="query">
+    <br>
+<p>Page number to return. This parameter was added by a custom strategy. Example: <code>1</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>pageSize</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="pageSize"                data-endpoint="GETapi-users"
                value=""
-               data-component="query" hidden>
+               data-component="query">
     <br>
 <p>Number of items to return in a page. Defaults to 10. This parameter was added by a custom strategy.</p>
-            </p>
+            </div>
                 </form>
 
                     <h2 id="users-DELETEapi-users--id-">Delete a user</h2>
@@ -2598,14 +2820,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://testapi.com/api/users/1?confirm=true" \
+    "http://testapi.com/api/users/13?confirm=true" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://testapi.com/api/users/1"
+    "http://testapi.com/api/users/13"
 );
 
 const params = {
@@ -2627,15 +2849,16 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://testapi.com/api/users/13';
 $response = $client-&gt;delete(
-    'http://testapi.com/api/users/1',
+    $url,
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
-            'confirm'=&gt; 'true',
+            'confirm' =&gt; 'true',
         ],
     ]
 );
@@ -2650,25 +2873,29 @@ print_r(json_decode((string) $body));</code></pre></div>
         </blockquote>
                 <pre>
 
-<code class="language-json">You&#039;ve fucked up now!</code>
+<code class="language-json" style="max-height: 300px;">You&#039;ve fucked up now!</code>
  </pre>
     </span>
 <span id="execution-results-DELETEapi-users--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-DELETEapi-users--id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-users--id-"></code></pre>
+    <pre class="json"><code id="execution-response-content-DELETEapi-users--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
 <span id="execution-error-DELETEapi-users--id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-users--id-"></code></pre>
+    <pre><code id="execution-error-message-DELETEapi-users--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-DELETEapi-users--id-" data-method="DELETE"
       data-path="api/users/{id}"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-users--id-', this);">
     <h3>
@@ -2685,39 +2912,63 @@ print_r(json_decode((string) $body));</code></pre></div>
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-users--id-" hidden>Send Request 💥
+                    id="btn-executetryout-DELETEapi-users--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
             <b><code>api/users/{id}</code></b>
         </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-users--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-users--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
-                <input type="number"
-               name="id"
-               data-endpoint="DELETEapi-users--id-"
-               value="1"
-               data-component="url" hidden>
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="DELETEapi-users--id-"
+               value="13"
+               data-component="url">
     <br>
-<p>The ID of the user.</p>
-            </p>
+<p>The ID of the user. Example: <code>13</code></p>
+            </div>
                         <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                    <p>
-                <b><code>confirm</code></b>&nbsp;&nbsp;
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>confirm</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
-                <input type="text"
-               name="confirm"
-               data-endpoint="DELETEapi-users--id-"
+                <input type="text" style="display: none"
+                              name="confirm"                data-endpoint="DELETEapi-users--id-"
                value="true"
-               data-component="query" hidden>
+               data-component="query">
     <br>
-<p>A really silly parameter</p>
-            </p>
+<p>A really silly parameter Example: <code>true</code></p>
+            </div>
                 </form>
 
                     <h2 id="users-POSTapi-users--id--auth">Authenticate</h2>
@@ -2734,14 +2985,14 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://testapi.com/api/users/1/auth" \
+    "http://testapi.com/api/users/13/auth" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://testapi.com/api/users/1/auth"
+    "http://testapi.com/api/users/13/auth"
 );
 
 const headers = {
@@ -2757,8 +3008,9 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$url = 'http://testapi.com/api/users/13/auth';
 $response = $client-&gt;post(
-    'http://testapi.com/api/users/1/auth',
+    $url,
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -2777,7 +3029,7 @@ print_r(json_decode((string) $body));</code></pre></div>
         </blockquote>
                 <pre>
 
-<code class="language-json">{
+<code class="language-json" style="max-height: 300px;">{
     &quot;token&quot;: &quot;2|KLDoUXc68Ko0JaFDZoX9qYkUqWglwdGxQsvTGBCg&quot;
 }</code>
  </pre>
@@ -2786,18 +3038,22 @@ print_r(json_decode((string) $body));</code></pre></div>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-users--id--auth"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-users--id--auth"></code></pre>
+    <pre class="json"><code id="execution-response-content-POSTapi-users--id--auth"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
 <span id="execution-error-POSTapi-users--id--auth" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-users--id--auth"></code></pre>
+    <pre><code id="execution-error-message-POSTapi-users--id--auth">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-POSTapi-users--id--auth" data-method="POST"
       data-path="api/users/{id}/auth"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-users--id--auth', this);">
     <h3>
@@ -2814,37 +3070,62 @@ print_r(json_decode((string) $body));</code></pre></div>
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-users--id--auth" hidden>Send Request 💥
+                    id="btn-executetryout-POSTapi-users--id--auth"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
             <b><code>api/users/{id}/auth</code></b>
         </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-users--id--auth"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-users--id--auth"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
-                <input type="number"
-               name="id"
-               data-endpoint="POSTapi-users--id--auth"
-               value="1"
-               data-component="url" hidden>
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="POSTapi-users--id--auth"
+               value="13"
+               data-component="url">
     <br>
-<p>The ID of the user.</p>
-            </p>
+<p>The ID of the user. Example: <code>13</code></p>
+            </div>
                     </form>
 
     <h3>Response</h3>
     <h4 class="fancy-heading-panel"><b>Response Fields</b></h4>
-    <p>
-            <b><code>token</code></b>&nbsp;&nbsp;
+    <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>token</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
 <br>
 <p>The new API token. Valid forever.</p>
-        </p>
+        </div>
                 
 
         
