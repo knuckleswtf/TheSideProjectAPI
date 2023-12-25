@@ -1160,10 +1160,10 @@ paths:
                   user:
                     name: pidsgyfhasfdpmrg
                     email: julianne89@example.com
-                    updated_at: '2023-12-25T20:37:14.000000Z'
-                    created_at: '2023-12-25T20:37:14.000000Z'
+                    updated_at: '2023-12-25T20:47:27.000000Z'
+                    created_at: '2023-12-25T20:47:27.000000Z'
                     id: 1
-                  token: 1|FNuhKw2Sxhbsv4tDeM43ckusL01mI6qiOv2snHlY
+                  token: 1|gSt6CFWjf9jU2oz7egH6JML7DtTCWTgTqWmqfW1T
                 properties:
                   user:
                     type: object
@@ -1176,16 +1176,16 @@ paths:
                         example: julianne89@example.com
                       updated_at:
                         type: string
-                        example: '2023-12-25T20:37:14.000000Z'
+                        example: '2023-12-25T20:47:27.000000Z'
                       created_at:
                         type: string
-                        example: '2023-12-25T20:37:14.000000Z'
+                        example: '2023-12-25T20:47:27.000000Z'
                       id:
                         type: integer
                         example: 1
                   token:
                     type: string
-                    example: 1|FNuhKw2Sxhbsv4tDeM43ckusL01mI6qiOv2snHlY
+                    example: 1|gSt6CFWjf9jU2oz7egH6JML7DtTCWTgTqWmqfW1T
       tags:
         - Users
       requestBody:
@@ -1278,8 +1278,8 @@ paths:
                         description: 'Atque nobis ut natus aut dolores eveniet.'
                         url: null
                         due_at: 20270408
-                        created_at: '2023-12-25T20:37:14.000000Z'
-                        updated_at: '2023-12-25T20:37:14.000000Z'
+                        created_at: '2023-12-25T20:47:27.000000Z'
+                        updated_at: '2023-12-25T20:47:27.000000Z'
                         user_id: 1
                 properties:
                   data:
@@ -1303,8 +1303,8 @@ paths:
                             description: 'Atque nobis ut natus aut dolores eveniet.'
                             url: null
                             due_at: 20270408
-                            created_at: '2023-12-25T20:37:14.000000Z'
-                            updated_at: '2023-12-25T20:37:14.000000Z'
+                            created_at: '2023-12-25T20:47:27.000000Z'
+                            updated_at: '2023-12-25T20:47:27.000000Z'
                             user_id: 1
                         items:
                           type: object
@@ -1326,10 +1326,10 @@ paths:
                               example: 20270408
                             created_at:
                               type: string
-                              example: '2023-12-25T20:37:14.000000Z'
+                              example: '2023-12-25T20:47:27.000000Z'
                             updated_at:
                               type: string
-                              example: '2023-12-25T20:37:14.000000Z'
+                              example: '2023-12-25T20:47:27.000000Z'
                             user_id:
                               type: integer
                               example: 1
@@ -1505,9 +1505,9 @@ paths:
                       id: 1
                       name: 'Kurtis Kub'
                       email: juwan97@example.org
-                      email_verified_at: '2023-12-25T20:37:14.000000Z'
-                      created_at: '2023-12-25T20:37:14.000000Z'
-                      updated_at: '2023-12-25T20:37:14.000000Z'
+                      email_verified_at: '2023-12-25T20:47:27.000000Z'
+                      created_at: '2023-12-25T20:47:27.000000Z'
+                      updated_at: '2023-12-25T20:47:27.000000Z'
                 properties:
                   data:
                     type: object
@@ -1535,13 +1535,13 @@ paths:
                             example: juwan97@example.org
                           email_verified_at:
                             type: string
-                            example: '2023-12-25T20:37:14.000000Z'
+                            example: '2023-12-25T20:47:27.000000Z'
                           created_at:
                             type: string
-                            example: '2023-12-25T20:37:14.000000Z'
+                            example: '2023-12-25T20:47:27.000000Z'
                           updated_at:
                             type: string
-                            example: '2023-12-25T20:37:14.000000Z'
+                            example: '2023-12-25T20:47:27.000000Z'
         404:
           description: 'Side project not found'
           content:
