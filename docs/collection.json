@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "The SideProject API",
-        "_postman_id": "ba245f66-f260-46a9-99a9-21bc125193c7",
+        "_postman_id": "b5d79796-bd32-4109-9e4f-933c0d0774ce",
         "description": "Start (and never finish) side projects with this API.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -70,7 +70,7 @@
                                         },
                                         {
                                             "key": "x-ratelimit-remaining",
-                                            "value": "20"
+                                            "value": "50"
                                         },
                                         {
                                             "key": "access-control-allow-origin",
@@ -146,7 +146,7 @@
                                         },
                                         {
                                             "key": "x-ratelimit-remaining",
-                                            "value": "21"
+                                            "value": "51"
                                         },
                                         {
                                             "key": "access-control-allow-origin",
@@ -218,7 +218,7 @@
                                         },
                                         {
                                             "key": "x-ratelimit-remaining",
-                                            "value": "23"
+                                            "value": "53"
                                         },
                                         {
                                             "key": "access-control-allow-origin",
@@ -277,7 +277,7 @@
                                         },
                                         {
                                             "key": "x-ratelimit-remaining",
-                                            "value": "22"
+                                            "value": "52"
                                         },
                                         {
                                             "key": "access-control-allow-origin",
@@ -396,7 +396,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "29"
+                                    "value": "59"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -515,7 +515,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "28"
+                                    "value": "58"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -523,7 +523,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"user\":{\"name\":\"pidsgyfhasfdpmrg\",\"email\":\"julianne89@example.com\",\"updated_at\":\"2023-12-25T20:34:53.000000Z\",\"created_at\":\"2023-12-25T20:34:53.000000Z\",\"id\":1},\"token\":\"1|kVY8byukxHL1Atg1thiFofrPiOCPkV8tccN1W63D\"}",
+                            "body": "{\"user\":{\"name\":\"pidsgyfhasfdpmrg\",\"email\":\"julianne89@example.com\",\"updated_at\":\"2023-12-25T20:37:14.000000Z\",\"created_at\":\"2023-12-25T20:37:14.000000Z\",\"id\":1},\"token\":\"1|FNuhKw2Sxhbsv4tDeM43ckusL01mI6qiOv2snHlY\"}",
                             "name": ""
                         }
                     ]
@@ -566,7 +566,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":1,\"name\":\"Mr. Merlin Friesen\",\"email\":\"hdoyle@example.com\",\"side_projects\":[{\"id\":1,\"name\":\"est numquam consequuntur\",\"description\":\"Atque nobis ut natus aut dolores eveniet.\",\"url\":null,\"due_at\":20270408,\"created_at\":\"2023-12-25T20:34:53.000000Z\",\"updated_at\":\"2023-12-25T20:34:53.000000Z\",\"user_id\":1}]}}",
+                            "body": "{\"data\":{\"id\":1,\"name\":\"Mr. Merlin Friesen\",\"email\":\"hdoyle@example.com\",\"side_projects\":[{\"id\":1,\"name\":\"est numquam consequuntur\",\"description\":\"Atque nobis ut natus aut dolores eveniet.\",\"url\":null,\"due_at\":20270408,\"created_at\":\"2023-12-25T20:37:14.000000Z\",\"updated_at\":\"2023-12-25T20:37:14.000000Z\",\"user_id\":1}]}}",
                             "name": ""
                         },
                         {
@@ -633,7 +633,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "27"
+                                    "value": "57"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -836,7 +836,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "26"
+                                    "value": "56"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -887,7 +887,7 @@
                         {
                             "header": [],
                             "code": 203,
-                            "body": "{\"data\":{\"name\":\"suscipit qui cumque\",\"description\":\"Tenetur quia nemo sit est.\",\"due_date\":20260220,\"owner\":{\"id\":1,\"name\":\"Kurtis Kub\",\"email\":\"juwan97@example.org\",\"email_verified_at\":\"2023-12-25T20:34:53.000000Z\",\"created_at\":\"2023-12-25T20:34:53.000000Z\",\"updated_at\":\"2023-12-25T20:34:53.000000Z\"}}}",
+                            "body": "{\"data\":{\"name\":\"suscipit qui cumque\",\"description\":\"Tenetur quia nemo sit est.\",\"due_date\":20260220,\"owner\":{\"id\":1,\"name\":\"Kurtis Kub\",\"email\":\"juwan97@example.org\",\"email_verified_at\":\"2023-12-25T20:37:14.000000Z\",\"created_at\":\"2023-12-25T20:37:14.000000Z\",\"updated_at\":\"2023-12-25T20:37:14.000000Z\"}}}",
                             "name": ""
                         },
                         {
@@ -949,7 +949,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "25"
+                                    "value": "55"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -1061,7 +1061,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "24"
+                                    "value": "54"
                                 },
                                 {
                                     "key": "access-control-allow-origin",

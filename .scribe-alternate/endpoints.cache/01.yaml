@@ -56,7 +56,18 @@ endpoints:
       email: julianne89@example.com
       password: '@.b8z4="e5,ZNa6'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"user":{"name":"pidsgyfhasfdpmrg","email":"julianne89@example.com","updated_at":"2023-12-25T20:37:15.000000Z","created_at":"2023-12-25T20:37:15.000000Z","id":1},"token":"1|Ba8k7jYkdVfS9LxQugoxyoAS57zTD3zuSa7K9tNw"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '48'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth: []
     controller: null
@@ -86,13 +97,13 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: et
-        type: string
+        example: 13
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: et
+      id: 13
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -101,7 +112,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":1,"name":"Mr. Merlin Friesen","email":"hdoyle@example.com","side_projects":[{"id":1,"name":"est numquam consequuntur","description":"Atque nobis ut natus aut dolores eveniet.","url":null,"due_at":20270327,"created_at":"2023-12-13T23:29:24.000000Z","updated_at":"2023-12-13T23:29:24.000000Z","user_id":1}]}}'
+        content: '{"data":{"id":1,"name":"Mr. Merlin Friesen","email":"hdoyle@example.com","side_projects":[{"id":1,"name":"est numquam consequuntur","description":"Atque nobis ut natus aut dolores eveniet.","url":null,"due_at":20270408,"created_at":"2023-12-25T20:37:15.000000Z","updated_at":"2023-12-25T20:37:15.000000Z","user_id":1}]}}'
         headers: []
         description: ''
         custom: []
@@ -171,7 +182,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '46'
+          x-ratelimit-remaining: '47'
           access-control-allow-origin: '*'
         description: null
         custom: []
