@@ -39,7 +39,797 @@ paths:
       operationId: fileInput
       description: ''
       parameters: []
-      responses: {  }
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Type is not supported'
+                  exception: InvalidArgumentException
+                  file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Http\JsonResponse.php'
+                  line: 91
+                  trace:
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\http-foundation\JsonResponse.php'
+                      line: 49
+                      function: setData
+                      class: Illuminate\Http\JsonResponse
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Http\JsonResponse.php'
+                      line: 32
+                      function: __construct
+                      class: Symfony\Component\HttpFoundation\JsonResponse
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 904
+                      function: __construct
+                      class: Illuminate\Http\JsonResponse
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 875
+                      function: toResponse
+                      class: Illuminate\Routing\Router
+                      type: '::'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 798
+                      function: prepareResponse
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 141
+                      function: 'Illuminate\Routing\{closure}'
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php'
+                      line: 50
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Routing\Middleware\SubstituteBindings
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 126
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 102
+                      function: handleRequest
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 54
+                      function: handleRequestUsingNamedLimiter
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 116
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 799
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 776
+                      function: runRouteWithinStack
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 740
+                      function: runRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 729
+                      function: dispatchToRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 190
+                      function: dispatch
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 141
+                      function: 'Illuminate\Foundation\Http\{closure}'
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                      line: 31
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                      line: 40
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                      line: 27
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                      line: 86
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\fideloper\proxy\src\TrustProxies.php'
+                      line: 57
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Fideloper\Proxy\TrustProxies
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\fruitcake\laravel-cors\src\HandleCors.php'
+                      line: 52
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Fruitcake\Cors\HandleCors
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 116
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 165
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 134
+                      function: sendRequestThroughRouter
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 300
+                      function: handle
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 288
+                      function: callLaravelOrLumenRoute
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 91
+                      function: makeApiCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 44
+                      function: makeResponseCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 35
+                      function: makeResponseCallIfConditionsPass
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Extractor.php'
+                      line: 236
+                      function: __invoke
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Extractor.php'
+                      line: 166
+                      function: iterateThroughStrategies
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Extractor.php'
+                      line: 95
+                      function: fetchResponses
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 125
+                      function: processRoute
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 72
+                      function: extractEndpointsInfoFromLaravelApp
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 50
+                      function: extractEndpointsInfoAndWriteToDisk
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Commands\GenerateDocumentation.php'
+                      line: 53
+                      function: get
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 36
+                      function: handle
+                      class: Knuckles\Scribe\Commands\GenerateDocumentation
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                      line: 41
+                      function: 'Illuminate\Container\{closure}'
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 93
+                      function: unwrapIfClosure
+                      class: Illuminate\Container\Util
+                      type: '::'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 37
+                      function: callBoundMethod
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                      line: 661
+                      function: call
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 183
+                      function: call
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\console\Command\Command.php'
+                      line: 326
+                      function: execute
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 153
+                      function: run
+                      class: Symfony\Component\Console\Command\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\console\Application.php'
+                      line: 1078
+                      function: run
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\console\Application.php'
+                      line: 324
+                      function: doRunCommand
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\console\Application.php'
+                      line: 175
+                      function: doRun
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                      line: 102
+                      function: run
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                      line: 155
+                      function: run
+                      class: Illuminate\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\artisan'
+                      line: 37
+                      function: handle
+                      class: Illuminate\Foundation\Console\Kernel
+                      type: '->'
+                properties:
+                  message:
+                    type: string
+                    example: 'Type is not supported'
+                  exception:
+                    type: string
+                    example: InvalidArgumentException
+                  file:
+                    type: string
+                    example: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Http\JsonResponse.php'
+                  line:
+                    type: integer
+                    example: 91
+                  trace:
+                    type: array
+                    example:
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\http-foundation\JsonResponse.php'
+                        line: 49
+                        function: setData
+                        class: Illuminate\Http\JsonResponse
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Http\JsonResponse.php'
+                        line: 32
+                        function: __construct
+                        class: Symfony\Component\HttpFoundation\JsonResponse
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 904
+                        function: __construct
+                        class: Illuminate\Http\JsonResponse
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 875
+                        function: toResponse
+                        class: Illuminate\Routing\Router
+                        type: '::'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 798
+                        function: prepareResponse
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 141
+                        function: 'Illuminate\Routing\{closure}'
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php'
+                        line: 50
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Routing\Middleware\SubstituteBindings
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 126
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 102
+                        function: handleRequest
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 54
+                        function: handleRequestUsingNamedLimiter
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 116
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 799
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 776
+                        function: runRouteWithinStack
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 740
+                        function: runRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 729
+                        function: dispatchToRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 190
+                        function: dispatch
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 141
+                        function: 'Illuminate\Foundation\Http\{closure}'
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                        line: 31
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                        line: 40
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                        line: 27
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                        line: 86
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\fideloper\proxy\src\TrustProxies.php'
+                        line: 57
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Fideloper\Proxy\TrustProxies
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\fruitcake\laravel-cors\src\HandleCors.php'
+                        line: 52
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Fruitcake\Cors\HandleCors
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 116
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 165
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 134
+                        function: sendRequestThroughRouter
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 300
+                        function: handle
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 288
+                        function: callLaravelOrLumenRoute
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 91
+                        function: makeApiCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 44
+                        function: makeResponseCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 35
+                        function: makeResponseCallIfConditionsPass
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Extractor.php'
+                        line: 236
+                        function: __invoke
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Extractor.php'
+                        line: 166
+                        function: iterateThroughStrategies
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Extractor.php'
+                        line: 95
+                        function: fetchResponses
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 125
+                        function: processRoute
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 72
+                        function: extractEndpointsInfoFromLaravelApp
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 50
+                        function: extractEndpointsInfoAndWriteToDisk
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Commands\GenerateDocumentation.php'
+                        line: 53
+                        function: get
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 36
+                        function: handle
+                        class: Knuckles\Scribe\Commands\GenerateDocumentation
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                        line: 41
+                        function: 'Illuminate\Container\{closure}'
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 93
+                        function: unwrapIfClosure
+                        class: Illuminate\Container\Util
+                        type: '::'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 37
+                        function: callBoundMethod
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                        line: 661
+                        function: call
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 183
+                        function: call
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\console\Command\Command.php'
+                        line: 326
+                        function: execute
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 153
+                        function: run
+                        class: Symfony\Component\Console\Command\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\console\Application.php'
+                        line: 1078
+                        function: run
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\console\Application.php'
+                        line: 324
+                        function: doRunCommand
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\console\Application.php'
+                        line: 175
+                        function: doRun
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                        line: 102
+                        function: run
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                        line: 155
+                        function: run
+                        class: Illuminate\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\artisan'
+                        line: 37
+                        function: handle
+                        class: Illuminate\Foundation\Console\Kernel
+                        type: '->'
+                    items:
+                      type: object
+                      properties:
+                        file:
+                          type: string
+                          example: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\http-foundation\JsonResponse.php'
+                        line:
+                          type: integer
+                          example: 49
+                        function:
+                          type: string
+                          example: setData
+                        class:
+                          type: string
+                          example: Illuminate\Http\JsonResponse
+                        type:
+                          type: string
+                          example: '->'
       tags:
         - 'Dummy endpoints'
       requestBody:
@@ -86,7 +876,54 @@ paths:
             type: string
             description: 'A random query parameter.'
             example: et
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    name: et
+                    size: 5
+                    things: null
+                    objects:
+                      -
+                        a: et
+                        b: et
+                  random: et
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: et
+                      size:
+                        type: integer
+                        example: 5
+                      things:
+                        type: string
+                        example: null
+                      objects:
+                        type: array
+                        example:
+                          -
+                            a: et
+                            b: et
+                        items:
+                          type: object
+                          properties:
+                            a:
+                              type: string
+                              example: et
+                            b:
+                              type: string
+                              example: et
+                  random:
+                    type: string
+                    example: et
       tags:
         - 'Dummy endpoints'
       requestBody:
@@ -144,7 +981,19 @@ paths:
       operationId: bodyContentArray
       description: ''
       parameters: []
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    row_id: '700'
+                    name: 'My item name'
       tags:
         - 'Dummy endpoints'
       requestBody:
@@ -300,7 +1149,43 @@ paths:
       operationId: createAUser
       description: "This endpoint's body parameters are automatically generated from a FormRequest."
       parameters: []
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  user:
+                    name: pidsgyfhasfdpmrg
+                    email: julianne89@example.com
+                    updated_at: '2023-12-25T20:34:53.000000Z'
+                    created_at: '2023-12-25T20:34:53.000000Z'
+                    id: 1
+                  token: 1|kVY8byukxHL1Atg1thiFofrPiOCPkV8tccN1W63D
+                properties:
+                  user:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: pidsgyfhasfdpmrg
+                      email:
+                        type: string
+                        example: julianne89@example.com
+                      updated_at:
+                        type: string
+                        example: '2023-12-25T20:34:53.000000Z'
+                      created_at:
+                        type: string
+                        example: '2023-12-25T20:34:53.000000Z'
+                      id:
+                        type: integer
+                        example: 1
+                  token:
+                    type: string
+                    example: 1|kVY8byukxHL1Atg1thiFofrPiOCPkV8tccN1W63D
       tags:
         - Users
       requestBody:
@@ -392,9 +1277,9 @@ paths:
                         name: 'est numquam consequuntur'
                         description: 'Atque nobis ut natus aut dolores eveniet.'
                         url: null
-                        due_at: 20270327
-                        created_at: '2023-12-13T23:02:10.000000Z'
-                        updated_at: '2023-12-13T23:02:10.000000Z'
+                        due_at: 20270408
+                        created_at: '2023-12-25T20:34:53.000000Z'
+                        updated_at: '2023-12-25T20:34:53.000000Z'
                         user_id: 1
                 properties:
                   data:
@@ -417,9 +1302,9 @@ paths:
                             name: 'est numquam consequuntur'
                             description: 'Atque nobis ut natus aut dolores eveniet.'
                             url: null
-                            due_at: 20270327
-                            created_at: '2023-12-13T23:02:10.000000Z'
-                            updated_at: '2023-12-13T23:02:10.000000Z'
+                            due_at: 20270408
+                            created_at: '2023-12-25T20:34:53.000000Z'
+                            updated_at: '2023-12-25T20:34:53.000000Z'
                             user_id: 1
                         items:
                           type: object
@@ -438,13 +1323,13 @@ paths:
                               example: null
                             due_at:
                               type: integer
-                              example: 20270327
+                              example: 20270408
                             created_at:
                               type: string
-                              example: '2023-12-13T23:02:10.000000Z'
+                              example: '2023-12-25T20:34:53.000000Z'
                             updated_at:
                               type: string
-                              example: '2023-12-13T23:02:10.000000Z'
+                              example: '2023-12-25T20:34:53.000000Z'
                             user_id:
                               type: integer
                               example: 1
@@ -498,10 +1383,10 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: et
+        example: 13
         required: true
         schema:
-          type: string
+          type: integer
   '/api/users/{id}/auth':
     post:
       summary: Authenticate
@@ -540,7 +1425,19 @@ paths:
       operationId: startANewSideProject
       description: "_Even though we both know you'll never finish it._\n\nThis endpoint's body parameters were automatically generated by Scribe\nfrom the controller's code. Check out the source! </aside>"
       parameters: []
-      responses: {  }
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
       tags:
         - 'Side Projects'
       requestBody:
@@ -565,7 +1462,7 @@ paths:
                 due_at:
                   type: string
                   description: 'Due date for the side project. Must be a valid date. Must be a valid date in the format <code>Ymd</code>. Must be a date after <code>today</code>.'
-                  example: '2085-06-01'
+                  example: '2085-06-13'
               required:
                 - name
     get:
@@ -603,14 +1500,14 @@ paths:
                   data:
                     name: 'suscipit qui cumque'
                     description: 'Tenetur quia nemo sit est.'
-                    due_date: 20260208
+                    due_date: 20260220
                     owner:
                       id: 1
-                      name: 'Kurt Kub'
-                      email: juvenal97@example.org
-                      email_verified_at: '2023-12-13T23:02:10.000000Z'
-                      created_at: '2023-12-13T23:02:10.000000Z'
-                      updated_at: '2023-12-13T23:02:10.000000Z'
+                      name: 'Kurtis Kub'
+                      email: juwan97@example.org
+                      email_verified_at: '2023-12-25T20:34:53.000000Z'
+                      created_at: '2023-12-25T20:34:53.000000Z'
+                      updated_at: '2023-12-25T20:34:53.000000Z'
                 properties:
                   data:
                     type: object
@@ -623,7 +1520,7 @@ paths:
                         example: 'Tenetur quia nemo sit est.'
                       due_date:
                         type: integer
-                        example: 20260208
+                        example: 20260220
                       owner:
                         type: object
                         properties:
@@ -632,19 +1529,19 @@ paths:
                             example: 1
                           name:
                             type: string
-                            example: 'Kurt Kub'
+                            example: 'Kurtis Kub'
                           email:
                             type: string
-                            example: juvenal97@example.org
+                            example: juwan97@example.org
                           email_verified_at:
                             type: string
-                            example: '2023-12-13T23:02:10.000000Z'
+                            example: '2023-12-25T20:34:53.000000Z'
                           created_at:
                             type: string
-                            example: '2023-12-13T23:02:10.000000Z'
+                            example: '2023-12-25T20:34:53.000000Z'
                           updated_at:
                             type: string
-                            example: '2023-12-13T23:02:10.000000Z'
+                            example: '2023-12-25T20:34:53.000000Z'
         404:
           description: 'Side project not found'
           content:
@@ -669,7 +1566,749 @@ paths:
       operationId: updateASideProject
       description: ''
       parameters: []
-      responses: {  }
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\SideProject] 13'
+                  exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+                  file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                  line: 391
+                  trace:
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                      line: 367
+                      function: prepareException
+                      class: Illuminate\Foundation\Exceptions\Handler
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\nunomaduro\collision\src\Adapters\Laravel\ExceptionHandler.php'
+                      line: 54
+                      function: render
+                      class: Illuminate\Foundation\Exceptions\Handler
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php'
+                      line: 51
+                      function: render
+                      class: NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 185
+                      function: handleException
+                      class: Illuminate\Routing\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 126
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 102
+                      function: handleRequest
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 54
+                      function: handleRequestUsingNamedLimiter
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 116
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 799
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 776
+                      function: runRouteWithinStack
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 740
+                      function: runRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 729
+                      function: dispatchToRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 190
+                      function: dispatch
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 141
+                      function: 'Illuminate\Foundation\Http\{closure}'
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                      line: 31
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                      line: 40
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                      line: 27
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                      line: 86
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\fideloper\proxy\src\TrustProxies.php'
+                      line: 57
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Fideloper\Proxy\TrustProxies
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\fruitcake\laravel-cors\src\HandleCors.php'
+                      line: 52
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Fruitcake\Cors\HandleCors
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 116
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 165
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 134
+                      function: sendRequestThroughRouter
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 300
+                      function: handle
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 288
+                      function: callLaravelOrLumenRoute
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 91
+                      function: makeApiCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 44
+                      function: makeResponseCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 35
+                      function: makeResponseCallIfConditionsPass
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Extractor.php'
+                      line: 236
+                      function: __invoke
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Extractor.php'
+                      line: 166
+                      function: iterateThroughStrategies
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Extractor.php'
+                      line: 95
+                      function: fetchResponses
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 125
+                      function: processRoute
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 72
+                      function: extractEndpointsInfoFromLaravelApp
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 50
+                      function: extractEndpointsInfoAndWriteToDisk
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\scribe\src\Commands\GenerateDocumentation.php'
+                      line: 53
+                      function: get
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 36
+                      function: handle
+                      class: Knuckles\Scribe\Commands\GenerateDocumentation
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                      line: 41
+                      function: 'Illuminate\Container\{closure}'
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 93
+                      function: unwrapIfClosure
+                      class: Illuminate\Container\Util
+                      type: '::'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 37
+                      function: callBoundMethod
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                      line: 661
+                      function: call
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 183
+                      function: call
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\console\Command\Command.php'
+                      line: 326
+                      function: execute
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 153
+                      function: run
+                      class: Symfony\Component\Console\Command\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\console\Application.php'
+                      line: 1078
+                      function: run
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\console\Application.php'
+                      line: 324
+                      function: doRunCommand
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\console\Application.php'
+                      line: 175
+                      function: doRun
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                      line: 102
+                      function: run
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                      line: 155
+                      function: run
+                      class: Illuminate\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\artisan'
+                      line: 37
+                      function: handle
+                      class: Illuminate\Foundation\Console\Kernel
+                      type: '->'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\SideProject] 13'
+                  exception:
+                    type: string
+                    example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+                  file:
+                    type: string
+                    example: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                  line:
+                    type: integer
+                    example: 391
+                  trace:
+                    type: array
+                    example:
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                        line: 367
+                        function: prepareException
+                        class: Illuminate\Foundation\Exceptions\Handler
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\nunomaduro\collision\src\Adapters\Laravel\ExceptionHandler.php'
+                        line: 54
+                        function: render
+                        class: Illuminate\Foundation\Exceptions\Handler
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php'
+                        line: 51
+                        function: render
+                        class: NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 185
+                        function: handleException
+                        class: Illuminate\Routing\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 126
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 102
+                        function: handleRequest
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 54
+                        function: handleRequestUsingNamedLimiter
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 116
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 799
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 776
+                        function: runRouteWithinStack
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 740
+                        function: runRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 729
+                        function: dispatchToRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 190
+                        function: dispatch
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 141
+                        function: 'Illuminate\Foundation\Http\{closure}'
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                        line: 31
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                        line: 40
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                        line: 27
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                        line: 86
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\fideloper\proxy\src\TrustProxies.php'
+                        line: 57
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Fideloper\Proxy\TrustProxies
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\fruitcake\laravel-cors\src\HandleCors.php'
+                        line: 52
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Fruitcake\Cors\HandleCors
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 116
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 165
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 134
+                        function: sendRequestThroughRouter
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 300
+                        function: handle
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 288
+                        function: callLaravelOrLumenRoute
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 91
+                        function: makeApiCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 44
+                        function: makeResponseCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 35
+                        function: makeResponseCallIfConditionsPass
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Extractor.php'
+                        line: 236
+                        function: __invoke
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Extractor.php'
+                        line: 166
+                        function: iterateThroughStrategies
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Extracting\Extractor.php'
+                        line: 95
+                        function: fetchResponses
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 125
+                        function: processRoute
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 72
+                        function: extractEndpointsInfoFromLaravelApp
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 50
+                        function: extractEndpointsInfoAndWriteToDisk
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\scribe\src\Commands\GenerateDocumentation.php'
+                        line: 53
+                        function: get
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 36
+                        function: handle
+                        class: Knuckles\Scribe\Commands\GenerateDocumentation
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                        line: 41
+                        function: 'Illuminate\Container\{closure}'
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 93
+                        function: unwrapIfClosure
+                        class: Illuminate\Container\Util
+                        type: '::'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 37
+                        function: callBoundMethod
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                        line: 661
+                        function: call
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 183
+                        function: call
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\console\Command\Command.php'
+                        line: 326
+                        function: execute
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 153
+                        function: run
+                        class: Symfony\Component\Console\Command\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\console\Application.php'
+                        line: 1078
+                        function: run
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\console\Application.php'
+                        line: 324
+                        function: doRunCommand
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\symfony\console\Application.php'
+                        line: 175
+                        function: doRun
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                        line: 102
+                        function: run
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                        line: 155
+                        function: run
+                        class: Illuminate\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\shalvah\Projects\TheSideProjectAPI\artisan'
+                        line: 37
+                        function: handle
+                        class: Illuminate\Foundation\Console\Kernel
+                        type: '->'
+                    items:
+                      type: object
+                      properties:
+                        file:
+                          type: string
+                          example: 'C:\Users\shalvah\Projects\TheSideProjectAPI\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                        line:
+                          type: integer
+                          example: 367
+                        function:
+                          type: string
+                          example: prepareException
+                        class:
+                          type: string
+                          example: Illuminate\Foundation\Exceptions\Handler
+                        type:
+                          type: string
+                          example: '->'
       tags:
         - 'Side Projects'
       security: []
@@ -717,6 +2356,13 @@ paths:
       description: 'Will you ever?🤔'
       parameters: []
       responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: ''
         404:
           description: 'Side project not found'
           content:

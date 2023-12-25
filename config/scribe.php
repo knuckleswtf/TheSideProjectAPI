@@ -5,8 +5,6 @@ use App\Docs\Strategies\AddPaginationParameters;
 
 return [
 
-    'theme' => 'default',
-
     /*
      * The HTML <title> for the generated documentation. If this is empty, Scribe will infer it from config('app.name').
      */
@@ -110,7 +108,9 @@ return [
      * - "static" will generate a static HTMl page in the /public/docs folder,
      * - "laravel" will generate the documentation as a Blade view, so you can add routing and authentication.
      */
-    'type' => 'static',
+    'type' => 'external_static',
+
+    'theme' => 'scalar',
 
     /*
      * Settings for `static` type output.
@@ -400,5 +400,14 @@ INTRO
          * You can reorder or remove strategies here.
          */
         'models_source' => ['factoryCreate', 'factoryMake', 'databaseFirst'],
-    ]
+    ],
+
+    // Customize the "Last updated" value displayed in the docs by specifying tokens and formats.
+    // Examples:
+    // - {date:F j Y} => March 28, 2022
+    // - {git:short} => Short hash of the last Git commit
+    // Available tokens are `{date:<format>}` and `{git:<format>}`.
+    // The format you pass to `date` will be passed to PHP's `date()` function.
+    // The format you pass to `git` can be either "short" or "long".
+    'last_updated' => 'Last updated: {date:F j, Y}'
 ];

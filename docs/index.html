@@ -1,8 +1,23 @@
-<script type="module">import 'https://unpkg.com/openapi-explorer';</script>
-<openapi-explorer :spec-url="../docs/openapi.yaml">
-    <!-- Interesting feature: slots
-    <div slot="overview">
-        <h1>The API</h1>
-    </div>
-    -->
-</openapi-explorer>
+<!doctype html>
+<html>
+<head>
+    <title>The SideProject API</title>
+    <meta charset="utf-8" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script
+        id="api-reference"
+        data-url="../docs/openapi.yaml">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference"></script>
+</body>
+</html>
